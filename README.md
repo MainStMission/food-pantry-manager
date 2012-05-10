@@ -12,8 +12,13 @@
         cp config/database.yml.example config/database.yml
       
         bundle exec rails db:create:all
+
+        bundle exec rails db:migrate
   4. Start the server
   5. Make some changes
+  6. Run the tests
+
+        bundle exec rake
   6. Submit a Pull Request on github (We would like to review the code)
   7. Keep being AWESOME!
   
