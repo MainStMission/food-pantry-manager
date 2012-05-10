@@ -17,6 +17,8 @@
 
 /config/database.yml
 
+/vendor/ruby
+
 *.gem
 *.rbc
 .bundle
