@@ -17,8 +17,6 @@ development:
   encoding: unicode
   database: food-pantry_development
   pool: 5
-  username: food-pantry
-  password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -43,8 +41,6 @@ test: &test
   encoding: unicode
   database: food-pantry_test
   pool: 5
-  username: food-pantry
-  password:
 
 production:
   adapter: postgresql
