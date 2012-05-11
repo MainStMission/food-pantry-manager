@@ -50,5 +50,5 @@ cucumber:
 # Travic CI
 postgres:
   adapter: postgresql
-  database: food-pantry_ci
+  database: food_pantry_ci
   username: postgres
