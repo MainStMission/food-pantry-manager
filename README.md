@@ -1,6 +1,8 @@
 [Main St Mission's](http://www.mainstmission.org/) food-pantry-manager
 ===================
 
+[![Build Status](https://secure.travis-ci.org/MainStMission/food-pantry-manager.png?branch=master)](http://travis-ci.org/MainStMission/food-pantry-manager)
+
 ##Contributing
 
   1. fork the repo
