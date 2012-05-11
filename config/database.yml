@@ -39,7 +39,7 @@ development:
 test: &test
   adapter: postgresql
   encoding: unicode
-  database: food-pantry_test
+  database: food_pantry_test
   pool: 5
 
 
@@ -47,8 +47,3 @@ cucumber:
   <<: *test
 
 
-# Travic CI
-postgres:
-  adapter: postgresql
-  database: food_pantry_ci
-  username: postgres
