@@ -9,4 +9,4 @@ rvm:
 #
 # .travis.yml
 before_script:
-  - psql -c 'create database food_pantry_test;' -U postgres
+  - rake travis:setup
