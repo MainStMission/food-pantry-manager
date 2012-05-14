@@ -10,7 +10,6 @@ gem 'rails', '3.2.3'
 
 gem 'pg'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -25,6 +24,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'haml-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -67,11 +67,9 @@ group :development do
   gem "guard-livereload"
   gem "yajl-ruby"
   gem "rack-livereload"
-  gem "guard-bundler"
   gem "guard-cucumber"
   gem "guard-rspec"
 end
 
-gem "pg"
 gem "rspec-rails", :group => [:development, :test]
 gem "simple_form"
