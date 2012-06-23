@@ -30,8 +30,7 @@ GEM
       multi_json (~> 1.0)
     addressable (2.2.8)
     arel (3.0.2)
-    bootstrap-rails (0.0.7)
-      railties (~> 3.1)
+    bootstrap-sass (2.0.3.1)
     builder (3.0.0)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -73,9 +72,6 @@ GEM
     guard (1.0.2)
       ffi (>= 0.5.0)
       thor (~> 0.14.6)
-    guard-bundler (0.1.3)
-      bundler (>= 1.0.0)
-      guard (>= 0.2.2)
     guard-cucumber (0.8.0)
       cucumber (>= 1.2.0)
       guard (>= 0.8.3)
@@ -98,6 +94,8 @@ GEM
       railties (>= 3.2.0, < 5.0)
       thor (~> 0.14)
     json (1.7.1)
+    launchy (2.1.0)
+      addressable (~> 2.2.6)
     libwebsocket (0.1.3)
       addressable
     mail (2.4.4)
@@ -186,17 +184,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-rails
+  bootstrap-sass (~> 2.0.3)
   capybara
   coffee-rails (~> 3.2.1)
   cucumber-rails
   database_cleaner
-  guard-bundler
   guard-cucumber
   guard-livereload
   guard-rspec
   haml-rails
   jquery-rails
+  launchy
   pg
   rack-livereload
   rails (= 3.2.3)

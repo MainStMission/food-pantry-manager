@@ -15,7 +15,7 @@ gem 'pg'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'bootstrap-rails'
+  gem 'bootstrap-sass', '~> 2.0.3'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platform => :ruby
@@ -45,6 +45,7 @@ group :test do
   gem "cucumber-rails", :require => false
   gem "capybara"
   gem "database_cleaner"
+  gem "launchy"
 end
 
 guard_notifications = false
