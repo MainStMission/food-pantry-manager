@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    if User.create!(params[:user])
+    if User.create(params[:user])
       redirect_to users_path, :notice => "User successfully created"
     else
       render :new
