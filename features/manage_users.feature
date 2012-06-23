@@ -8,3 +8,6 @@ Feature: Manage the user accounts
       | last_name  |  Frog |
     Then I should see "Kermit Frog"
 
+  Scenario: Edit a user
+    Given I change Piggy's last name to Frog
+    Then I should see "Piggy Frog"
