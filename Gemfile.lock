@@ -31,6 +31,8 @@ GEM
     addressable (2.2.8)
     arel (3.0.2)
     bootstrap-sass (2.0.3.1)
+    bourbon (2.1.1)
+      sass (>= 3.1)
     builder (3.0.0)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -185,6 +187,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 2.0.3)
+  bourbon
   capybara
   coffee-rails (~> 3.2.1)
   cucumber-rails
