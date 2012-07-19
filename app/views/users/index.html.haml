@@ -12,8 +12,8 @@
       %tbody
         - @users.each do |user|
           %tr
-            %td= user.id
-            %td= link_to user.name, user_path(user)
+            %td= link_to user.id, user_path(user)
+            %td= user.name
             %td= user.created_at
             %td
               = link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini'

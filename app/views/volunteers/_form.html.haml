@@ -1,4 +1,4 @@
-= form_for @volunteer do |f|
+= simple_form_for @volunteer do |f|
   -if @volunteer.errors.any?
     #error_explanation
       %h2= "#{pluralize(@volunteer.errors.count, "error")} prohibited this volunteer from being saved:"
@@ -34,4 +34,4 @@
     = f.label :status
     = f.text_field :status
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', :class => 'btn btn-primary'
