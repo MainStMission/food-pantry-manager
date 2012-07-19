@@ -39,9 +39,9 @@ Then /^I should see Gonzo$/ do
   visit volunteers_path
   page.should have_content "Gonzo"
 
-  page.all('a').first.click
+  click_link("Edit")
   @attributes.each do |attr, val|
-    page.should have_content val
+    page.should have_xpath("//input[@value='#{val}']")
   end
 end
 
