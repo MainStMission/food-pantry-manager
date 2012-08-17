@@ -13,9 +13,9 @@
 
         cp config/database.yml.example config/database.yml
       
-        bundle exec rails db:create:all
+        bundle exec rake db:create:all
 
-        bundle exec rails db:migrate
+        bundle exec rake db:migrate
   4. Start the server
   5. Make some changes
   6. Run the tests
