@@ -5,6 +5,8 @@
 
 ##Who Are We?
 
+![Main Street Mission](http://msm2.webvanta.com/msmcolor.png)
+
 Main Street Mission is food pantry in China Grove, North Carolina, USA. The mission provides food and other donated items to
 members of the community in need. This project aims to create an inventory and volunteer tracking system for use in food pantries and
 food banks. There are not any good options for software for the small non-profits that run these pantries. This project will create a 
