@@ -5,22 +5,16 @@
 
 ##Contributing
 
-  1. fork the repo
-  2. Run bundler
-
-        bundle install
-  3. Setup your database
-
-        cp config/database.yml.example config/database.yml
-      
-        bundle exec rails db:create:all
-
-        bundle exec rails db:migrate
-  4. Start the server
-  5. Make some changes
-  6. Run the tests
-
-        bundle exec rake
+  1. Fork the repo via Github
+  2. `git clone` your fork
+  3. Run `rake setup`
+  4. Make some changes
+  5. Tests the changes `bundle exec rake`
   6. Submit a Pull Request on github (We would like to review the code)
   7. Keep being AWESOME!
-  
+
+##Talk to us
+
+We have a [google group mailing list](https://groups.google.com/forum/?fromgroups#!forum/main-street-mission-development). 
+Feel free to ask us questions there, or report a problem with an issue here on github. If you have a problem with anything not code related,
+then send us a message on the mailing list and we'll do the best we can to help you out.

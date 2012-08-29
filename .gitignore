@@ -7,13 +7,14 @@
 # Ignore bundler config
 /.bundle
 
+# ignore .idea config
+/.idea
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-.idea
 
 /vendor/ruby
 
@@ -30,6 +31,8 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
+
+db/*.db
 
 # YARD artifacts
 .yardoc

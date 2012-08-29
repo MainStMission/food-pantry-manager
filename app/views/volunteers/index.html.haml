@@ -1,0 +1,28 @@
+
+.panel
+  %header
+    %h1 Volunteers
+  .content
+    %table.table.table-striped
+      %thead
+        %tr
+          %th ID
+          %th First name
+          %th Last name
+          %th Status
+          %th Actions
+
+      %tbody
+      - @volunteers.each do |volunteer|
+        %tr
+          %td= link_to volunteer.id, volunteer_path(volunteer)
+          %td= volunteer.first_name
+          %td= volunteer.last_name
+          %td= volunteer.status
+          %td
+            = link_to 'Edit', edit_volunteer_path(volunteer), :class => 'btn btn-mini'
+            = link_to 'Destroy', volunteer, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+
+    %br
+
+    = link_to 'New Volunteer', new_volunteer_path, :class => 'btn btn-primary'

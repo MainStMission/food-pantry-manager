@@ -1,0 +1,35 @@
+.panel
+  .content
+    %p#notice= notice
+
+    %p
+      %b First name:
+      = @volunteer.first_name
+    %p
+      %b Last name:
+      = @volunteer.last_name
+    %p
+      %b Email:
+      = @volunteer.email
+    %p
+      %b Phone:
+      = @volunteer.phone
+    %p
+      %b Street:
+      = @volunteer.street
+    %p
+      %b City:
+      = @volunteer.city
+    %p
+      %b State:
+      = @volunteer.state
+    %p
+      %b Zip:
+      = @volunteer.zip
+    %p
+      %b Status:
+      = @volunteer.status
+
+    = link_to 'Edit', edit_volunteer_path(@volunteer)
+    \|
+    = link_to 'Back', volunteers_path

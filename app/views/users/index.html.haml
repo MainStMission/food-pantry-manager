@@ -1,0 +1,22 @@
+%section.panel
+  %header
+    %h2 Users
+  .content
+    %table.table.table-striped
+      %thead
+        %tr
+          %th ID
+          %th Name
+          %th Created At
+          %th Actions
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= link_to user.id, user_path(user)
+            %td= user.name
+            %td= user.created_at
+            %td
+              = link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini'
+              = link_to 'Destroy', user_path(user), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger'
+
+    = link_to 'New User', new_user_path, :class => 'btn btn-primary'
