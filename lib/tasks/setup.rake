@@ -1,13 +1,5 @@
-require 'fileutils'
-require 'rainbow'
-require 'highline'
-
-console   = HighLine.new
-checkmark = "\u2713".color(:green)
-heart     = "\u2665".color(:red)
-
 namespace :setup do
-  task :secret_token do
+  setup_task :secret_token do
     secret_token = File.join(Rails.root, 'config', 'initializers', 'secret_token.rb')
 
     unless File.exists?(secret_token)
@@ -17,23 +9,23 @@ namespace :setup do
       File.open(secret_token, 'w') {|f| f.write(template.result(binding)) }
     end
 
-    puts "#{checkmark} secret_token.rb"
+    done "secret_token.rb"
   end
 end
 
 desc 'Setup FoodPantry from scratch'
-task :setup do
+setup_task :setup do
   puts # Empty line
-  puts "#{heart}  Thanks for helping us help others #{heart}"
+  puts "#{heart} Thanks for helping us help others #{heart}"
 
   section "Configuration Files" do
 
-    database     = File.join(Rails.root, 'config', 'database.yml')
+    database = File.join(Rails.root, 'config', 'database.yml')
 
     unless File.exists?(database)
       create_file(database, "Database config", true)
     else
-      puts %{#{checkmark} database.yml}
+      done "database.yml"
     end
 
     Rake::Task["setup:secret_token"].invoke
@@ -52,14 +44,14 @@ task :setup do
       end
     end
 
-    puts %{#{checkmark} Database created}
-    puts %{#{checkmark} Schema loaded}
+    done "Database created"
+    done "Schema loaded"
 
     # Load the Rails Env now that the databases are setup
     Rake::Task["environment"].invoke
 
     Rake::Task["db:seed"].invoke
-    puts "#{checkmark} Seed data imported"
+    done "Seed data imported"
   end
 
   puts # Empty Line
@@ -70,44 +62,4 @@ task :setup do
     Rake::Task["spec"].invoke
   end
 
-end
-
-private
-
-def section(description)
-  puts # Empty Line
-  puts description.underline
-  puts # Empty Line
-  yield
-end
-
-def silence
-  begin
-    orig_stderr = $stderr.clone
-    orig_stdout = $stdout.clone
-
-    $stderr.reopen File.new('/dev/null', 'w')
-    $stdout.reopen File.new('/dev/null', 'w')
-
-    return_value = yield
-  rescue Exception => e
-    $stdout.reopen orig_stdout
-    $stderr.reopen orig_stderr
-    raise e
-  ensure
-    $stdout.reopen orig_stdout
-    $stderr.reopen orig_stderr
-  end
-
-  return_value
-end
-
-def create_file(file, name, requires_edit=false)
-  FileUtils.cp(file + '.example', file)
-
-  if requires_edit
-    puts "Update #{file} and run `bundle exec rake setup` to continue".color(:red)
-    system(ENV['EDITOR'], file) unless ENV['EDITOR'].blank?
-    exit
-  end
 end

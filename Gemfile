@@ -7,9 +7,7 @@ gem 'rails', '3.2.8'
 gem 'pg'
 gem 'sqlite3'
 
-# rake setup dependencies
-gem 'rainbow',  :require => false
-gem 'highline', :require => false
+gem 'rails_setup', :git => "git://github.com/jordanbyron/rails_setup.git"
 
 # Gems used only for assets and not required
 # in production environments by default.
