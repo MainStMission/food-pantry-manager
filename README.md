@@ -9,7 +9,7 @@
 
 Main Street Mission is food pantry in China Grove, North Carolina, USA. The mission provides food and other donated items to
 members of the community in need. This project aims to create an inventory and volunteer tracking system for use in food pantries and
-food banks. There are not any good options for software for the small non-profits that run these pantries. This project will create a 
+food banks. There are not any good options for software for the small non-profits that run these pantries. This project will create a
 software system tailored to the needs of Main Street Mission and other food pantries.
 
 ##Why Should You Help?
@@ -24,14 +24,16 @@ your resume/cv while contributing to a project that helps people.
 
   1. Fork the repo via Github
   2. `git clone` your fork
-  3. Run `rake setup`
-  4. Make some changes
-  5. Tests the changes `bundle exec rake`
-  6. Submit a Pull Request on github (We would like to review the code)
-  7. Keep being AWESOME!
+  3. If you don't already have bundler installed, get it by running `gem install bundler`
+  4. Run `bundle install` to download all of the project's dependencies
+  5. Run `rake setup`
+  6. Make some changes
+  7. Tests the changes `bundle exec rake`
+  8. Submit a Pull Request on github (We would like to review the code)
+  9. Keep being AWESOME!
 
 ##Talk to us
 
-We have a [google group mailing list](https://groups.google.com/forum/?fromgroups#!forum/main-street-mission-development). 
+We have a [google group mailing list](https://groups.google.com/forum/?fromgroups#!forum/main-street-mission-development).
 Feel free to ask us questions there, or report a problem with an issue here on github. If you have a problem with anything not code related,
 then send us a message on the mailing list and we'll do the best we can to help you out.
