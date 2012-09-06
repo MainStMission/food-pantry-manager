@@ -2,24 +2,13 @@ require 'fileutils'
 require 'rainbow'
 require 'highline'
 
-desc 'Setup FoodPantry from scratch'
-task :setup do
-  console   = HighLine.new
-  checkmark = "\u2713".color(:green)
-  heart     = "\u2665".color(:red)
+console   = HighLine.new
+checkmark = "\u2713".color(:green)
+heart     = "\u2665".color(:red)
 
-  puts # Empty line
-  puts "#{heart}  Thanks for helping us help others #{heart}"
-
-  section "Configuration Files" do
-
-    database     = File.join(Rails.root, 'config', 'database.yml')
+namespace :setup do
+  task :secret_token do
     secret_token = File.join(Rails.root, 'config', 'initializers', 'secret_token.rb')
-    unless File.exists?(database)
-      create_file(database, "Database config", true)
-    else
-      puts %{#{checkmark} database.yml}
-    end
 
     unless File.exists?(secret_token)
       secret   = SecureRandom.hex(64)
@@ -29,6 +18,25 @@ task :setup do
     end
 
     puts "#{checkmark} secret_token.rb"
+  end
+end
+
+desc 'Setup FoodPantry from scratch'
+task :setup do
+  puts # Empty line
+  puts "#{heart}  Thanks for helping us help others #{heart}"
+
+  section "Configuration Files" do
+
+    database     = File.join(Rails.root, 'config', 'database.yml')
+
+    unless File.exists?(database)
+      create_file(database, "Database config", true)
+    else
+      puts %{#{checkmark} database.yml}
+    end
+
+    Rake::Task["setup:secret_token"].invoke
 
     # If any other configuration files are required, they should be added here
   end
