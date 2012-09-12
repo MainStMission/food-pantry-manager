@@ -7,6 +7,12 @@ gem 'rails', '3.2.8'
 gem 'pg'
 gem 'sqlite3'
 
+gem 'puma'
+
+group :development do
+  gem 'foreman'
+end
+
 gem 'rails_setup', :git => "git://github.com/jordanbyron/rails_setup.git"
 
 # Gems used only for assets and not required
