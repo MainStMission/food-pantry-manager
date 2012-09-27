@@ -15,7 +15,6 @@
 /tmp
 
 config/database.yml
-config/initializers/secret_token.rb
 
 /vendor/ruby
 
@@ -33,6 +32,7 @@ test/tmp
 test/version_tmp
 tmp
 .rbx
+config/config.yml
 
 db/*.db
 
