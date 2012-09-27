@@ -6,9 +6,7 @@ setup_task :setup do
   section "Environment Variables" do
     cfg = File.join(Rails.root, "config", "config.yml")
 
-    unless File.exists?(cfg)
-      create_file(cfg, "Environment Variables config", true)
-    end
+    find_or_create_file(cfg, "Environment Variables config", true)
 
     done "config.yml"
   end
@@ -17,11 +15,9 @@ setup_task :setup do
 
     database = File.join(Rails.root, 'config', 'database.yml')
 
-    unless File.exists?(database)
-      create_file(database, "Database config", true)
-    else
-      done "database.yml"
-    end
+    find_or_create_file(database, "Database config", true)
+
+    done "database.yml"
 
     # If any other configuration files are required, they should be added here
   end
