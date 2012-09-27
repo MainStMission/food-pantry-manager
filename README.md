@@ -22,15 +22,7 @@ your resume/cv while contributing to a project that helps people.
 
 ##Contributing
 
-  1. Fork the repo via Github
-  2. `git clone` your fork
-  3. If you don't already have bundler installed, get it by running `gem install bundler`
-  4. Run `bundle install` to download all of the project's dependencies
-  5. Run `rake setup`
-  6. Make some changes
-  7. Tests the changes `bundle exec rake`
-  8. Submit a Pull Request on github (We would like to review the code)
-  9. Keep being AWESOME!
+See the [Contribution Guidelines](https://github.com/MainStMission/food-pantry-manager/blob/master/CONTRIBUTING.md).
 
 ##Talk to us
 
