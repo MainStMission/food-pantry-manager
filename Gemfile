@@ -50,7 +50,6 @@ group :development do
     gem 'rb-notifu' if guard_notifications
   end
 
-  gem 'foreman'
   gem "guard-livereload"
   gem "yajl-ruby"
   gem "rack-livereload"
