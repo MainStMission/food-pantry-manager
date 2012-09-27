@@ -13,7 +13,7 @@ group :development do
   gem 'foreman'
 end
 
-gem 'rails_setup', :git => "git://github.com/jordanbyron/rails_setup.git"
+gem 'rails_setup'
 
 # Gems used only for assets and not required
 # in production environments by default.
