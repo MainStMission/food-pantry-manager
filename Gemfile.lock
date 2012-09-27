@@ -133,7 +133,7 @@ GEM
       activesupport (= 3.2.8)
       bundler (~> 1.0)
       railties (= 3.2.8)
-    rails_setup (0.0.1)
+    rails_setup (0.0.2)
       highline
       rails (>= 3.0.0)
       rainbow
@@ -218,7 +218,7 @@ DEPENDENCIES
   puma
   rack-livereload
   rails (= 3.2.8)
-  rails_setup
+  rails_setup (~> 0.0.2)
   rb-fsevent
   rspec-rails
   sass-rails (~> 3.2.3)
