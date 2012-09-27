@@ -3,7 +3,7 @@
 
 [![Build Status](https://secure.travis-ci.org/MainStMission/food-pantry-manager.png?branch=master)](http://travis-ci.org/MainStMission/food-pantry-manager)
 
-##Who Are We?
+## Who Are We?
 
 ![Main Street Mission](http://msm2.webvanta.com/msmcolor.png)
 
@@ -12,7 +12,10 @@ members of the community in need. This project aims to create an inventory and v
 food banks. There are not any good options for software for the small non-profits that run these pantries. This project will create a
 software system tailored to the needs of Main Street Mission and other food pantries.
 
-##Why Should You Help?
+You can read a bit more about the mission and this project in Tom's
+[History of Main St. Mission's Food Pantry Manager](https://github.com/MainStMission/food-pantry-manager/blob/master/HISTORY.md).
+
+## Why Should You Help?
 
 The mission provides food for about 250 families each month. About 200 children are given school supplies each August. The mission also
 provides meals for families on holidays. This is only one food pantry in the US. In [2010 5.6 million households](http://feedingamerica.org/hunger-in-america/hunger-facts/hunger-and-poverty-statistics.aspx)
@@ -20,11 +23,11 @@ accessed emergency food at a pantry in the US. Contributing to this project give
 it serves. Are you trying to learn Ruby on Rails? Great, we would love to help you learn and it gives you an excellent example to add to
 your resume/cv while contributing to a project that helps people.
 
-##Contributing
+## Contributing
 
 See the [Contribution Guidelines](https://github.com/MainStMission/food-pantry-manager/blob/master/CONTRIBUTING.md).
 
-##Talk to us
+## Talk to us
 
 We have a [google group mailing list](https://groups.google.com/forum/?fromgroups#!forum/main-street-mission-development).
 Feel free to ask us questions there, or report a problem with an issue here on github. If you have a problem with anything not code related,
