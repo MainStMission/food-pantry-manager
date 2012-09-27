@@ -1,12 +1,3 @@
-GIT
-  remote: git://github.com/jordanbyron/rails_setup.git
-  revision: 9ba8f5df94b761a4f8d31dfc91201ee4af3ebfb1
-  specs:
-    rails_setup (0.0.1)
-      highline
-      rails (>= 3.0.0)
-      rainbow
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -100,7 +91,7 @@ GEM
       activesupport (~> 3.0)
       haml (~> 3.0)
       railties (~> 3.0)
-    highline (1.6.14)
+    highline (1.6.15)
     hike (1.2.1)
     i18n (0.6.0)
     journey (1.0.4)
@@ -144,6 +135,10 @@ GEM
       activesupport (= 3.2.8)
       bundler (~> 1.0)
       railties (= 3.2.8)
+    rails_setup (0.0.1)
+      highline
+      rails (>= 3.0.0)
+      rainbow
     railties (3.2.8)
       actionpack (= 3.2.8)
       activesupport (= 3.2.8)
@@ -226,7 +221,7 @@ DEPENDENCIES
   puma
   rack-livereload
   rails (= 3.2.8)
-  rails_setup!
+  rails_setup
   rb-fsevent
   rspec-rails
   sass-rails (~> 3.2.3)
