@@ -8,11 +8,6 @@ gem 'pg'
 gem 'sqlite3'
 
 gem 'puma'
-
-group :development do
-  gem 'foreman'
-end
-
 gem 'rails_setup'
 
 # Gems used only for assets and not required
@@ -54,9 +49,8 @@ group :development do
     gem 'win32console'
     gem 'rb-notifu' if guard_notifications
   end
-end
 
-group :development do
+  gem 'foreman'
   gem "guard-livereload"
   gem "yajl-ruby"
   gem "rack-livereload"
