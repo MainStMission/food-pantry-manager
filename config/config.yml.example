@@ -1,0 +1,11 @@
+# enconding: utf-8
+
+development:
+  lang:         en_US.UTF-8
+  rack_env:     development
+  rails_env:    development
+
+test:
+  lang:         en_US.UTF-8
+  rack_env:     test
+  rails_env:    test

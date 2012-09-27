@@ -32,7 +32,7 @@ test/tmp
 test/version_tmp
 tmp
 .rbx
-.env
+config/config.yml
 
 db/*.db
 

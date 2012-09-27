@@ -4,16 +4,13 @@ setup_task :setup do
   puts "#{heart} Thanks for helping us help others #{heart}"
 
   section "Environment Variables" do
-    env = File.join(Rails.root, ".env")
+    cfg = File.join(Rails.root, "config", "config.yml")
 
-    unless File.exists?(env)
-      secret   = SecureRandom.hex(64)
-      template = ERB.new(File.read(env + ".example"))
-
-      File.write(env, template.result(binding))
+    unless File.exists?(cfg)
+      create_file(cfg, "Environment Variables config", true)
     end
 
-    done ".env"
+    done "config.yml"
   end
 
   section "Configuration Files" do
