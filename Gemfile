@@ -8,7 +8,7 @@ gem 'pg'
 gem 'sqlite3'
 
 gem 'puma'
-gem 'rails_setup'
+gem 'rails_setup', '~> 0.0.2'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -50,7 +50,6 @@ group :development do
     gem 'rb-notifu' if guard_notifications
   end
 
-  gem 'foreman'
   gem "guard-livereload"
   gem "yajl-ruby"
   gem "rack-livereload"

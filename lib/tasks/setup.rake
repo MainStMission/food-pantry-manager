@@ -1,34 +1,23 @@
-namespace :setup do
-  setup_task :secret_token do
-    secret_token = File.join(Rails.root, 'config', 'initializers', 'secret_token.rb')
-
-    unless File.exists?(secret_token)
-      secret   = SecureRandom.hex(64)
-      template = ERB.new(File.read(secret_token + '.example'))
-
-      File.open(secret_token, 'w') {|f| f.write(template.result(binding)) }
-    end
-
-    done "secret_token.rb"
-  end
-end
-
 desc 'Setup FoodPantry from scratch'
 setup_task :setup do
   puts # Empty line
   puts "#{heart} Thanks for helping us help others #{heart}"
 
+  section "Environment Variables" do
+    cfg = File.join(Rails.root, "config", "config.yml")
+
+    find_or_create_file(cfg, "Environment Variables config", true)
+
+    done "config.yml"
+  end
+
   section "Configuration Files" do
 
     database = File.join(Rails.root, 'config', 'database.yml')
 
-    unless File.exists?(database)
-      create_file(database, "Database config", true)
-    else
-      done "database.yml"
-    end
+    find_or_create_file(database, "Database config", true)
 
-    Rake::Task["setup:secret_token"].invoke
+    done "database.yml"
 
     # If any other configuration files are required, they should be added here
   end
