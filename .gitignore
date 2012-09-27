@@ -33,6 +33,7 @@ test/tmp
 test/version_tmp
 tmp
 .rbx
+.env
 
 db/*.db
 

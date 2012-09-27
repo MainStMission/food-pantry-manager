@@ -18,6 +18,16 @@ setup_task :setup do
   puts # Empty line
   puts "#{heart} Thanks for helping us help others #{heart}"
 
+  section "Environment Variables" do
+    env = File.join(Rails.root, ".env")
+
+    unless File.exists?(env)
+      create_file(env, "Environment Variables", true)
+    else
+      done ".env"
+    end
+  end
+
   section "Configuration Files" do
 
     database = File.join(Rails.root, 'config', 'database.yml')
