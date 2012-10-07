@@ -31,6 +31,8 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
+.rbx
+config/config.yml
 
 db/*.db
 
