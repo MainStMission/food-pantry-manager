@@ -24,7 +24,15 @@ describe VolunteersController do
   # Volunteer. As you add validations to Volunteer, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {:first_name => "Kermit",
+     :last_name => "Frog",
+     :email => "kermit@sesamestreet.org",
+     :phone => "555-1111",
+     :street => "555 Sesame St",
+     :city => "New York",
+     :state => "NY",
+     :zip => "44444",
+     :status => "Active"}
   end
   
   # This should return the minimal set of values that should be in the session
