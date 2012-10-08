@@ -1,4 +1,6 @@
 FoodPantry::Application.routes.draw do
+  resources :customers
+
   resources :volunteers
 
   resources :users

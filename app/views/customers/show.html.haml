@@ -1,0 +1,42 @@
+%p#notice= notice
+
+%p
+  %b Cust first name:
+  = @customer.cust_first_name
+%p
+  %b Cust last name:
+  = @customer.cust_last_name
+%p
+  %b Cust email:
+  = @customer.cust_email
+%p
+  %b Cust street:
+  = @customer.cust_street
+%p
+  %b Cust city:
+  = @customer.cust_city
+%p
+  %b Cust state:
+  = @customer.cust_state
+%p
+  %b Cust state:
+  = @customer.cust_state
+%p
+  %b Cust zip:
+  = @customer.cust_zip
+%p
+  %b Cust status:
+  = @customer.cust_status
+%p
+  %b Cust phone:
+  = @customer.cust_phone
+%p
+  %b Cust ss numb:
+  = @customer.cust_ss_numb
+%p
+  %b Cust family:
+  = @customer.cust_family
+
+= link_to 'Edit', edit_customer_path(@customer)
+\|
+= link_to 'Back', customers_path
