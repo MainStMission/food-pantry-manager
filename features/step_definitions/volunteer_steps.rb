@@ -60,7 +60,7 @@ Then /^I should not see the volunteer$/ do
 end
 
 Then /^the volunteer should be signed in$/ do
-  within @volunteer.dom_id do
+  within "#volunteer_#{@volunteer.to_param}" do
     page.should have_content("Sign Out")
   end
 end

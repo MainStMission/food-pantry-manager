@@ -42,6 +42,15 @@ describe VolunteersController do
     {}
   end
 
+  describe "GET sign_in" do
+    it "signs in the volunteer" do
+      volunteer = Volunteer.create! valid_attributes
+      get :sign_in, {:id => volunteer.to_param}, valid_session
+      assigns(:volunteer).should eq(volunteer)
+      response.should redirect_to(time_clock_path)
+    end
+  end
+
   describe "GET index" do
     it "assigns all volunteers as @volunteers" do
       volunteer = Volunteer.create! valid_attributes

@@ -5,7 +5,7 @@
     %table.table
       %tbody
         - @volunteers.each do |volunteer|
-          %tr
+          =content_tag_for(:tr, volunteer) do
             %td= volunteer.name
             - if volunteer.signed_in?
               %td= link_to "Sign Out", sign_out_volunteer_path(volunteer), class: 'btn'
