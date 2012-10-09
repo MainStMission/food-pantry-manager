@@ -5,7 +5,7 @@ require_relative '../../app/models/time_card'
 describe TimeCard do
   before(:all) do
     Clock = OpenStruct.new(now: Time.now)
-    Volunteer = Struct.new(:id)
+    volunteer = double 'Volunteer'
   end
 
   describe ".clock_in" do
@@ -25,6 +25,18 @@ describe TimeCard do
       time_card = TimeCard.clock_in(volunteer, Clock)
       TimeCard.clock_out(volunteer, Clock)
       time_card.reload.end_time.should == Clock.now
+    end
+  end
+
+  describe ".volunteer_signed_in?" do
+    let(:volunteer) { Volunteer.new(1) }
+    it "returns true if a volunteer hasn't clocked out of a time card" do
+      TimeCard.clock_in(volunteer)
+      TimeCard.volunteer_signed_in?(volunteer).should be_true
+    end
+
+    it "returns false if a volunteer hasn't clocked out of a time card" do
+      TimeCard.volunteer_signed_in?(volunteer).should be_false
     end
   end
 

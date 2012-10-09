@@ -1,7 +1,14 @@
 FoodPantry::Application.routes.draw do
-  resources :volunteers
+  resources :volunteers do
+    member do
+      get :sign_in
+      get :sign_out
+    end
+  end
 
   resources :users
+
+  match 'time_clock' => 'time_clock#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
