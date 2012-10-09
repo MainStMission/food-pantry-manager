@@ -16,7 +16,8 @@ describe TimeCard do
 
     it "sets the start_time to the current time" do
       time_card = TimeCard.clock_in(Volunteer.new, Clock)
-      time_card.start_time.should == Clock.now
+      p Clock.now.to_s(:database)
+      time_card.start_time.to_s(:database).should == Clock.now.to_s(:database)
     end
   end
 
@@ -25,7 +26,7 @@ describe TimeCard do
       volunteer = Volunteer.new
       time_card = TimeCard.clock_in(volunteer, Clock)
       TimeCard.clock_out(volunteer, Clock)
-      time_card.reload.end_time.should == Clock.now
+      time_card.reload.end_time.to_s(:database).should == Clock.now.to_s(:database)
     end
   end
 
