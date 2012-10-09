@@ -19,6 +19,13 @@ describe Volunteer do
     end
   end
 
+  describe "#sign_in" do
+    it "creates a time card with start_time set to current time" do
+      TimeCard.should_receive(:clock_out)
+      volunteer.sign_out
+    end
+  end
+
   describe "#signed_in?" do
     it "asks TimeCard if signed in" do
       volunteer.sign_in
