@@ -41,4 +41,11 @@ class VolunteersController < ApplicationController
 
     redirect_to volunteers_url
   end
+
+  def sign_in
+    @volunteer = Volunteer.find(params[:id])
+    @volunteer.sign_in
+
+    redirect_to time_clock_path
+  end
 end
