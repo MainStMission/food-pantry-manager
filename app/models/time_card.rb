@@ -1,4 +1,5 @@
 class TimeCard < ActiveRecord::Base
+  attr_accessible :start_time, :end_time, :volunteer_id
 
   def self.clock_in(volunteer, clock=Time)
     create(volunteer_id: volunteer.id, start_time: clock.now)
