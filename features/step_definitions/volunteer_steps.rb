@@ -37,7 +37,7 @@ end
 
 When /^I signin as the volunteer$/ do
   visit time_clock_path
-  click_button 'Sign In'
+  click_link 'Sign In'
 end
 
 Then /^I should see Gonzo$/ do
