@@ -19,4 +19,8 @@ class Volunteer < ActiveRecord::Base
     TimeCard.volunteer_signed_in?(self)
   end
 
+  def sign_in_time
+    TimeCard.sign_in_time(self)
+  end
+
 end

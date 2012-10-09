@@ -33,4 +33,12 @@ describe Volunteer do
       volunteer.signed_in?
     end
   end
+
+  describe "#sign_in_time" do
+    it "asks TimeCard for the sign in time" do
+      volunteer.sign_in
+      TimeCard.should_receive(:sign_in_time)
+      volunteer.sign_in_time
+    end
+  end
 end

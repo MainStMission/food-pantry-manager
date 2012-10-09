@@ -30,6 +30,13 @@ describe TimeCard do
     end
   end
 
+  describe ".sign_in_time" do
+    it "gets the sign in time" do
+      TimeCard.clock_in(volunteer, Clock)
+      TimeCard.sign_in_time(Volunteer.new).should == Clock.now
+    end
+  end
+
   describe ".volunteer_signed_in?" do
     let(:signin_volunteer) { Volunteer.new }
     it "returns true if a volunteer hasn't clocked out of a time card" do
