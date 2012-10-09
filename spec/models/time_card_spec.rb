@@ -6,7 +6,7 @@ require_relative '../../app/models/volunteer'
 describe TimeCard do
   let(:volunteer) { stub_model Volunteer, :id => 1 }
   before(:all) do
-    Clock = OpenStruct.new(now: Time.now)
+    Clock = OpenStruct.new(now: Time.now.in_time_zone("UTC"))
   end
 
   describe ".clock_in" do
@@ -16,17 +16,17 @@ describe TimeCard do
 
     it "sets the start_time to the current time" do
       time_card = TimeCard.clock_in(Volunteer.new, Clock)
-      p Clock.now.to_s(:database)
-      time_card.start_time.to_s(:database).should == Clock.now.to_s(:database)
+      time_card.start_time.should == Clock.now
     end
   end
 
   describe ".clock_out" do
     it "sets the end_time to the current time" do
       volunteer = Volunteer.new
+      p Clock.now
       time_card = TimeCard.clock_in(volunteer, Clock)
       TimeCard.clock_out(volunteer, Clock)
-      time_card.reload.end_time.to_s(:database).should == Clock.now.to_s(:database)
+      time_card.reload.end_time.should == Clock.now
     end
   end
 
