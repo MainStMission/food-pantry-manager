@@ -10,7 +10,7 @@ default_attributes = {
     :phone => '555-999-2222'
 }
 
-Given /^a volunteer exits$/ do
+Given /^a volunteer exists$/ do
   @volunteer = Volunteer.create(default_attributes)
 end
 
@@ -35,6 +35,11 @@ When /^I delete the volunteer$/ do
   click_link 'Destroy'
 end
 
+When /^I signin as the volunteer$/ do
+  visit time_clock_path
+  click_button 'Sign In'
+end
+
 Then /^I should see Gonzo$/ do
   visit volunteers_path
   page.should have_content "Gonzo"
@@ -52,4 +57,10 @@ end
 
 Then /^I should not see the volunteer$/ do
   page.should_not have_content(@volunteer.first_name)
+end
+
+Then /^the volunteer should be signed in$/ do
+  within @volunteer.dom_id do
+    page.should have_content("Sign Out")
+  end
 end

@@ -1,0 +1,16 @@
+.panel
+  %header
+    %h1 Volunteer Signin
+  .content
+    %table.table
+      %tbody
+        - @volunteers.each do |volunteer|
+          %tr
+            %td= volunteer.name
+            - if volunteer.signed_in?
+              %td= link_to "Sign Out", sign_out_volunteer_path(volunteer), class: 'btn'
+            - else
+              %td= link_to "Sign In", sign_in_volunteer_path(volunteer), class: 'btn'
+
+
+
