@@ -33,7 +33,7 @@ describe TimeCard do
   describe ".sign_in_time" do
     it "gets the sign in time" do
       TimeCard.clock_in(volunteer, Clock)
-      TimeCard.sign_in_time(Volunteer.new).should == Clock.now
+      TimeCard.sign_in_time(volunteer).should == Clock.now
     end
   end
 
