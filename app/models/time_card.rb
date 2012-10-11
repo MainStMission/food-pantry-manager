@@ -9,12 +9,12 @@ class TimeCard < ActiveRecord::Base
     where(volunteer_id: volunteer.id, end_time: nil).update_all(end_time: clock.now)
   end
 
-  def self.volunteer_signed_in?(volunteer)
+  def self.signed_in?(volunteer)
     where(volunteer_id: volunteer.id, end_time: nil).any?
   end
 
   def self.sign_in_time(volunteer)
-    if volunteer_signed_in?(volunteer)
+    if signed_in?(volunteer)
       where(volunteer_id: volunteer.id, end_time: nil).first.start_time
     end
   end

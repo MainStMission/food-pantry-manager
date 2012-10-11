@@ -29,7 +29,7 @@ describe Volunteer do
   describe "#signed_in?" do
     it "asks TimeCard if signed in" do
       volunteer.sign_in
-      TimeCard.should_receive(:volunteer_signed_in?)
+      TimeCard.should_receive(:signed_in?)
       volunteer.signed_in?
     end
   end
