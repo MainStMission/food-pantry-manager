@@ -11,6 +11,7 @@
               %td= time_tag volunteer.sign_in_time
               %td= link_to "Sign Out", sign_out_volunteer_path(volunteer), class: 'btn'
             - else
+              %td
               %td= link_to "Sign In", sign_in_volunteer_path(volunteer), class: 'btn'
 
 
