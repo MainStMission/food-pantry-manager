@@ -6,15 +6,6 @@ class VolunteersController < ApplicationController
     @volunteers = Volunteer.all
   end
 
-  def show
-  end
-
-  def new
-  end
-
-  def edit
-  end
-
   def create
     @volunteer = Volunteer.new(params[:volunteer])
 
