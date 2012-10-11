@@ -30,7 +30,6 @@
           %td= customer.cust_phone
           %td= customer.cust_ss_numb
           %td= customer.cust_family
-          %td= link_to 'Show', customer
           %td= link_to 'Edit', edit_customer_path(customer),:class => 'btn btn-mini'
           %td= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
 

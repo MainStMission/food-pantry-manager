@@ -1,10 +1,10 @@
 default_attributes = {
-    :first_name => 'Kermit',
-    :last_name => 'Frog',
-    :email => 'kermit@example.com',
-    :street => '1201 Grand Central Avenue',
-    :city => 'Glendale',
-    :state => 'CA',
+    :first_name => 'Anne',
+    :last_name => 'Main',
+    :email => 'Anne@example.com',
+    :street => '306 Mains Street',
+    :city => 'China Grove',
+    :state => 'NC',
     :zip => '91201',
     :status => 'active',
     :phone => '555-999-2222'
