@@ -23,7 +23,6 @@ describe TimeCard do
   describe ".clock_out" do
     it "sets the end_time to the current time" do
       volunteer = Volunteer.new
-      p Clock.now
       time_card = TimeCard.clock_in(volunteer, Clock)
       TimeCard.clock_out(volunteer, Clock)
       time_card.reload.end_time.should == Clock.now
@@ -37,16 +36,13 @@ describe TimeCard do
     end
   end
 
-  describe ".volunteer_signed_in?" do
+  describe ".signed_in?" do
     let(:signin_volunteer) { Volunteer.new }
     it "returns true if a volunteer hasn't clocked out of a time card" do
       TimeCard.clock_in(signin_volunteer)
-      TimeCard.volunteer_signed_in?(signin_volunteer).should be_true
+      TimeCard.signed_in?(signin_volunteer).should be_true
     end
 
-    it "returns false if a volunteer hasn't clocked out of a time card" do
-      TimeCard.volunteer_signed_in?(signin_volunteer).should be_false
-    end
   end
 
 end
