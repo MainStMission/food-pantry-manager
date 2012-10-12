@@ -37,7 +37,9 @@ end
 
 When /^I signin as the volunteer$/ do
   visit time_clock_path
-  click_link 'Sign In'
+  within "#volunteer_#{@volunteer.to_param}" do
+    click_link 'Sign In'
+  end
 end
 
 When /^I signout as the volunteer$/ do

@@ -43,7 +43,6 @@ describe VolunteersController do
   end
 
   describe "#volunteer" do
-
     context "given a volunteer exists" do
       let!(:vol) { Volunteer.create! valid_attributes }
 
@@ -58,8 +57,15 @@ describe VolunteersController do
         controller.volunteer.should be_new_record
       end
     end
-
   end
+
+  describe "#volunteers" do
+    it "returns all of the volunteers" do
+      volunteer = Volunteer.create! valid_attributes
+      controller.volunteers.should == [volunteer]
+    end
+  end
+
 
 
   describe "GET sign_in" do
@@ -80,26 +86,12 @@ describe VolunteersController do
     end
   end
 
-  describe "GET index" do
-    it "assigns all volunteers as @volunteers" do
-      volunteer = Volunteer.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:volunteers).should eq([volunteer])
-    end
-  end
-
   describe "POST create" do
     describe "with valid params" do
       it "creates a new Volunteer" do
         expect {
           post :create, {:volunteer => valid_attributes}, valid_session
         }.to change(Volunteer, :count).by(1)
-      end
-
-      it "assigns a newly created volunteer as @volunteer" do
-        post :create, {:volunteer => valid_attributes}, valid_session
-        assigns(:volunteer).should be_a(Volunteer)
-        assigns(:volunteer).should be_persisted
       end
 
       it "redirects to the created volunteer" do
@@ -109,13 +101,6 @@ describe VolunteersController do
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved volunteer as @volunteer" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Volunteer.any_instance.stub(:save).and_return(false)
-        post :create, {:volunteer => {}}, valid_session
-        assigns(:volunteer).should be_a_new(Volunteer)
-      end
-
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Volunteer.any_instance.stub(:save).and_return(false)

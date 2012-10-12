@@ -13,7 +13,7 @@
           %th Actions
 
       %tbody
-      - @volunteers.each do |volunteer|
+      - volunteers.each do |volunteer|
         %tr
           %td= link_to volunteer.id, volunteer_path(volunteer)
           %td= volunteer.first_name
