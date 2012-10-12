@@ -8,7 +8,7 @@
     When I signin as the volunteer
     Then the volunteer should be signed in
 
-  Scenario: Sign In
+  Scenario: Sign Out
     When I signin as the volunteer
     And I signout as the volunteer
     Then the volunteer should be signed out

@@ -1,16 +1,13 @@
 class VolunteersController < ApplicationController
   
-  helper_method :volunteer
+  helper_method :volunteer, :volunteers
 
-  def index
-    @volunteers = Volunteer.all
-  end
 
   def create
-    @volunteer = Volunteer.new(params[:volunteer])
+    volunteer.attributes = params[:volunteer]
 
-    if @volunteer.save
-      redirect_to @volunteer, notice: 'Volunteer was successfully created.'
+    if volunteer.save
+      redirect_to volunteer, notice: 'Volunteer was successfully created.'
     else
       render action: "new"
     end
@@ -44,6 +41,10 @@ class VolunteersController < ApplicationController
 
   def volunteer
     @cache_voluteer ||= Volunteer.find_or_initialize_by_id(params[:id])
+  end
+  
+  def volunteers
+    Volunteer.all
   end
 
 end
