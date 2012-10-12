@@ -4,32 +4,32 @@
 
     %p
       %b First name:
-      = @volunteer.first_name
+      = volunteer.first_name
     %p
       %b Last name:
-      = @volunteer.last_name
+      = volunteer.last_name
     %p
       %b Email:
-      = @volunteer.email
+      = volunteer.email
     %p
       %b Phone:
-      = @volunteer.phone
+      = volunteer.phone
     %p
       %b Street:
-      = @volunteer.street
+      = volunteer.street
     %p
       %b City:
-      = @volunteer.city
+      = volunteer.city
     %p
       %b State:
-      = @volunteer.state
+      = volunteer.state
     %p
       %b Zip:
-      = @volunteer.zip
+      = volunteer.zip
     %p
       %b Status:
-      = @volunteer.status
+      = volunteer.status
 
-    = link_to 'Edit', edit_volunteer_path(@volunteer)
+    = link_to 'Edit', edit_volunteer_path(volunteer)
     \|
     = link_to 'Back', volunteers_path

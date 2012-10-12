@@ -31,5 +31,12 @@ describe VolunteersController do
       delete("/volunteers/1").should route_to("volunteers#destroy", :id => "1")
     end
 
+    it "routes to #sign_in" do
+      get("/volunteers/1/sign_in").should route_to("volunteers#sign_in", :id => "1")
+    end
+
+    it "routes to #sign_out" do
+      get("/volunteers/1/sign_out").should route_to("volunteers#sign_out", :id => "1")
+    end
   end
 end
