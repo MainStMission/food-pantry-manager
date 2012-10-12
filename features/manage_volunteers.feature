@@ -16,11 +16,11 @@ Feature: Manage Volunteers
     Then I should see Gonzo
 
   Scenario: Editing a volunteer
-    Given a volunteer exits
+    Given a volunteer exists
     When I edit a volunteer with new attributes
     Then I should see the new attributes for it
 
   Scenario: Deleting a volunteer
-    Given a volunteer exits
+    Given a volunteer exists
     When I delete the volunteer
     Then I should not see the volunteer
