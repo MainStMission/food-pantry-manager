@@ -55,6 +55,7 @@ group :development do
   gem "rack-livereload"
   gem "guard-cucumber"
   gem "guard-rspec"
+  gem "timecop"
 end
 
 gem "rspec-rails", :group => [:development, :test]

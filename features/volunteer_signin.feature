@@ -4,6 +4,12 @@
   Background:
     Given a volunteer exists
 
-  Scenario:
+  Scenario: Sign In
     When I signin as the volunteer
     Then the volunteer should be signed in
+
+  Scenario: Sign Out
+    When I signin as the volunteer
+    And I signout as the volunteer
+    Then the volunteer should be signed out
+

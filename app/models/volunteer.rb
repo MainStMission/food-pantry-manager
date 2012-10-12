@@ -11,8 +11,16 @@ class Volunteer < ActiveRecord::Base
     TimeCard.clock_in(self)
   end
 
+  def sign_out
+    TimeCard.clock_out(self)
+  end
+
   def signed_in?
-    TimeCard.volunteer_signed_in?(self)
+    TimeCard.signed_in?(self)
+  end
+
+  def sign_in_time
+    TimeCard.sign_in_time(self)
   end
 
 end
