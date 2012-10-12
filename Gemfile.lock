@@ -99,6 +99,8 @@ GEM
     json (1.7.5)
     launchy (2.1.2)
       addressable (~> 2.3)
+    libnotify (0.7.2)
+      ffi (~> 1.0.0)
     libwebsocket (0.1.5)
       addressable
     listen (0.4.7)
@@ -214,12 +216,13 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   launchy
+  libnotify
   pg
   puma
   rack-livereload
   rails (= 3.2.8)
   rails_setup (~> 0.0.2)
-  rb-fsevent
+  rb-inotify
   rspec-rails
   sass-rails (~> 3.2.3)
   simple_form

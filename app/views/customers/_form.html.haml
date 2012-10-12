@@ -1,0 +1,15 @@
+= simple_form_for(@customer, :html => { :class => 'form-horizontal xxlarge'}) do |f|
+  %fieldset
+ 
+    = f.input  :cust_first_name,:label => 'First Name'
+    = f.input  :cust_last_name, :label => 'Last Name'
+    = f.input  :cust_email,     :placeholder => 'user@domain.com'
+    = f.input  :cust_street,    :label => 'Street'
+    = f.input  :cust_city,      :label => 'City'
+    = f.input  :cust_state,     :label => 'State', :input_html => { :class => "span2" }, :placeholder => 'North Carolina'
+    = f.input  :cust_zip,       :label => 'Zip', :input_html => { :class => "span1" }
+    = f.input  :cust_status,    :label => 'Status', :input_html => { :class => "span1" }
+    = f.input  :cust_phone,     :label => 'Phone', :input_html => { :class => "span1" }
+    = f.input  :cust_ss_numb,   :label => 'Social Security Number', :input_html => { :class => "span1" }
+    = f.input  :cust_family,    :collection => 1 .. 10, :input_html => { :class => "span1" },:label => 'Family', :hint => "Number of Family Members"
+    = f.button :submit, :class => 'btn-primary', :label=> 'Save' 

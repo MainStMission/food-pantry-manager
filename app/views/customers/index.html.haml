@@ -1,0 +1,38 @@
+.panel
+  %header
+    %h1 Main Street Mission Customers
+  .content
+    %table.table.table-striped
+      %thead
+        %tr
+          %th First Name
+          %th Last Name
+          %th Email
+          %th Street
+          %th City
+          %th State
+          %th Zip
+          %th Phone
+          %th SS Number
+          %th Family Members
+          %th Actions
+
+      %tbody
+      - @customers.each do |customer|
+        %tr
+          %td= customer.cust_first_name
+          %td= customer.cust_last_name
+          %td= customer.cust_email
+          %td= customer.cust_street
+          %td= customer.cust_city
+          %td= customer.cust_state
+          %td= customer.cust_zip
+          %td= customer.cust_phone
+          %td= customer.cust_ss_numb
+          %td= customer.cust_family
+          %td= link_to 'Edit', edit_customer_path(customer),:class => 'btn btn-mini'
+          %td= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+
+    %br
+
+    = link_to 'New Customer', new_customer_path,     :class => 'btn btn-primary'
