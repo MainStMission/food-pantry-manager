@@ -1,0 +1,19 @@
+.panel
+  %header
+    %h1 Donations
+  .content
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Donor
+          %th Weight
+          %th Actions
+      %tbody
+        - donations.each do |donation|
+          %td= donation.donor_name
+          %td= donation.weight
+          %td
+            = link_to 'Edit', edit_donation_path(donation), class: 'btn btn-mini'
+            = link_to 'Destroy', donation, confirm: 'Are you sure?', method: :delete, class: 'btn btn-mini btn-danger'
+    %br
+    = link_to 'New Donation', new_donation_path, class: 'btn btn-primary'
