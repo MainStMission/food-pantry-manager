@@ -5,18 +5,13 @@ setup_task :setup do
 
   section "Environment Variables" do
     cfg = File.join(Rails.root, "config", "config.yml")
-
-    find_or_create_file(cfg, "Environment Variables config", true)
-
+    find_or_create_file(cfg, "Environment Variables config", false)
     done "config.yml"
   end
 
   section "Configuration Files" do
-
     database = File.join(Rails.root, 'config', 'database.yml')
-
-    find_or_create_file(database, "Database config", true)
-
+    find_or_create_file(database, "Database config", false)
     done "database.yml"
 
     # If any other configuration files are required, they should be added here
@@ -48,7 +43,11 @@ setup_task :setup do
   puts # Empty Line
 
   if console.agree("Would you like to run the test suite? (y/n)")
+    # ensure test db gets migrated as well
+    Rake::Task["db:schema:load"].reenable
+
     Rake::Task["spec"].invoke
+    Rake::Task["cucumber"].invoke
   end
 
 end

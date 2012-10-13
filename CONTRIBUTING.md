@@ -12,8 +12,3 @@
 7. Tests the changes bundle exec rake
 8. Submit a Pull Request on github (We would like to review the code)
 9. Keep being AWESOME!
-
-## Note
-
-When running your local server, you'll want to ensure you use "foreman start"
-to ensure you're running with the `.env` configuration.
