@@ -6,8 +6,8 @@ Feature: Manage the user accounts
     Given I create a user with these attributes
       | first_name |  Kermit |
       | last_name  |  Frog |
-    Then I should see "Kermit Frog"
+    Then I should see "Kermit Frog" for the user
 
   Scenario: Edit a user
     Given I change Piggy's last name to Frog
-    Then I should see "Piggy Frog"
+    Then I should see "Piggy Frog" for the user

@@ -1,4 +1,8 @@
 FoodPantry::Application.routes.draw do
+  resources :donations
+
+  resources :donors
+
   resources :volunteers do
     member do
       get :sign_in
