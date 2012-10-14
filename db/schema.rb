@@ -13,22 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20121013034026) do
 
-  create_table "customers", :force => true do |t|
-    t.string   "cust_first_name"
-    t.string   "cust_last_name"
-    t.string   "cust_email"
-    t.string   "cust_street"
-    t.string   "cust_city"
-    t.string   "cust_state"
-    t.string   "cust_zip"
-    t.string   "cust_status"
-    t.string   "cust_phone"
-    t.string   "cust_ss_numb"
-    t.integer  "cust_family"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
+  
   create_table "neighbors", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"

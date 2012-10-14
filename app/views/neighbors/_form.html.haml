@@ -1,0 +1,15 @@
+= simple_form_for neighbor, :html => { :class => 'form-horizontal xxlarge'}) do |f|
+ 
+    = f.input  :first_name,:label => 'First Name'
+    = f.input  :last_name, :label => 'Last Name'
+    = f.input  :email,     :placeholder => 'user@domain.com'
+    = f.input  :street,    :label => 'Street'
+    = f.input  :city,      :label => 'City'
+    = f.input  :state,     :label => 'State', :input_html => { :class => "span2" }, :placeholder => 'North Carolina'
+    = f.input  :zip,       :label => 'Zip', :input_html => { :class => "span1" }
+    = f.input  :status,    :label => 'Status', :input_html => { :class => "span1" }
+    = f.input  :phone,     :label => 'Phone', :input_html => { :class => "span1" }
+    = f.input  :ss_numb,   :label => 'Social Security Number', :input_html => { :class => "span1" }
+    = f.button :submit, :class => 'btn-primary', :label=> 'Save' 
+  = f.input :name
+  = f.button :submit
