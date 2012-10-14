@@ -1,8 +1,16 @@
 FoodPantry::Application.routes.draw do
   resources :volunteers
 
-  resources :users
+  devise_for :users
+  scope "/admin" do
+    resources :users
+  end
 
+  authenticated :user do
+    root :to => "users#index"
+  end
+
+  root :to => "users#sign_in"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
