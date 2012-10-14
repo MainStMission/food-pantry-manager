@@ -11,7 +11,48 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120702210804) do
+ActiveRecord::Schema.define(:version => 20121013034026) do
+
+  create_table "customers", :force => true do |t|
+    t.string   "cust_first_name"
+    t.string   "cust_last_name"
+    t.string   "cust_email"
+    t.string   "cust_street"
+    t.string   "cust_city"
+    t.string   "cust_state"
+    t.string   "cust_zip"
+    t.string   "cust_status"
+    t.string   "cust_phone"
+    t.string   "cust_ss_numb"
+    t.integer  "cust_family"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "neighbors", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "phone"
+    t.string   "ss_numb"
+    t.decimal  "monthly_income",          :precision => 8, :scale => 2
+    t.decimal  "food_stamps",             :precision => 8, :scale => 2
+    t.decimal  "rent",                    :precision => 8, :scale => 2
+    t.decimal  "utilities",               :precision => 8, :scale => 2
+    t.datetime "residency_date"
+    t.boolean  "spouse"
+    t.integer  "number_of_children"
+    t.datetime "open_date"
+    t.datetime "close_date"
+    t.string   "proof_of_residency_type"
+    t.datetime "date_of_proof"
+    t.boolean  "smokes"
+    t.datetime "created_at",                                            :null => false
+    t.datetime "updated_at",                                            :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
