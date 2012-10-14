@@ -36,4 +36,4 @@ class NeighborsController < ApplicationController
     @cache_neighbors ||= Neighbors.all
   end
 end
-end
+
