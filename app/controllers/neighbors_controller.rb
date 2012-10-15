@@ -33,7 +33,7 @@ class NeighborsController < ApplicationController
   end
 
   def neighbors
-    @cache_neighbors ||= Neighbors.all
+    @cache_neighbors ||= Neighbor.all
   end
 end
 

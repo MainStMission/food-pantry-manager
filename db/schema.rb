@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20121013034026) do
 
-  
+
   create_table "neighbors", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
