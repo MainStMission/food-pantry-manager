@@ -14,6 +14,6 @@ Given /^I change Piggy's last name to Frog$/ do
   click_button "save_user"
 end
 
-Then /^I should see "(.*?)"$/ do |value|
+Then /^I should see "(.*?)" for the user$/ do |value|
   page.should have_content(value)
 end
