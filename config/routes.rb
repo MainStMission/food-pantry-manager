@@ -14,6 +14,8 @@ FoodPantry::Application.routes.draw do
 
   match 'time_clock' => 'time_clock#show'
 
+  root :to => 'donations#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
