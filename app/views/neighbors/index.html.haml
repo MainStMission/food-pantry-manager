@@ -6,16 +6,22 @@
       %thead
         %tr
           %th Name
+          %th Phone
           %th Street
           %th City
-          %th 
+          %th Family Members
       %tbody
       - neighbors.each do |neighbor|
-        %td= link_to neighbor.id, neighbor_path(neighbor)
-        %td= neighbor.name
+        %td= link_to neighbor.name, neighbor_path(neighbor)
+        %td= neighbor.phone
+        %td= neighbor.street
+        %td= neighbor.city
+        %td= neighbor.number_of_children
         %td
           = link_to 'Edit', edit_neighbor_path(neighbor), class: 'btn btn-mini'
-          = link_to 'Destroy', neighbor, confirm: 'Are you sure?', method: :delete, class: 'btn btn-mini btn-danger'
+          = link_to 'Destroy', neighbor, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+
     %br
+
     = link_to 'New Neighbor', new_neighbor_path, class: 'btn btn-primary'
 

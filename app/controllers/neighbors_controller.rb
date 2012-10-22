@@ -2,6 +2,11 @@ class NeighborsController < ApplicationController
 
    helper_method :neighbor, :neighbors
 
+  def edit
+    @neighbor = Neighbor.find(params[:id])
+  end
+
+
   def create
     neighbor.attributes = params[:neighbor]
 
@@ -23,7 +28,7 @@ class NeighborsController < ApplicationController
   end
 
   def destroy
-    Neighbor.destroy
+    neighbor.destroy
 
     redirect_to neighbors_path
   end
