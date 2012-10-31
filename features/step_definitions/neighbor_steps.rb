@@ -11,14 +11,8 @@ default_attributes = {
   :food_stamps => 150.00,
   :rent => 240.00,
   :utilities => 275.00,
-  # :residency_date => '2012-12-01',
-  # :spouse => false,
   :number_of_children => 4,
-  # :open_date => 2011-03-04,
-  # :close_date => 2012-04-05,
   :proof_of_residency_type => 'green card',
-  # :date_of_proof => 2012-02-03,
-  # :smokes => true
 }
 
 Given /^a neighbor exists$/ do

@@ -16,15 +16,9 @@ Scenario: Creating a neighbor
       |food_stamps |  200.00 |
       |rent | 120.00 |                   
       |utilities | 250.00 |              
-      # |residency_date | 2002-12-10 |
-      # |spouse | true |
       |number_of_children | 3 |
-      # |open_date | 2009-02-10 |
-      # |close_date | 2012-04-05 |
       |proof_of_residency_type | passport |
-      # |date_of_proof | 2001-05-06 |
-      # |smokes | true |
-
+    
     Then I should see Anne
 
   Scenario: Editing a neighbor
