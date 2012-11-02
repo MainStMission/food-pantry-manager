@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121013185414) do
 
   create_table "donations", :force => true do |t|
@@ -28,6 +29,38 @@ ActiveRecord::Schema.define(:version => 20121013185414) do
     t.datetime "updated_at", :null => false
   end
 
+=======
+ActiveRecord::Schema.define(:version => 20121025185618) do
+
+  create_table "customers", :force => true do |t|
+    t.string   "cust_first_name"
+    t.string   "cust_last_name"
+    t.string   "cust_email"
+    t.string   "cust_street"
+    t.string   "cust_city"
+    t.string   "cust_state"
+    t.string   "cust_zip"
+    t.string   "cust_status"
+    t.string   "cust_phone"
+    t.string   "cust_ss_numb"
+    t.integer  "cust_family"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "family_members", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "ss_numb"
+    t.integer  "neighbor_id"
+    t.integer  "age"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "family_members", ["neighbor_id"], :name => "index_family_members_on_neighbor_id"
+
+>>>>>>> a2f4cd4227b3820d20424c7107aa679fe27905bc
   create_table "neighbors", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -52,12 +85,15 @@ ActiveRecord::Schema.define(:version => 20121013185414) do
     t.datetime "created_at",                                            :null => false
     t.datetime "updated_at",                                            :null => false
   end
+<<<<<<< HEAD
 
   create_table "time_cards", :force => true do |t|
     t.integer  "volunteer_id"
     t.datetime "start_time"
     t.datetime "end_time"
   end
+=======
+>>>>>>> a2f4cd4227b3820d20424c7107aa679fe27905bc
 
   create_table "users", :force => true do |t|
     t.string   "first_name"

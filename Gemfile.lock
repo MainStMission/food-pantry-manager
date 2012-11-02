@@ -105,8 +105,13 @@ GEM
     json (1.7.5)
     launchy (2.1.2)
       addressable (~> 2.3)
+<<<<<<< HEAD
     libnotify (0.8.0)
       ffi (>= 1.0.11)
+=======
+    libnotify (0.7.2)
+      ffi (~> 1.0.0)
+>>>>>>> a2f4cd4227b3820d20424c7107aa679fe27905bc
     libwebsocket (0.1.5)
       addressable
     listen (0.4.7)

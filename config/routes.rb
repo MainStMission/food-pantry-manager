@@ -1,5 +1,8 @@
 FoodPantry::Application.routes.draw do
+<<<<<<< HEAD
   resources :donations
+=======
+>>>>>>> a2f4cd4227b3820d20424c7107aa679fe27905bc
   resources :neighbors
 
   resources :volunteers
