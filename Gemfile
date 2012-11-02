@@ -60,3 +60,4 @@ group :development do
 end
 
 gem "rspec-rails", :group => [:development, :test]
+gem "pry", :group => [:development, :test]
