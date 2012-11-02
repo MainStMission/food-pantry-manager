@@ -24,8 +24,9 @@ When /^I create a neighbor with these attributes$/ do |table|
   visit new_neighbor_path
 
   @attributes.each do |attr, val|
-    fill_in "neighbor_#{attr}", :with => val
+    fill_in "neighbor_#{attr}", :with => val unless attr == "proof_of_residency_type"
   end
+  select(@attributes.fetch('proof_of_residency_type').capitalize, :from => "neighbor_proof_of_residency_type")
   click_button "Create Neighbor"
 end
 
@@ -46,7 +47,9 @@ Then /^I should see Anne$/ do
 
   click_link("Edit")
   @attributes.each do |attr, val|
-    page.should have_xpath("//input[@value='#{val}']")
+    node = find(:xpath, "//*[(@id = 'neighbor_#{attr}')]")
+    val = val.capitalize if val == "passport"
+    node.value.should == val
   end
 end
 

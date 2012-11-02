@@ -12,13 +12,13 @@ Scenario: Creating a neighbor
       |state | NC |
       |zip | 28023 |
       |ss_numb | 023-56-4431 |
-      |monthly_income | 400.00 |
-      |food_stamps |  200.00 |
-      |rent | 120.00 |                   
-      |utilities | 250.00 |              
+      |monthly_income | 400.11 |
+      |food_stamps |  200.33 |
+      |rent | 120.22 |
+      |utilities | 250.44 |
       |number_of_children | 3 |
       |proof_of_residency_type | passport |
-    
+
     Then I should see Anne
 
   Scenario: Editing a neighbor
