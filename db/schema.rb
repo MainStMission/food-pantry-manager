@@ -33,7 +33,17 @@ ActiveRecord::Schema.define(:version => 20121013185414) do
     t.datetime "start_time"
     t.datetime "end_time"
  end
+ create_table "family_members", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "ss_numb"
+    t.integer  "neighbor_id"
+    t.integer  "age"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
+  add_index "family_members", ["neighbor_id"], :name => "index_family_members_on_neighbor_id"
 
   create_table "neighbors", :force => true do |t|
     t.string   "first_name"
