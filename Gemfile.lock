@@ -233,7 +233,6 @@ DEPENDENCIES
   rack-livereload
   rails (= 3.2.8)
   rails_setup (~> 0.0.2)
-  rb-inotify
   rspec-rails
   sass-rails (~> 3.2.3)
   simple_form
