@@ -1,11 +1,10 @@
+# -*- encoding : utf-8 -*-
 class NeighborsController < ApplicationController
-
-   helper_method :neighbor, :neighbors
+  helper_method :neighbor, :neighbors
 
   def edit
     @neighbor = Neighbor.find(params[:id])
   end
-
 
   def create
     neighbor.attributes = params[:neighbor]
@@ -41,4 +40,3 @@ class NeighborsController < ApplicationController
     @cache_neighbors ||= Neighbor.all
   end
 end
-

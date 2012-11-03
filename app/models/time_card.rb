@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class TimeCard < ActiveRecord::Base
   attr_accessible :start_time, :end_time, :volunteer_id
 
@@ -18,5 +19,4 @@ class TimeCard < ActiveRecord::Base
       where(volunteer_id: volunteer.id, end_time: nil).first.start_time
     end
   end
-
 end

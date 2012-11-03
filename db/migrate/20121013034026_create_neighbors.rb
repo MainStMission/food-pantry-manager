@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateNeighbors < ActiveRecord::Migration
   def change
     create_table :neighbors do |t|

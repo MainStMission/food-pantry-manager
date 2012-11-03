@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Guess what, I stole this from rstat.us too!!! <3 <3 <3
 #
 # Be sure to restart your server when you modify this file.

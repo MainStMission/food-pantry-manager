@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateTimeCards < ActiveRecord::Migration
   def up
     create_table :time_cards do |t|

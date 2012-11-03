@@ -1,7 +1,7 @@
-require 'spec_helper'
+# -*- encoding : utf-8 -*-
+require_relative "../spec_helper"
 
 describe DonorsController do
-
   def valid_attributes
     { :name => "A generous neighbor" }
   end
@@ -19,7 +19,6 @@ describe DonorsController do
         controller.donor.should be_new_record
       end
     end
-
   end
 
   describe "#donors" do
@@ -90,6 +89,4 @@ describe DonorsController do
       response.should redirect_to(donors_url)
     end
   end
-
-
 end

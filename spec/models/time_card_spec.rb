@@ -1,6 +1,7 @@
-require "active_record_spec_helper"
+# -*- encoding : utf-8 -*-
 require "timecop"
 
+require_relative "../spec_helper"
 require_relative "../../app/models/time_card"
 require_relative "../../app/models/volunteer"
 
@@ -48,7 +49,5 @@ describe TimeCard do
       TimeCard.clock_in(signin_volunteer)
       TimeCard.signed_in?(signin_volunteer).should be_true
     end
-
   end
-
 end
