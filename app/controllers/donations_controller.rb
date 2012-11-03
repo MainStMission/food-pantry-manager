@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DonationsController < ApplicationController
   helper_method :donation, :donations
 
@@ -34,5 +35,4 @@ class DonationsController < ApplicationController
   def donations
     @cache_donations ||= Donation.all
   end
-  
 end

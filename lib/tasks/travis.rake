@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 namespace :travis do
   desc 'Create database.yml for testing'
   task :setup do

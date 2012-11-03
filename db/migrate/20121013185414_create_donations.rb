@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateDonations < ActiveRecord::Migration
   def change
     create_table :donations do |t|
