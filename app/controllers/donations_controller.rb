@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DonationsController < ApplicationController
   helper_method :donation, :donations
 

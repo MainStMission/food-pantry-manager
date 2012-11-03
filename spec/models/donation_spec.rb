@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_record_spec_helper'
 require_relative '../../app/models/donation'
 require_relative '../../app/models/donor'

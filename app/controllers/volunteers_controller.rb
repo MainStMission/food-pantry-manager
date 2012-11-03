@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class VolunteersController < ApplicationController
   
   helper_method :volunteer, :volunteers

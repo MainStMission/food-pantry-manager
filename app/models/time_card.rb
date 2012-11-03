@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class TimeCard < ActiveRecord::Base
   attr_accessible :start_time, :end_time, :volunteer_id
 

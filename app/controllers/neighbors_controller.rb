@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class NeighborsController < ApplicationController
 
    helper_method :neighbor, :neighbors

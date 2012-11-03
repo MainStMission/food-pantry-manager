@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # stolen from rstat.us
 
 require 'fileutils'
