@@ -11,7 +11,7 @@ Scenario: Creating a neighbor
       |city | China Grove |
       |state | NC |
       |zip | 28023 |
-      |ss_numb | 023-56-4431 |
+      |ssn| 023-56-4431 |
       |monthly_income | 400.11 |
       |food_stamps |  200.33 |
       |rent | 120.22 |
