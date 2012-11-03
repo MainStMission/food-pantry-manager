@@ -1,9 +1,8 @@
-require 'spec_helper'
+# -*- encoding : utf-8 -*-
+require_relative "../spec_helper"
 
 describe User do
-
   describe "#name" do
-
     it "combines the first name and last name" do
       user = User.new
       user.stub(:first_name).and_return("Kermit")
@@ -11,7 +10,5 @@ describe User do
 
       user.name.should == "Kermit Frog"
     end
-
   end
-
 end

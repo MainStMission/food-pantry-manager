@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $model_default_attributes = OpenStruct.new
 
 Given /^a "([^"]*)" exists$/ do |model|

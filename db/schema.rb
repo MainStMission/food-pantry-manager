@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -26,6 +26,31 @@ ActiveRecord::Schema.define(:version => 20121013185414) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "neighbors", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "phone"
+    t.string   "ss_numb"
+    t.decimal  "monthly_income",          :precision => 8, :scale => 2
+    t.decimal  "food_stamps",             :precision => 8, :scale => 2
+    t.decimal  "rent",                    :precision => 8, :scale => 2
+    t.decimal  "utilities",               :precision => 8, :scale => 2
+    t.datetime "residency_date"
+    t.boolean  "spouse"
+    t.integer  "number_of_children"
+    t.datetime "open_date"
+    t.datetime "close_date"
+    t.string   "proof_of_residency_type"
+    t.datetime "date_of_proof"
+    t.boolean  "smokes"
+    t.datetime "created_at",                                            :null => false
+    t.datetime "updated_at",                                            :null => false
   end
 
   create_table "time_cards", :force => true do |t|

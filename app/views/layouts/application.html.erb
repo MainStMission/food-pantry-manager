@@ -11,6 +11,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <% unless Rails.env == "production" %>
+    <div class="container">
+      <div class="row">
+        <div class="alert">
+          <p>Warning! This is an unsecured environment. Do not store sensitive information.</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
@@ -26,6 +35,7 @@
             <li><%= link_to "Volunteers", volunteers_path %></li>
             <li><%= link_to "Donors", donors_path %></li>
             <li><%= link_to "Donations", donations_path %></li>
+            <li><%= link_to "Neighbors", neighbors_path %></li>
             <li><%= link_to "Sign In", time_clock_path %></li>
           </ul>
 
