@@ -30,6 +30,8 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.2)
     arel (3.0.2)
+    attr_encryptor (1.0.2)
+      encryptor2 (>= 1.0.0)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.0.4.0)
     bourbon (2.1.1)
@@ -71,6 +73,7 @@ GEM
     em-websocket (0.3.8)
       addressable (>= 2.1.1)
       eventmachine (>= 0.12.9)
+    encryptor2 (1.0.0)
     erubis (2.7.0)
     eventmachine (0.12.10)
     execjs (1.4.0)
@@ -224,6 +227,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  attr_encryptor
   bootstrap-sass (~> 2.0.3)
   bourbon
   capybara

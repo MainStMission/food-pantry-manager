@@ -7,6 +7,8 @@ class NeighborsController < ApplicationController
   end
 
   def create
+    assign_attributes
+
     if neighbor.save
       redirect_to neighbors_path, notice: 'Neighbor was successfully created.'
     else
@@ -15,6 +17,8 @@ class NeighborsController < ApplicationController
   end
 
   def update
+    assign_attributes
+    
     if neighbor.save
       redirect_to neighbors_path, notice: 'Neighbor was successfully updated.'
     else
@@ -35,4 +39,14 @@ class NeighborsController < ApplicationController
   def neighbors
     @cache_neighbors ||= Neighbor.all
   end
+
+  def assign_attributes
+    neighbor.attributes = neighbor_params.except(:ssn)
+    neighbor.ssn = neighbor_params[:ssn]
+  end
+
+  def neighbor_params
+    params[:neighbor]
+  end
+
 end
