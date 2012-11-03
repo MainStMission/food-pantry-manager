@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
-require 'active_record_spec_helper'
-require_relative '../../app/models/donation'
-require_relative '../../app/models/donor'
+require_relative "../spec_helper"
+require_relative "../../app/models/donation"
+require_relative "../../app/models/donor"
 
 describe Donation do
   describe "#donor_name" do 

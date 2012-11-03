@@ -1,10 +1,10 @@
 # -*- encoding : utf-8 -*-
-require 'active_record_spec_helper'
-require_relative '../../app/models/volunteer'
-require_relative '../../app/models/time_card'
+require_relative "../spec_helper"
+require_relative "../../app/models/volunteer"
+require_relative "../../app/models/time_card"
 
 describe Volunteer do
-  let(:volunteer) { Volunteer.create!(first_name: 'Kermit', last_name: 'Frog') }
+  let(:volunteer) { Volunteer.create!(first_name: "Kermit", last_name: "Frog") }
 
   describe "#name" do
     it "combines the first and last name" do

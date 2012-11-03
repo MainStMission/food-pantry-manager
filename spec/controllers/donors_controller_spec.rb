@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-require 'spec_helper'
+require_relative "../spec_helper"
 
 describe DonorsController do
   def valid_attributes
