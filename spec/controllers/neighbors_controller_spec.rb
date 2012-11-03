@@ -2,17 +2,17 @@
 require_relative "../spec_helper"
 
 describe NeighborsController do
-  describe "#neighbor" do
-    let(:neighbor) { FactoryGirl.create(:neighbor) }
+  let!(:neighbor) { FactoryGirl.create(:neighbor) }
 
+  describe "#neighbor" do
     it "finds the neighbor with an id" do
       controller.params[:id] = neighbor.id
-      controller.neighbor.should == neighbor
+      expect(controller.neighbor).to eq(neighbor)
     end
 
     context "no volunteer" do
       it "initializes a new neighbor" do
-        controller.neighbor.should be_new_record
+        expect(controller.neighbor).to be_new_record
       end
     end
   end
