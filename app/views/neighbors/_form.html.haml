@@ -17,7 +17,7 @@
   = f.input   :residency_date, :as => 'date', :label => 'Date of Residence' , :input_html => { :class => "span1" }
   = f.input   :proof_of_residency_type, :label => 'Proof of Residency',:collection => [:Passport, :Drivers_License,:Green_Card]
   = f.input   :date_of_proof, :as=> 'date', :label => 'Date of Proof of Residency' , :input_html => { :class => "span1" }
-  = f.input   :comments, :label => 'Comments'
+  = f.input   :comments, :label => 'Comments', :input_html => { :class => "span2", :rows => "5" }
   = f.button  :submit, :class => 'btn-primary', :label=> 'Save' 
   / = link_to 'Edit', edit_neighbor_path(neighbor), :class => 'btn btn-mini'
   
