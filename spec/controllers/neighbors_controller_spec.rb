@@ -1,7 +1,7 @@
-require 'spec_helper'
+# -*- encoding : utf-8 -*-
+require_relative "../spec_helper"
 
 describe NeighborsController do
-
   def valid_attributes
     { :first_name => "Tom",
       :last_name => "Terrific" }
@@ -20,8 +20,5 @@ describe NeighborsController do
         controller.neighbor.should be_new_record
       end
     end
-
   end
-
-
 end

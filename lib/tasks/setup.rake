@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 desc 'Setup FoodPantry from scratch'
 setup_task :setup do
   puts # Empty line

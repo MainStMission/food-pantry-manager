@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 default_attributes = {
     :first_name => 'Kermit',
     :last_name => 'Frog',

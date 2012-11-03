@@ -1,9 +1,9 @@
-require 'active_record_spec_helper'
-require_relative '../../app/models/donation'
-require_relative '../../app/models/donor'
+# -*- encoding : utf-8 -*-
+require_relative "../spec_helper"
+require_relative "../../app/models/donation"
+require_relative "../../app/models/donor"
 
 describe Donation do
-
   describe "#donor_name" do 
     it "returns the donor's name" do
       subject.donor = Donor.new(name: "ME")
@@ -11,5 +11,4 @@ describe Donation do
       subject.donor_name
     end
   end
-
 end
