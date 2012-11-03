@@ -89,6 +89,5 @@ describe DonationsController do
       delete :destroy, {:id => donation.to_param}
       response.should redirect_to(donations_url)
     end
- 
   end
 end
