@@ -35,5 +35,4 @@ class DonationsController < ApplicationController
   def donations
     @cache_donations ||= Donation.all
   end
-  
 end

@@ -19,5 +19,4 @@ class TimeCard < ActiveRecord::Base
       where(volunteer_id: volunteer.id, end_time: nil).first.start_time
     end
   end
-
 end

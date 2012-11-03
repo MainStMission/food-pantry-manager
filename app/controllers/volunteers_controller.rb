@@ -1,8 +1,6 @@
 # -*- encoding : utf-8 -*-
 class VolunteersController < ApplicationController
-  
   helper_method :volunteer, :volunteers
-
 
   def create
     volunteer.attributes = params[:volunteer]
@@ -43,9 +41,8 @@ class VolunteersController < ApplicationController
   def volunteer
     @cache_voluteer ||= Volunteer.find_or_initialize_by_id(params[:id])
   end
-  
+
   def volunteers
     Volunteer.all
   end
-
 end

@@ -2,7 +2,8 @@
 class Volunteer < ActiveRecord::Base
   has_many :time_cards
 
-  attr_accessible :city, :email, :first_name, :last_name, :phone, :state, :status, :street, :zip
+  attr_accessible :city, :email, :first_name, :last_name, :phone, :state,
+    :status, :street, :zip
 
   def name
     "#{first_name} #{last_name}"
@@ -23,5 +24,4 @@ class Volunteer < ActiveRecord::Base
   def sign_in_time
     TimeCard.sign_in_time(self)
   end
-
 end
