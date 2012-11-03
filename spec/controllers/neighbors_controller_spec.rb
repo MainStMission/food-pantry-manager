@@ -2,13 +2,8 @@
 require_relative "../spec_helper"
 
 describe NeighborsController do
-  def valid_attributes
-    { :first_name => "Tom",
-      :last_name => "Terrific" }
-  end
-
   describe "#neighbor" do
-    let!(:neighbor) { Neighbor.create! valid_attributes }
+    let(:neighbor) { FactoryGirl.create(:neighbor) }
 
     it "finds the neighbor with an id" do
       controller.params[:id] = neighbor.id
