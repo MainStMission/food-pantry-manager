@@ -13,7 +13,7 @@ default_attributes = {
   :utilities => 275.00,
   :number_of_children => 4,
   :proof_of_residency_type => 'green card',
-  :comments => 'Has small freezer.',
+  :notes => 'Has small freezer.',
 }
 
 Given /^a neighbor exists$/ do

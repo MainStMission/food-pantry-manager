@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20121103152027) do
     t.boolean  "smokes"
     t.datetime "created_at",                                            :null => false
     t.datetime "updated_at",                                            :null => false
-    t.text     "comments"
+    t.text     "notes"
   end
 
   create_table "time_cards", :force => true do |t|
