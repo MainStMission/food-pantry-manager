@@ -7,7 +7,7 @@ class NeighborsController < ApplicationController
   end
 
   def create
-    assign_attributes
+    neighbor.attributes = neighbor_params
 
     if neighbor.save
       redirect_to neighbors_path, notice: 'Neighbor was successfully created.'
@@ -17,8 +17,8 @@ class NeighborsController < ApplicationController
   end
 
   def update
-    assign_attributes
-    
+    neighbor.attributes = neighbor_params
+     
     if neighbor.save
       redirect_to neighbors_path, notice: 'Neighbor was successfully updated.'
     else
@@ -33,7 +33,7 @@ class NeighborsController < ApplicationController
   end
 
   def neighbor
-    @neighbor ||= params[:id] ? Neighbor.find(params[:id]) : Neighbor.new(params[:neighbor])
+    @neighbor ||= params[:id] ? Neighbor.find(params[:id]) : Neighbor.new
   end
 
   def neighbors
@@ -42,15 +42,11 @@ class NeighborsController < ApplicationController
 
   private
 
-  def assign_attributes
-    neighbor.attributes = neighbor_params
-  end
-
   def allowable
     [
       :city, :close_date, :date_of_proof, :first_name,
-      :food_stamps, :last_name, :monthly_income, :number_of_children, :open_date,
-      :phone, :proof_of_residency_type, :rent, :residency_date,
+      :food_stamps, :last_name, :monthly_income, :notes, :number_of_children,
+      :open_date, :phone, :proof_of_residency_type, :rent, :residency_date,
       :proof_of_residency_type, :smokes, :spouse, :ssn, :state, :street,
       :utilities, :zip ,:created_at, :updated_at
     ]

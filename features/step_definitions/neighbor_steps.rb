@@ -56,9 +56,8 @@ Then /^I should see Anne$/ do
 end
 
 Then /^I should see the new attributes for the neighbor$/ do
-  page.should have_content(@neighbor.reload.first_name)
+  page.should have_content('Tom')
 end
-
 
 Then /^I should not see the neighbor$/ do
   page.should_not have_content(@neighbor.first_name)
