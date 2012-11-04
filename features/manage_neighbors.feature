@@ -18,6 +18,7 @@ Scenario: Creating a neighbor
       |utilities | 250.44 |
       |number_of_children | 3 |
       |proof_of_residency_type | passport |
+      |notes | One child is diabetic. |
 
     Then I should see Anne
 
