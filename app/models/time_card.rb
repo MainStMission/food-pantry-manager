@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class TimeCard < ActiveRecord::Base
-  attr_accessible :start_time, :end_time, :volunteer_id
+  include ActiveModel::ForbiddenAttributesProtection
 
   def self.clock_in(volunteer, clock=DateTime)
     create(volunteer_id: volunteer.id, start_time: clock.now)

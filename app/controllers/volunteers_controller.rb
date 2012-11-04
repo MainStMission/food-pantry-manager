@@ -3,7 +3,7 @@ class VolunteersController < ApplicationController
   helper_method :volunteer, :volunteers
 
   def create
-    volunteer.attributes = params[:volunteer]
+    volunteer.attributes = volunteer_params
 
     if volunteer.save
       redirect_to volunteer, notice: 'Volunteer was successfully created.'
@@ -13,7 +13,7 @@ class VolunteersController < ApplicationController
   end
 
   def update
-    if volunteer.update_attributes(params[:volunteer])
+    if volunteer.update_attributes(volunteer_params)
       redirect_to volunteer, notice: 'Volunteer was successfully updated.'
     else
       render action: "edit"
@@ -45,4 +45,18 @@ class VolunteersController < ApplicationController
   def volunteers
     Volunteer.all
   end
+
+  private
+
+  def allowable
+    [ 
+      :city, :email, :first_name, :last_name, :phone, :state,
+      :status, :street, :zip
+    ]
+  end
+
+  def volunteer_params 
+    params.require(:volunteer).permit(*allowable)
+  end
+
 end

@@ -7,7 +7,7 @@ default_attributes = {
   :city => 'Glendale',
   :state => 'CA',
   :zip => '91201',
-  :ss_numb => '023-45-4321',
+  :ssn => '023-45-4321',
   :monthly_income => 250.00,  
   :food_stamps => 150.00,
   :rent => 240.00,
@@ -56,9 +56,8 @@ Then /^I should see Anne$/ do
 end
 
 Then /^I should see the new attributes for the neighbor$/ do
-  page.should have_content(@neighbor.reload.first_name)
+  page.should have_content('Tom')
 end
-
 
 Then /^I should not see the neighbor$/ do
   page.should_not have_content(@neighbor.first_name)
