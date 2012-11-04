@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013185414) do
+ActiveRecord::Schema.define(:version => 20121103152027) do
 
   create_table "donations", :force => true do |t|
     t.integer  "donor_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20121013185414) do
     t.boolean  "smokes"
     t.datetime "created_at",                                            :null => false
     t.datetime "updated_at",                                            :null => false
+    t.text     "notes"
   end
 
   create_table "time_cards", :force => true do |t|
