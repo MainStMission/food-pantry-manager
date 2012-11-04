@@ -7,8 +7,6 @@ class NeighborsController < ApplicationController
   end
 
   def create
-    neighbor.attributes = params[:neighbor]
-
     if neighbor.save
       redirect_to neighbors_path, notice: 'Neighbor was successfully created.'
     else
@@ -17,8 +15,6 @@ class NeighborsController < ApplicationController
   end
 
   def update
-    neighbor.attributes = params[:neighbor]
-
     if neighbor.save
       redirect_to neighbors_path, notice: 'Neighbor was successfully updated.'
     else
@@ -33,7 +29,7 @@ class NeighborsController < ApplicationController
   end
 
   def neighbor
-    @cache_neighbor ||= Neighbor.find_or_initialize_by_id(params[:id])
+    @neighbor ||= params[:id] ? Neighbor.find(params[:id]) : Neighbor.new(params[:neighbor])
   end
 
   def neighbors
