@@ -3,8 +3,6 @@ class DonorsController < ApplicationController
   helper_method :donor, :donors
 
   def create
-    donor.attributes = donor_params
-
     if donor.save
       redirect_to donors_path, notice: 'Donor was successfully created.'
     else
@@ -13,9 +11,7 @@ class DonorsController < ApplicationController
   end
 
   def update
-    donor.attributes = donor_params
-
-    if donor.save
+    if donor.update_attributes(donor_params)
       redirect_to donors_path, notice: 'Donor was successfully updated.'
     else
       render action: "edit"
@@ -29,11 +25,11 @@ class DonorsController < ApplicationController
   end
 
   def donor
-    @cache_donor ||= Donor.find_or_initialize_by_id(params[:id])
+    @donor ||= params[:id] ? Donor.find(params[:id]) : Donor.new(donor_params)
   end
 
   def donors
-    @cache_donors ||= Donor.all
+    @donors ||= Donor.all
   end
 
   private

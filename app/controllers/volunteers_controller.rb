@@ -3,8 +3,6 @@ class VolunteersController < ApplicationController
   helper_method :volunteer, :volunteers
 
   def create
-    volunteer.attributes = volunteer_params
-
     if volunteer.save
       redirect_to volunteer, notice: 'Volunteer was successfully created.'
     else
@@ -39,11 +37,11 @@ class VolunteersController < ApplicationController
   end
 
   def volunteer
-    @cache_voluteer ||= Volunteer.find_or_initialize_by_id(params[:id])
+    @voluteer ||= params[:id] ? Volunteer.find(params[:id]) : Volunteer.new(volunteer_params)
   end
 
   def volunteers
-    Volunteer.all
+    @volunteers ||= Volunteer.all
   end
 
   private
@@ -58,5 +56,4 @@ class VolunteersController < ApplicationController
   def volunteer_params 
     params.require(:volunteer).permit(*allowable)
   end
-
 end

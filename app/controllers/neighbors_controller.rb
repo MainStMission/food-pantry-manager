@@ -7,8 +7,6 @@ class NeighborsController < ApplicationController
   end
 
   def create
-    neighbor.attributes = neighbor_params
-
     if neighbor.save
       redirect_to neighbors_path, notice: 'Neighbor was successfully created.'
     else
@@ -17,9 +15,7 @@ class NeighborsController < ApplicationController
   end
 
   def update
-    neighbor.attributes = neighbor_params
-     
-    if neighbor.save
+    if neighbor.update_attribute(params[:neighbor])
       redirect_to neighbors_path, notice: 'Neighbor was successfully updated.'
     else
       render action: "edit"
@@ -33,7 +29,7 @@ class NeighborsController < ApplicationController
   end
 
   def neighbor
-    @neighbor ||= params[:id] ? Neighbor.find(params[:id]) : Neighbor.new
+    @neighbor ||= params[:id] ? Neighbor.find(params[:id]) : Neighbor.new(neighbor_params)
   end
 
   def neighbors
@@ -55,5 +51,4 @@ class NeighborsController < ApplicationController
   def neighbor_params
     params.require(:neighbor).permit(*allowable)
   end
-
 end

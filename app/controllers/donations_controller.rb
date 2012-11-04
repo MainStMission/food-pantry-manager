@@ -3,8 +3,6 @@ class DonationsController < ApplicationController
   helper_method :donation, :donations
 
   def create
-    donation.attributes = donation_params
-
     if donation.save
       redirect_to donations_path, notice: "Donation was successfully created."
     else
@@ -13,9 +11,7 @@ class DonationsController < ApplicationController
   end
 
   def update
-    donation.attributes = donation_params
-
-    if donation.save
+    if donation.update_attributes(donation_params)
       redirect_to donations_path, notice: "Donation was successfully updated."
     else
       render "edit"
@@ -29,11 +25,11 @@ class DonationsController < ApplicationController
   end
 
   def donation
-    @cache_donation ||= Donation.find_or_initialize_by_id(params[:id])
+    @donation ||= params[:id] ? Donation.find(params[:id]) : Donation.new(donation_params)
   end
 
   def donations
-    @cache_donations ||= Donation.all
+    @donations ||= Donation.all
   end
 
   private
