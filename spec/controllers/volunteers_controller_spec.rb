@@ -43,12 +43,12 @@ describe VolunteersController do
     describe "with valid params" do
       it "creates a new Volunteer" do
         expect {
-          post :create, {volunteer: {}}
+          post :create, {volunteer: {first_name: "bob"}}
         }.to change{Volunteer.count}.by(1)
       end
 
       it "redirects to the created volunteer" do
-        post :create, {volunteer: {}}
+        post :create, {volunteer: {first_name: "bob"}}
         expect(response).to redirect_to(Volunteer.last)
       end
     end

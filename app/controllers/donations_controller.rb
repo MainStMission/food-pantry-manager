@@ -3,7 +3,7 @@ class DonationsController < ApplicationController
   helper_method :donation, :donations
 
   def create
-    donation.attributes = params[:donation]
+    donation.attributes = donation_params
 
     if donation.save
       redirect_to donations_path, notice: "Donation was successfully created."
@@ -13,7 +13,7 @@ class DonationsController < ApplicationController
   end
 
   def update
-    donation.attributes = params[:donation]
+    donation.attributes = donation_params
 
     if donation.save
       redirect_to donations_path, notice: "Donation was successfully updated."
@@ -34,5 +34,17 @@ class DonationsController < ApplicationController
 
   def donations
     @cache_donations ||= Donation.all
+  end
+
+  private
+
+  def allowable
+    [
+      :weight, :donor_id
+    ]
+  end
+
+  def donation_params
+    params.require(:donation).permit(*allowable)
   end
 end

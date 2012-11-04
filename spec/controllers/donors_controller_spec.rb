@@ -27,12 +27,12 @@ describe DonorsController do
     describe "with valid params" do
       it "creates a new donor" do
         expect{
-          post :create, {donor: {}}
+          post :create, {donor: {name: "bob"}}
         }.to change{Donor.count}.by(1)
       end
 
       it "redirects to the donor index" do
-        post :create, {donor: {}}
+        post :create, {donor: {name: "bob"}}
         expect(response).to redirect_to(donors_path)
       end
     end

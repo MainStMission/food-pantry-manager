@@ -40,13 +40,24 @@ class NeighborsController < ApplicationController
     @cache_neighbors ||= Neighbor.all
   end
 
+  private
+
   def assign_attributes
-    neighbor.attributes = neighbor_params.except(:ssn)
-    neighbor.ssn = neighbor_params[:ssn]
+    neighbor.attributes = neighbor_params
+  end
+
+  def allowable
+    [
+      :city, :close_date, :date_of_proof, :first_name,
+      :food_stamps, :last_name, :monthly_income, :number_of_children, :open_date,
+      :phone, :proof_of_residency_type, :rent, :residency_date,
+      :proof_of_residency_type, :smokes, :spouse, :ssn, :state, :street,
+      :utilities, :zip ,:created_at, :updated_at
+    ]
   end
 
   def neighbor_params
-    params[:neighbor]
+    params.require(:neighbor).permit(*allowable)
   end
 
 end
