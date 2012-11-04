@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(:version => 20121103152027) do
     t.string   "state"
     t.string   "zip"
     t.string   "phone"
-    t.string   "ss_numb"
     t.decimal  "monthly_income",          :precision => 8, :scale => 2
     t.decimal  "food_stamps",             :precision => 8, :scale => 2
     t.decimal  "rent",                    :precision => 8, :scale => 2
@@ -51,6 +50,9 @@ ActiveRecord::Schema.define(:version => 20121103152027) do
     t.boolean  "smokes"
     t.datetime "created_at",                                            :null => false
     t.datetime "updated_at",                                            :null => false
+    t.string   "encrypted_ssn"
+    t.string   "encrypted_ssn_iv"
+    t.string   "encrypted_ssn_salt"
     t.text     "notes"
   end
 

@@ -27,12 +27,12 @@ describe DonationsController do
     describe "with valid params" do
       it "creates a new donation" do
         expect{
-          post :create, {donation: {}}
+          post :create, {donation: {weight: "10"}}
         }.to change{Donation.count}.by(1)
       end
 
       it "redirects to the donation index" do
-        post :create, {donation: {}}
+        post :create, {donation: {weight: "10"}}
         expect(response).to redirect_to(donations_path)
       end
     end
