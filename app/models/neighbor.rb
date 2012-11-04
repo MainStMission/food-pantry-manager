@@ -6,7 +6,7 @@ class Neighbor < ActiveRecord::Base
     :proof_of_residency_type, :smokes, :spouse, :state, :street,
     :utilities, :zip ,:created_at, :updated_at
 
-  attr_encrypted :ssn, :key => Rails.application.config.ssn_secret
+  attr_encrypted :ssn, :key => Rails.application.config.secret_token
 
    def name
      "#{first_name} #{last_name}"
