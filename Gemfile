@@ -30,6 +30,7 @@ gem "jquery-rails"
 gem "haml-rails"
 gem "bourbon"
 gem "simple_form"
+gem "decent_exposure", "~> 2.0.0"
 
 group :test do
   gem "cucumber-rails", :require => false

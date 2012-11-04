@@ -10,7 +10,7 @@
           %th Created At
           %th Actions
       %tbody
-        - @users.each do |user|
+        - users.each do |user|
           %tr
             %td= link_to user.id, user_path(user)
             %td= user.name
