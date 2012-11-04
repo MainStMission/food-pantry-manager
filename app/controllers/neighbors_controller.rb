@@ -15,7 +15,7 @@ class NeighborsController < ApplicationController
   end
 
   def update
-    if neighbor.update_attribute(params[:neighbor])
+    if neighbor.update_attributes(params[:neighbor])
       redirect_to neighbors_path, notice: 'Neighbor was successfully updated.'
     else
       render action: "edit"
