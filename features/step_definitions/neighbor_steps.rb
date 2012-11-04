@@ -7,6 +7,7 @@ default_attributes = {
   :city => 'Glendale',
   :state => 'CA',
   :zip => '91201',
+  :ssn => '023-45-4321',
   :monthly_income => 250.00,  
   :food_stamps => 150.00,
   :rent => 240.00,
@@ -18,7 +19,6 @@ default_attributes = {
 
 Given /^a neighbor exists$/ do
   @neighbor = Neighbor.create(default_attributes)
-  @neighbor.ssn = '023-45-4321'
 end
 
 When /^I create a neighbor with these attributes$/ do |table|
