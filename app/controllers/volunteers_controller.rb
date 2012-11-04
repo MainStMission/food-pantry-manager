@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 class VolunteersController < ApplicationController
-  helper_method :volunteer, :volunteers
+  expose(:volunteer)
+  expose(:volunteers)
 
   def create
     if volunteer.save
@@ -11,7 +12,7 @@ class VolunteersController < ApplicationController
   end
 
   def update
-    if volunteer.update_attributes(volunteer_params)
+    if volunteer.save
       redirect_to volunteer, notice: 'Volunteer was successfully updated.'
     else
       render action: "edit"
@@ -34,14 +35,6 @@ class VolunteersController < ApplicationController
     volunteer.sign_out
 
     redirect_to time_clock_path
-  end
-
-  def volunteer
-    @voluteer ||= params[:id] ? Volunteer.find(params[:id]) : Volunteer.new(volunteer_params)
-  end
-
-  def volunteers
-    @volunteers ||= Volunteer.all
   end
 
   private

@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 class DonationsController < ApplicationController
-  helper_method :donation, :donations
+  expose(:donation)
+  expose(:donations)
 
   def create
     if donation.save
@@ -11,7 +12,7 @@ class DonationsController < ApplicationController
   end
 
   def update
-    if donation.update_attributes(donation_params)
+    if donation.save
       redirect_to donations_path, notice: "Donation was successfully updated."
     else
       render "edit"
@@ -22,14 +23,6 @@ class DonationsController < ApplicationController
     donation.destroy
 
     redirect_to donations_path, notice: "Donation deleted."
-  end
-
-  def donation
-    @donation ||= params[:id] ? Donation.find(params[:id]) : Donation.new(donation_params)
-  end
-
-  def donations
-    @donations ||= Donation.all
   end
 
   private

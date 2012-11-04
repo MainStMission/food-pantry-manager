@@ -4,25 +4,6 @@ require_relative "../spec_helper"
 describe DonorsController do
   let!(:donor) { FactoryGirl.create(:donor) }
 
-  describe "#donor" do
-    it "finds the donor with an id" do
-      controller.params[:id] = donor.id
-      expect(controller.donor).to eq(donor)
-    end
-
-    context "no volunteer" do
-      it "initializes a new donor" do
-        expect(controller.donor).to be_new_record
-      end
-    end
-  end
-
-  describe "#donors" do
-    it "returns all donors" do
-      expect(controller.donors).to eq([donor])
-    end
-  end
-
   describe "POST create" do
     describe "with valid params" do
       it "creates a new donor" do

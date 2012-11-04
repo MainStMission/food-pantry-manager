@@ -1,13 +1,8 @@
 # -*- encoding : utf-8 -*-
 class UsersController < ApplicationController
-  helper_method :user, :users
+  expose(:user)
+  expose(:users)
   before_filter :authenticate_user!
-
-  def index
-  end
-
-  def new
-  end
 
   def create
     if user.save
@@ -21,19 +16,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    if user.update_attributes(user_params)
+    if user.save
       redirect_to users_path, :notice => "Successfully updated the user."
     else
       render :edit
     end
-  end
-
-  def user
-    @user ||= params[:id] ? User.find(params[:id]) : User.new(user_params)
-  end
-
-  def users
-    @users = User.all
   end
 
   private
