@@ -1,10 +1,9 @@
 # -*- encoding : utf-8 -*-
 class DonationsController < ApplicationController
-  helper_method :donation, :donations
+  expose(:donation)
+  expose(:donations)
 
   def create
-    donation.attributes = donation_params
-
     if donation.save
       redirect_to donations_path, notice: "Donation was successfully created."
     else
@@ -13,8 +12,6 @@ class DonationsController < ApplicationController
   end
 
   def update
-    donation.attributes = donation_params
-
     if donation.save
       redirect_to donations_path, notice: "Donation was successfully updated."
     else
@@ -26,14 +23,6 @@ class DonationsController < ApplicationController
     donation.destroy
 
     redirect_to donations_path, notice: "Donation deleted."
-  end
-
-  def donation
-    @cache_donation ||= Donation.find_or_initialize_by_id(params[:id])
-  end
-
-  def donations
-    @cache_donations ||= Donation.all
   end
 
   private

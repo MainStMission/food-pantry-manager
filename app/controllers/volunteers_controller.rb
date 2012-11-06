@@ -1,10 +1,9 @@
 # -*- encoding : utf-8 -*-
 class VolunteersController < ApplicationController
-  helper_method :volunteer, :volunteers
+  expose(:volunteer)
+  expose(:volunteers)
 
   def create
-    volunteer.attributes = volunteer_params
-
     if volunteer.save
       redirect_to volunteer, notice: 'Volunteer was successfully created.'
     else
@@ -13,7 +12,7 @@ class VolunteersController < ApplicationController
   end
 
   def update
-    if volunteer.update_attributes(volunteer_params)
+    if volunteer.save
       redirect_to volunteer, notice: 'Volunteer was successfully updated.'
     else
       render action: "edit"
@@ -38,14 +37,6 @@ class VolunteersController < ApplicationController
     redirect_to time_clock_path
   end
 
-  def volunteer
-    @cache_voluteer ||= Volunteer.find_or_initialize_by_id(params[:id])
-  end
-
-  def volunteers
-    Volunteer.all
-  end
-
   private
 
   def allowable
@@ -58,5 +49,4 @@ class VolunteersController < ApplicationController
   def volunteer_params 
     params.require(:volunteer).permit(*allowable)
   end
-
 end
