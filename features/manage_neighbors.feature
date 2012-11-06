@@ -11,13 +11,14 @@ Scenario: Creating a neighbor
       |city | China Grove |
       |state | NC |
       |zip | 28023 |
-      |ss_numb | 023-56-4431 |
+      |ssn| 023-56-4431 |
       |monthly_income | 400.11 |
       |food_stamps |  200.33 |
       |rent | 120.22 |
       |utilities | 250.44 |
       |number_of_children | 3 |
       |proof_of_residency_type | passport |
+      |notes | One child is diabetic. |
 
     Then I should see Anne
 

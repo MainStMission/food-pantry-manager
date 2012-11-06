@@ -1,9 +1,8 @@
 # -*- encoding : utf-8 -*-
 class Volunteer < ActiveRecord::Base
-  has_many :time_cards
+  include ActiveModel::ForbiddenAttributesProtection
 
-  attr_accessible :city, :email, :first_name, :last_name, :phone, :state,
-    :status, :street, :zip
+  has_many :time_cards
 
   def name
     "#{first_name} #{last_name}"

@@ -7,13 +7,14 @@ default_attributes = {
   :city => 'Glendale',
   :state => 'CA',
   :zip => '91201',
-  :ss_numb => '023-45-4321',
+  :ssn => '023-45-4321',
   :monthly_income => 250.00,  
   :food_stamps => 150.00,
   :rent => 240.00,
   :utilities => 275.00,
   :number_of_children => 4,
   :proof_of_residency_type => 'green card',
+  :notes => 'Has small freezer.',
 }
 
 Given /^a neighbor exists$/ do
@@ -50,14 +51,13 @@ Then /^I should see Anne$/ do
   @attributes.each do |attr, val|
     node = find(:xpath, "//*[(@id = 'neighbor_#{attr}')]")
     val = val.capitalize if val == "passport"
-    node.value.should == val
+    node.value.should have_content val
   end
 end
 
 Then /^I should see the new attributes for the neighbor$/ do
-  page.should have_content(@neighbor.reload.first_name)
+  page.should have_content('Tom')
 end
-
 
 Then /^I should not see the neighbor$/ do
   page.should_not have_content(@neighbor.first_name)
