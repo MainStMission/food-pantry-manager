@@ -115,6 +115,8 @@ GEM
     json (1.7.5)
     launchy (2.1.2)
       addressable (~> 2.3)
+    libnotify (0.8.0)
+      ffi (>= 1.0.11)
     libwebsocket (0.1.5)
       addressable
     listen (0.4.7)
@@ -136,6 +138,8 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.3.1)
+    pry-rails (0.2.2)
+      pry (>= 0.9.10)
     puma (1.6.3)
       rack (~> 1.2)
     rack (1.4.1)
@@ -188,6 +192,7 @@ GEM
       activesupport (>= 3.0)
       railties (>= 3.0)
       rspec (~> 2.11.0)
+    ruby_gntp (0.3.4)
     rubyzip (0.9.9)
     sass (3.2.1)
     sass-rails (3.2.5)
@@ -248,18 +253,24 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   launchy
+  libnotify
   pg
-  pry
+  pry-rails
   puma
   rack-livereload
   rails (= 3.2.8)
   rails_setup (~> 0.0.2)
+  rb-fchange
   rb-fsevent
+  rb-inotify
+  rb-notifu
   rspec-rails
+  ruby_gntp
   sass-rails (~> 3.2.3)
   simple_form
   sqlite3
   strong_parameters
   timecop
   uglifier (>= 1.0.3)
+  win32console
   yajl-ruby

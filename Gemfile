@@ -5,13 +5,12 @@ source :rubygems
 
 gem "rails", "3.2.8"
 gem "pg"
-gem "sqlite3"
+gem "sqlite3", :group => [:development, :test]
 
 gem "puma"
 gem "rails_setup", "~> 0.0.2"
 gem "devise", "~> 2.1.2"
-gem 'attr_encryptor'
-gem 'strong_parameters'
+gem "strong_parameters"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -30,6 +29,7 @@ gem "jquery-rails"
 gem "haml-rails"
 gem "bourbon"
 gem "simple_form"
+gem "attr_encryptor"
 gem "decent_exposure", "~> 2.0.0"
 
 group :test do
@@ -40,20 +40,15 @@ group :test do
   gem "factory_girl_rails", "~> 4.0"
 end
 
-guard_notifications = false
 group :development do
-  case HOST_OS
-  when /darwin/i
-    gem "rb-fsevent"
-    gem "ruby_gntp" if guard_notifications
-  when /linux/i
-    gem "libnotify"
-    gem "rb-inotify"
-  when /mswin|windows/i
-    gem "rb-fchange"
-    gem "win32console"
-    gem "rb-notifu" if guard_notifications
-  end
+  gem "rb-fsevent", :require => RUBY_PLATFORM.include?("darwin") && "rb-fsevent"
+  gem "ruby_gntp", :require => RUBY_PLATFORM.include?("darwin") && "ruby_gntp"
+  gem "libnotify", :require => RUBY_PLATFORM.include?("linux") && "libnotify"
+  gem "rb-inotify", :require => RUBY_PLATFORM.include?("linux") && "rb-inotify"
+
+  gem "rb-fchange", :platform => :mswin
+  gem "win32console", :platform => :mswin
+  gem "rb-notifu", :platform => :mswin
 
   gem "guard-livereload"
   gem "yajl-ruby"
@@ -65,5 +60,5 @@ end
 
 group :development, :test do
   gem "rspec-rails"
-  gem "pry"
+  gem "pry-rails"
 end
