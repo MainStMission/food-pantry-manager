@@ -1,0 +1,3 @@
+<% unless volunteers.empty? %>
+  $("#volunteers").html("<%=raw escape_javascript(render(volunteers)) %>");
+<% end %>
