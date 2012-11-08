@@ -13,7 +13,8 @@ FoodPantry::Application.routes.draw do
     end
   end
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "users/registrations", :passwords => "users/passwords"}
+
   scope "/admin" do
     resources :users
   end
@@ -22,6 +23,7 @@ FoodPantry::Application.routes.draw do
   authenticated :user do
     root :to => "users#index"
   end
+
 
   root :to => redirect("/users/sign_in")
 end
