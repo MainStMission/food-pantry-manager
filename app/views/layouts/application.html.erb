@@ -6,7 +6,7 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", "header" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -42,7 +42,7 @@
 	  <ul class="nav pull-right">
 	  <% if user_signed_in? %>
             <li class="dropdown">
-              <a class="dropbox-toggle" href="#" data_toggle="dropdown">
+              <a class="dropdown-toggle" href="#" data_toggle="dropdown">
 		Profile <b class="caret"></b>
 	      </a>
               <ul class="dropdown-menu">
@@ -67,4 +67,3 @@
   </div>
 </body>
 </html>
-

@@ -18,6 +18,7 @@ FoodPantry::Application.routes.draw do
   scope "/admin" do
     resources :users
   end
+
   match 'time_clock' => 'time_clock#show'
 
   authenticated :user do
