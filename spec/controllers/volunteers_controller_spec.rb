@@ -4,27 +4,6 @@ require_relative "../spec_helper"
 describe VolunteersController do
   let!(:volunteer) { FactoryGirl.create(:volunteer) }
 
-  describe "#volunteer" do
-    context "given a volunteer exists" do
-      it "finds the volunteer with an id" do
-        controller.params[:id] = volunteer.id
-        expect(controller.volunteer).to eq(volunteer)
-      end
-    end
-
-    context "no volunteer" do
-      it "initializes a new volunteer" do
-        expect(controller.volunteer).to be_new_record
-      end
-    end
-  end
-
-  describe "#volunteers" do
-    it "returns all of the volunteers" do
-      expect(controller.volunteers).to eq([volunteer])
-    end
-  end
-
   describe "GET sign_in" do
     it "signs in the volunteer" do
       get :sign_in, {id: volunteer.to_param}

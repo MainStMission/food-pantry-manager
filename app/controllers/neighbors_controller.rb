@@ -1,14 +1,10 @@
 # -*- encoding : utf-8 -*-
 class NeighborsController < ApplicationController
+  expose(:neighbor)
+  expose(:neighbors)
   helper_method :neighbor, :neighbors
 
-  def edit
-    @neighbor = Neighbor.find(params[:id])
-  end
-
   def create
-    neighbor.attributes = neighbor_params
-
     if neighbor.save
       redirect_to neighbors_path, notice: 'Neighbor was successfully created.'
     else
@@ -17,8 +13,6 @@ class NeighborsController < ApplicationController
   end
 
   def update
-    neighbor.attributes = neighbor_params
-     
     if neighbor.save
       redirect_to neighbors_path, notice: 'Neighbor was successfully updated.'
     else
@@ -30,14 +24,6 @@ class NeighborsController < ApplicationController
     neighbor.destroy
 
     redirect_to neighbors_path
-  end
-
-  def neighbor
-    @neighbor ||= params[:id] ? Neighbor.find(params[:id]) : Neighbor.new
-  end
-
-  def neighbors
-    @cache_neighbors ||= Neighbor.all
   end
 
   private
@@ -55,5 +41,4 @@ class NeighborsController < ApplicationController
   def neighbor_params
     params.require(:neighbor).permit(*allowable)
   end
-
 end
