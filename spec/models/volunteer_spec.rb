@@ -51,3 +51,9 @@ describe Volunteer do
   end
 end
 
+describe NotSignedInTime do
+  it "prints a helpful message" do
+    NotSignedInTime.to_s.should match(/not signed in/i)
+  end
+end
+

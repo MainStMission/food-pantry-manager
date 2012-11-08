@@ -1,5 +1,10 @@
 # -*- encoding : utf-8 -*-
 NotSignedInTime = Object.new
+class << NotSignedInTime
+  def to_s
+    "<TimeCard: Not signed in>"
+  end
+end
 
 class TimeCard < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
