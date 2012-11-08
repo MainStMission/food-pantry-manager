@@ -23,5 +23,5 @@ FoodPantry::Application.routes.draw do
     root :to => "users#index"
   end
 
-  root :to => "users#sign_in"
+  root :to => redirect("/users/sign_in")
 end
