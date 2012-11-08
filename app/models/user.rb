@@ -8,4 +8,12 @@ class User < ActiveRecord::Base
   def name
     [first_name, last_name].join(' ')
   end
+  
+  def name_with_email
+    if name.blank?
+      email
+    else
+      "#{name} (#{email})"
+    end
+  end
 end
