@@ -5,13 +5,13 @@
     %table.table.table-striped
       %thead
         %tr
-          %th Email
+          %th User
           %th Created At
           %th Actions
       %tbody
         - users.each do |user|
           %tr
-            %td= link_to user.name_with_email, user_path(user)
+            %td= user.name_with_email
             %td= user.created_at
             %td
               = link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini'
