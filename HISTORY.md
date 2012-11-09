@@ -49,7 +49,7 @@ for our non technical folks to keep up with the techies
 So where else other than Rails could we get Anne, Robin and Tom squared
 here in China Grove working with Corey in Pennsylvania, Jordan in Connecticut,
 Shane in Seattle and others yet to come working together on a project like
-this.to help make it easier for a few folks in China Grove down on their
+this to help make it easier for a few folks in China Grove down on their
 luck to get something to eat.
 
 [jb]: http://jordanbyron.com
