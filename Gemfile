@@ -7,7 +7,7 @@ gem "rails", "3.2.8"
 gem "pg"
 gem "sqlite3", :group => [:development, :test]
 
-em "puma"
+gem "puma"
 gem "rails_setup", "~> 0.0.2"
 gem "devise", "~> 2.1.2"
 gem "strong_parameters"
