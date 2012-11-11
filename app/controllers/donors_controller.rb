@@ -37,5 +37,3 @@ class DonorsController < ApplicationController
     params.require(:donor).permit(*allowable)
   end
 end
-  end
-end
