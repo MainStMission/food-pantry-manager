@@ -35,7 +35,6 @@ test/version_tmp
 tmp
 .rbx
 config/config.yml
-config/database.yml
 
 db/*.db
 

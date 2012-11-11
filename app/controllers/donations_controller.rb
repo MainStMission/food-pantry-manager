@@ -36,18 +36,4 @@ class DonationsController < ApplicationController
   def donation_params
     params.require(:donation).permit(*allowable)
   end
-  
-=======
-  private
-
-  def allowable
-    [
-      :weight, :donor_id
-    ]
-  end
-
-  def donation_params
-    params.require(:donation).permit(*allowable)
-  end
->>>>>>> upstream/master
 end
