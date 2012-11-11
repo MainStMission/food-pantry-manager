@@ -4,7 +4,7 @@
   .content
     %table.table
       %tbody
-        - @volunteers.each do |volunteer|
+        - volunteers.each do |volunteer|
           =content_tag_for(:tr, volunteer) do
             %td= volunteer.name
             - if volunteer.signed_in?

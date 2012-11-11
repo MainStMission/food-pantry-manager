@@ -1,8 +1,9 @@
+# -*- encoding : utf-8 -*-
 # stolen from rstat.us
 
 require 'fileutils'
 
-unless Rails.env.production?
+unless Rails.env.production? || Rails.env.staging?
   config_file = Rails.root.join("config/config.yml")
   FileUtils.cp((config_file.to_s + ".example"), config_file) unless config_file.exist?
 
