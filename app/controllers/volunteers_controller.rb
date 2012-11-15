@@ -46,4 +46,7 @@ class VolunteersController < ApplicationController
     ]
   end
 
+  def volunteer_params 
+    params.require(:volunteer).permit(*allowable)
+  end
 end

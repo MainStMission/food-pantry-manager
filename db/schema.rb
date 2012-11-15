@@ -50,10 +50,10 @@ ActiveRecord::Schema.define(:version => 20121103152027) do
     t.boolean  "smokes"
     t.datetime "created_at",                                            :null => false
     t.datetime "updated_at",                                            :null => false
+    t.text     "notes"
     t.string   "encrypted_ssn"
     t.string   "encrypted_ssn_iv"
     t.string   "encrypted_ssn_salt"
-    t.text     "notes"
   end
 
   create_table "time_cards", :force => true do |t|

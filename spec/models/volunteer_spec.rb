@@ -15,7 +15,7 @@ describe Volunteer do
   after do
     Timecop.return
   end
-  
+
   its(:name) { should eq("Kermit Frog") }
 
   specify "#sign_in signs in a volunteer with the current time" do
