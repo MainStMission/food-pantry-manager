@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121103152027) do
+ActiveRecord::Schema.define(:version => 20121117193838) do
 
   create_table "donations", :force => true do |t|
     t.integer  "donor_id"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(:version => 20121103152027) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "family_members", :force => true do |t|
+    t.string   "name"
+    t.string   "encrypted_ssn"
+    t.integer  "age"
+    t.string   "relation"
+    t.string   "neighbor_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "neighbors", :force => true do |t|
@@ -50,10 +60,10 @@ ActiveRecord::Schema.define(:version => 20121103152027) do
     t.boolean  "smokes"
     t.datetime "created_at",                                            :null => false
     t.datetime "updated_at",                                            :null => false
-    t.text     "notes"
     t.string   "encrypted_ssn"
     t.string   "encrypted_ssn_iv"
     t.string   "encrypted_ssn_salt"
+    t.text     "notes"
   end
 
   create_table "time_cards", :force => true do |t|
