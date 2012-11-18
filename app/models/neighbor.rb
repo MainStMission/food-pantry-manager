@@ -4,6 +4,7 @@ class Neighbor < ActiveRecord::Base
 
   attr_encrypted :ssn, :key => Rails.application.config.secret_token
 
+  has_many :family_members
   def name
     "#{first_name} #{last_name}"
   end
