@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121119052553) do
+ActiveRecord::Schema.define(:version => 20121119052903) do
 
   create_table "donations", :force => true do |t|
     t.integer  "donor_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20121119052553) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "person_id",  :null => false
   end
 
   create_table "neighbors", :force => true do |t|
@@ -50,10 +51,11 @@ ActiveRecord::Schema.define(:version => 20121119052553) do
     t.boolean  "smokes"
     t.datetime "created_at",                                            :null => false
     t.datetime "updated_at",                                            :null => false
-    t.text     "notes"
     t.string   "encrypted_ssn"
     t.string   "encrypted_ssn_iv"
     t.string   "encrypted_ssn_salt"
+    t.text     "notes"
+    t.integer  "person_id",                                             :null => false
   end
 
   create_table "people", :force => true do |t|
@@ -85,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20121119052553) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "person_id",                              :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -102,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20121119052553) do
     t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "person_id",  :null => false
   end
 
 end

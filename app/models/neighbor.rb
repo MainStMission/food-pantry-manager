@@ -2,6 +2,8 @@
 class Neighbor < ActiveRecord::Base  
   include ActiveModel::ForbiddenAttributesProtection
 
+  belongs_to :person
+
   attr_encrypted :ssn, :key => Rails.application.config.secret_token
 
   def name

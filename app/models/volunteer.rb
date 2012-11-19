@@ -2,6 +2,8 @@
 class Volunteer < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
 
+  belongs_to :person
+
   has_many :time_cards
 
   def name
