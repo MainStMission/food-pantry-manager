@@ -2,6 +2,8 @@
 class User < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
 
+  belongs_to :person
+
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
     :trackable, :validatable
 
