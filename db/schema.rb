@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121103152027) do
+ActiveRecord::Schema.define(:version => 20121119052553) do
 
   create_table "donations", :force => true do |t|
     t.integer  "donor_id"
@@ -54,6 +54,13 @@ ActiveRecord::Schema.define(:version => 20121103152027) do
     t.string   "encrypted_ssn"
     t.string   "encrypted_ssn_iv"
     t.string   "encrypted_ssn_salt"
+  end
+
+  create_table "people", :force => true do |t|
+    t.string   "first_name", :null => false
+    t.string   "last_name",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "time_cards", :force => true do |t|
