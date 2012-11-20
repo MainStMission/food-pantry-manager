@@ -34,7 +34,7 @@ class NeighborsController < ApplicationController
       :food_stamps, :last_name, :monthly_income, :notes, :number_of_children,
       :open_date, :phone, :proof_of_residency_type, :rent, :residency_date,
       :proof_of_residency_type, :smokes, :spouse, :ssn, :state, :street,
-      :utilities, :zip ,:created_at, :updated_at
+      :utilities, :zip ,:created_at, :updated_at, :family_member_attributes
     ]
   end
 
