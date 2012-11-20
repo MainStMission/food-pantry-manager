@@ -8,13 +8,15 @@
   = f.input  :phone,     :label => 'Phone', :input_html => { :class => "span2" }
   = f.input  :ssn,   :label => 'Social Security Number', :input_html => { :class => "span1" }
   = f.input  :spouse,   :label => 'Spouse'
+  = f.simple_fields_for :family_member do |spouse_form|
+    = spouse_form.input :Name
+    = spouse_form.input :age
+    = spouse_form.input :encrypted_ssn, :label => "Spouse's Social Security number"
+  = f.input  :number_of_children, :label => 'Number of Children', :input_html => { :class => "span1" }
   = f.simple_fields_for :family_member do |family_form|
     = family_form.input :Name
     = family_form.input :age
-    = family_form.input :encrypted_ssn, :label => "Spouse's Social Security"
-  -#= render :partial  =>  'family_member', :collection  => :neigbor.family_members
-  = f.input  :number_of_children, :label => 'Number of Children', :input_html => { :class => "span1" }
-  = f.input  :family_members
+    = family_form.input :encrypted_ssn, :label => "Social Security number"
   = f.input  :smokes, :label => 'Smoke?'
   = f.input   :monthly_income, :label => 'Monthly Income' , :input_html => { :class => "span1" }
   = f.input   :food_stamps, :label => 'Food Stamps', :input_html => { :class => "span1" }
