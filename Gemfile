@@ -1,29 +1,10 @@
-require "rbconfig"
 HOST_OS = RbConfig::CONFIG["host_os"]
 
 source :rubygems
 
 gem "rails", "3.2.8"
-
-# Database Configuration
-  unless ENV['TRAVIS']
-   gem 'activerecord-jdbcsqlite3-adapter', :platform => :jruby
-   gem 'sqlite3', :platform => :ruby, :group  => [:development, :test]
-  end
-
-  unless ENV['TRAVIS'] && ENV['DB'] != 'mysql'
-    gem 'activerecord-jdbcmysql-adapter', :platform => :jruby
-    gem 'mysql2', :platform => :ruby
-  end
-
-  unless ENV['TRAVIS'] && ENV['DB'] != 'postgresql'
-    gem 'activerecord-jdbcpostgresql-adapter', :platform => :jruby
-    gem 'pg', :platform => :ruby 
-  end
-
-   gem 'jruby-openssl', :platform => :jruby
-   gem 'json-jruby', :platform  => :jruby
-   gem 'yajl-ruby', :platform  => :ruby
+gem "pg"
+gem "sqlite3", :group => [:development, :test]
 
 gem "puma"
 gem "rails_setup", "~> 0.0.2"
@@ -56,7 +37,6 @@ group :test do
   gem "database_cleaner"
   gem "launchy"
   gem "factory_girl_rails", "~> 4.0"
-  gem "poltergeist"
 end
 
 group :development do
@@ -70,7 +50,7 @@ group :development do
   gem "rb-notifu", :platform => :mswin
 
   gem "guard-livereload"
-
+  gem "yajl-ruby"
   gem "rack-livereload"
   gem "guard-cucumber"
   gem "guard-rspec"
