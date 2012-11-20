@@ -13,15 +13,3 @@ describe FamilyMember do
 
  it {should be_valid}
 end
-
-##describe "when neighbor_id is not present" do
-      #before { @family_member.neighbor_id = nil }
-          #it { should_not be_valid }
-            #end
-
- #describe "accesible attributes" do
-   #it "should not allow access to neighbor_id" do
-     #expect do
-       #FamilyMember.new(neighbor_id: neighbor.id)
-     #end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
-   #end
