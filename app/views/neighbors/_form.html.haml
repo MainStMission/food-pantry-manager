@@ -7,8 +7,14 @@
   = f.input  :zip,       :label => 'Zip', :input_html => { :class => "span1" }
   = f.input  :phone,     :label => 'Phone', :input_html => { :class => "span2" }
   = f.input  :ssn,   :label => 'Social Security Number', :input_html => { :class => "span1" }
-  = f.input  :spouse,    :label => 'Spouse'
+  = f.input  :spouse,   :label => 'Spouse'
+  = f.simple_fields_for :family_member do |family_form|
+    = family_form.input :Name
+    = family_form.input :age
+    = family_form.input :encrypted_ssn, :label => "Spouse's Social Security"
+  -#= render :partial  =>  'family_member', :collection  => :neigbor.family_members
   = f.input  :number_of_children, :label => 'Number of Children', :input_html => { :class => "span1" }
+  = f.input  :family_members
   = f.input  :smokes, :label => 'Smoke?'
   = f.input   :monthly_income, :label => 'Monthly Income' , :input_html => { :class => "span1" }
   = f.input   :food_stamps, :label => 'Food Stamps', :input_html => { :class => "span1" }
@@ -18,6 +24,5 @@
   = f.input   :proof_of_residency_type, :label => 'Proof of Residency',:collection => [:Passport, :Drivers_License,:Green_Card]
   = f.input   :date_of_proof, :as=> 'date', :label => 'Date of Proof of Residency' , :input_html => { :class => "span1" }
   = f.input   :notes, :label => 'Notes', :input_html => { :class => "span2", :rows => "5" }
-  = f.button  :submit, :class => 'btn-primary', :label=> 'Save' 
-  / = link_to 'Edit', edit_neighbor_path(neighbor), :class => 'btn btn-mini'
-  
+  = f.button  :submit, :class => 'btn-primary', :label=> 'Save'
+  -#= link_to 'Edit', edit_neighbor_path(neighbor), :class => 'btn btn-mini'
