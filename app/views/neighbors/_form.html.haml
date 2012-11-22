@@ -9,17 +9,18 @@
   = f.input  :ssn,   :label => 'Social Security Number', :input_html => { :class => "span1" }
   = f.input  :spouse,   :label => 'Spouse'
   = f.simple_fields_for :family_member do |spouse_form|
-    = spouse_form.input :relation, :default  => 'spouse'
-    = spouse_form.input :Name
-    = spouse_form.input :age
-    = spouse_form.input :encrypted_ssn, :label => "Spouse's Social Security number"
+    %fieldset.income
+      = spouse_form.input :relation, :default  => 'spouse'
+      = spouse_form.input :Name
+      = spouse_form.input :age, :input_html  => {:class  => "span1"}
+      = spouse_form.input :encrypted_ssn, :label => "Spouse's Social Security number"
   = f.input  :number_of_children, :label => 'Number of Children', :input_html => { :class => "span1" }
   = f.simple_fields_for :family_member do |family_form|
     = family_form.input :Name
     = family_form.input :age
     = family_form.input :encrypted_ssn, :label => "Social Security number"
   = f.input  :smokes, :label => 'Smoke?'
-  .income
+  #fieldset.income
     = f.input   :monthly_income, :label => 'Monthly Income ' ,:as => :currency, :input_html => { :class => "span1" }
     = f.input   :food_stamps, :label => 'Food Stamps',:as => :currency, :input_html => { :class => "span1" }
   = f.input   :rent, :label => '.  Rent' , :as => :currency, :input_html => { :class => "span1" }
