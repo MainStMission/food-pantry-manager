@@ -2,7 +2,7 @@
 class NeighborsController < ApplicationController
   expose(:neighbor)
   expose(:neighbors)
-  helper_method :neighbor, :neighbors
+  
 
   def create
     if neighbor.save
