@@ -6,7 +6,10 @@ FoodPantry::Application.routes.draw do
 
   resources :donors
 
-  resources :neighbors
+  resources :neighbors do
+      resources :family_members
+    end
+
 
   resources :volunteers do
     member do
