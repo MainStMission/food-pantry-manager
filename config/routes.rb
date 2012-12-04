@@ -1,10 +1,16 @@
 # -*- encoding : utf-8 -*-
 FoodPantry::Application.routes.draw do
+  resources :family_members
+
   resources :donations
 
   resources :donors
 
-  resources :neighbors
+  resources :neighbors do
+      resources :family_members
+    end
+
+
 
   resources :volunteers do
     member do
