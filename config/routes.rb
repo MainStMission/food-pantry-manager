@@ -11,6 +11,7 @@ FoodPantry::Application.routes.draw do
     end
 
 
+
   resources :volunteers do
     member do
       get :sign_in
