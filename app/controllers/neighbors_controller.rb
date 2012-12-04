@@ -1,8 +1,9 @@
+
 # -*- encoding : utf-8 -*-
 class NeighborsController < ApplicationController
   expose(:neighbor)
   expose(:neighbors)
-  
+
 
   def create
     if neighbor.save
