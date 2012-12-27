@@ -239,6 +239,8 @@ GEM
     xpath (1.0.0)
       nokogiri (~> 1.3)
     yajl-ruby (1.1.0)
+    zeus (0.13.2)
+      method_source (>= 0.6.7)
 
 PLATFORMS
   ruby
@@ -282,3 +284,4 @@ DEPENDENCIES
   uglifier
   win32console
   yajl-ruby
+  zeus

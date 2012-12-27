@@ -49,4 +49,5 @@ group :development, :test do
   gem "timecop"
   gem "sqlite3"
   gem "foreman"
+  gem "zeus"
 end
