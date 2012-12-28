@@ -6,6 +6,8 @@ FoodPantry::Application.routes.draw do
 
   resources :neighbors
 
+  resources :visits
+
   resources :volunteers do
     member do
       get :sign_in
