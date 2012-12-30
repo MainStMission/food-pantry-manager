@@ -1,0 +1,24 @@
+.panel
+  %header
+    %h1 Visits to MSM
+  .content
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Neighbor
+          %th Family Members
+          %th Visited On
+      %tbody
+      - visits.each do |visit|
+
+        %td= link_to visit.neighbor_name, neighbor_path(visit.neighbor_id)
+        %td= visit.neighbor_number_of_children
+        %td= visit.visited_on
+        %td
+          = link_to 'Edit', edit_visit_path(visit), class: 'btn btn-mini'
+          = link_to 'Destroy', visit, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+
+    %br
+
+    = link_to 'New Visit', new_visit_path, class: 'btn btn-primary'
+
