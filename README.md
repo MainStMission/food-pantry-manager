@@ -18,7 +18,7 @@ You can read a bit more about the mission and this project in Tom's
 ## Why Should You Help?
 
 The mission provides food for about 250 families each month. About 200 children are given school supplies each August. The mission also
-provides meals for families on holidays. This is only one food pantry in the US. In [2010 5.6 million households](http://feedingamerica.org/hunger-in-america/hunger-facts/hunger-and-poverty-statistics.aspx)
+provides meals for families on holidays. This is only one food pantry in the US. In [2011 6.1 million households (5.1%)](http://feedingamerica.org/hunger-in-america/hunger-facts/hunger-and-poverty-statistics.aspx)
 accessed emergency food at a pantry in the US. Contributing to this project gives you an opportunity to help this organization and the people
 it serves. Are you trying to learn Ruby on Rails? Great, we would love to help you learn and it gives you an excellent example to add to
 your resume/cv while contributing to a project that helps people.
