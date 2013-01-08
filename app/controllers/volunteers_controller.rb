@@ -26,9 +26,11 @@ class VolunteersController < ApplicationController
   end
 
   def sign_in
-    volunteer.sign_in
-
-    redirect_to time_clock_path
+    if volunteer.sign_in
+      redirect_to time_clock_path
+    else
+      redirect_to time_clock_path, :notice  => "Already signed in."
+    end
   end
 
   def sign_out
