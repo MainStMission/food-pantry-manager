@@ -35,6 +35,8 @@ class TimeCard < ActiveRecord::Base
   def self.sign_in_time(volunteer)
     if signed_in?(volunteer)
       where(volunteer_id: volunteer.id, end_time: nil).first.start_time
+    else
+      NotSignedInTime
     end
   end
 end

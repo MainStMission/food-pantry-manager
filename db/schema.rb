@@ -28,16 +28,6 @@ ActiveRecord::Schema.define(:version => 20121228163021) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "family_members", :force => true do |t|
-    t.string   "name"
-    t.string   "encrypted_ssn"
-    t.integer  "age"
-    t.string   "relation"
-    t.string   "neighbor_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "neighbors", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
