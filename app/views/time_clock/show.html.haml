@@ -3,16 +3,8 @@
     %h1 Volunteer Signin
   .content
     %table.table
-      %tbody
-        - volunteers.each do |volunteer|
-          =content_tag_for(:tr, volunteer) do
-            %td= volunteer.name
-            - if volunteer.signed_in?
-              %td= time_tag volunteer.sign_in_time
-              %td= link_to "Sign Out", sign_out_volunteer_path(volunteer), class: 'btn'
-            - else
-              %td
-              %td= link_to "Sign In", sign_in_volunteer_path(volunteer), class: 'btn'
+      %tbody#volunteers
+        = render volunteers
 
 
 

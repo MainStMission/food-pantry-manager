@@ -45,8 +45,15 @@ describe Volunteer do
       expect(volunteer.sign_in_time).to eq(now)
     end
 
-    specify "returns ??? if a volunteer hasn't signed in" do
-      pending "nils are bad, what should be returned?"
+    specify "returns NotSignedInTime if a volunteer hasn't signed in" do
+      expect(volunteer.sign_in_time).to eq(NotSignedInTime)
     end
   end
 end
+
+describe NotSignedInTime do
+  it "prints a helpful message" do
+    NotSignedInTime.to_s.should match(/not signed in/i)
+  end
+end
+

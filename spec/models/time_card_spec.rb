@@ -24,6 +24,13 @@ describe TimeCard do
 
       expect(start_time).to eq(DateTime.now)
     end
+
+    context "an open card exists" do
+      it "does not allow the second card to be created" do
+        TimeCard.clock_in(volunteer)
+        expect{ TimeCard.clock_in(volunteer)}.to_not change { TimeCard.count }
+      end
+    end
   end
 
   describe ".clock_out" do
