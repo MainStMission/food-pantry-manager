@@ -37,9 +37,8 @@ describe Neighbor do
     end
 
     it "should be encrypted" do
-      neighbor_id = neighbor.id
-      neighbor = Neighbor.find_by_id(neighbor_id)
-
+      neighbor = Neighbor.new
+      neighbor.ssn = SSN
       neighbor.ssn.should == SSN
       neighbor.encrypted_ssn.should_not == SSN
     end
