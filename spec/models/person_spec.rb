@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Person do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_many(:relations).through(:households) }
+  it { should have_many(:inverse_relations).through(:inverse_relationships)}
 end
+
