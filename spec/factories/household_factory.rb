@@ -1,10 +1,8 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
+# -*- encoding : utf-8 -*-
 
 FactoryGirl.define do
   factory :household do
-    factory :household_with_neighbors do
-      after_create {|instance| create_list(:neighbor, 3, household:instance)}
-    end
+    household_name 'Corriher'
   end
 end
 

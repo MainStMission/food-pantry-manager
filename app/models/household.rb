@@ -1,7 +1,7 @@
 class Household < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
 
-  validates :household_name, presence: true, uniqueness: true
+  validates :household_name, presence: true , uniqueness: true
 
   has_many :neighbors
   attr_accessible :household_name

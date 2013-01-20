@@ -6,7 +6,7 @@ describe Household do
   it { should have_many(:neighbors) }
 
   it 'has a valid factory' do
-    FactoryGirl.create(:household, household_name: 'Jones').should be_valid
+    FactoryGirl.create(:household, household_name: 'James').should be_valid
   end
 
   it 'should be invalid without a household_name' do
@@ -19,14 +19,11 @@ describe Household do
   end
 
   it 'should not allow duplicates - make sure ok if different' do
-    FactoryGirl.create(:household, household_name: 'Jones')
+    FactoryGirl.create(:household, household_name: 'Jenkins')
     FactoryGirl.build(:household, household_name: 'Brooke').should be_valid
   end
 
-  it 'can have a neighbor' do
-    FactoryGirl.create(:household, household_name: 'Jones').
-
-
-  end
+    let(:household) { FactoryGirl.create(:household, household_name: 'Jones') }
+    before { @neighbor = household.neighbors.build(last_name: 'Gladwell')}
 
 end
