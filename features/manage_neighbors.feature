@@ -3,8 +3,8 @@ Feature: Manage Neighbors
 
 Scenario: Creating a neighbor
     When I create a neighbor with these attributes
-
       |first_name | Anne |
+      |middle_name|Helms |
       |last_name | Corriher|
       |phone | 555-111-2222 |
       |street | 1201 Main Street |
@@ -19,7 +19,6 @@ Scenario: Creating a neighbor
       |number_of_children | 3 |
       |proof_of_residency_type | passport |
       |notes | One child is diabetic. |
-
     Then I should see Anne
 
   Scenario: Editing a neighbor
