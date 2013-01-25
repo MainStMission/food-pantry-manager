@@ -1,3 +1,5 @@
+# -*- encoding : utf-8 -*-
+
 class HouseholdsController < ApplicationController
 
   expose(:household)
