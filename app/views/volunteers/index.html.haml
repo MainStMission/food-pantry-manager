@@ -16,7 +16,7 @@
       - volunteers.each do |volunteer|
         %tr
           %td= link_to volunteer.name, volunteer_path(volunteer)
-          %td= volunteer.email
+          %td= mail_to volunteer.email
           %td= volunteer.phone
           %td= volunteer.status
           %td
