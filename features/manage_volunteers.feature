@@ -18,7 +18,7 @@ Feature: Manage Volunteers
   Scenario: Editing a volunteer
     Given a volunteer exists
     When I edit a volunteer with new attributes
-    When I should see the new attributes for it
+    When I should see the new attributes for the volunteer
 
   Scenario: Deleting a volunteer
     Given a volunteer exists

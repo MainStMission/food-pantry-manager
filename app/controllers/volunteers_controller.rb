@@ -5,7 +5,7 @@ class VolunteersController < ApplicationController
 
   def create
     if volunteer.save
-      redirect_to volunteer, notice: 'Volunteer was successfully created.'
+      redirect_to volunteers_path, notice: 'Volunteer was successfully created.'
     else
       render action: "new"
     end
@@ -13,7 +13,7 @@ class VolunteersController < ApplicationController
 
   def update
     if volunteer.save
-      redirect_to volunteer, notice: 'Volunteer was successfully updated.'
+      redirect_to volunteers_path, notice: 'Volunteer was successfully updated.'
     else
       render action: "edit"
     end

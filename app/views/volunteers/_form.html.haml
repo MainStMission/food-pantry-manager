@@ -5,33 +5,13 @@
       %ul
         - volunteer.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :first_name
-    = f.text_field :first_name
-  .field
-    = f.label :last_name
-    = f.text_field :last_name
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :phone
-    = f.text_field :phone
-  .field
-    = f.label :street
-    = f.text_field :street
-  .field
-    = f.label :city
-    = f.text_field :city
-  .field
-    = f.label :state
-    = f.text_field :state
-  .field
-    = f.label :zip
-    = f.text_field :zip
-  .field
-    = f.label :status
-    = f.text_field :status
-  .actions
-    = f.submit 'Save', :class => 'btn btn-primary'
+  =f.input  :first_name, label: 'First Name'
+  =f.input  :last_name, label: 'Last Name'
+  =f.input  :email, label: 'Email'
+  =f.input  :phone, label: 'Phone'
+  =f.input  :street,label: 'Street'
+  =f.input :city,   label: 'City'
+  =f.input :state,  label: 'State', input_html: { class: 'span2' }, placeholder: 'North Carolina'
+  =f.input :zip,    label: 'Zip', input_html: {class: 'span1'}
+  =f.input :status, label: 'Status', collection: [:Active, :In_Active]
+  =f.button :submit, class: 'btn btn-primary', label: 'Save'

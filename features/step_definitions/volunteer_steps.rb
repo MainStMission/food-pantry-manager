@@ -1,14 +1,14 @@
 # -*- encoding : utf-8 -*-
 default_attributes = {
-    :first_name => 'Kermit',
-    :last_name => 'Frog',
-    :email => 'kermit@example.com',
-    :street => '1201 Grand Central Avenue',
-    :city => 'Glendale',
-    :state => 'CA',
-    :zip => '91201',
-    :status => 'active',
-    :phone => '555-999-2222'
+    first_name: 'Kermit',
+    last_name: 'Frog',
+    email: 'kermit@example.com',
+    street: '1201 Grand Central Avenue',
+    city: 'Glendale',
+    state: 'CA',
+    zip: '91201',
+    status: 'active',
+    phone: '555-999-2222'
 }
 
 Given /^a volunteer exists$/ do
@@ -20,15 +20,16 @@ When /^I create a volunteer with these attributes$/ do |table|
   visit new_volunteer_path
 
   @attributes.each do |attr, val|
-    fill_in "volunteer_#{attr}", :with => val
+    fill_in "volunteer_#{attr}", with: val unless attr == 'status'
   end
-  click_button "Save"
+  select(@attributes.fetch('status').capitalize, from: 'volunteer_status')
+  click_button "Create Volunteer"
 end
 
 When /^I edit a volunteer with new attributes$/ do
   visit edit_volunteer_path(@volunteer)
-  fill_in "volunteer[first_name]", :with => 'Piggie'
-  click_button 'Save'
+  fill_in "volunteer[first_name]", with: 'Piggie'
+  click_button 'Update Volunteer'
 end
 
 When /^I delete the volunteer$/ do
@@ -62,12 +63,14 @@ Then /^I should see Gonzo$/ do
 
   click_link("Edit")
   @attributes.each do |attr, val|
-    page.should have_xpath("//input[@value='#{val}']")
+    node = find(:xpath, "//*[(@id = 'volunteer_#{attr}')]")
+    val = val.capitalize if val == "active"
+    node.value.should have_content val
   end
 end
 
-Then /^I should see the new attributes for it$/ do
-  page.should have_content(@volunteer.reload.first_name)
+Then /^I should see the new attributes for the volunteer$/ do
+  page.should have_content('Piggie')
 end
 
 

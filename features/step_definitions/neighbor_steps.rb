@@ -1,20 +1,20 @@
 # -*- encoding : utf-8 -*-
 default_attributes = {
-  :first_name => 'Kermit',
-  :last_name => 'Frog',
-  :phone => '555-999-2222',
-  :street => '1201 Grand Central Avenue',
-  :city => 'Glendale',
-  :state => 'CA',
-  :zip => '91201',
-  :ssn => '023-45-4321',
-  :monthly_income => 250.00,  
-  :food_stamps => 150.00,
-  :rent => 240.00,
-  :utilities => 275.00,
-  :number_of_children => 4,
-  :proof_of_residency_type => 'green card',
-  :notes => 'Has small freezer.',
+    first_name: 'Kermit',
+    last_name: 'Frog',
+    phone: '555-999-2222',
+    street: '1201 Grand Central Avenue',
+    city: 'Glendale',
+    state: 'CA',
+    zip: '91201',
+    ssn: '023-45-4321',
+    monthly_income: 250.00,
+    food_stamps: 150.00,
+    rent: 240.00,
+    utilities: 275.00,
+    number_of_children: 4,
+    proof_of_residency_type: 'green card',
+    notes: 'Has small freezer.',
 }
 
 Given /^a neighbor exists$/ do
@@ -26,15 +26,15 @@ When /^I create a neighbor with these attributes$/ do |table|
   visit new_neighbor_path
 
   @attributes.each do |attr, val|
-    fill_in "neighbor_#{attr}", :with => val unless attr == "proof_of_residency_type"
+    fill_in "neighbor_#{attr}", with: val unless attr == "proof_of_residency_type"
   end
-  select(@attributes.fetch('proof_of_residency_type').capitalize, :from => "neighbor_proof_of_residency_type")
+  select(@attributes.fetch('proof_of_residency_type').capitalize, from: "neighbor_proof_of_residency_type")
   click_button "Create Neighbor"
 end
 
 When /^I edit a neighbor with new attributes$/ do
   visit edit_neighbor_path(@neighbor)
-  fill_in "neighbor[first_name]", :with => 'Tom'
+  fill_in "neighbor[first_name]", with: 'Tom'
   click_button 'Update Neighbor'
 end
 

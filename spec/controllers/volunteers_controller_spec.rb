@@ -26,10 +26,6 @@ describe VolunteersController do
         }.to change{Volunteer.count}.by(1)
       end
 
-      it "redirects to the created volunteer" do
-        post :create, {volunteer: {first_name: "bob"}}
-        expect(response).to redirect_to(Volunteer.last)
-      end
     end
 
     describe "with invalid params" do
@@ -52,7 +48,7 @@ describe VolunteersController do
 
       it "redirects to the volunteer" do
         put :update, {id: volunteer.to_param, volunteer: {first_name: "bob"}}
-        expect(response).to redirect_to(volunteer)
+        expect(response).to redirect_to(volunteers_path)
       end
     end
 
