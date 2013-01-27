@@ -6,18 +6,18 @@
     %table.table.table-striped
       %thead
         %tr
-          %th Volunteer Name
-          %th Email
-          %th Phone
+          %th ID
+          %th First name
+          %th Last name
           %th Status
           %th Actions
 
       %tbody
       - volunteers.each do |volunteer|
         %tr
-          %td= link_to volunteer.name, volunteer_path(volunteer)
-          %td= mail_to volunteer.email
-          %td= volunteer.phone
+          %td= link_to volunteer.id, volunteer_path(volunteer)
+          %td= volunteer.first_name
+          %td= volunteer.last_name
           %td= volunteer.status
           %td
             = link_to 'Edit', edit_volunteer_path(volunteer), :class => 'btn btn-mini'
