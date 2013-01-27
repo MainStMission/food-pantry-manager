@@ -46,7 +46,7 @@ describe VolunteersController do
         expect(volunteer.first_name).to eq("bob")
       end
 
-      it "redirects to the volunteer" do
+      it "redirects to the volunteers list" do
         put :update, {id: volunteer.to_param, volunteer: {first_name: "bob"}}
         expect(response).to redirect_to(volunteers_path)
       end
