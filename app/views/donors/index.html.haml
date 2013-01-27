@@ -12,7 +12,7 @@
       - donors.each do |donor|
         %Tr
           %td= link_to donor.id, donor_path(donor)
-          %td= donor.name
+          %td= link_to donor.name, donor_path(donor)
           %td
             = link_to 'Edit', edit_donor_path(donor), class: 'btn btn-mini'
             = link_to 'Destroy', donor, confirm: 'Are you sure?', method: :delete, class: 'btn btn-mini btn-danger'
