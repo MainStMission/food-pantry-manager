@@ -9,6 +9,6 @@ describe Visit do
   }
   subject(:visit) { Visit.new(neighbor: neighbor) }
 
-  its(:neighbor_name) { should eq("Tom Turkey") }
+  its(:neighbor_name) { should eq("Tom  Turkey") }
   its(:neighbor_number_of_children) { should eq(5) }
 end
