@@ -1,21 +1,41 @@
 class HouseholdsController < ApplicationController
 
+  expose(:household)
+  expose(:households)
+
   def create
-   @relationship = current_person.relationships.build(:person_id  => params[:relation_id])
-    if @relationship.save
-      flash[:notice] = 'Added to Household'
-      redirect_to root_url
+    if household.save
+      redirect_to households_path, notice: "Hosehold was successfully created."
     else
-     flash[:error] = 'Unable to add to Household'
-     redirect_to root_url
+      render "new"
+    end
+  end
+
+  def update
+    if household.save
+      redirect_to households_path, notice: "Household was successfully updated."
+    else
+      render "edit"
     end
   end
 
   def destroy
-    @relationship = current_person.relationships.build(:person_id  => params[:relation_id])
-    @relationship.destroy
-   flash[notice] = 'Removed from Household'
-   redirect_to current_person 
+    household.destroy
+
+    redirect_to households_path, notice: "Household deleted."
   end
+
+  private
+
+  def allowable
+    [
+        :name :neighbor_id
+    ]
+  end
+
+  def household_params
+    params.require(:household).permit(*allowable)
+  end
+ end
 
 end
