@@ -12,17 +12,16 @@
           %th City
           %th Family Members
       %tbody
-        - neighbors.each do |neighbor|
-          %tr
-            %td= link_to neighbor.name, neighbor_path(neighbor)
-            %td= neighbor.household_name
-            %td= neighbor.phone
-            %td= neighbor.street
-            %td= neighbor.city
-            %td= neighbor.number_of_children
-            %td
-              = link_to 'Edit', edit_neighbor_path(neighbor), class: 'btn btn-mini'
-              = link_to 'Destroy', neighbor, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+      - neighbors.each do |neighbor|
+        %td= link_to neighbor.name, neighbor_path(neighbor)
+        %td= neighbor.household_name
+        %td= neighbor.phone
+        %td= neighbor.street
+        %td= neighbor.city
+        %td= neighbor.number_of_children
+        %td
+          = link_to 'Edit', edit_neighbor_path(neighbor), class: 'btn btn-mini'
+          = link_to 'Destroy', neighbor, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
 
     %br
 

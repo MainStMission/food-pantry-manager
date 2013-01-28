@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 FoodPantry::Application.routes.draw do
-
   resources :households
+
 
   resources :people
 
