@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130115153254) do
+ActiveRecord::Schema.define(:version => 20130115151931) do
 
   create_table "donations", :force => true do |t|
     t.integer  "donor_id"
@@ -57,15 +57,6 @@ ActiveRecord::Schema.define(:version => 20130115153254) do
     t.text     "notes"
     t.integer  "age"
     t.string   "sex"
-    t.string   "first_name"
-    t.string   "middle_name"
-    t.string   "last_name"
-    t.string   "street"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "phone"
-    t.string   "email"
   end
 
   create_table "npjoin", :force => true do |t|
