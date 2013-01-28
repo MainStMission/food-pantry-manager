@@ -14,13 +14,13 @@ describe Household do
   end
 
   it 'should not allow duplicates' do
-    FactoryGirl.create(:household, household_name: 'Jess')
-    FactoryGirl.build(:household, household_name: 'Jess').should_not be_valid
+    FactoryGirl.create(:household, household_name: 'Jones')
+    FactoryGirl.build(:household, household_name: 'Jones').should_not be_valid
   end
 
   it 'should not allow duplicates - make sure ok if different' do
-    FactoryGirl.create(:household, household_name: 'Jordan')
-    FactoryGirl.build(:household, household_name: 'Brawley').should be_valid
+    FactoryGirl.create(:household, household_name: 'Jenkins')
+    FactoryGirl.build(:household, household_name: 'Brooke').should be_valid
   end
 
     let(:household) { FactoryGirl.create(:household, household_name: 'Jones') }
