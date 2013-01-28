@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130117031143) do
+ActiveRecord::Schema.define(:version => 20130115153254) do
 
   create_table "donations", :force => true do |t|
     t.integer  "donor_id"
@@ -67,6 +67,13 @@ ActiveRecord::Schema.define(:version => 20130117031143) do
     t.string   "phone"
     t.string   "email"
   end
+
+  create_table "npjoin", :force => true do |t|
+    t.integer "neighbor_id", :null => false
+    t.integer "person_id",   :null => false
+  end
+
+  add_index "npjoin", ["neighbor_id", "person_id"], :name => "index_npjoin_on_neighbor_id_and_person_id", :unique => true
 
   create_table "people", :force => true do |t|
     t.string   "last_name"
