@@ -19,7 +19,7 @@ Scenario: Creating a neighbor
       |utilities | 250.44 |
       |number_of_children | 3 |
       |notes | One child is diabetic. |
-#    Then I should see Anne
+    Then I should see Anne
 
   Scenario: Editing a neighbor
     Given a neighbor exists
