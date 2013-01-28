@@ -7,6 +7,13 @@ describe Neighbor do
 
   it { should belong_to(:household) }
 
+  it 'has a valid factory' do
+    FactoryGirl.create(:neighbor).should be_valid
+  end
+
+  it 'should be invalid without a last_name' do
+    FactoryGirl.build(:neighbor, last_name: nil).should_not be_valid
+  end
 
   context 'ssn' do
     let(:neighbor) do

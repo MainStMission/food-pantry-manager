@@ -2,7 +2,9 @@
 
 FactoryGirl.define do
   factory :household do
-    household_name "Terrific"
+    factory :household_with_neighbors do
+      after_create {|instance| create_list(:neighbor, 3, household:instance)}
+    end
   end
 end
 
