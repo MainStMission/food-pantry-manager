@@ -1,6 +1,7 @@
 class Household < ActiveRecord::Base
 
-  has_many :neighbors
+  belongs_to :person
+  belongs_to :relation, :class_name => 'Person'
 
-  attr_accessible
+  attr_accessible :friend_id, :person_id, :relationship
 end
