@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe Household do
-  it should { has_many(:neighbors)}
+  it should { belong_to(:neighbor).through(:households) }
 end
