@@ -10,13 +10,13 @@
           %th Visited On
       %tbody
       - visits.each do |visit|
-        %tr
-          %td= link_to visit.neighbor_name, neighbor_path(visit.neighbor_id)
-          %td= visit.neighbor_number_of_children
-          %td= visit.visited_on
-          %td
-            = link_to 'Edit', edit_visit_path(visit), class: 'btn btn-mini'
-            = link_to 'Destroy', visit, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+
+        %td= link_to visit.neighbor_name, neighbor_path(visit.neighbor_id)
+        %td= visit.neighbor_number_of_children
+        %td= visit.visited_on
+        %td
+          = link_to 'Edit', edit_visit_path(visit), class: 'btn btn-mini'
+          = link_to 'Destroy', visit, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
 
     %br
 
