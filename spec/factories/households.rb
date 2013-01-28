@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :household do
-    household_name "Terrific"
+    person_id 1
+    friend_id 1
+    relationship "MyString"
   end
 end
-

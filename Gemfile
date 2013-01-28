@@ -24,7 +24,6 @@ gem 'simple_form'
 gem 'attr_encryptor'
 gem 'draper'
 gem 'decent_exposure'
-gem 'cocoon'
 
 group :development, :test do
   gem 'cucumber-rails', :require => false
