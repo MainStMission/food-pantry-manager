@@ -10,7 +10,7 @@ class Neighbor < ActiveRecord::Base
   attr_encrypted :ssn, :key => Rails.application.config.secret_token
 
   def name
-    "#{first_name} #{middle_name} #{last_name}"
+    "#{first_name} #{last_name}"
   end
 
   def household_name
