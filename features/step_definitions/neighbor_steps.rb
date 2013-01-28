@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 default_attributes = {
   :first_name => 'Kermit',
+  :middle_name => 'James',
   :last_name => 'Frog',
   :phone => '555-999-2222',
   :street => '1201 Grand Central Avenue',
