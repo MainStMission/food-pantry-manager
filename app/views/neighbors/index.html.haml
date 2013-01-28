@@ -6,7 +6,6 @@
       %thead
         %tr
           %th Name
-          %th Household
           %th Phone
           %th Street
           %th City
@@ -14,7 +13,6 @@
       %tbody
       - neighbors.each do |neighbor|
         %td= link_to neighbor.name, neighbor_path(neighbor)
-        %td= neighbor.household_name
         %td= neighbor.phone
         %td= neighbor.street
         %td= neighbor.city
