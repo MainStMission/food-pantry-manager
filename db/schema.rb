@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130112192254) do
+ActiveRecord::Schema.define(:version => 20130120210023) do
 
   create_table "donations", :force => true do |t|
     t.integer  "donor_id"
@@ -28,14 +28,16 @@ ActiveRecord::Schema.define(:version => 20130112192254) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "households", :force => true do |t|
+    t.string   "household_name"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "name"
+  end
+
+  add_index "households", ["household_name"], :name => "index_households_on_household_name", :unique => true
+
   create_table "neighbors", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "street"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "phone"
     t.decimal  "monthly_income",          :precision => 8, :scale => 2
     t.decimal  "food_stamps",             :precision => 8, :scale => 2
     t.decimal  "rent",                    :precision => 8, :scale => 2
@@ -54,23 +56,22 @@ ActiveRecord::Schema.define(:version => 20130112192254) do
     t.string   "encrypted_ssn_iv"
     t.string   "encrypted_ssn_salt"
     t.text     "notes"
-  end
-
-  create_table "people", :force => true do |t|
-    t.string   "last_name"
+    t.integer  "age"
+    t.string   "sex"
     t.string   "first_name"
     t.string   "middle_name"
-    t.string   "title"
-    t.string   "address"
+    t.string   "last_name"
+    t.string   "street"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
     t.string   "phone"
     t.string   "email"
-    t.integer  "age"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "household_id"
   end
+
+  add_index "neighbors", ["household_id"], :name => "index_neighbors_on_household_id"
+  add_index "neighbors", ["last_name", "first_name"], :name => "index_neighbors_on_last_name_and_first_name"
 
   create_table "time_cards", :force => true do |t|
     t.integer  "volunteer_id"
