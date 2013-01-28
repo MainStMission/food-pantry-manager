@@ -1,0 +1,19 @@
+.panel
+  %header
+    %h1 Households
+  .content
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Household
+          %th Neighbor
+          %th Actions
+      %tbody
+        - households.each do |household|
+          %td= household.household_name
+          %td= household.neighbor_name
+          %td
+            = link_to 'Edit', edit_household_path(household), class: 'btn btn-mini'
+            = link_to 'Destroy', household, confirm: 'Are you sure?', method: :delete, class: 'btn btn-mini btn-danger'
+    %br
+    = link_to 'New Household', new_household_path, class: 'btn btn-primary'
