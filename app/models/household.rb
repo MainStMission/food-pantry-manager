@@ -11,5 +11,7 @@ class Household < ActiveRecord::Base
     self.neighbor.name if neighbor
   end
 
-
+  def neighbor_name
+    Neighbor.find(params[:id])
+  end
 end

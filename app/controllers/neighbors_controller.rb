@@ -3,6 +3,8 @@
 class NeighborsController < ApplicationController
   expose(:neighbor)
   expose(:neighbors)
+  expose(:household)
+  expose(:households)
 
 
   def create

@@ -2,6 +2,8 @@ class HouseholdsController < ApplicationController
 
   expose(:household)
   expose(:households)
+  expose(:neighbors)
+  expose(:neighbor)
 
   def create
     if household.save
