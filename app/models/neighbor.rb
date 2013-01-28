@@ -12,9 +12,4 @@ class Neighbor < ActiveRecord::Base
   def name
     "#{first_name} #{last_name}"
   end
-
-  def household_name
-    household.name if household
-  end
-
 end

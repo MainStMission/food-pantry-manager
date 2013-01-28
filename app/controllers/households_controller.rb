@@ -5,7 +5,7 @@ class HouseholdsController < ApplicationController
 
   def create
     if household.save
-      redirect_to households_path, notice: "Household was successfully created."
+      redirect_to households_path, notice: "Hosehold was successfully created."
     else
       render "new"
     end
@@ -29,12 +29,13 @@ class HouseholdsController < ApplicationController
 
   def allowable
     [
-        :household_name, :neighbor_id
+        :name :neighbor_id
     ]
   end
 
   def household_params
     params.require(:household).permit(*allowable)
   end
-end
+ end
 
+end
