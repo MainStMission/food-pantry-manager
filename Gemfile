@@ -1,53 +1,54 @@
-require "rbconfig"
-HOST_OS = RbConfig::CONFIG["host_os"]
+require 'rbconfig'
+HOST_OS = RbConfig::CONFIG['host_os']
 
 source :rubygems
 
-gem "rails", "3.2.11"
-gem "pg"
-gem "puma"
-gem "rails_setup"
-gem "devise"
-gem "strong_parameters"
+gem 'rails', '3.2.11'
+gem 'pg'
+gem 'puma'
+gem 'rails_setup'
+gem 'devise'
+gem 'strong_parameters'
 
 group :assets do
-  gem "sass-rails"
-  gem "coffee-rails"
-  gem "bootstrap-sass"
-  gem "uglifier"
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'bootstrap-sass'
+  gem 'uglifier'
 end
 
-gem "jquery-rails"
-gem "haml-rails"
-gem "bourbon"
-gem "simple_form"
-gem "attr_encryptor"
-gem "decent_exposure"
+gem 'jquery-rails'
+gem 'haml-rails'
+gem 'bourbon'
+gem 'simple_form'
+gem 'attr_encryptor'
+gem 'decent_exposure'
 
 group :development, :test do
-  gem "cucumber-rails", :require => false
-  gem "capybara"
-  gem "database_cleaner"
-  gem "launchy"
-  gem "factory_girl_rails"
-  gem "rspec-rails"
-  gem "pry-rails"
-  gem "rb-fsevent", :require => RUBY_PLATFORM.include?("darwin") && "rb-fsevent"
-  gem "ruby_gntp",  :require => RUBY_PLATFORM.include?("darwin") && "ruby_gntp"
-  gem "libnotify",  :require => RUBY_PLATFORM.include?("linux")  && "libnotify"
-  gem "rb-inotify", :require => RUBY_PLATFORM.include?("linux")  && "rb-inotify"
+  gem 'cucumber-rails', :require => false
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'shoulda'
+  gem 'pry-rails'
+  gem 'rb-fsevent', :require => RUBY_PLATFORM.include?('darwin') && 'rb-fsevent'
+  gem 'ruby_gntp',  :require => RUBY_PLATFORM.include?('darwin') && 'ruby_gntp'
+  gem 'libnotify',  :require => RUBY_PLATFORM.include?('linux')  && 'libnotify'
+  gem 'rb-inotify', :require => RUBY_PLATFORM.include?('linux')  && 'rb-inotify'
 
-  gem "rb-fchange",   :platform => :mswin
-  gem "win32console", :platform => :mswin
-  gem "rb-notifu",    :platform => :mswin
+  gem 'rb-fchange',   :platform => :mswin
+  gem 'win32console', :platform => :mswin
+  gem 'rb-notifu',    :platform => :mswin
 
-  gem "guard-livereload"
-  gem "yajl-ruby"
-  gem "rack-livereload"
-  gem "guard-cucumber"
-  gem "guard-rspec"
-  gem "timecop"
-  gem "sqlite3"
-  gem "foreman"
-  gem "zeus"
+  gem 'guard-livereload'
+  gem 'yajl-ruby'
+  gem 'rack-livereload'
+  gem 'guard-cucumber'
+  gem 'guard-rspec'
+  gem 'timecop'
+  gem 'sqlite3'
+  gem 'foreman'
+  gem 'zeus'
 end
