@@ -5,8 +5,7 @@ SSN = '123-45-6789'
 
 describe Neighbor do
 
-  it { should have_many(:relations).through(:households) }
-  it { should have_many(:inverse_relations).through(:inverse_relationships)}
+  it { should belong_to(:household) }
 
 
   context 'ssn' do

@@ -1,23 +1,25 @@
 = simple_form_for neighbor do |f|
   = f.input  :first_name,:label => 'First Name'
+  = f.input  :middle_name, :label => 'Middle Name'
   = f.input  :last_name, :label => 'Last Name'
   = f.input  :street,    :label => 'Street'
   = f.input  :city,      :label => 'City'
-  = f.input  :state,     :label => 'State', :input_html => { :class => "span2" }, :placeholder => 'North Carolina'
-  = f.input  :zip,       :label => 'Zip', :input_html => { :class => "span1" }
-  = f.input  :phone,     :label => 'Phone', :input_html => { :class => "span2" }
-  = f.input  :ssn,   :label => 'Social Security Number', :input_html => { :class => "span1" }
+  = f.input  :state,     :label => 'State', :input_html => { :class => 'span2' }, :placeholder => 'North Carolina'
+  = f.input  :zip,       :label => 'Zip', :input_html => { :class => 'span1' }
+  = f.input  :phone,     :label => 'Phone', :input_html => { :class => 'span2' }
+  = f.input  :ssn,   :label => 'Social Security Number', :input_html => { :class => 'span1' }
   = f.input  :spouse,    :label => 'Spouse'
-  = f.input  :number_of_children, :label => 'Number of Children', :input_html => { :class => "span1" }
+  = f.association :household
+  = f.input  :number_of_children, :label => 'Number of Children', :input_html => { :class => 'span1' }
   = f.input  :smokes, :label => 'Smoke?'
-  = f.input   :monthly_income, :label => 'Monthly Income' , :input_html => { :class => "span1" }
-  = f.input   :food_stamps, :label => 'Food Stamps', :input_html => { :class => "span1" }
-  = f.input   :rent, :label => 'Monthly Rent' , :input_html => { :class => "span1" }
-  = f.input   :utilities, :label => 'Monthly Utilities' , :input_html => { :class => "span1" }
-  = f.input   :residency_date, :as => 'date', :label => 'Date of Residence' , :input_html => { :class => "span1" }
+  = f.input   :monthly_income, :label => 'Monthly Income' , :input_html => { :class => 'span1' }
+  = f.input   :food_stamps, :label => 'Food Stamps', :input_html => { :class => 'span1' }
+  = f.input   :rent, :label => 'Monthly Rent' , :input_html => { :class => 'span1' }
+  = f.input   :utilities, :label => 'Monthly Utilities' , :input_html => { :class => 'span1' }
+  = f.input   :residency_date, :as => 'date', :label => 'Date of Residence' , :input_html => { :class => 'span1' }
   = f.input   :proof_of_residency_type, :label => 'Proof of Residency',:collection => [:Passport, :Drivers_License,:Green_Card]
-  = f.input   :date_of_proof, :as=> 'date', :label => 'Date of Proof of Residency' , :input_html => { :class => "span1" }
-  = f.input   :notes, :label => 'Notes', :input_html => { :class => "span2", :rows => "5" }
+  = f.input   :date_of_proof, :as=> 'date', :label => 'Date of Proof of Residency' , :input_html => { :class => 'span1' }
+  = f.input   :notes, :label => 'Notes', :input_html => { :class => 'span2', :rows => "5" }
   = f.button  :submit, :class => 'btn-primary', :label=> 'Save' 
   / = link_to 'Edit', edit_neighbor_path(neighbor), :class => 'btn btn-mini'
   
