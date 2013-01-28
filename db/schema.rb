@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130115151419) do
+ActiveRecord::Schema.define(:version => 20130112212408) do
 
   create_table "donations", :force => true do |t|
     t.integer  "donor_id"
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(:version => 20130115151419) do
   end
 
   create_table "neighbors", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "phone"
     t.decimal  "monthly_income",          :precision => 8, :scale => 2
     t.decimal  "food_stamps",             :precision => 8, :scale => 2
     t.decimal  "rent",                    :precision => 8, :scale => 2
@@ -55,16 +62,7 @@ ActiveRecord::Schema.define(:version => 20130115151419) do
     t.string   "encrypted_ssn_iv"
     t.string   "encrypted_ssn_salt"
     t.text     "notes"
-    t.string   "person_id"
-    t.integer  "age"
   end
-
-  create_table "npjoin", :force => true do |t|
-    t.integer "neighbor_id", :null => false
-    t.integer "person_id",   :null => false
-  end
-
-  add_index "npjoin", ["neighbor_id", "person_id"], :name => "index_npjoin_on_neighbor_id_and_person_id", :unique => true
 
   create_table "people", :force => true do |t|
     t.string   "last_name"
