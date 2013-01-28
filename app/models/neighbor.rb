@@ -4,6 +4,8 @@ class Neighbor < ActiveRecord::Base
 
   has_many :visits
 
+  belongs_to :household
+
   attr_encrypted :ssn, :key => Rails.application.config.secret_token
 
   def name
