@@ -22,7 +22,6 @@ gem 'haml-rails'
 gem 'bourbon'
 gem 'simple_form'
 gem 'attr_encryptor'
-gem 'draper'
 gem 'decent_exposure'
 
 group :development, :test do
