@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe Household do
-  it should { belong_to(:person).through(:households) }
+  pending "add some examples to (or delete) #{__FILE__}"
 end
