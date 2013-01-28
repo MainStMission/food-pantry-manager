@@ -1,5 +1,4 @@
 = simple_form_for neighbor do |f|
-  = f.association :household,  :collection => Household.all(:order => 'household_name'), :prompt => "Choose a Household"
   = f.input  :first_name,:label => 'First Name'
   = f.input  :middle_name, :label => 'Middle Name'
   = f.input  :last_name, :label => 'Last Name'
