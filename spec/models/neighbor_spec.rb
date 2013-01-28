@@ -23,13 +23,13 @@ describe Neighbor do
       end
     end
 
-    #it "should be encrypted" do
-      #neighbor_id = neighbor.id
-      #neighbor = Neighbor.find_by_id(neighbor_id)
+    it "should be encrypted" do
+      neighbor_id = neighbor.id
+      neighbor = Neighbor.find_by_id(neighbor_id)
 
-      #neighbor.ssn.should == SSN
-      #neighbor.encrypted_ssn.should_not == SSN
-    #end
+      neighbor.ssn.should == SSN
+      neighbor.encrypted_ssn.should_not == SSN
+    end
 
     it "should be salted" do
       another_neighbor = Neighbor.new
