@@ -1,14 +1,9 @@
 # -*- encoding : utf-8 -*-
-require_relative "../spec_helper"
+require_relative = '../spec_helper'
 
 SSN = '123-45-6789'
 
 describe Neighbor do
-
-  it { should have_many(:relations).through(:households) }
-  it { should have_many(:inverse_relations).through(:inverse_relationships)}
-
-
   context 'ssn' do
     let(:neighbor) do
       Neighbor.new.tap do |n|
