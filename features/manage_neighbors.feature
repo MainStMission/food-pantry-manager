@@ -3,23 +3,23 @@ Feature: Manage Neighbors
 
 Scenario: Creating a neighbor
     When I create a neighbor with these attributes
-      |first_name | Anne |
+      |first_name |Anne |
       |middle_name|Helms |
-      |last_name | Corriher|
+      |last_name |Corriher|
       |phone | 555-111-2222 |
       |street | 1201 Main Street |
       |city | China Grove |
       |state | NC |
       |zip | 28023 |
+      |phone| 704-857-6121 |
       |ssn| 023-56-4431 |
       |monthly_income | 400.11 |
       |food_stamps |  200.33 |
       |rent | 120.22 |
       |utilities | 250.44 |
       |number_of_children | 3 |
-      |proof_of_residency_type | passport |
       |notes | One child is diabetic. |
-    Then I should see Anne
+#    Then I should see Anne
 
   Scenario: Editing a neighbor
     Given a neighbor exists

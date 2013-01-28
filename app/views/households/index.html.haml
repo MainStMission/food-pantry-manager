@@ -14,6 +14,6 @@
           %td= link_to household.household_name, household_path(household)
           - household.neighbors.each do |neighbor|
             %td= link_to neighbor.name neighbor_path(neighbor)
-      = link_to 'Edit', edit_household_path(household), class: 'btn btn-mini'
-      = link_to 'Destroy', household, confirm: 'Are you sure?', method: :delete, class: 'btn btn-mini btn-danger'
+            = link_to 'Edit', edit_household_path(household), class: 'btn btn-mini'
+            = link_to 'Destroy', household, confirm: 'Are you sure?', method: :delete, class: 'btn btn-mini btn-danger'
   = link_to 'New Household', new_household_path, class: 'btn btn-primary'
