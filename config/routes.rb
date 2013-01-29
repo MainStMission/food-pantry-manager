@@ -9,6 +9,8 @@ FoodPantry::Application.routes.draw do
 
   resources :neighbors
 
+  resources :households
+
   resources :visits
 
   resources :volunteers do

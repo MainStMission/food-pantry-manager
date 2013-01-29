@@ -28,6 +28,7 @@ group :development, :test do
   gem "cucumber-rails", :require => false
   gem "capybara"
   gem "database_cleaner"
+  gem "shoulda"
   gem "launchy"
   gem "factory_girl_rails"
   gem "rspec-rails", '~> 2.12'

@@ -2,8 +2,10 @@
 require_relative "../spec_helper"
 
 SSN = '123-45-6789'
-
 describe Neighbor do
+
+ it {should belong_to(:household) }
+
   context 'ssn' do
     let(:neighbor) do
       Neighbor.new.tap do |n|
