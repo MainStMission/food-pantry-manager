@@ -2,6 +2,7 @@ Feature: Manage Neighbors
   As an admin I want to create, edit and manage Neighbors
 
 Scenario: Creating a neighbor
+    Given I am logged in as admin
     When I create a neighbor with these attributes
 
       |first_name | Anne |
@@ -22,11 +23,13 @@ Scenario: Creating a neighbor
     Then I should see Anne
 
   Scenario: Editing a neighbor
+    Given I am logged in as admin
     Given a neighbor exists
     When I edit a neighbor with new attributes
     Then I should see the new attributes for the neighbor
 
   Scenario: Deleting a neighbor
+    Given I am logged in as admin
     Given a neighbor exists
     When I delete the neighbor
     Then I should not see the neighbor

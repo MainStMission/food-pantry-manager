@@ -13,6 +13,11 @@
 
 ActiveRecord::Schema.define(:version => 20130211024324) do
 
+  create_table "access_levels", :force => true do |t|
+    t.string  "name",  :null => false
+    t.integer "level", :null => false
+  end
+
   create_table "donations", :force => true do |t|
     t.integer  "donor_id"
     t.decimal  "weight"
@@ -55,8 +60,9 @@ ActiveRecord::Schema.define(:version => 20130211024324) do
     t.string   "encrypted_ssn"
     t.string   "encrypted_ssn_iv"
     t.string   "encrypted_ssn_salt"
-    t.text     "notes"
-    t.string   "first_name"
+  end
+
+  create_table "people", :force => true do |t|
     t.string   "last_name"
     t.string   "street"
     t.string   "city"
@@ -96,6 +102,8 @@ ActiveRecord::Schema.define(:version => 20130211024324) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "access_level_id"
+    t.string   "token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
