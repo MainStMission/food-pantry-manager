@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  database: food_pantry_development
+  username: postgres
+
+test: &test
+  adapter: postgresql
+  database: food_pantry_test
+  username: postgres
+
+production:
+  adapter: postgresql
+  database: food_pantry_production
+  username: postgres
+
+cucumber:
+  <<: *test
