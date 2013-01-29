@@ -2,9 +2,10 @@
 class UsersController < ApplicationController
   expose(:user)
   expose(:users)
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :current_user
+  #before_filter :has_access?, :only => [:create, :edit, :update] 
 
-  def create
+  def create 
     if user.save
       redirect_to users_path, :notice => "User successfully created"
     else
@@ -24,6 +25,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def has_access?
+    current_user.admin?   
+  end
 
   def allowable
     [

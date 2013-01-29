@@ -27,6 +27,17 @@ def create_user
                       :last_name => 'User')
 end
 
+def create_admin
+  create_visitor
+  delete_user
+  @user = User.create(:email => 'example@example.com',
+                      :password => 'please',
+                      :password_confirmation => 'please',
+                      :first_name => 'Test',
+                      :last_name => 'User',
+                      :access_level_id => AccessLevel.where(["name like ?", "Admin"]).first)
+end
+
 def delete_user
   @user ||= User.where(:email => @visitor[:email]).first
   @user.destroy unless @user.nil?
@@ -44,7 +55,7 @@ def sign_up
 end
 
 def sign_in
-  visit '/users/sign_in'
+  visit('/users/sign_in')
   fill_in "Email", :with => @visitor[:email]
   fill_in "Password", :with => @visitor[:password]
   click_button "Sign in"
@@ -60,6 +71,10 @@ Given /^I am logged in$/ do
   sign_in
 end
 
+Given /^I am logged in as admin$/ do
+  create_admin
+  sign_in
+end
 Given /^I create a user with these attributes$/ do |table|
   # table is a Cucumber::Ast::Table
   visit new_user_path
@@ -71,7 +86,7 @@ end
 
 Given /^I change the Test User's last name to Frog$/ do
   user = User.where(:first_name => 'Test').first
-  visit edit_user_path(user)
+  visit edit_user_path(@user)
   fill_in "user_last_name", :with => "Frog"
   click_button "save_user"
 end
