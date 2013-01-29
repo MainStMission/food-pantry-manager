@@ -30,7 +30,7 @@ group :development, :test do
   gem "database_cleaner"
   gem "launchy"
   gem "factory_girl_rails"
-  gem "rspec-rails"
+  gem "rspec-rails", '~> 2.12'
   gem "pry-rails"
   gem "rb-fsevent", :require => RUBY_PLATFORM.include?("darwin") && "rb-fsevent"
   gem "ruby_gntp",  :require => RUBY_PLATFORM.include?("darwin") && "ruby_gntp"
