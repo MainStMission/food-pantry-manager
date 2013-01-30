@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130024359) do
+ActiveRecord::Schema.define(:version => 20130130030509) do
 
   create_table "donations", :force => true do |t|
     t.integer  "donor_id"
@@ -62,10 +62,10 @@ ActiveRecord::Schema.define(:version => 20130130024359) do
     t.string   "zip"
     t.string   "phone"
     t.integer  "age"
-    t.text     "sex"
+    t.string   "sex"
     t.integer  "household_id"
-    t.text     "middle_name"
-    t.text     "email"
+    t.string   "middle_name"
+    t.string   "email"
   end
 
   add_index "neighbors", ["last_name", "first_name"], :name => "index_neighbors_on_last_name_and_first_name"
