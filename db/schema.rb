@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130030509) do
+ActiveRecord::Schema.define(:version => 20130131144236) do
 
   create_table "donations", :force => true do |t|
     t.integer  "donor_id"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(:version => 20130130030509) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "households", ["household_name"], :name => "index_households_on_household_name", :unique => true
 
   create_table "neighbors", :force => true do |t|
     t.decimal  "monthly_income",          :precision => 8, :scale => 2
