@@ -2,6 +2,8 @@ class HouseholdsController < ApplicationController
 
   expose(:household)
   expose(:households)
+  expose(:neighbor)
+  expose(:neighbors)
 
   def create
     if household.save
@@ -29,12 +31,14 @@ class HouseholdsController < ApplicationController
 
   def allowable
     [
-        :name
+        :name,:household_name, {neighbors: [:first_name, :middle_name, :last_name, :address, :city, :state, :zip]}
+
     ]
   end
 
   def household_params
     params.require(:household).permit(*allowable)
+    #params.permit(:household, {:neighbors => [ :first_name, :middle_name, :last_name, :address] })
   end
 end
   

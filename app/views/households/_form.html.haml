@@ -1,4 +1,9 @@
 = simple_form_for household do |f|
   = f.input :household_name
-  = f.input :name
+  = f.simple_fields_for :neighbor do |neighbor_form|
+    = neighbor_form.input :first_name
+    = neighbor_form.input :middle_name
+    = neighbor_form.input :last_name
+    = neighbor_form.input :address
+
   = f.button :submit
