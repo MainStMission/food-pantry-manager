@@ -9,7 +9,7 @@ gem "puma"
 gem "rails_setup"
 gem "devise"
 gem "strong_parameters"
-gem 'cocoon'
+gem 'nested_form'
 
 group :assets do
   gem "sass-rails"
@@ -42,7 +42,7 @@ group :development, :test do
   gem "rb-fchange",   :platform => :mswin
   gem "win32console", :platform => :mswin
   gem "rb-notifu",    :platform => :mswin
-
+  gem "better_errors"
   gem "guard-livereload"
   gem "yajl-ruby"
   gem "rack-livereload"
