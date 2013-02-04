@@ -1,0 +1,27 @@
+<header>
+  <h1>Listing Neighbors</h1>
+</header>
+<div id="content">
+  <table class='table table-striped'>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>street</th>
+      <th>city</th>
+    </tr>
+
+    <% @neighbors.each do |neighbor| %>
+        <tr>
+          <td><%= neighbor.name %></td>
+          <td><%= neighbor.phone%></td>
+          <td><%= neighbor.street%></td>
+          <td><%= neighbor.city%></td>
+          <td class='btn btn-mini'><%= link_to 'Edit', edit_neighbor_path(neighbor) %></td>
+          <td class='btn btn-mini btn-danger'><%= link_to 'Destroy', neighbor, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+<br/>
+
+<%= link_to 'New Neighbor', new_neighbor_path %>
