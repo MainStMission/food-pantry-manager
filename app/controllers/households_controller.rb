@@ -41,8 +41,21 @@ class HouseholdsController < ApplicationController
 
   # POST /households
   # POST /households.json
+
+
+  def update
+    @household = Household.find(params[:id])
+
+    if @household.update_attributes(safe_params)
+      redirect_to @household, notice: t('households.controller.update.success')
+    else
+      render :edit
+    end
+  end
+
+
   def create
-    @household = Household.new(params[:household])
+    @household = Household.new(safe_params)
 
     respond_to do |format|
       if @household.save
@@ -54,6 +67,19 @@ class HouseholdsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @household = Household.find(params[:id])
+
+    if current_household != @household
+      @household.destroy
+    else
+      flash[:error] = t('users.controller.destroy.prevent_self_destroy')
+    end
+    redirect_to households_url
+  end
+
+
     private
 
     def allowable
@@ -62,7 +88,7 @@ class HouseholdsController < ApplicationController
       ]
     end
 
-    def household_params
+    def safe_params
       params.require(:household).permit(*allowable)
     end
 
