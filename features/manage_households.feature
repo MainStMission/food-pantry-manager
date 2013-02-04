@@ -8,7 +8,7 @@ Feature: Manage Households
 
      |household_name  |Brooke|
 
-  Then I should see Brooke
+  Then I should see 'Brooke'
 
 
  Scenario: Adding Neighbors to Households

@@ -1,0 +1,26 @@
+<header>
+  <h1>Listing Households</h1>
+</header>
+<div id="content">
+  <table class='table table-striped'>
+    <tr>
+      <th>Household name</th>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% @households.each do |household| %>
+        <tr>
+          <td><%= household.household_name %></td>
+          <td><%= household.name %></td>
+          <td class='btn btn-mini'><%= link_to 'Edit', edit_household_path(household) %></td>
+          <td class='btn btn-mini btn-danger'><%= link_to 'Destroy', household, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+<br/>
+
+<%= link_to 'New Houshold', new_household_path %>
