@@ -1,5 +1,5 @@
 
-<%= simple_form_for(@household) do |f| %>
+<%= simple_form_for @household do |f| %>
     <% if @household.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@household.errors.count, "error") %> prohibited this household from being saved:</h2>
@@ -17,6 +17,12 @@
     </div>
     <div class="field">
       <%= f.input :name %><br />
+      <%= f.simple_fields_for :neighbors do| neighbor_form | %>
+      <%= neighbor_form.input :first_name   %>
+      <%= neighbor_form.input :middle_name  %>
+      <%= neighbor_form.input :last_name    %>
+      <%= neighbor_form.input :street       %>
+      <%- end %>
     </div>
     <div class="actions">
       <%= f.button :submit %>
