@@ -54,3 +54,16 @@ class HouseholdsController < ApplicationController
       end
     end
   end
+    private
+
+    def allowable
+      [
+          :household_name, :name
+      ]
+    end
+
+    def household_params
+      params.require(:household).permit(*allowable)
+    end
+
+  end
