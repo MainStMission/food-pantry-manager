@@ -56,6 +56,7 @@ class HouseholdsController < ApplicationController
 
   def create
     @household = Household.new(safe_params)
+    @household.neighbors.build
 
     respond_to do |format|
       if @household.save
@@ -84,7 +85,7 @@ class HouseholdsController < ApplicationController
 
     def allowable
       [
-          :household_name, :name
+          :household_name, :name, {:neighbors => [:first_name, :last_name, :street ]}
       ]
     end
 

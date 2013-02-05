@@ -1,5 +1,5 @@
 class Household < ActiveRecord::Base
-  include ActiveModel::ForbiddenAttributesProtection
+#  include ActiveModel::ForbiddenAttributesProtection
 
  has_many :neighbors
  accepts_nested_attributes_for :neighbors

@@ -6,9 +6,9 @@ Feature: Manage Households
 
   When I create a household with this attribute
 
-     |household_name  |Brooke|
+     |household_name  |Bronson|
 
-  Then I should see 'Brooke'
+  Then I should see 'Bronson'
 
 
  Scenario: Adding Neighbors to Households

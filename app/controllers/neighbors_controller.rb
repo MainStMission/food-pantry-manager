@@ -39,10 +39,24 @@ class NeighborsController < ApplicationController
     @neighbor = Neighbor.find(params[:id])
   end
 
+
+
+  def update
+    @neighbor = Neighbor.find(params[:id])
+
+    if @neighbor.update_attributes(safe_params)
+      redirect_to @neighbor, notice: t('households.controller.update.success')
+    else
+      render :edit
+    end
+  end
+
+
+
   # POST /neighbors
   # POST /neighbors.json
   def create
-    @neighbor = Neighbor.new(params[:Neighbor])
+    @neighbor = Neighbor.new(safe_params)
 
     respond_to do |format|
       if @neighbor.save
@@ -69,7 +83,7 @@ class NeighborsController < ApplicationController
     ]
   end
 
-  def neighbor_params
+  def safe_params
     params.require(:neighbor).permit(*allowable)
   end
 end

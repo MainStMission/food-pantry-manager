@@ -8,7 +8,7 @@ When /^I create a household with this attribute$/ do |table|
 end
 
 
-Then /^I should see 'Brooke'$/ do
+Then /^I should see Bronson$/ do
   visit households_path
-  page.should have_content "Brooke"
-  end
+  page.should have_content "Bronson"
+end

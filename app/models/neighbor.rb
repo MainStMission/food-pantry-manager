@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Neighbor < ActiveRecord::Base  
-  include ActiveModel::ForbiddenAttributesProtection
+ # include ActiveModel::ForbiddenAttributesProtection
 
   has_many :visits
 
