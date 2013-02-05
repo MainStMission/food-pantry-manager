@@ -27,6 +27,7 @@ class HouseholdsController < ApplicationController
   # GET /households/new.json
   def new
     @household = Household.new
+    @household.neighbors.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -84,7 +85,7 @@ class HouseholdsController < ApplicationController
 
     def allowable
       [
-          :household_name, :name
+          :household_name, :name, :neighbors_attributes
       ]
     end
 
