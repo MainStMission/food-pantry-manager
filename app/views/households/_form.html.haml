@@ -16,6 +16,18 @@
         = builder.input :first_name
         = builder.input :middle_name
         = builder.input :last_name
+        = builder.input :sex, collection: [:Male, :Female], input_html: { class: 'span1'}
+        = builder.input :age, input_html: {class: 'span1'}
+        = builder.input :encrypted_ssn
         = builder.input :street
+        = builder.input :city
+        = builder.input :state, input_html: { class: 'span2' }, placeholder: 'North Carolina'
+        = builder.input :zip
+        = builder.input :phone
+        = builder.input :email
+    =f.simple_fields_for :neighbors  do  |family_builder|
+      = render 'family_fields', :f => family_builder
+      .links
+        = link_to_add_association 'Add Family Member',f, :neighbors
   .actions
     = f.button :submit

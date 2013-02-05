@@ -1,0 +1,9 @@
+.nested-fields
+  = f.input :first_name
+  = f.input :middle_name
+  = f.input :last_name
+  = f.input :sex, collection: [:Male, :Female], input_html: { class: 'span1'}
+  = f.input :age, input_html: {class: 'span1'}
+  = f.input :encrypted_ssn
+  = f.input :done, :as => :boolean
+  = link_to_remove_association "remove", f

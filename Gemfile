@@ -9,7 +9,7 @@ gem "puma"
 gem "rails_setup"
 gem "devise"
 gem "strong_parameters"
-gem 'nested_form'
+gem 'cocoon'
 
 group :assets do
   gem "sass-rails"

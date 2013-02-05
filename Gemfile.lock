@@ -53,6 +53,7 @@ GEM
       xpath (~> 1.0.0)
     childprocess (0.3.7)
       ffi (~> 1.0, >= 1.0.6)
+    cocoon (1.1.1)
     coderay (1.0.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -143,7 +144,6 @@ GEM
     mocha (0.10.5)
       metaclass (~> 0.0.1)
     multi_json (1.5.0)
-    nested_form (0.3.1)
     nokogiri (1.5.6)
     orm_adapter (0.4.0)
     pg (0.14.1)
@@ -268,6 +268,7 @@ DEPENDENCIES
   bootstrap-sass
   bourbon
   capybara
+  cocoon
   coffee-rails
   cucumber-rails
   database_cleaner
@@ -282,7 +283,6 @@ DEPENDENCIES
   jquery-rails
   launchy
   libnotify
-  nested_form
   pg
   pry-rails
   puma
