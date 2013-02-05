@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery_nested_form
 //= require bootstrap
-//= cocoon
+//= require cocoon
 //= require_tree .

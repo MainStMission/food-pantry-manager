@@ -25,9 +25,10 @@
         = builder.input :zip
         = builder.input :phone
         = builder.input :email
-    =f.simple_fields_for :neighbors  do  |family_builder|
-      = render 'family_fields', :f => family_builder
-      .links
-        = link_to_add_association 'Add Family Member',f, :neighbors
+    %h3 Household Members
+    =f.simple_fields_for :neighbors  do  |neighbor|
+      = render 'neighbor_fields', :f => neighbor
+    .links
+      = link_to_add_association 'Add Family Member', f , :neighbors , :render_options => { :wrapper => 'bootstrap'}
   .actions
     = f.button :submit
