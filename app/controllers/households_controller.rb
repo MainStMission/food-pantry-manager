@@ -73,12 +73,12 @@ class HouseholdsController < ApplicationController
   def destroy
     @household = Household.find(params[:id])
 
-    if current_household != @household
-      @household.destroy
+      if  @household.destroy
     else
       flash[:error] = t('users.controller.destroy.prevent_self_destroy')
     end
     redirect_to households_url
+
   end
 
 
