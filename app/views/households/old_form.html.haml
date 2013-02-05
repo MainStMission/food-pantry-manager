@@ -1,9 +1,0 @@
-= simple_nested_form_for household do |f|
-  = f.input :household_name
-  = f.simple_fields_for :neighbor, Neighbor.new do |neighbor_form|
-    = neighbor_form.input :first_name
-    = neighbor_form.input :middle_name
-    = neighbor_form.input :last_name
-    = neighbor_form.input :street
-
-  = f.button :submit

@@ -1,0 +1,21 @@
+= simple_form_for @household do |f|
+  - if @household.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@household.errors.count, "error")
+        prohibited this household from being saved:
+      %ul
+        - @household.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.input :household_name
+    %br/
+  .field
+    = f.simple_fields_for :neighbors do |builder|
+      %fieldset
+        = builder.input :first_name
+        = builder.input :middle_name
+        = builder.input :last_name
+        = builder.input :street
+  .actions
+    = f.button :submit
