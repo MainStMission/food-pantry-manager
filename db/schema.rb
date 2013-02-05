@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130131144236) do
+ActiveRecord::Schema.define(:version => 20130205205807) do
 
   create_table "donations", :force => true do |t|
     t.integer  "donor_id"
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(:version => 20130131144236) do
     t.integer  "household_id"
     t.string   "middle_name"
     t.string   "email"
+    t.string   "apt"
+    t.boolean  "done"
   end
 
   add_index "neighbors", ["last_name", "first_name"], :name => "index_neighbors_on_last_name_and_first_name"
