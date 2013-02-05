@@ -4,11 +4,11 @@ Feature: Manage Households
 
  Scenario: Creating a Household
 
-  When I create a household with this attribute
+  When I create a "household"  with this attribute
 
-     |household_name  |Bronson|
+     | household_name |Bronson|
 
-  Then I should see 'Bronson'
+  Then I should see "Bronson" for the household name
 
 
  Scenario: Adding Neighbors to Households

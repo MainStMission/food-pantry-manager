@@ -57,7 +57,6 @@ class HouseholdsController < ApplicationController
 
   def create
     @household = Household.new(safe_params)
-    @household.neighbors.build
 
     respond_to do |format|
       if @household.save
