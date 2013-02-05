@@ -1,8 +1,9 @@
-= simple_form_for neighbor do |f|
+= simple_form_for @neighbor do |f|
   = f.input  :first_name,  label: 'First Name'
   = f.input  :middle_name, label: 'Middle Name'
   = f.input  :last_name,   label: 'Last Name'
   = f.input  :street,    label: 'Street'
+  = f.input  :apt,       label: 'Apt'
   = f.input  :city,      label: 'City'
   = f.input  :state,     label: 'State', input_html: { class: 'span2' }, placeholder: 'North Carolina'
   = f.input  :zip,       label: 'Zip', input_html: { class: 'span1'}

@@ -1,4 +1,4 @@
-.panel
+%section.panel
   %header
     %h1 Our Neighbors
   .content
@@ -11,7 +11,7 @@
           %th City
           %th Family Members
       %tbody
-      - neighbors.each do |neighbor|
+      - @neighbors.each do |neighbor|
         %tr
           %td= link_to neighbor.name, neighbor_path(neighbor)
           %td= neighbor.phone

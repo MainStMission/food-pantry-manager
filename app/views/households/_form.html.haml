@@ -29,6 +29,6 @@
     =f.simple_fields_for :neighbors  do  |neighbor|
       = render 'neighbor_fields', :f => neighbor
     .links
-      = link_to_add_association 'Add Family Member', f , :neighbors , :render_options => { :wrapper => 'bootstrap'}
+      = link_to_add_association 'Add', f , :neighbors , :render_options => { :wrapper => 'bootstrap'}, class: 'btn btn-mini'
   .actions
     = f.button :submit
