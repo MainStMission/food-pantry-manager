@@ -10,8 +10,16 @@
   .field
     = f.input :household_name
     %br/
+  %ul.nav.nav-tabs
+    %li
+      %a{"data-toggle" => "tab", :href => "#neighbor"} Neighbor
+    %li
+      %a{"data-toggle" => "tab", :href => "#household"} Information
+    %li
+      %a{"data-toggle" => "tab", :href => "#information"} Household
   .field
     = f.simple_fields_for :neighbors do |builder|
+      #neighbor.tab-pane.fade
       %fieldset
         = builder.input :first_name
         = builder.input :middle_name
@@ -25,10 +33,22 @@
         = builder.input :zip
         = builder.input :phone
         = builder.input :email
+        = builder.input :food_stamps
+        = builder.input :rent
+        = builder.input :utilities
+        = builder.input :residency_date
+      #info.tab-pane.fade
+      %fieldset
+        = builder.input :proof_of_residency_type
+        = builder.input :date_of_proof
+        = builder.input :monthly_income
+        = builder.input :smokes
+        = builder.input :notes
+    #household.tab-pane.fade
     %h3 Household Members
-    =f.simple_fields_for :neighbors  do  |neighbor|
+    = f.simple_fields_for :neighbors   do  |neighbor|
       = render 'neighbor_fields', :f => neighbor
     .links
-      = link_to_add_association 'Add', f , :neighbors , :render_options => { :wrapper => 'bootstrap'}, class: 'btn btn-mini'
+      = link_to_add_association 'Add', f,  :neighbors ,  class: 'btn btn-mini'
   .actions
     = f.button :submit
