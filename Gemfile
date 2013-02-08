@@ -43,6 +43,8 @@ group :development, :test do
   gem "win32console", :platform => :mswin
   gem "rb-notifu",    :platform => :mswin
   gem "better_errors"
+  gem 'binding_of_caller'
+  gem 'meta_request', '0.2.1'
   gem "guard-livereload"
   gem "yajl-ruby"
   gem "rack-livereload"
@@ -52,4 +54,6 @@ group :development, :test do
   gem "sqlite3"
   gem "foreman"
   gem "zeus"
+  gem 'spork', '~> 1.0rc'
 end
+

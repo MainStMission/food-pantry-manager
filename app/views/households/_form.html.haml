@@ -1,54 +1,70 @@
 = simple_form_for @household do |f|
-  - if @household.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@household.errors.count, "error")
-        prohibited this household from being saved:
-      %ul
-        - @household.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.input :household_name
-    %br/
-  %ul.nav.nav-tabs
-    %li
-      %a{"data-toggle" => "tab", :href => "#neighbor"} Neighbor
-    %li
-      %a{"data-toggle" => "tab", :href => "#household"} Information
-    %li
-      %a{"data-toggle" => "tab", :href => "#information"} Household
-  .field
+  = f.input :household_name
+  %hr
+  #tabbable
+    %ul.nav.nav-tabs.span12
+      %li
+        %a{"data-toggle" => "tab", :href => "#neighbor"} Neighbor
+      %li
+        %a{"data-toggle" => "tab", :href => "#household"} Information
+      %li
+        %a{"data-toggle" => "tab", :href => "#information"} Household
+    .tab-content
     = f.simple_fields_for :neighbors do |builder|
-      #neighbor.tab-pane.fade
-      %fieldset
-        = builder.input :first_name
-        = builder.input :middle_name
-        = builder.input :last_name
-        = builder.input :sex, collection: [:Male, :Female], input_html: { class: 'span1'}
-        = builder.input :age, input_html: {class: 'span1'}
-        = builder.input :encrypted_ssn
-        = builder.input :street
-        = builder.input :city
-        = builder.input :state, input_html: { class: 'span2' }, placeholder: 'North Carolina'
-        = builder.input :zip
-        = builder.input :phone
-        = builder.input :email
-        = builder.input :food_stamps
-        = builder.input :rent
-        = builder.input :utilities
-        = builder.input :residency_date
-      #info.tab-pane.fade
-      %fieldset
-        = builder.input :proof_of_residency_type
-        = builder.input :date_of_proof
-        = builder.input :monthly_income
-        = builder.input :smokes
-        = builder.input :notes
-    #household.tab-pane.fade
-    %h3 Household Members
-    = f.simple_fields_for :neighbors   do  |neighbor|
-      = render 'neighbor_fields', :f => neighbor
-    .links
-      = link_to_add_association 'Add', f,  :neighbors ,  class: 'btn btn-mini'
-  .actions
-    = f.button :submit
+      #neighbor.tab-pane
+        .span3
+          = builder.input :first_name
+        .span3
+          = builder.input :middle_name
+        .span3
+          = builder.input :last_name
+        %br
+        .span3
+          = builder.input :sex, collection: [:Male, :Female], input_html: { class: 'span1'}
+        .span3
+          = builder.input :age, input_html: {class: 'span1'}
+        .span3
+          = builder.input :encrypted_ssn
+        .span3
+          = builder.input :street
+        .span3
+          = builder.input :city
+        .span3
+          = builder.input :state, input_html: { class: 'span2' }, placeholder: 'North Carolina'
+        .span3
+          = builder.input :zip
+        .span3
+          = builder.input :phone
+        .span3
+          = builder.input :email
+      %hr.span12
+      #info.tab-pane.span12
+      %hr
+        .fieldset
+        .span3
+          = builder.input :food_stamps, input_html: { class: 'span1'}
+        .span3
+          = builder.input :rent, input_html: { class: 'span1'}
+        .span3
+          = builder.input :utilities,input_html: { class: 'span1'}
+        .span3
+          = builder.input :residency_date, as: 'date', input_html: { :class => 'span1' }
+        .span3
+          = builder.input :proof_of_residency_type, input_html: { :class => 'span2' }, label: 'Proof of Residency', collection: [:Passport, :Drivers_License,:Green_Card]
+        .span3
+          = builder.input :date_of_proof, as: 'date', input_html: { :class => 'span1' }
+        .span3
+          = builder.input :monthly_income, input_html: { :class => 'span1' }
+        .span3
+          = builder.input :smokes, input_html: { :class => 'span1' }
+        .span12
+          = builder.input :notes, input_html: { :class => 'span8' }
+      %hr.span12
+      #household.tab-pane.span12
+        %h3 Household Members
+        = f.simple_fields_for :neighbors   do  |neighbor|
+          = render 'neighbor_fields', :f => neighbor
+    .links.span2
+      = link_to_add_association 'Add Family Member', f,  :neighbors ,  class: 'btn btn-mini'
+    .actions.span2
+      = f.button :submit

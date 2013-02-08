@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :household do
-  end
-end
+     household_name 'Corriher'
+    end
+ end

@@ -2,6 +2,7 @@
 class Neighbor < ActiveRecord::Base  
  # include ActiveModel::ForbiddenAttributesProtection
 
+  validates :email, :uniqueness  =>true 
   has_many :visits
 
   belongs_to :household
@@ -9,6 +10,9 @@ class Neighbor < ActiveRecord::Base
   attr_encrypted :ssn, :key => Rails.application.config.secret_token
 
   def name
-    "#{first_name} #{last_name}"
+    [first_name, last_name].join " "
   end
+
+
+
 end
