@@ -6,7 +6,6 @@ require 'faker'
 FactoryGirl.define do 
  factory :household do
     household_name "Brooke"
-    neighbor
 end
 
 end
