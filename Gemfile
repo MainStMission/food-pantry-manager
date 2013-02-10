@@ -4,6 +4,7 @@ HOST_OS = RbConfig::CONFIG["host_os"]
 source :rubygems
 
 gem "rails", "3.2.11"
+gem 'nokogiri'
 gem "pg"
 gem "puma"
 gem "rails_setup"
