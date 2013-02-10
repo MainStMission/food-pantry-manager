@@ -4,12 +4,14 @@ HOST_OS = RbConfig::CONFIG["host_os"]
 source :rubygems
 
 gem "rails", "3.2.11"
+gem 'nokogiri'
 gem "pg"
 gem "puma"
 gem "rails_setup"
 gem "devise"
 gem "strong_parameters"
 gem 'cocoon'
+
 
 group :assets do
   gem "sass-rails"
@@ -33,6 +35,7 @@ group :development, :test do
   gem "launchy"
   gem "factory_girl_rails"
   gem "rspec-rails", '~> 2.12'
+  gem 'faker'
   gem "pry-rails"
   gem "rb-fsevent", :require => RUBY_PLATFORM.include?("darwin") && "rb-fsevent"
   gem "ruby_gntp",  :require => RUBY_PLATFORM.include?("darwin") && "ruby_gntp"

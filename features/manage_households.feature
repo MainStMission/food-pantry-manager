@@ -8,7 +8,7 @@ Feature: Manage Households
 
      | household_name |Bronson|
 
-  Pending Then I should see "Bronson" for the household name
+ Then I should see Bronson for the household name
 
 
  Scenario: Adding Neighbors to Households

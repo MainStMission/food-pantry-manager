@@ -12,9 +12,13 @@ describe Household do
      build(:household, household_name: nil).should_not be_valid
   end
 
-   it "should not allow a duplicate household_name)" do
+   it "should not allow a duplicate household_name" do
      create(:household, household_name: "Brooke")
      expect(build(:household, household_name: "Brooke")).to_not be_valid
    end
+
+   it "should allow entry of a Family member" do
+     build(:household).neighbor.first_name.should == 'Anne'
+     end
 
 end
