@@ -9,9 +9,9 @@ end
 
 
 When /^I create a "(.*?)"  with this attribute$/ do | arg1, table|
-  @attributes = hash_from_table(table)
-  visit new_household_path
-  click_button "Create Household"
+  pending #@attributes = hash_from_table(table)
+          #visit new_household_path
+          #click_button "Create Household"
 end
 
 
