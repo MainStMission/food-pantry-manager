@@ -14,5 +14,8 @@ class Neighbor < ActiveRecord::Base
   end
 
 
+  def set_rank
+
+  end
 
 end

@@ -4,9 +4,8 @@ Feature: Manage Households
 
  Scenario: Creating a Household
 
-  When I create a "household"  with this attribute
+  When I create a household called "Bronson"
 
-     | household_name |Bronson|
 
  Then I should see Bronson for the household name
 

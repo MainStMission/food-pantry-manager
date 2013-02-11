@@ -16,4 +16,17 @@ describe Household do
 
   it { should have_many(:neighbors)}
 
+  it "should have one primary neighbor" do
+    new_household = create(:household, household_name: 'Brooke')
+
+
+  end
+
+  it "should allow entry of multiple family members" do
+
+  end
+
+  it "should return a count of the number of associated neighbors" do
+
+  end
 end

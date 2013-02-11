@@ -1,6 +1,4 @@
 
-$model_default_attributes.household =  { :household_name => "Houseman" }
-
 
 Given /^a household exists$/ do
   @household = Household.create(default_attributes)
@@ -8,16 +6,16 @@ end
 
 
 
-When /^I create a "(.*?)"  with this attribute$/ do | arg1, table|
-  pending #@attributes = hash_from_table(table)
-          #visit new_household_path
-          #click_button "Create Household"
+When /^I create a household called "(.*?)"/ do |arg1,household|
+          visit new_household_path
+          fill_in "Household", with: "#{household}"
+          click_button "Create Household"
 end
 
 
 Then /^I should see Bronson for the household name/ do
- # visit households_path
-  #page.should have_content "Bronson"
+  visit households_path
+  page.should have_content "Bronson"
 end
 
 When /^I create a household with these attributes$/ do |table|
@@ -42,14 +40,14 @@ When /^I delete the household$/ do
   click_link 'Destroy'
 end
 
-When /^I signin as the household$/ do
+When /^I sign in as the household$/ do
   visit time_clock_path
   within "#household_#{@volunteer.to_param}" do
     click_link 'Sign In'
   end
 end
 
-When /^I signout as the household$/ do
+When /^I sign out as the household$/ do
   visit time_clock_path
   within "#household_#{@volunteer.to_param}" do
     click_link 'Sign Out'
