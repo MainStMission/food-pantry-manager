@@ -2,7 +2,6 @@
 class Neighbor < ActiveRecord::Base  
  # include ActiveModel::ForbiddenAttributesProtection
 
-  validates :email, :uniqueness  =>true 
   has_many :visits
 
   belongs_to :household

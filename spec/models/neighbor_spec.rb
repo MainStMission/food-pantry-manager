@@ -44,11 +44,5 @@ describe Neighbor do
   it "Returns a neighbors full name as a string" do
     create(:neighbor, first_name: "Tom", last_name:"Brooke").name.should == "Tom Brooke" 
   end
-
- it "Is invalid with duplicate emails" do
-   create(:neighbor, email: "tom.brooke@gmail.com")
-   build(:neighbor, email: "tom.brooke@gmail.com").should_not be_valid
- end
-
  end
 end

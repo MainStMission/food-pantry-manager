@@ -12,7 +12,6 @@ default_attributes = {
     food_stamps: 150.00,
     rent: 240.00,
     utilities: 275.00,
-    number_of_children: 4,
     proof_of_residency_type: 'green card',
     notes: 'Has small freezer.',
 }
