@@ -11,7 +11,7 @@ unless User.find_by_email("user2@example.com").present?
 end
 
 
-require_relative '../../app/models/access_level'
+require_relative '../app/models/access_level'
 module AccessLevelSeeds
     puts 'SETTING UP DEFAULT ACCESS LEVELS'
     AccessLevel.create!(name: "Volunteer", level: 1)

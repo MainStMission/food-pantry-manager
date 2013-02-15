@@ -60,9 +60,8 @@ ActiveRecord::Schema.define(:version => 20130211024324) do
     t.string   "encrypted_ssn"
     t.string   "encrypted_ssn_iv"
     t.string   "encrypted_ssn_salt"
-  end
-
-  create_table "people", :force => true do |t|
+    t.text     "notes"
+    t.string   "first_name"
     t.string   "last_name"
     t.string   "street"
     t.string   "city"
@@ -79,6 +78,20 @@ ActiveRecord::Schema.define(:version => 20130211024324) do
   end
 
   add_index "neighbors", ["last_name", "first_name"], :name => "index_neighbors_on_last_name_and_first_name"
+
+  create_table "people", :force => true do |t|
+    t.string  "last_name"
+    t.string  "street"
+    t.string  "city"
+    t.string  "state"
+    t.string  "zip"
+    t.string  "phone"
+    t.integer "age"
+    t.string  "sex"
+    t.integer "household_id"
+    t.string  "middle_name"
+    t.string  "email"
+  end
 
   create_table "time_cards", :force => true do |t|
     t.integer  "volunteer_id"
@@ -103,7 +116,6 @@ ActiveRecord::Schema.define(:version => 20130211024324) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "access_level_id"
-    t.string   "token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
