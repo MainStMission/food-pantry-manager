@@ -28,7 +28,7 @@ class HouseholdsController < ApplicationController
   def new
     @household = Household.new
     @household.neighbors.build
-
+    @household.neighbors.first.house_rank = 0
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @household }

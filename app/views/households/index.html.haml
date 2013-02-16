@@ -15,7 +15,7 @@
         %Tr
           %td= link_to household.id, household_path(household)
           %td= link_to household.household_name, household_path(household)
-          %td= household.neighbors.first.name
+          %td= household.neighbors.name
           %td= household.neighbors.count
           %td
             = link_to 'Edit', edit_household_path(household), class: 'btn btn-mini'
