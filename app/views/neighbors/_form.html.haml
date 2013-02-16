@@ -1,5 +1,5 @@
 = simple_form_for @neighbor do |f|
-  %h2= link_to @neighbor.house_name, households_path(household)
+  %h2 Household: #{@neighbor.house_name}
   = f.input  :first_name,  label: 'First Name'
   = f.input  :middle_name, label: 'Middle Name'
   = f.input  :last_name,   label: 'Last Name'
