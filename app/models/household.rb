@@ -6,7 +6,8 @@ class Household < ActiveRecord::Base
  validates :household_name, uniqueness: true
 
  has_many :neighbors
- accepts_nested_attributes_for :neighbors
+ accepts_nested_attributes_for :neighbors, allow_destroy: true
+
  
  def primary_neighbor
 
