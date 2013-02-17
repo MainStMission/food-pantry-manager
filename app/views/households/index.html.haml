@@ -1,4 +1,4 @@
-.panel
+%section.panel
   %header
     %h1 Households
   .content
@@ -7,12 +7,16 @@
         %tr
           %th ID
           %th Household
+          %th Neighbor
+          %th Family Members
           %th Actions
       %tbody
-      - households.each do |household|
+      - @households.each do |household|
         %Tr
           %td= link_to household.id, household_path(household)
           %td= link_to household.household_name, household_path(household)
+          %td= household.neighbors.name
+          %td= household.neighbors.count
           %td
             = link_to 'Edit', edit_household_path(household), class: 'btn btn-mini'
             = link_to 'Destroy', household, confirm: 'Are you sure?', method: :delete, class: 'btn btn-mini btn-danger'

@@ -2,7 +2,6 @@
 FoodPantry::Application.routes.draw do
   resources :people
 
-
   resources :donations
 
   resources :donors
