@@ -4,11 +4,14 @@ HOST_OS = RbConfig::CONFIG["host_os"]
 source :rubygems
 
 gem "rails", "3.2.11"
+gem 'nokogiri'
 gem "pg"
 gem "puma"
 gem "rails_setup"
 gem "devise"
 gem "strong_parameters"
+gem 'cocoon'
+
 
 group :assets do
   gem "sass-rails"
@@ -32,6 +35,7 @@ group :development, :test do
   gem "launchy"
   gem "factory_girl_rails"
   gem "rspec-rails", '~> 2.12'
+  gem 'faker'
   gem "pry-rails"
   gem "rb-fsevent", :require => RUBY_PLATFORM.include?("darwin") && "rb-fsevent"
   gem "ruby_gntp",  :require => RUBY_PLATFORM.include?("darwin") && "ruby_gntp"
@@ -41,7 +45,9 @@ group :development, :test do
   gem "rb-fchange",   :platform => :mswin
   gem "win32console", :platform => :mswin
   gem "rb-notifu",    :platform => :mswin
-
+  gem "better_errors"
+  gem 'binding_of_caller'
+  gem 'meta_request', '0.2.1'
   gem "guard-livereload"
   gem "yajl-ruby"
   gem "rack-livereload"
@@ -51,4 +57,6 @@ group :development, :test do
   gem "sqlite3"
   gem "foreman"
   gem "zeus"
+  gem 'spork', '~> 1.0rc'
 end
+

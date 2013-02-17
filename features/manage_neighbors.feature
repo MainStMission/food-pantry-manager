@@ -16,7 +16,6 @@ Scenario: Creating a neighbor
       |food_stamps |  200.33 |
       |rent | 120.22 |
       |utilities | 250.44 |
-      |number_of_children | 3 |
       |proof_of_residency_type | passport |
       |notes | One child is diabetic. |
 

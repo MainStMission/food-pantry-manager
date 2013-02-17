@@ -5,5 +5,4 @@ class Visit < ActiveRecord::Base
   belongs_to :neighbor
 
   delegate :name, to: :neighbor, prefix: true, allow_nil: true
-  delegate :number_of_children, to: :neighbor, prefix: true, allow_nil: true
 end

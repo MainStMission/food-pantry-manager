@@ -11,3 +11,8 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.order = "random"
 end
+
+RSpec.configure do |config| 
+  config.include FactoryGirl::Syntax::Methods
+end
+

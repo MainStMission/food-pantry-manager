@@ -12,7 +12,6 @@ default_attributes = {
     food_stamps: 150.00,
     rent: 240.00,
     utilities: 275.00,
-    number_of_children: 4,
     proof_of_residency_type: 'green card',
     notes: 'Has small freezer.',
 }
@@ -22,20 +21,20 @@ Given /^a neighbor exists$/ do
 end
 
 When /^I create a neighbor with these attributes$/ do |table|
-  @attributes = hash_from_table(table)
-  visit new_neighbor_path
+   @attributes = hash_from_table(table)
+   visit new_neighbor_path
 
-  @attributes.each do |attr, val|
-    fill_in "neighbor_#{attr}", with: val unless attr == "proof_of_residency_type"
-  end
-  select(@attributes.fetch('proof_of_residency_type').capitalize, from: "neighbor_proof_of_residency_type")
-  click_button "Create Neighbor"
+   @attributes.each do |attr, val|
+   fill_in "neighbor_#{attr}", with: val unless attr == "proof_of_residency_type"
+   end
+   select(@attributes.fetch('proof_of_residency_type').capitalize, from: "neighbor_proof_of_residency_type")
+   click_button "Create Neighbor"
 end
 
 When /^I edit a neighbor with new attributes$/ do
-  visit edit_neighbor_path(@neighbor)
-  fill_in "neighbor[first_name]", with: 'Tom'
-  click_button 'Update Neighbor'
+   visit edit_neighbor_path(@neighbor)
+   fill_in 'First Name', with: 'Tom'
+   click_button 'Update Neighbor'
 end
 
 When /^I delete the neighbor$/ do
@@ -56,6 +55,7 @@ Then /^I should see Anne$/ do
 end
 
 Then /^I should see the new attributes for the neighbor$/ do
+  visit neighbors_path
   page.should have_content('Tom')
 end
 
