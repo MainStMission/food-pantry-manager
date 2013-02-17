@@ -277,7 +277,6 @@ DEPENDENCIES
   jquery-rails
   launchy
   libnotify
-  nokogiri
   pg
   pry-rails
   puma
