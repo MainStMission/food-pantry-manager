@@ -17,7 +17,7 @@ class Neighbor < ActiveRecord::Base
   end
 
   def last_visit
-    visits.visited_on.last if visit
+    visit.visited_on.last if visit
   end
 
 

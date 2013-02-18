@@ -12,7 +12,7 @@
       %tbody
       - visits.each do |visit|
         %tr
-          %td= link_to visit.neighbor_name, neighbor_path(visit.neighbor_id)
+          %td= link_to visit.show_neighbor, neighbor_path(visit.neighbor_id)
           %td= visit.visited_on
           %td
             = link_to 'Edit', edit_visit_path(visit), class: 'btn btn-mini'
