@@ -16,6 +16,10 @@ class Neighbor < ActiveRecord::Base
     household.household_name if household
   end
 
+  def last_visit
+    visits.visited_on.last if visit
+  end
+
 
 
   def set_rank

@@ -1,12 +1,13 @@
 .panel
   %header
-    %h1 Neighbor Visits
+    %h1
+      %i.icon-food.icon-large
+      &nbsp&nbsp&nbspVisits
   .content
     %table.table.table-striped
       %thead
         %tr
           %th Neighbor
-          %th Household
           %th Visited On
       %tbody
       - visits.each do |visit|
