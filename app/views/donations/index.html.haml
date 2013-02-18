@@ -9,11 +9,12 @@
           %th Weight
           %th Actions
       %tbody
-        - donations.each do |donation|
+      - donations.each do |donation|
+        %tr
           %td= donation.donor_name
           %td= donation.weight
           %td
             = link_to 'Edit', edit_donation_path(donation), class: 'btn btn-mini'
             = link_to 'Destroy', donation, confirm: 'Are you sure?', method: :delete, class: 'btn btn-mini btn-danger'
-    %br
-    = link_to 'New Donation', new_donation_path, class: 'btn btn-primary'
+  %br
+  = link_to 'New Donation', new_donation_path, class: 'btn btn-primary'

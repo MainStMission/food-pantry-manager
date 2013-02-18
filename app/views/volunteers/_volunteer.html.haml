@@ -2,6 +2,7 @@
   %td= volunteer.name
   - if volunteer.signed_in?
     %td= time_tag volunteer.sign_in_time
-    %td= link_to "Sign Out", sign_out_volunteer_path(volunteer), class: 'btn'
+    %td= link_to '<i class="icon-user"></i> Sign Out'.html_safe, sign_out_volunteer_path(volunteer), class: 'btn btn-large btn-success'
   - else
-    %td= link_to "Sign In", sign_in_volunteer_path(volunteer), class: 'btn'
+    %td= link_to '<i class="icon-user"></i> Sign In'.html_safe, sign_in_volunteer_path(volunteer), class: 'btn btn-large btn-warning'
+

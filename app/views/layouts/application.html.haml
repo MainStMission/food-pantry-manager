@@ -14,7 +14,7 @@
         .row
           -#.alert
           -#  %p Warning! This is an unsecured environment. Do not store sensitive information.
-    .navbar.navbar-fixed-top
+    .navbar.navbar-static-top
       .navbar-inner
         .container
           %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
@@ -45,6 +45,6 @@
               - else
                 %li= link_to "Sign In", new_user_session_path
                 %li= link_to "Sign Up", new_user_registration_path
-    .container
+    .container.forms
       .row
         .span12= yield
