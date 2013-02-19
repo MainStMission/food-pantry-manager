@@ -21,6 +21,8 @@ group :assets do
   gem "bootstrap-sass"
   gem "uglifier"
   gem 'font-awesome-rails'
+  gem 'jquery-rails'
+  gem 'jquery_datepicker'
 end
 
 gem "jquery-rails"
