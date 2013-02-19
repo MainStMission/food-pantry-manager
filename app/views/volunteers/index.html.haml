@@ -11,6 +11,7 @@
           %th First name
           %th Last name
           %th Status
+          %th Time Cards
           %th Actions
 
       %tbody
@@ -20,6 +21,7 @@
           %td= volunteer.first_name
           %td= volunteer.last_name
           %td= volunteer.status
+          %td= volunteer.time_cards.count
           %td
             = link_to 'Edit', edit_volunteer_path(volunteer), :class => 'btn btn-mini'
             = link_to 'Destroy', volunteer, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
