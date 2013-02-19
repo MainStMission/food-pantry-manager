@@ -13,6 +13,7 @@ $navbarHeight: 80px;
 $navbarText: #eee;
 $navbarLinkColor: #eee;
 $navbarText: #3C566D;
+$navbarFontSize: 1.25em;
 $navbarHover: #faa630;
 $navbarBrandColor: $navbarText;
 $navbarLinkColor: $navbarText;
@@ -26,6 +27,7 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 @import "bootstrap-responsive";
 @import "navbar";
 
+
 @media (min-width: 980px) {
 }
 
@@ -33,6 +35,8 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 
   margin-top:20px;
 }
+
+
 .panel {
   background-color: white;
   -webkit-background-clip: padding-box;
