@@ -1,5 +1,9 @@
 # -*- encoding : utf-8 -*-
 FoodPantry::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   resources :people
 
   resources :donations
