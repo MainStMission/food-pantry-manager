@@ -10,12 +10,8 @@ gem "puma"
 gem "rails_setup"
 gem "devise"
 gem "strong_parameters"
-<<<<<<< HEAD
 gem 'cocoon'
-
-=======
 gem "prawn"
->>>>>>> added Prawn & DonationPdf generator class
 
 group :assets do
   gem "sass-rails"
