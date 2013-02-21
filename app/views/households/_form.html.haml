@@ -1,4 +1,4 @@
-= simple_form_for @household do |f|
+= simple_form_for @household,  html: { :class => 'form-inline' } do |f|
   = f.input :household_name
   %h3 Member Count #{@household.neighbors.count}
   %hr
@@ -11,15 +11,16 @@
       %li
         %a{"data-toggle" => "tab", :href => "#household"} Household
   .tab-content
-    = f.simple_fields_for :neighbors, input_html: {class: 'form-horizontal' } do |builder|
+    = f.simple_fields_for :neighbors do |builder|
       #neighbor.tab-pane
         .inner-form.row
-          .span3
-            = builder.input :first_name
-          .span3
-            = builder.input :middle_name
-          .span3
-            = builder.input :last_name
+          %fieldset
+            .span3
+              = builder.input :first_name
+            .span3
+              = builder.input :middle_name
+            .span3
+              = builder.input :last_name
           %br
           .span3
             = builder.input :sex, collection: [:Male, :Female], input_html: { class: 'span1'}
@@ -50,17 +51,17 @@
           .span2
             = builder.input :utilities,input_html: { class: 'span1'}
           .span2
-            = builder.input :monthly_income, input_html: { :class => 'span1' }
+            = builder.input :monthly_income, input_html: { class: 'span1' }
           .span2
-            = builder.input :smokes, input_html: { :class => 'span1' }
+            = builder.input :smokes, input_html: { class: 'span1' }
           .span4
-            = builder.input :residency_date, as: 'date', input_html: { :class => 'span1' }
-          .span4
-            = builder.input :proof_of_residency_type, input_html: { :class => 'span2' }, label: 'Proof of Residency', collection: [:Passport, :Drivers_License,:Green_Card]
-          .span3
-            = builder.input :date_of_proof, as: 'date', input_html: { :class => 'span1' }
+            = builder.input :residency_date, as: :date_picker, input_html: { class: 'span2 form-horizontal date_picker' }
+          .span2
+            = builder.input :proof_of_residency_type, input_html: { class: 'span1' }, label: 'Proof of Residency', collection: [:Passport, :Drivers_License,:Green_Card]
+          .span2
+            = builder.input :date_of_proof, as: :date_picker, input_html: { class: 'span2' }
           .span12
-            = builder.input :notes, :rows => 2, input_html: {:rows => 4, :class => 'span9' }
+            = builder.input :notes, :rows => 2, input_html: {rows: 4, class: 'span9' }
       #household.tab-pane
         .inner-form.span12.row
           %h3 Household Members

@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require bootstrap
 //= require cocoon
 //= require_tree .
+
+$("input.date_picker").datepicker();

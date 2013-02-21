@@ -1,18 +1,19 @@
 .panel
   %header
-    %h1 Neighbor Visits
+    %h1
+      %i.icon-food.icon-large
+      &nbsp&nbsp&nbspVisits
   .content
     %table.table.table-striped
       %thead
         %tr
           %th Neighbor
-          %th Household
           %th Visited On
       %tbody
       - visits.each do |visit|
         %tr
-          %td= link_to visit.neighbor_name, neighbor_path(visit.neighbor_id)
-          %td= visit.visited_on
+          %td= link_to visit.show_neighbor, neighbor_path(visit.neighbor_id)
+          %td= link_to visit.visited_on, edit_visit_path(visit)
           %td
             = link_to 'Edit', edit_visit_path(visit), class: 'btn btn-mini'
             = link_to 'Destroy', visit, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'

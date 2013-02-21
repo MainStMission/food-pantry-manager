@@ -8,12 +8,14 @@ describe Neighbor do
   ## Quick Shoulda test for the relation
 
   it {should belong_to(:household)}
- 
+
   ## Shanes SSN testing
 
- context 'ssn' do
+  context 'ssn' do
     let(:neighbor) do
       Neighbor.new.tap do |n|
+        n.first_name = 'Sam'
+        n.last_name = 'May'
         n.ssn = SSN
         n.save
       end
@@ -34,15 +36,15 @@ describe Neighbor do
       neighbor.encrypted_ssn.should_not == another_neighbor.encrypted_ssn
     end
 
-   ### Let's go with factories
-   ##
+    ### Let's go with factories
+    ##
 
-   it "should have a valid factory" do
-    create(:neighbor).should be_valid
-   end
+    it "should have a valid factory" do
+      create(:neighbor).should be_valid
+    end
 
-  it "Returns a neighbors full name as a string" do
-    create(:neighbor, first_name: "Tom", last_name:"Brooke").name.should == "Tom Brooke" 
+    it "Returns a neighbors full name as a string" do
+      create(:neighbor, first_name: "Tom", last_name:"Brooke").name.should == "Tom Brooke"
+    end
   end
- end
 end

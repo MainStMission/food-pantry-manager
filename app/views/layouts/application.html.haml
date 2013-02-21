@@ -1,21 +1,18 @@
 !!!
 %html
   %head
-    %title Main Street Mission
+    %title= link_to 'Main Street Mission', '/'
     /[if lt IE 9]
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application", "header"
     = csrf_meta_tags
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %link{:href => "css/redmond/jquery-ui-1.10.1.custom.css.scss", :rel => "stylesheet"}/
   %body
-    - unless Rails.env == "production"
-      .container
-        .row
-          -#.alert
-          -#  %p Warning! This is an unsecured environment. Do not store sensitive information.
-    .navbar.navbar-fixed-top
-      .navbar-inner
+    .container
+    %header.navbar.navbar-static-top
+      %nav.navbar-inner
         .container
           %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
             %span.icon-bar
@@ -24,14 +21,32 @@
           %a.brand{href: "#"} Main St Mission
           .nav-collapse
             %ul.nav
-              %li= link_to "Users", users_path
-              %li= link_to "Volunteers", volunteers_path
-              %li= link_to "Donors", donors_path
-              %li= link_to "Donations", donations_path
-              %li= link_to "Neighbors", neighbors_path
-              %li= link_to "Households", households_path
-              %li= link_to "Visits", visits_path
-              %li= link_to "Sign In", time_clock_path
+              %li.dropdown
+                %a.dropdown-toggle{data_toggle: "dropdown", href: "#" }
+                  <i class="icon-user icon-large"></i> Neighbors
+                  %b.caret
+                %ul.dropdown-menu
+                  %li= link_to "New Neighbor", new_household_path
+                  %li.divider
+                  %li= link_to "New Visit", new_visit_path
+                  %li.divider
+                  %li= link_to "Households", households_path
+                  %li.divider
+                  %li= link_to "Neighbors", neighbors_path
+                  %li.divider
+                  %li= link_to "Visits", visits_path
+              %li.dropdown
+                %a.dropdown-toggle{data_toggle: "dropdown", href: "#" }
+                  <i class="icon-shopping-cart icon-large"></i> Donations
+                  %b.caret
+                %ul.dropdown-menu
+                  %li= link_to "New Donation", new_donation_path
+                  %li.divider
+                  %li= link_to "Donations", donations_path
+                  %li.divider
+                  %li= link_to "Donortools", ''
+              %li= link_to '<i class="icon-pencil icon-large"></i> Sign In'.html_safe, time_clock_path
+              %li= link_to '<i class="icon-dashboard icon-large"></i> Admin'.html_safe, '/admin'
             %ul.nav.pull-right
               - if user_signed_in?
                 %li.dropdown
@@ -45,6 +60,11 @@
               - else
                 %li= link_to "Sign In", new_user_session_path
                 %li= link_to "Sign Up", new_user_registration_path
-    .container
+    .row
+      - flash.each do |name, msg|
+        %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
+          %a.close{"data-dismiss" => "alert"} ×
+          = msg
+    .container.forms
       .row
         .span12= yield
