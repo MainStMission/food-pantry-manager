@@ -11,7 +11,7 @@ gem "rails_setup"
 gem "devise"
 gem "strong_parameters"
 gem 'cocoon'
-
+gem "prawn"
 
 group :assets do
   gem "sass-rails"
@@ -37,6 +37,7 @@ group :development, :test do
   gem "rspec-rails", '~> 2.12'
   gem 'faker'
   gem "pry-rails"
+  gem 'pdf-inspector', :require => "pdf/inspector"
   gem "rb-fsevent", :require => RUBY_PLATFORM.include?("darwin") && "rb-fsevent"
   gem "ruby_gntp",  :require => RUBY_PLATFORM.include?("darwin") && "ruby_gntp"
   gem "libnotify",  :require => RUBY_PLATFORM.include?("linux")  && "libnotify"
