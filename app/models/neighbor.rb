@@ -2,11 +2,16 @@
 class Neighbor < ActiveRecord::Base  
  # include ActiveModel::ForbiddenAttributesProtection
 
+  validates :first_name, presence: {message: 'Neighbor must have a first name' }
+  validates :last_name, presence: {message: 'Neighbor must have a last name' }
+
+
   has_many :visits
 
   belongs_to :household
 
   attr_encrypted :ssn, :key => Rails.application.config.secret_token
+
 
   def name
     [first_name, last_name].join " "

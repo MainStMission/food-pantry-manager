@@ -1,6 +1,7 @@
 @import "bourbon";
 @import "font-awesome";
 
+
 $iconSpritePath: image-path('glyphicons-halflings.png');
 $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 
@@ -26,7 +27,7 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 @import "bootstrap";
 @import "bootstrap-responsive";
 @import "navbar";
-
+@import "redmond/jquery-ui-1.10.1.custom";
 
 @media (min-width: 980px) {
 }
@@ -36,6 +37,10 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
   margin-top:20px;
 }
 
+.alert {
+  margin-left: 220px;
+  width: 650px;
+}
 
 .panel {
   background-color: white;

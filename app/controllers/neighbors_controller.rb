@@ -88,7 +88,7 @@ class NeighborsController < ApplicationController
     [
       :city, :close_date, :date_of_proof, :first_name, :middle_name,  :street,
       :food_stamps, :last_name, :monthly_income, :notes, :number_of_children,
-      :open_date, :phone, :proof_of_residency_type, :rent, :residency_date,
+      :open_date, :phone, :proof_of_residency_type, :email, :rent, :residency_date,
       :proof_of_residency_type, :smokes, :spouse, :ssn, :state, :street,
       :utilities, :zip ,:created_at, :updated_at , :neighbors_attributes
     ]
