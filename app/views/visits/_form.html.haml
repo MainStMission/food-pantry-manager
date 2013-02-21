@@ -1,6 +1,6 @@
 = simple_form_for visit do |f|
   = f.association :neighbor,  :label => 'Neighbor'
-  = f.input  :visited_on,     :label => 'Visited On'
-  = f.input  :items_received, :label => 'Items Received'
-  = f.input  :notes,          :label => 'Notes'
+  = f.input  :visited_on,     :label => 'Visited On', as: :date_picker, input_html: { class: 'span2' }
+  = f.input  :items_received, :label => 'Items Received',input_html: {rows: 4, class: 'span9' }
+  = f.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
   = f.button :submit, :class => 'btn-primary', :label=> 'Save' 

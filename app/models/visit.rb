@@ -5,4 +5,9 @@ class Visit < ActiveRecord::Base
   belongs_to :neighbor
 
   delegate :name, to: :neighbor, prefix: true, allow_nil: true
+
+  def show_neighbor
+    neighbor.last_name if neighbor
+  end
+
 end

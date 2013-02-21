@@ -11,6 +11,8 @@ gem "rails_setup"
 gem "devise"
 gem "strong_parameters"
 gem 'cocoon'
+gem 'activeadmin'
+gem "meta_search",    '>= 1.1.0.pre'
 
 
 group :assets do
@@ -18,6 +20,9 @@ group :assets do
   gem "coffee-rails"
   gem "bootstrap-sass"
   gem "uglifier"
+  gem 'font-awesome-rails'
+  gem 'jquery-rails'
+  gem 'jquery_datepicker'
 end
 
 gem "jquery-rails"

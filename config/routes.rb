@@ -1,5 +1,9 @@
 # -*- encoding : utf-8 -*-
 FoodPantry::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   resources :people
 
   resources :donations
@@ -20,6 +24,8 @@ FoodPantry::Application.routes.draw do
   end
 
   devise_for :users, :controllers => {:registrations => "users/registrations", :passwords => "users/passwords"}
+
+
 
   scope "/admin" do
     resources :users
