@@ -11,6 +11,7 @@ gem "rails_setup"
 gem "devise"
 gem "strong_parameters"
 gem 'cocoon'
+gem 'kaminari'
 
 
 group :assets do
