@@ -33,7 +33,6 @@ group :development, :test do
   gem "database_cleaner"
   gem "shoulda"
   gem "launchy"
-  gem "factory_girl_rails"
   gem "rspec-rails", '~> 2.12'
   gem 'faker'
   gem "pry-rails"
@@ -58,5 +57,9 @@ group :development, :test do
   gem "foreman"
   gem "zeus"
   gem 'spork', '~> 1.0rc'
+end
+
+group :test do
+  gem "factory_girl_rails"
 end
 
