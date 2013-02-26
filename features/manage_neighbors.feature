@@ -1,7 +1,7 @@
 Feature: Manage Neighbors
   As an admin I want to create, edit and manage Neighbors
 
-Scenario: Creating a neighbor
+  Scenario: Creating a neighbor
     Given I am logged in as admin
     When I create a neighbor with these attributes
 

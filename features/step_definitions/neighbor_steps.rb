@@ -46,7 +46,9 @@ Then /^I should see Anne$/ do
   visit neighbors_path
   page.should have_content "Anne"
 
-  click_link("Edit")
+  within(".neighbor") do
+    click_link("Edit")
+  end
   @attributes.each do |attr, val|
     node = find(:xpath, "//*[(@id = 'neighbor_#{attr}')]")
     val = val.capitalize if val == "passport"
