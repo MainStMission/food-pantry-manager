@@ -15,5 +15,6 @@
           %td
             = link_to 'Edit', edit_donation_path(donation), class: 'btn btn-mini'
             = link_to 'Destroy', donation, confirm: 'Are you sure?', method: :delete, class: 'btn btn-mini btn-danger'
+            = link_to 'PDF', donation_path(donation, format: "pdf"), class: 'btn btn-mini btn-info'
     %br
     = link_to 'New Donation', new_donation_path, class: 'btn btn-primary'

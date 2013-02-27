@@ -3,7 +3,7 @@ HOST_OS = RbConfig::CONFIG["host_os"]
 
 source "https://rubygems.org"
 
-gem "rails", "3.2.11"
+gem "rails", "3.2.12"
 gem 'nokogiri'
 gem "pg"
 gem "puma"
@@ -13,6 +13,7 @@ gem "strong_parameters"
 gem 'cocoon'
 gem 'kaminari'
 
+gem "prawn"
 
 group :assets do
   gem "sass-rails"
@@ -37,6 +38,7 @@ group :development, :test do
   gem "rspec-rails", '~> 2.12'
   gem 'faker'
   gem "pry-rails"
+  gem 'pdf-inspector', :require => "pdf/inspector"
   gem "rb-fsevent", :require => RUBY_PLATFORM.include?("darwin") && "rb-fsevent"
   gem "ruby_gntp",  :require => RUBY_PLATFORM.include?("darwin") && "ruby_gntp"
   gem "libnotify",  :require => RUBY_PLATFORM.include?("linux")  && "libnotify"
@@ -63,4 +65,3 @@ end
 group :test do
   gem "factory_girl_rails"
 end
-
