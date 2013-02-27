@@ -24,6 +24,18 @@ class DonationsController < ApplicationController
 
     redirect_to donations_path, notice: "Donation deleted."
   end
+  
+  def show
+    donation = Donation.find(params[:id])
+    respond_to do |format|
+      format.pdf do
+        pdf = DonationPdf.new(donation)
+        send_data pdf.render, filename: "donation_#{donation.id}.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
+  end
 
   private
 
