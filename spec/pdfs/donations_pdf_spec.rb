@@ -7,6 +7,6 @@ describe "/pdfs/donation_pdf.rb" do
     pdf = DonationPdf.new(donation)
     file = pdf.render_file "test.pdf"
     reader = PDF::Reader.new(File.open(file))
-    reader.pages.first.text.should eq("Donor: #{donation.donor_name}")
+    reader.pages.first.text.should match(/Donor: #{donation.donor_name}/)
   end
 end
