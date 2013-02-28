@@ -67,3 +67,6 @@ group :development, :test do
   gem 'spork', '~> 1.0rc'
 end
 
+group :test do
+  gem "factory_girl_rails"
+end
