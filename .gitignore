@@ -13,6 +13,7 @@
 /db/*.sqlite3
 
 config/database.yml
+test.pdf
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
@@ -40,7 +41,10 @@ custom_plan.rb
 
 db/*.db
 
+bin/
+
 # YARD artifacts
 .yardoc
 _yardoc
 doc/
+test.pdf
