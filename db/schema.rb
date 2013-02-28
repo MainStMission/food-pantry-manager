@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130219013031) do
+=======
+ActiveRecord::Schema.define(:version => 20130225024800) do
+>>>>>>> nested_attributes
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -71,6 +75,13 @@ ActiveRecord::Schema.define(:version => 20130219013031) do
   add_index "households", ["household_name"], :name => "index_households_on_household_name", :unique => true
 
   create_table "neighbors", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "phone"
     t.decimal  "monthly_income",          :precision => 8, :scale => 2
     t.decimal  "food_stamps",             :precision => 8, :scale => 2
     t.decimal  "rent",                    :precision => 8, :scale => 2
@@ -89,23 +100,30 @@ ActiveRecord::Schema.define(:version => 20130219013031) do
     t.string   "encrypted_ssn_iv"
     t.string   "encrypted_ssn_salt"
     t.text     "notes"
-    t.string   "first_name"
+    t.integer  "age"
+    t.integer  "household_id"
+    t.string   "apt"
+    t.boolean  "done"
+    t.string   "sex"
+    t.string   "middle_name"
+    t.string   "email"
+  end
+
+  create_table "people", :force => true do |t|
     t.string   "last_name"
-    t.string   "street"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "title"
+    t.string   "address"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
     t.string   "phone"
-    t.integer  "age"
-    t.string   "sex"
-    t.integer  "household_id"
-    t.string   "middle_name"
     t.string   "email"
-    t.string   "apt"
-    t.boolean  "done"
+    t.integer  "age"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
-
-  add_index "neighbors", ["last_name", "first_name"], :name => "index_neighbors_on_last_name_and_first_name"
 
   create_table "time_cards", :force => true do |t|
     t.integer  "volunteer_id"

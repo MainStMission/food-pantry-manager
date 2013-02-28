@@ -40,7 +40,10 @@ custom_plan.rb
 
 db/*.db
 
+bin/
+
 # YARD artifacts
 .yardoc
 _yardoc
 doc/
+test.pdf
