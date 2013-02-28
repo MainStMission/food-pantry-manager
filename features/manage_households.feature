@@ -7,8 +7,8 @@ Feature: Manage Households
   When I create a household called "Bronson"
 
 
- Then I should see Bronson for the household name
+   Then I should see Bronson for the household name
 
 
- Scenario: Adding Neighbors to Households
+  Scenario: Adding Neighbors to Households
 
