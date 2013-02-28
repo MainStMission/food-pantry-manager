@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20130219013031) do
-=======
 ActiveRecord::Schema.define(:version => 20130225024800) do
->>>>>>> nested_attributes
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
