@@ -6,17 +6,19 @@ end
 
 
 
-When /^I create a household called "(.*?)"/ do |household|
-          visit new_household_path
-          fill_in "Household", with: "#{household}"
-          click_button "Create Household"
-end
+#When /^I create a household called "(.*?)"/ do |household|
+#          visit new_household_path
+#          fill_in "Household", with: "#{household}"
+#          fill_in "First name", with: 'Tom'
+#          fill_in "Last name" , with:  "#{household}"
+#          click_button "Create Household"
+#end
 
 
-Then /^I should see Bronson for the household name/ do
-  visit households_path
-  page.should have_content "Bronson"
-end
+#Then /^I should see Bronson for the household name/ do
+#  visit households_path
+#  page.should have_content "Bronson"
+#end
 
 When /^I create a household with these attributes$/ do |table|
   @attributes = hash_from_table(table)
