@@ -15,9 +15,8 @@
 //= require jquery-ui
 //= require bootstrap
 //= require cocoon
+//= require header
 //= require_tree .
 
 $("input.date_picker").datepicker();
-$(function() {
-    return $('.dropdown-toggle').dropdown();
-});
+
