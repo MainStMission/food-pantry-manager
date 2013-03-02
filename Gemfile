@@ -16,10 +16,11 @@ gem "meta_search",    '>= 1.1.0.pre'
 gem 'kaminari'
 
 gem "prawn"
+gem "coffee-rails"
 
 group :assets do
   gem "sass-rails"
-  gem "coffee-rails"
+
   gem "bootstrap-sass"
   gem "uglifier"
   gem 'font-awesome-rails'
