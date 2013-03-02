@@ -46,7 +46,14 @@
                   %li.divider
                   %li= link_to "Donortools", ''
               %li= link_to '<i class="icon-pencil icon-large"></i> Sign In'.html_safe, time_clock_path
-              %li= link_to '<i class="icon-dashboard icon-large"></i> Admin'.html_safe, '/admin'
+              %li.dropdown
+                %a.dropdown-toggle{data_toggle: "dropdown", href: "#" }
+                  <i class="icon-dashboard icon-large"></i> Admin
+                  %b.caret
+                %ul.dropdown-menu
+                  %li= link_to "Active Admin", '/admin'
+                  %li.divider
+                  %li= link_to "New Volunteer", new_volunteer_path
             %ul.nav.pull-right
               - if user_signed_in?
                 %li.dropdown
