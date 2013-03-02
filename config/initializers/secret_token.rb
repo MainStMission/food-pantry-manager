@@ -3,9 +3,7 @@
 #
 # Be sure to restart your server when you modify this file.
 
-SECRET_TOKEN = !binary |-
-MTA1ODlmMzU0NGEwYTAyN2Q5NDUzMDNjYzQxOGYwNDJlMmVkMzQ5YjQyZDYy
-Y2NhMjgxZDljZTY0NGE1
+SECRET_TOKEN = 'MTA1ODlmMzU0NGEwYTAyN2Q5NDUzMDNjYzQxOGYwNDJlMmVkMzQ5YjQyZDYyY2NhMjgxZDljZTY0NGE1'
 
 # Your secret key for verifying the integrity of signed cookies.
 # If you change this key, all old signed cookies will become invalid!
