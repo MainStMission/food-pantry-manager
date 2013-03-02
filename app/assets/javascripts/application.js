@@ -18,3 +18,6 @@
 //= require_tree .
 
 $("input.date_picker").datepicker();
+$(function() {
+    return $('.dropdown-toggle').dropdown();
+});
