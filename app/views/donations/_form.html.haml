@@ -1,4 +1,11 @@
 = simple_form_for donation do |f|
-  = f.association :donor
-  = f.input :weight
-  = f.button :submit
+  #weight
+    %fieldset
+      = f.association :donor
+      = link_to 'Add Donor', new_donor_path , class: 'btn btn-mini'
+    .row
+    %br
+    = f.input :weight
+    %br
+    = f.button :submit
+

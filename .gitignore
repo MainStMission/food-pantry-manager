@@ -20,7 +20,7 @@ test.pdf
 /tmp
 
 /vendor/ruby
-
+.env
 *.gem
 *.rbc
 .bundle
