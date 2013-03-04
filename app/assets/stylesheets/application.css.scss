@@ -61,6 +61,42 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 
 }
 
+
+#weight {
+  width: 20%;
+  margin: 0px auto;
+  select {
+    font-size:  20px;
+    height: 30px;
+  }
+  input {
+    border:  8px;
+    border-color: red;
+    margin:  0px auto;
+    text-align: center;
+    background-color: black;
+    font-size: 50px;
+    color: #ffff00;
+    height:  60px;
+  }
+  input.btn {
+  color: red;
+  font-size: 25px;
+  }
+}
+
+
+#weighin {
+  border:  8px;
+  border-color: red;
+  margin:  0px auto;
+  text-align: center;
+  font-size: 50px;
+  color: #ffff00;
+  background-color: black;
+  height:  60px;
+}
+
 tr.volunteer {
   font-size:  150%;
 }
