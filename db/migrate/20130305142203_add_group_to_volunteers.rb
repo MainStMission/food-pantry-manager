@@ -1,5 +1,5 @@
 class AddGroupToVolunteers < ActiveRecord::Migration
   def change
-    add_column, :volunteers,:group, :string
+    add_column :volunteers, :group, :string
   end
 end
