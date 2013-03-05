@@ -14,6 +14,7 @@ gem 'cocoon'
 gem 'activeadmin', github: 'Daxter/active_admin', branch: 'bugfix/1773-execjs'
 gem "meta_search",    '>= 1.1.0.pre'
 gem 'kaminari'
+gem 'new-relic'
 
 gem "prawn"
 gem "coffee-rails"
