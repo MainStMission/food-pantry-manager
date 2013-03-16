@@ -126,20 +126,6 @@ ActiveRecord::Schema.define(:version => 20130225024800) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "people", :force => true do |t|
-    t.string  "last_name"
-    t.string  "street"
-    t.string  "city"
-    t.string  "state"
-    t.string  "zip"
-    t.string  "phone"
-    t.integer "age"
-    t.string  "sex"
-    t.integer "household_id"
-    t.string  "middle_name"
-    t.string  "email"
-  end
-
   create_table "time_cards", :force => true do |t|
     t.integer  "volunteer_id"
     t.datetime "start_time"
