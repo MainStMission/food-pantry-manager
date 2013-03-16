@@ -126,6 +126,8 @@ ActiveRecord::Schema.define(:version => 20130225024800) do
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "neighbors", ["last_name", "first_name"], :name => "index_neighbors_on_last_name_and_first_name"
+
   create_table "time_cards", :force => true do |t|
     t.integer  "volunteer_id"
     t.datetime "start_time"

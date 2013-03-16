@@ -3,7 +3,6 @@ class NeighborsController < ApplicationController
   
   expose(:neighbor)
   expose(:neighbors)
-  helper_method :neighbor, :neighbors
   before_filter :authenticate_user!, :current_user
   before_filter :has_access?, :only => [:create, :update, :destroy] 
 
