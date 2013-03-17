@@ -13,12 +13,12 @@ end
 
 require_relative '../app/models/access_level'
 puts 'SETTING UP DEFAULT ACCESS LEVELS'
-unless AccessLevelSeeds.find_by_name("Volunteer").present?
+unless AccessLevel.find_by_name("Volunteer").present?
     AccessLevel.create!(name: "Volunteer", level: 1)
 end
-unless AccessLevelSeeds.find_by_name("Super-Volunteer").present?
+unless AccessLevel.find_by_name("Super-Volunteer").present?
     AccessLevel.create!(name: "Super-Volunteer", level: 2)
 end
-unless AccessLevelSeeds.find_by_name("Admin").present?
+unless AccessLevel.find_by_name("Admin").present?
     AccessLevel.create!(name: "Admin", level: 3)
 end
