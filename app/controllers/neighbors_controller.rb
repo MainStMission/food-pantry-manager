@@ -1,6 +1,11 @@
 # -*- encoding : utf-8 -*-
 class NeighborsController < ApplicationController
   
+  expose(:neighbor)
+  expose(:neighbors)
+  before_filter :authenticate_user!, :current_user
+  before_filter :has_access?, :only => [:create, :update, :destroy] 
+
   # GET /neighbors
   # GET /neighbors.json
   def index
@@ -83,6 +88,10 @@ class NeighborsController < ApplicationController
 
 
   private
+  
+  def has_access?
+    current_user.admin?
+  end
 
   def allowable
     [

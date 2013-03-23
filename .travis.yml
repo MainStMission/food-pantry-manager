@@ -1,9 +1,15 @@
 language: ruby
 rvm:
-  - 1.9.2
   - 1.9.3
+before_install:
+  - sudo apt-get install libgtkmm-2.4
+  - sudo apt-get install libgtkmm-3.0
+  - sudo apt-get install libnotify4
 before_script:
-  - rake travis:setup
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database food_pantry_test;' -U postgres
+  - rake db:setup
+  - rake db:test:load
 notifications:
   webhooks:
     urls:

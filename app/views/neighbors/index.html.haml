@@ -11,8 +11,8 @@
           %th City
           %th Family Members
       %tbody
-      - @neighbors.each do |neighbor|
-        %tr
+      - neighbors.each do |neighbor|
+        = content_tag_for(:tr, neighbor) do
           %td= link_to neighbor.name, neighbor_path(neighbor)
           %td= neighbor.phone
           %td= neighbor.street
