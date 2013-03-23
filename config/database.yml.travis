@@ -1,15 +1,15 @@
 development:
-  adapter: postgresql
+  adapter: sqlite3
   database: food_pantry_development
   username: postgres
 
 test: &test
-  adapter: postgresql
+  adapter: sqlite3
   database: food_pantry_test
   username: postgres
 
 production:
-  adapter: postgresql
+  adapter: sqlite3
   database: food_pantry_production
   username: postgres
 
