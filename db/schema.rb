@@ -56,10 +56,13 @@ ActiveRecord::Schema.define(:version => 20130305142203) do
   add_index "donations", ["donor_id"], :name => "index_donations_on_donor_id"
 
   create_table "donors", :force => true do |t|
-    t.string   "name"
+    t.string   "first_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "last_name"
+    t.integer  "tools_id"
   end
+
 
   create_table "households", :force => true do |t|
     t.string   "household_name"
