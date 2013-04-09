@@ -32,9 +32,9 @@ end
 gem "jquery-rails"
 gem "haml-rails"
 gem "bourbon"
-gem "simple_form"
-gem "attr_encryptor"
-gem "decent_exposure"
+gem 'simple_form'
+gem 'attr_encryptor'
+gem 'decent_exposure'
 
 group :development, :test do
   gem "cucumber-rails", :require => false
