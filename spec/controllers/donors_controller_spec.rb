@@ -30,10 +30,10 @@ describe DonorsController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested donor" do
-        put :update, {id: donor.to_param, donor: {name: "bob"}}
+        put :update, {id: donor.to_param, donor: {name: "bob yost"}}
         donor.reload
 
-        expect(donor.name).to eq("bob")
+        expect(donor.name).to eq("bob yost")
       end
 
       it "redirects to the donor index" do

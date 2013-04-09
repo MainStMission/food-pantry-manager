@@ -8,20 +8,19 @@ describe DonationsController do
     describe "with valid params" do
       it "creates a new donation" do
         expect{
-          post :create, {donation: {weight: "10"}}
+          post :create, {donation: {weight: 10}}
         }.to change{Donation.count}.by(1)
       end
 
       it "redirects to the donation index" do
-        post :create, {donation: {weight: "10"}}
+        post :create, {donation: {weight: 10}}
         expect(response).to redirect_to(donations_path)
       end
     end
 
     describe "with invalid params" do
       it "re-renders the 'new' template" do
-        pending "until you have invalid params you can't test this"
-        post :create, {donation: {}}
+          post :create, {donation: {weight: ' '}}
         expect(response).to render_template("new")
       end
     end
@@ -30,23 +29,22 @@ describe DonationsController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested donation" do
-        weight = "55.2"
+        weight = 55.2
         put :update, {id: donation.to_param, donation: {weight: weight}}
         donation.reload
 
-        expect(donation.weight).to eq(BigDecimal(weight))
+        expect(donation.weight).to eq(Float(weight))
       end
 
       it "redirects to the donation index" do
-        put :update, {id: donation.to_param, donation: {weight: "55.2"}}
+        put :update, {id: donation.to_param, donation: {weight: 55.2}}
         expect(response).to redirect_to(donations_path)
       end
     end
 
     describe "with invalid params" do
       it "re-renders the 'edit' template" do
-        pending "until you have invalid params you can't test this"
-        put :update, {id: donation.to_param, donation: {}}
+        put :update, {id: donation.to_param, donation: {weight: ' '}}
         expect(response).to render_template("edit")
       end
     end
