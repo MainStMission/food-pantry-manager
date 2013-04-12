@@ -10,7 +10,7 @@
           %th Neighbor
           %th Visited On
       %tbody
-      - visits.each do |visit|
+      - @visits.each do |visit|
         %tr
           %td= link_to visit.show_neighbor, neighbor_path(visit.neighbor_id)
           %td= link_to visit.visited_on, edit_visit_path(visit)
