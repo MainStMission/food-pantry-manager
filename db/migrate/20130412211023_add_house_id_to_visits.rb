@@ -1,5 +1,5 @@
 class AddHouseIdToVisits < ActiveRecord::Migration
   def change
-    add column :visits, :household_id, :string
+    add_column :visits, :household_id, :integer
   end
 end
