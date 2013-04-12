@@ -4,6 +4,10 @@ require_relative "../spec_helper"
 describe DonationsController do
   let!(:donation) { FactoryGirl.create(:donation) }
 
+  before(:each) do
+    request.env["HTTP_REFERER"] = 'http://localhost:3000/donations/new'
+  end
+
   describe "POST create" do
     describe "with valid params" do
       it "creates a new donation" do
@@ -12,10 +16,6 @@ describe DonationsController do
         }.to change{Donation.count}.by(1)
       end
 
-      it "redirects to the donation index" do
-        post :create, {donation: {weight: 10}}
-        expect(response).to redirect_to(donations_path)
-      end
     end
 
     describe "with invalid params" do
@@ -36,10 +36,7 @@ describe DonationsController do
         expect(donation.weight).to eq(Float(weight))
       end
 
-      it "redirects to the donation index" do
-        put :update, {id: donation.to_param, donation: {weight: 55.2}}
-        expect(response).to redirect_to(donations_path)
-      end
+
     end
 
     describe "with invalid params" do

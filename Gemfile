@@ -25,6 +25,7 @@ group :assets do
   gem "bootstrap-sass"
   gem "uglifier"
   gem 'font-awesome-rails'
+  gem 'chosen-rails'
   gem 'jquery-rails'
   gem 'jquery_datepicker'
 end
@@ -33,7 +34,7 @@ gem "jquery-rails"
 gem "haml-rails"
 gem "bourbon"
 gem 'simple_form'
-gem 'chosen-rails'
+
 gem 'attr_encryptor'
 gem 'decent_exposure'
 
