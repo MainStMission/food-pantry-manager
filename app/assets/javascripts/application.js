@@ -13,10 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require chosen-jquery
 //= require bootstrap
 //= require cocoon
 //= require header
 //= require_tree .
 
+
+$(".chzn-select").chosen();
 $("input.date_picker").datepicker();
 

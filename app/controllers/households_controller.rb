@@ -90,7 +90,7 @@ class HouseholdsController < ApplicationController
           :food_stamps, :last_name, :monthly_income, :notes, :house_rank,
           :open_date, :phone, :proof_of_residency_type, :email, :sex, :rent, :residency_date,
           :proof_of_residency_type, :smokes, :spouse, :ssn, :state, :street,
-          :utilities, :zip, :age, :created_at, :updated_at, :neighbors_attributes
+          :utilities, :zip, :age, :created_at, :updated_at, :neighbors_attributes, :encrypted_ssn
       ]
       ]
     end

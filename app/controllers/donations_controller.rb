@@ -5,7 +5,7 @@ class DonationsController < ApplicationController
 
   def create
     if donation.save
-      redirect_to donations_path, notice: "Donation was successfully created."
+      redirect_to :back, notice: "Donation was successfully created."
     else
       render "new"
     end
