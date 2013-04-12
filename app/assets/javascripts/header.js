@@ -5,3 +5,4 @@
   $(function() {
   return $('.dropdown-toggle').dropdown();
 });
+$(".chzn-select").chosen();

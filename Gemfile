@@ -11,9 +11,10 @@ gem "rails_setup"
 gem "devise"
 gem "strong_parameters"
 gem 'cocoon'
-gem 'activeadmin', github: 'Daxter/active_admin', branch: 'bugfix/1773-execjs'
+gem 'activeadmin'  # github: 'Daxter/active_admin', branch: 'bugfix/1773-execjs'
 gem "meta_search",    '>= 1.1.0.pre'
 gem 'kaminari'
+gem 'newrelic_rpm'
 
 gem "prawn"
 gem "coffee-rails"
@@ -24,6 +25,7 @@ group :assets do
   gem "bootstrap-sass"
   gem "uglifier"
   gem 'font-awesome-rails'
+  gem 'chosen-rails'
   gem 'jquery-rails'
   gem 'jquery_datepicker'
 end
@@ -31,9 +33,10 @@ end
 gem "jquery-rails"
 gem "haml-rails"
 gem "bourbon"
-gem "simple_form"
-gem "attr_encryptor"
-gem "decent_exposure"
+gem 'simple_form'
+
+gem 'attr_encryptor'
+gem 'decent_exposure'
 
 group :development, :test do
   gem "cucumber-rails", :require => false

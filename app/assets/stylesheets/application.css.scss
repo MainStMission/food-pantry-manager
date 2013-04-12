@@ -27,6 +27,7 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 @import "bootstrap";
 @import "bootstrap-responsive";
 @import "navbar";
+@import "chosen";
 @import "redmond/jquery-ui-1.10.1.custom";
 
 @media (min-width: 980px) {
