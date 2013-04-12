@@ -4,7 +4,6 @@ class Neighbor < ActiveRecord::Base
 
   validates :first_name, presence: {message: 'Neighbor must have a first name' }
   validates :last_name, presence: {message: 'Neighbor must have a last name' }
-  #validates_uniqueness_of :first_name, :scope => :last_name
 
   has_many :visits
 

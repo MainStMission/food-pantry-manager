@@ -33,6 +33,7 @@ gem "jquery-rails"
 gem "haml-rails"
 gem "bourbon"
 gem 'simple_form'
+gem 'chosen-rails'
 gem 'attr_encryptor'
 gem 'decent_exposure'
 

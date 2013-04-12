@@ -68,6 +68,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    chosen-rails (0.9.12)
+      coffee-rails (>= 3.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
     cocoon (1.1.2)
     coderay (1.0.9)
     coffee-rails (3.2.2)
@@ -326,6 +330,7 @@ DEPENDENCIES
   bootstrap-sass
   bourbon
   capybara
+  chosen-rails
   cocoon
   coffee-rails
   cucumber-rails
