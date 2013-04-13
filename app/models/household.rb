@@ -6,6 +6,16 @@ class Household < ActiveRecord::Base
  validates :household_name, uniqueness: true
 
  has_many :neighbors
+ has_many :visits
  accepts_nested_attributes_for :neighbors, allow_destroy: true, reject_if: :all_blank
+
+  def name
+    household_name
+  end
+
+  def last_visit
+    visit.visited_on.last if visit
+  end
+
 
 end
