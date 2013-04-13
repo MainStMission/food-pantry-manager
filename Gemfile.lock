@@ -296,6 +296,9 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.7)
+    stepford (0.15.1)
+      rails
+      thor
     strong_parameters (0.2.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
@@ -373,6 +376,7 @@ DEPENDENCIES
   simple_form
   spork (~> 1.0rc)
   sqlite3
+  stepford
   strong_parameters
   timecop
   uglifier

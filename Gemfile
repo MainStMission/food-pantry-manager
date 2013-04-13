@@ -52,7 +52,7 @@ group :development, :test do
   gem "ruby_gntp",  :require => RUBY_PLATFORM.include?("darwin") && "ruby_gntp"
   gem "libnotify",  :require => RUBY_PLATFORM.include?("linux")  && "libnotify"
   gem "rb-inotify", :require => RUBY_PLATFORM.include?("linux")  && "rb-inotify"
-
+  gem 'stepford'
   gem "rb-fchange",   :platform => :mswin
   gem "win32console", :platform => :mswin
   gem "rb-notifu",    :platform => :mswin
