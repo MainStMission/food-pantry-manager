@@ -16,6 +16,9 @@ class Neighbor < ActiveRecord::Base
     [first_name, last_name].join " "
   end
 
+  def house_name
+    household.household_name if household
+  end
 
   def last_visit
     visit.visited_on.last if visit
