@@ -9,8 +9,8 @@ class Household < ActiveRecord::Base
  has_many :visits
  accepts_nested_attributes_for :neighbors, allow_destroy: true, reject_if: :all_blank
 
-  def house_name
-    household.household_name if household
+  def name
+    household_name
   end
 
   def last_visit

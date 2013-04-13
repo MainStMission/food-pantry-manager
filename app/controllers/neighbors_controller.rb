@@ -41,7 +41,22 @@ class NeighborsController < ApplicationController
 
 
 
-  def update
+  def upddef allowable
+    [
+
+
+        :neighbor_id, :visited_on, :items_received, :notes,
+        households_attributes: [
+
+            :household_name, :name], neighbors_attributes: [
+        :city, :close_date, :date_of_proof, :first_name, :middle_name, :street, :apt,
+        :food_stamps, :last_name, :monthly_income, :notes, :house_rank,
+        :open_date, :phone, :proof_of_residency_type, :email, :sex, :rent, :residency_date,
+        :proof_of_residency_type, :smokes, :spouse, :ssn, :state, :street,
+        :utilities, :zip, :age, :created_at, :updated_at, :neighbors_attributes, :encrypted_ssn
+    ]
+    ]
+    endate
     @neighbor = Neighbor.find(params[:id])
 
     if @neighbor.update_attributes(safe_params)
@@ -59,7 +74,22 @@ class NeighborsController < ApplicationController
     @neighbor = Neighbor.new(safe_params)
 
     respond_to do |format|
-      if @neighbor.save
+      if @ndef allowable
+      [
+
+
+          :neighbor_id, :visited_on, :items_received, :notes,
+          households_attributes: [
+
+              :household_name, :name], neighbors_attributes: [
+          :city, :close_date, :date_of_proof, :first_name, :middle_name, :street, :apt,
+          :food_stamps, :last_name, :monthly_income, :notes, :house_rank,
+          :open_date, :phone, :proof_of_residency_type, :email, :sex, :rent, :residency_date,
+          :proof_of_residency_type, :smokes, :spouse, :ssn, :state, :street,
+          :utilities, :zip, :age, :created_at, :updated_at, :neighbors_attributes, :encrypted_ssn
+      ]
+      ]
+      endeighbor.save
         format.html { redirect_to @neighbor, notice: 'Neighbor was successfully created.' }
         format.json { render json: @neighbor, status: :created, location: @neighbor }
       else
