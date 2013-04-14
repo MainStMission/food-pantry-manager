@@ -64,8 +64,9 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 
 
 #weight {
+  float: left;
   width: 20%;
-  margin: 0px auto;
+  margin: 0px 175px 20px;
   select {
     font-size:  20px;
     height: 30px;
@@ -85,6 +86,14 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
   font-size: 25px;
   }
 }
+
+#scale_log {
+  float: right;
+  width: 325px;
+  margin-top: -40px;
+
+}
+
 
 
 #weighin {
