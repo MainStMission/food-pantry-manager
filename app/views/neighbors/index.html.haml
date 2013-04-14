@@ -12,7 +12,7 @@
           %th Visits
           %th Phone
       %tbody
-      - @neighbors.each do |neighbor|
+      - neighbors.each do |neighbor|
         %tr
           %td= link_to neighbor.name, neighbor_path(neighbor)
           %td= neighbor.house_name
