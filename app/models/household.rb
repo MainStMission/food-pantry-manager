@@ -13,8 +13,8 @@ class Household < ActiveRecord::Base
     household_name
   end
 
-  def last_visit
-    visit.visited_on.last if visit
+  def visit
+    self.visits
   end
 
 

@@ -1,14 +1,20 @@
+#mhead
+  %h4 Household Members: #{household.neighbors.count}
+  %h4 Visits: #{household.visit.count||= 'No Visits'}
 = simple_form_for household,  html: { :class => 'form-inline' } do |f|
   = f.input :household_name
-  %h3 Member Count #{household.neighbors.count}
-  - household.neighbors.each do |neighbor|
-    %tr
-      %td= link_to neighbor.name, neighbor_path(neighbor)
-      %td= neighbor.visits.count
-      %td= neighbor.phone
-      %td
-        -#= link_to 'Edit', edit_neighbor_path(neighbor), class: 'btn btn-mini'
-        -#= link_to 'Destroy', neighbor, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Age
+    %tbody
+      - household.neighbors.each do |neighbor|
+        %tr
+          %td= link_to neighbor.name, neighbor_path(neighbor)
+          %td= neighbor.visits.count
+      -#= link_to 'Edit', edit_neighbor_path(neighbor), class: 'btn btn-mini'
+      -#= link_to 'Destroy', neighbor, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
   .links.span2
     = link_to_add_association( 'Add Household Member', f,  :neighbors ,  class: 'btn btn-mini', :force_non_association_create => true)
   %hr

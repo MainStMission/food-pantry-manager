@@ -16,4 +16,8 @@ class Visit < ActiveRecord::Base
     household.household_name if household
   end
 
+  def last_visit
+    self.visited_on.last
+
+  end
 end
