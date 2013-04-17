@@ -12,7 +12,7 @@
           %th Family Members
           %th Actions
       %tbody
-      - @households.each do |household|
+      - households.each do |household|
         %tr
           %td= link_to household.id, household_path(household)
           %td= link_to household.household_name, household_path(household)

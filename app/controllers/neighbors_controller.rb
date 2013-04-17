@@ -13,7 +13,7 @@ class NeighborsController < ApplicationController
   end
 
   def update
-    if neighbor.save
+    if neighbor.update
       redirect_to neighbors_path, notice: 'Neighbor was successfully updated.'
     else
       render 'edit'
