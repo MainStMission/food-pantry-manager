@@ -7,11 +7,11 @@
     = f.input :last_name
   .span3
     = f.input :sex, collection: [:Male, :Female] , input_html: {class: 'span1'}
-  .span3
-    = f.input :age, input_html: {class: 'span1'}
+  .span6
+    = f.input :birth_date, as: :date, start_year: Date.today.year - 1, end_year: Date.today.year - 90,  order: [:day, :month, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, input_html: {class: 'span2'}
   .span3
     = f.input :encrypted_ssn, input_html: {class: "span2"}
   .span6
-    = f.input :notes, :rows => 2, input_html: {rows: 4, class: 'span9' }
+    = f.input :notes, :rows => 2, input_html: {rows: 4, class: 'span6' }
     = link_to_remove_association 'Remove', f , class: 'btn btn-mini'
   %hr.span12

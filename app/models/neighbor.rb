@@ -24,5 +24,15 @@ class Neighbor < ActiveRecord::Base
     visit.visited_on.last if visit
   end
 
+  def age
+    if
+    dob = birth_date
+    now = Time.now.utc.to_date
+    now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+    else
+      'add Date'
+    end
+
+  end
 
 end
