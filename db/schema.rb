@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412211023) do
+ActiveRecord::Schema.define(:version => 20130417164302) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20130412211023) do
     t.string   "email"
     t.string   "apt"
     t.boolean  "done"
+    t.datetime "birth_date"
   end
 
   create_table "time_cards", :force => true do |t|
