@@ -1,6 +1,7 @@
 #mhead
   %h4 Household Members: #{household.neighbors.count}
   %h4 Visits: #{household.visit.count||= 'No Visits'}
+  %h4 Food Count
 = simple_form_for household,  html: { :class => 'form-inline' } do |f|
   = f.input :household_name
   %table.table
@@ -8,10 +9,11 @@
       %tr
         %th Name
         %th Age
+        %th Last Visit
     %tbody
       - household.neighbors.each do |neighbor|
         %tr
-          %td= link_to neighbor.name, neighbor_path(neighbor)
+          %td= neighbor.name
           %td= neighbor.age
           %td= neighbor.visits.count
   .links.span2
