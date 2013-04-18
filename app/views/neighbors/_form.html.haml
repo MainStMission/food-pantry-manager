@@ -11,7 +11,7 @@
   .span6
     = f.input :birth_date, as: :date, start_year: Date.today.year - 1, end_year: Date.today.year - 90,  order: [:day, :month, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, input_html: {class: 'span2'}
   .span3
-    = f.input :encrypted_ssn, input_html: {class: "span2"}
+    = f.input :encrypted_ssn, input_html: {class: 'span2'}
   .span6
     = f.input :notes, :rows => 2, input_html: {rows: 4, class: 'span6' }
   .span3
@@ -29,8 +29,10 @@
   .span3
     = f.input  :email,     label: 'Email', input_html: {class: 'span2'}
   .span3
-    = f.button :submit
-  .span3
-    = link_to_remove_association 'Remove Neighbor', f , class: 'btn btn-danger'
+    -#= f.button :submit
+  -#.span3
+  -#  = link_to_remove_association 'Remove Neighbor', f , class: 'btn btn-danger'
+  = link_to 'Edit', edit_neighbor_path(neighbor), class: 'btn btn-mini'
+  = link_to 'Destroy', neighbor, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
   %hr.span12
   
