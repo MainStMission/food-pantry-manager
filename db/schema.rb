@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417164302) do
+ActiveRecord::Schema.define(:version => 20130418013725) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -68,6 +68,24 @@ ActiveRecord::Schema.define(:version => 20130417164302) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "box_type"
+    t.text     "income1"
+    t.decimal  "inc_amt1",       :precision => 8, :scale => 2
+    t.text     "income2"
+    t.decimal  "inc_amt2",       :precision => 8, :scale => 2
+    t.text     "income3"
+    t.decimal  "inc_amt3",       :precision => 8, :scale => 2
+    t.text     "expense1"
+    t.decimal  "exp_amt1",       :precision => 8, :scale => 2
+    t.text     "expense2"
+    t.decimal  "exp_amt2",       :precision => 8, :scale => 2
+    t.text     "expense3"
+    t.decimal  "exp_amt3",       :precision => 8, :scale => 2
+    t.text     "option1"
+    t.text     "opt_val1"
+    t.text     "option2"
+    t.text     "opt_val2"
+    t.text     "notes"
   end
 
   add_index "households", ["household_name"], :name => "index_households_on_household_name", :unique => true
