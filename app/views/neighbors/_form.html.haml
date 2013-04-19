@@ -32,6 +32,7 @@
     -#= f.button :submit
   -#.span3
   -#  = link_to_remove_association 'Remove Neighbor', f , class: 'btn btn-danger'
+  = f.button :submit
   = link_to 'Edit', edit_neighbor_path(neighbor), class: 'btn btn-mini'
   = link_to 'Destroy', neighbor, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
   %hr.span12

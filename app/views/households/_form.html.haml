@@ -14,7 +14,7 @@
     %tbody
       - household.neighbors.each do |neighbor|
         %tr
-          %td= neighbor.name
+          %td= link_to neighbor.name, neighbor_path(neighbor)
           %td= neighbor.age
           %td= neighbor.visits.count
   .links.span2
