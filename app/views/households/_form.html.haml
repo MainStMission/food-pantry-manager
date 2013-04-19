@@ -1,9 +1,10 @@
 #mhead
   %h4 Household Members: #{household.neighbors.count}
-  %h4 Visits: #{household.visit.count||= 'No Visits'}
-  %h4 Food Count
+  %h4 Visits: #{household.visit.count}
 = simple_form_for household,  html: { :class => 'form-inline' } do |f|
   = f.input :household_name
+  #box
+    = f.input :box_type, label: 'Boxes', collection: ['1 Person','3 People', '4 People', '> People'], input_html: { class: 'span2'}
   %table.table
     %thead
       %tr
@@ -19,6 +20,30 @@
   .links.span2
     = link_to_add_association( 'Add Household Member', f,  :neighbors ,  class: 'btn btn-mini', :force_non_association_create => true)
   %hr
+  .content
+    %table.table.table-bordered
+      %thead
+        %th Income
+        %th $$
+        %th Expenses
+        %th $$
+      %tbody
+        %tr
+        = simple_form_for household do |f|
+          %td= f.input :income1,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+          %td= f.input :inc_amt1, label: false, input_html: {class: 'span1'}
+          %td= f.input :expense1,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Rent'
+          %td= f.input :exp_amt1, label: false , input_html: {class: 'span1'}
+          %tr
+          %td= f.input :income2,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+          %td= f.input :inc_amt2, label: false, input_html: {class: 'span1'}
+          %td= f.input :expense2,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Utilities'
+          %td= f.input :exp_amt2, label: false , input_html: {class: 'span1'}
+          %Tr
+          %td= f.input :income3,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+          %td= f.input :inc_amt3, label: false, input_html: {class: 'span1'}
+          %td= f.input :expense3,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}
+          %td= f.input :exp_amt3, label: false , input_html: {class: 'span1'}
   .actions.span2
     = f.button :submit
 
