@@ -11,7 +11,8 @@
   =f.input  :phone, label: 'Phone'
   =f.input  :street,label: 'Street'
   =f.input :city,   label: 'City'
-  =f.input :state,  label: 'State', input_html: { class: 'span2' }, placeholder: 'North Carolina'
+  =f.input :state,  label: 'State', input_html: { class: 'span1' }, placeholder: 'North Carolina'
   =f.input :zip,    label: 'Zip', input_html: {class: 'span1'}
+  =f.input :group,  label: 'Group', collection: [:Monday, :Tuesday, :Wednesday, :Thursday, :Friday]
   =f.input :status, label: 'Status', collection: [:Active, :In_Active]
   =f.button :submit, class: 'btn btn-primary', label: 'Save'

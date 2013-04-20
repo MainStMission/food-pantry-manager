@@ -10,6 +10,7 @@ class DonationPdf < Prawn::Document
   end
   
   def donor_name
+    move_down 10
     text "Donor: #{@donation.donor_name}"
   end
   
@@ -22,11 +23,12 @@ class DonationPdf < Prawn::Document
   end
   
   def donation_id
+    move_down 20
     text "Donation #: #{@donation.id}"
   end
   
   def thank_you_note
-    move_down 10
+    move_down 15
     font_size 16
     text "Thank you for your donation of:"
     move_down 10 

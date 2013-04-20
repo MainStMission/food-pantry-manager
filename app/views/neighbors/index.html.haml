@@ -1,22 +1,23 @@
 %section.panel
   %header
-    %h1 Our Neighbors
+    %h1
+      %i.icon-user.icon-large
+      &nbsp&nbsp&nbspNeighbors
   .content
     %table.table.table-striped
       %thead
         %tr
           %th Name
+          %th Household
+          %th Visits
           %th Phone
-          %th Street
-          %th City
-          %th Family Members
       %tbody
-      - @neighbors.each do |neighbor|
+      - neighbors.each do |neighbor|
         %tr
           %td= link_to neighbor.name, neighbor_path(neighbor)
+          %td= neighbor.house_name
+          %td= neighbor.visits.count
           %td= neighbor.phone
-          %td= neighbor.street
-          %td= neighbor.city
           %td
             = link_to 'Edit', edit_neighbor_path(neighbor), class: 'btn btn-mini'
             = link_to 'Destroy', neighbor, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'

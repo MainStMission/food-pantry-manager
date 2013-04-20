@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 FoodPantry::Application.routes.draw do
+
+
   resources :people
 
   resources :donations
@@ -18,12 +20,9 @@ FoodPantry::Application.routes.draw do
       get :sign_out
     end
   end
+ devise_for :users, :controllers => {:registrations => "users/registrations", :passwords => "users/passwords"}
 
-  devise_for :users, :controllers => {:registrations => "users/registrations", :passwords => "users/passwords"}
 
-  scope "/admin" do
-    resources :users
-  end
   match 'time_clock' => 'time_clock#show'
 
   authenticated :user do
@@ -32,4 +31,14 @@ FoodPantry::Application.routes.draw do
 
 
   root :to => redirect("/users/sign_in")
+
+
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  scope "/admin" do
+    resources :users
+  end
+
 end

@@ -1,72 +1,51 @@
-= simple_form_for @household do |f|
+#mhead
+  %h4 Household Members: #{household.neighbors.count}
+  %h4 Visits: #{household.visit.count}
+= simple_form_for household,  html: { :class => 'form-inline' } do |f|
   = f.input :household_name
-  %h3 Member Count #{@household.neighbors.count}
+  #box
+    = f.input :box_type, label: 'Boxes', collection: ['1 Person','3 People', '4 People', '> People'], input_html: { class: 'span2'}
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Age
+        %th Last Visit
+    %tbody
+      - household.neighbors.each do |neighbor|
+        %tr
+          %td= link_to neighbor.name, neighbor_path(neighbor)
+          %td= neighbor.age
+          %td= neighbor.visits.count
+  .links.span2
+    = link_to_add_association( 'Add Household Member', f,  :neighbors ,  class: 'btn btn-mini', :force_non_association_create => true)
   %hr
-  .tabbable
-    %ul.nav.nav-tabs
-      %li
-        %a{"data-toggle" => "tab", :href => "#neighbor"} Home
-      %li
-        %a{"data-toggle" => "tab", :href => "#info"} Information
-      %li
-        %a{"data-toggle" => "tab", :href => "#household"} Household
-  .tab-content
-    = f.simple_fields_for :neighbors, input_html: {class: 'form-horizontal' } do |builder|
-      #neighbor.tab-pane
-        .inner-form.row
-          .span3
-            = builder.input :first_name
-          .span3
-            = builder.input :middle_name
-          .span3
-            = builder.input :last_name
-          %br
-          .span3
-            = builder.input :sex, collection: [:Male, :Female], input_html: { class: 'span1'}
-          .span3
-            = builder.input :age, input_html: {class: 'span1'}
-          .span3
-            = builder.input :encrypted_ssn
-          .span3
-            = builder.input :street
-          .span3
-            = builder.input :city
-          .span3
-            = builder.input :state, input_html: { class: 'span2' }, placeholder: 'North Carolina'
-          .span3
-            = builder.input :zip
-          .span3
-            = builder.input :phone
-          .span3
-            = builder.input :email
-        %hr.span12
-      #info.tab-pane
-        .inner-form.row
-          .fieldset
-          .span2
-            = builder.input :food_stamps, input_html: { class: 'span1'}
-          .span2
-            = builder.input :rent, input_html: { class: 'span1'}
-          .span2
-            = builder.input :utilities,input_html: { class: 'span1'}
-          .span2
-            = builder.input :monthly_income, input_html: { :class => 'span1' }
-          .span2
-            = builder.input :smokes, input_html: { :class => 'span1' }
-          .span4
-            = builder.input :residency_date, as: 'date', input_html: { :class => 'span1' }
-          .span4
-            = builder.input :proof_of_residency_type, input_html: { :class => 'span2' }, label: 'Proof of Residency', collection: [:Passport, :Drivers_License,:Green_Card]
-          .span3
-            = builder.input :date_of_proof, as: 'date', input_html: { :class => 'span1' }
-          .span12
-            = builder.input :notes, :rows => 2, input_html: {:rows => 4, :class => 'span9' }
-      #household.tab-pane
-        .inner-form.span12.row
-          %h3 Household Members
-          = f.simple_fields_for :neighbors   do  |neighbor|
-            = render 'neighbor_fields', :f => neighbor
-    .links.span2
-      = link_to_add_association 'Add Family Member', f,  :neighbors ,  class: 'btn btn-mini'
-    .actions.span2
-      = f.button :submit
+  .content
+    %table.table.table-bordered
+      %thead
+        %th Income
+        %th $$
+        %th Expenses
+        %th $$
+      %tbody
+        %tr
+        = simple_form_for household do |f|
+          %td= f.input :income1,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+          %td= f.input :inc_amt1, label: false, input_html: {class: 'span1'}
+          %td= f.input :expense1,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Rent'
+          %td= f.input :exp_amt1, label: false , input_html: {class: 'span1'}
+          %tr
+          %td= f.input :income2,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+          %td= f.input :inc_amt2, label: false, input_html: {class: 'span1'}
+          %td= f.input :expense2,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Utilities'
+          %td= f.input :exp_amt2, label: false , input_html: {class: 'span1'}
+          %Tr
+          %td= f.input :income3,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+          %td= f.input :inc_amt3, label: false, input_html: {class: 'span1'}
+          %td= f.input :expense3,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}
+          %td= f.input :exp_amt3, label: false , input_html: {class: 'span1'}
+  .actions.span2
+    = f.button :submit
+
+
+

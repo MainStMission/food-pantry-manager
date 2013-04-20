@@ -5,24 +5,24 @@ class DonationsController < ApplicationController
 
   def create
     if donation.save
-      redirect_to donations_path, notice: "Donation was successfully created."
+      redirect_to :back, notice: 'Thank you for your donation.'
     else
-      render "new"
+      render 'new'
     end
   end
 
   def update
     if donation.save
-      redirect_to donations_path, notice: "Donation was successfully updated."
+      redirect_to donations_path, notice: 'Donation was successfully updated.'
     else
-      render "edit"
+      render 'edit'
     end
   end
 
   def destroy
     donation.destroy
 
-    redirect_to donations_path, notice: "Donation deleted."
+    redirect_to donations_path, notice: 'Donation deleted.'
   end
   
   def show

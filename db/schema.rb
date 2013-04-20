@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130225024800) do
+ActiveRecord::Schema.define(:version => 20130418013725) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -56,9 +56,11 @@ ActiveRecord::Schema.define(:version => 20130225024800) do
   add_index "donations", ["donor_id"], :name => "index_donations_on_donor_id"
 
   create_table "donors", :force => true do |t|
-    t.string   "name"
+    t.string   "first_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "last_name"
+    t.integer  "tools_id"
   end
 
   create_table "households", :force => true do |t|
@@ -66,6 +68,24 @@ ActiveRecord::Schema.define(:version => 20130225024800) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "box_type"
+    t.text     "income1"
+    t.decimal  "inc_amt1",       :precision => 8, :scale => 2
+    t.text     "income2"
+    t.decimal  "inc_amt2",       :precision => 8, :scale => 2
+    t.text     "income3"
+    t.decimal  "inc_amt3",       :precision => 8, :scale => 2
+    t.text     "expense1"
+    t.decimal  "exp_amt1",       :precision => 8, :scale => 2
+    t.text     "expense2"
+    t.decimal  "exp_amt2",       :precision => 8, :scale => 2
+    t.text     "expense3"
+    t.decimal  "exp_amt3",       :precision => 8, :scale => 2
+    t.text     "option1"
+    t.text     "opt_val1"
+    t.text     "option2"
+    t.text     "opt_val2"
+    t.text     "notes"
   end
 
   add_index "households", ["household_name"], :name => "index_households_on_household_name", :unique => true
@@ -97,28 +117,13 @@ ActiveRecord::Schema.define(:version => 20130225024800) do
     t.string   "encrypted_ssn_salt"
     t.text     "notes"
     t.integer  "age"
+    t.string   "sex"
     t.integer  "household_id"
+    t.string   "middle_name"
+    t.string   "email"
     t.string   "apt"
     t.boolean  "done"
-    t.string   "sex"
-    t.string   "middle_name"
-    t.string   "email"
-  end
-
-  create_table "people", :force => true do |t|
-    t.string   "last_name"
-    t.string   "first_name"
-    t.string   "middle_name"
-    t.string   "title"
-    t.string   "address"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "phone"
-    t.string   "email"
-    t.integer  "age"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "birth_date"
   end
 
   create_table "time_cards", :force => true do |t|
@@ -155,6 +160,7 @@ ActiveRecord::Schema.define(:version => 20130225024800) do
     t.text     "notes"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "household_id"
   end
 
   create_table "volunteers", :force => true do |t|
@@ -169,6 +175,7 @@ ActiveRecord::Schema.define(:version => 20130225024800) do
     t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "group"
   end
 
 end
