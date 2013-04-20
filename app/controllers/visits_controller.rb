@@ -30,7 +30,7 @@ class VisitsController < ApplicationController
 
   def allowable
     [
-      :neighbor_id, :visited_on, :items_received, :notes
+      :household_id, :neighbor_id, :visited_on, :items_received, :notes
     ]
   end
 

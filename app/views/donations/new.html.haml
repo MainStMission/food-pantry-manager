@@ -1,5 +1,7 @@
 .panel
   %header
-    %h1 New Donation
+    %h1 New Food Donation
+  %body{:onload => "document.donation_donor_id.donor.focus();"}/
   .content
     = render 'form'
+    = render 'scale'

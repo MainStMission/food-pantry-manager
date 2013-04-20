@@ -17,7 +17,9 @@ if defined?(Bundler)
 end
 
 module FoodPantry
-  class Application < Rails::Application
+  class Application < Rails::Application  
+
+    config.autoload_paths += %W(#{Rails.root}/lib)
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -64,5 +66,9 @@ module FoodPantry
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
+    config.assets.precompile += %w[active_admin.css active_admin.js print.css]
+    config.assets.precompile += %w[active_admin/print.css]
+
+
   end
 end
