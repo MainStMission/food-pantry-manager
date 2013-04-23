@@ -1,11 +1,12 @@
 #mhead
   %h4 Household Members: #{household.neighbors.count}
-  %h4 Visits: #{household.visit.count}
+  %h4 Total Visits: #{household.visits.count}
+  %h4 Last Visit: #{household.visit.last.visited_on}
 = simple_form_for household,  html: { :class => 'form-inline' } do |f|
   = f.input :household_name
   = link_to 'New Visit', new_visit_path(:household => household.id), class: 'btn btn-primary'
   #box
-    = f.input :box_type, label: 'Boxes', collection: ['1 Person','3 People', '4 People', '> People'], input_html: { class: 'span2'}
+    = f.input :box_type, label: 'Schedule', collection: ['Weekly', 'Bi-Weekly'], input_html: { class: 'span2'}
   %table.table
     %thead
       %tr
@@ -40,11 +41,16 @@
           %td= f.input :inc_amt2, as: :string, label: false, input_html: {class: 'span1'}
           %td= f.input :expense2,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Utilities'
           %td= f.input :exp_amt2, as: :string, label: false , input_html: {class: 'span1'}
-          %Tr
+          %tr
           %td= f.input :income3,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
           %td= f.input :inc_amt3, as: :string, label: false, input_html: {class: 'span1'}
           %td= f.input :expense3,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}
           %td= f.input :exp_amt3, as: :string, label: false , input_html: {class: 'span1'}
+          -#%tr
+          -#%td  Total Income
+          -#%td  #{ :inc_amt1.to_i + :inc_amt2.to_i + :inc_amt3.to_i}
+          -#%td  Total Expenses
+          -#%td= f.input :exp_amt3, as: :string, label: false , input_html: {class: 'span1'}
   .actions.span2
     = f.button :submit
 

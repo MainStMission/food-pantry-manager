@@ -1,5 +1,7 @@
 = simple_form_for visit do |f|
   = f.association :household, :label => 'Household',prompt:'choose a household'
+  %h4 Household Members: #{household.neighbors.count}
+  %h4 Visits: #{household.visits.count}
   = f.input  :visited_on,     :label => 'Visited On', as: :date_picker, input_html: { class: 'span2' }
   = f.input  :items_received, :label => 'Items Received',input_html: {rows: 4, class: 'span9' }
   = f.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
