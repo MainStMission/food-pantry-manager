@@ -2,6 +2,8 @@
 class VisitsController < ApplicationController
   expose(:visit)
   expose(:visits)
+  expose(:household)
+  expose(:households)
   helper_method :visit, :visits
 
   def create
