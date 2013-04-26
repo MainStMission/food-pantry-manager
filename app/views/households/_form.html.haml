@@ -4,7 +4,7 @@
   %h4 Last Visit: #{household.last_visit}
 = simple_form_for household,  html: { :class => 'form-inline' } do |f|
   = f.input :household_name
-  = link_to 'New Visit', new_visit_path(:household => household.id), class: 'btn btn-primary'
+  = link_to_add_association( 'New Visit', f, :visits, class: 'btn btn-primary', force_non_association_create: true)
   #box
     = f.input :box_type, label: 'Schedule', collection: ['Weekly', 'Bi-Weekly'], input_html: { class: 'span2'}
   %table.table
