@@ -6,15 +6,15 @@ describe Household do
 
 
 
-  it "has a valid factory" do
+  it 'has a valid factory' do
      create(:household).should be_valid
   end
 
-  it "should be invalid without a household name" do
+  it 'should be invalid without a household name' do
      build(:household, household_name: nil).should_not be_valid
   end
 
-   it "should not allow a duplicate household_name" do
+   it 'should not allow a duplicate household_name' do
      create(:household, household_name: "Brooke")
      expect(build(:household, household_name: "Brooke")).to_not be_valid
    end
@@ -35,11 +35,16 @@ describe Household do
  #
 
 
-  it "should allow entry of multiple family members" do
+  it 'should allow entry of multiple family members' do
 
   end
 
-  it "should return a count of the number of associated neighbors" do
+  it 'should return a count of the number of associated neighbors' do
 
   end
+
+  it 'should return a count of visits' do
+
+  end
+
 end

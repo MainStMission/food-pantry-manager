@@ -44,11 +44,15 @@ class VisitsController < ApplicationController
 
   def allowable
     [
-      :household_id, :neighbor_id, :cereal, :starch, :option1, :option2, :optionb, :visited_on, :items_received, :notes
+      :cereal, :starch, :option1, :option2, :optionb, :visited_on, :items_received, :notes,
+      :household_id, :neighbor_id
+
     ]
   end
 
   def visit_params
     params.require(:visit).permit(*allowable)
   end
+
+
 end
