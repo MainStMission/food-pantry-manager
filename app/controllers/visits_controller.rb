@@ -15,8 +15,9 @@ class VisitsController < ApplicationController
   end
 
   def update
-    if visit.save
+    if visit.update_attributes(params[visit])
       redirect_to visits_path, notice: 'Visit was successfully updated.'
+      redirect_to visit_path(visit, format: "pdf"), notice: 'Print Food Order'
     else
       render action: "edit"
     end
