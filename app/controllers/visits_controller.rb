@@ -17,7 +17,6 @@ class VisitsController < ApplicationController
   def update
     if visit.update_attributes(params[visit])
       redirect_to visits_path, notice: 'Visit was successfully updated.'
-      redirect_to visit_path(visit, format: "pdf"), notice: 'Print Food Order'
     else
       render action: "edit"
     end
@@ -46,14 +45,17 @@ class VisitsController < ApplicationController
   def allowable
     [
       :cereal, :starch, :option1, :option2, :optionb, :visited_on, :items_received, :notes,
-      :household_id, :neighbor_id
-
+      households_attributes: [ :household_id ], neighbors_attributes: [ :neighbor_id ]
     ]
   end
 
   def visit_params
     params.require(:visit).permit(*allowable)
   end
+  #
+  #def household_params
+  #  params.require(:household).permit([:household_id,:household])
+  #end
 
 
 end

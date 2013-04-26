@@ -25,11 +25,11 @@
     = f.input  :zip,       label: 'Zip', input_html: { class: 'span2'}
   .span3
     = f.input  :phone,     label: 'Phone', input_html: { class: 'span3' }
-  .span3
+  .span4
     = f.input  :email,     label: 'Email', input_html: {class: 'span2'}
-  .span3
-    = link_to_remove_association 'Remove Neighbor', f , class: 'btn btn-danger'
-  .actions.span2
-    = f.button :submit
+  .row
+.actions.span12
+  = link_to_remove_association 'Remove Neighbor', f , class: 'btn btn-danger'
+  = f.button :submit
 
 
