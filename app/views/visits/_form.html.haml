@@ -1,7 +1,7 @@
-%h3 Household: #{household.name}
-%h4 Household Members: #{household.neighbors.count}
-%h4 Visits: #{household.visits.count}
 = simple_form_for visit do |f|
+  = f.association :household, :label => 'Household'
+  %h4 Household Members: #{household.neighbors.count}
+  %h4 Visits: #{household.visits.count}
   = f.input  :visited_on,     :label => 'Visited On', as: :date_picker, input_html: { class: 'span2' }
   = f.input  :starch,         :label => false,  collection: ['Beans','Rice','Potatoes'],selected: 'Beans'
   = f.input  :cereal,         :label => false,  collection: ['Cereal','Grits','Oatmeal']
