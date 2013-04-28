@@ -5,7 +5,7 @@ class DonorsController < ApplicationController
 
   def create
     if donor.save
-      redirect_to donors_path, notice: 'Donor was successfully created.'
+      redirect_to new_donation_path, notice: 'Donor was successfully created.'
     else
       render action: "new"
     end

@@ -14,7 +14,7 @@ describe DonorsController do
 
       it "redirects to the donor index" do
         post :create, {donor: {name: "bob"}}
-        expect(response).to redirect_to(donors_path)
+        expect(response).to redirect_to(new_donation_path)
       end
     end
 
