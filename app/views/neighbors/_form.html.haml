@@ -29,11 +29,9 @@
   .span3
     = f.input  :email,     label: 'Email', input_html: {class: 'span2'}
   .span3
-    -#= f.button :submit
-  -#.span3
-  -#  = link_to_remove_association 'Remove Neighbor', f , class: 'btn btn-danger'
+  %hr.span10
+  .row
   = f.button :submit
-  = link_to 'Edit', edit_neighbor_path(neighbor), class: 'btn btn-mini'
   = link_to 'Destroy', neighbor, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
-  %hr.span12
+  %hr.span10
   

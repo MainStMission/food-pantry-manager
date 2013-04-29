@@ -47,6 +47,10 @@ class HouseholdsController < ApplicationController
         :open_date, :phone, :proof_of_residency_type, :email, :sex, :rent, :residency_date,
         :proof_of_residency_type, :smokes, :spouse, :ssn, :state, :street,
         :utilities, :zip, :age, :created_at, :updated_at, :neighbors_attributes, :encrypted_ssn
+    ],
+    visits_attributes: [
+        :cereal, :starch, :option1, :option2, :optionb, :visited_on, :items_received, :notes,
+        :household_id, :neighbor_id
     ]
     ]
   end
