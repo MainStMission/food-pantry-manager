@@ -1,3 +1,4 @@
-= simple_form_for donor do |f|
-  = f.input :name
-  = f.button :submit
+#NewDonor.span4
+  = simple_form_for donor do |f|
+    = f.input :name, hint: 'Jane Doe'
+    = f.button :submit

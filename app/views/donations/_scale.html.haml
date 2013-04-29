@@ -6,7 +6,7 @@
         %th Weight
         %th Actions
       %tbody
-        - donations.limit(7).each do |donation|
+        - donations.limit(5).each do |donation|
           %tr
             %td= donation.donor_name
             %td= donation.weight

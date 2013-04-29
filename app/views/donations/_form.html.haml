@@ -1,5 +1,5 @@
 = simple_form_for donation do |f|
-  .span6
+  .span2
   #weight
     %fieldset
       = f.association :donor, collection: Donor.order('last_name ASC')

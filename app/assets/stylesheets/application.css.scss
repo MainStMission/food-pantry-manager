@@ -27,8 +27,8 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 @import "bootstrap";
 @import "bootstrap-responsive";
 @import "navbar";
-@import "chosen";
-@import "redmond/jquery-ui-1.10.1.custom";
+@import "chosen.css.scss";
+@import "redmond/jquery-ui-1.10.1.custom.min.css.scss";
 
 @media (min-width: 980px) {
 }
@@ -72,11 +72,36 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
   margin-right: 45px;
 }
 
+#donors {
+  float: left;
+  width: 20%;
+  margin: 0px 175px 20px;
+  select {
+    font-size:  20px;
+    height: 30px;
+  }
+  input {
+    border:  8px;
+    border-color: red;
+    margin:  0px auto;
+    height:  33px;
+  }
+  input.btn {
+    color: red;
+    font-size: 25px;
+  }
+
+}
+
+#NewDonor {
+  margin-left: 350px;
+  margin-top: 100px;
+}
 
 #weight {
   float: left;
   width: 20%;
-  margin: 0px 175px 20px;
+  margin: 0px 75px 20px;
   select {
     font-size:  20px;
     height: 30px;
