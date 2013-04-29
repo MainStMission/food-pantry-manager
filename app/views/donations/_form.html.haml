@@ -2,7 +2,7 @@
   .span2
   #weight
     %fieldset
-      = f.association :donor, collection: Donor.order('last_name ASC')
+      = f.association :donor, collection: Donor.order('last_name ASC'), autofocus: true
       = link_to 'Add Donor', new_donor_path , class: 'btn btn-mini'
     .row
     %br

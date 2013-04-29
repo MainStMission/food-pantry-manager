@@ -3,7 +3,7 @@
   %h4 Total Visits: #{household.visits.count}
   %h4 Last Visit: #{household.last_visit}
 = simple_form_for household,  html: { :class => 'form-inline' } do |f|
-  = f.input :household_name
+  = f.input :household_name, autofocus: true
   = link_to 'New Visit', new_visit_path,  household_id: household.id, class: 'btn btn-primary'
   #box
     = f.input :box_type, label: 'Schedule', collection: ['Weekly', 'Bi-Weekly'], input_html: { class: 'span2'}
