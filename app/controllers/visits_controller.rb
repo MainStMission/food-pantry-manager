@@ -1,5 +1,8 @@
 # -*- encoding : utf-8 -*-
 class VisitsController < ApplicationController
+
+  before_filter :authenticate_user!
+
   expose(:visit)
   expose(:visits)
   expose(:household)

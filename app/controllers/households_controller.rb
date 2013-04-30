@@ -1,5 +1,7 @@
 class HouseholdsController < ApplicationController
 
+  before_filter :authenticate_user!
+
   expose(:households)
   expose(:household, strategy: StrongParametersStrategy)
   expose(:neighbor)

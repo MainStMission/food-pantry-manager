@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 class NeighborsController < ApplicationController
 
+  before_filter :authenticate_user!
+
   expose(:neighbor)
   expose(:neighbors)
 
