@@ -44,7 +44,8 @@ class VolunteersController < ApplicationController
   def allowable
     [ 
       :city, :email, :first_name, :last_name, :phone, :state,
-      :status, :street, :zip, :group
+      :status, :street, :zip, :group, :birthday, :notes, :cell_phone, :nick_name, :skills, :contact,
+      :admin
     ]
   end
 
