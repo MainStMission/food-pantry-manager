@@ -14,7 +14,7 @@ class NeighborsController < ApplicationController
 
   def update
     if neighbor.update_attributes(params[neighbor])
-      redirect_to neighbors_path, notice: 'Neighbor was successfully updated.'
+      redirect_to :back, notice: 'Neighbor was successfully updated.'
     else
       render 'edit'
     end
@@ -23,7 +23,7 @@ class NeighborsController < ApplicationController
   def destroy
     neighbor.destroy
 
-    redirect_to neighbors_path, notice: 'Neighbor deleted.'
+    redirect_to back, notice: 'Neighbor deleted.'
   end
 
 
