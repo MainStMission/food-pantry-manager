@@ -38,10 +38,9 @@
     .span6
       = f.input :residency_date, as: :date, start_year: Date.today.year, end_year: Date.today.year - 10,  order: [:day, :month, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, input_html: {class: 'span2'}
     .row
-  .actions.span11
-    %hr
-    = f.button :submit, class: 'btn btn-inverse'
-    %hr
-  %hr
+    .span12
+    #submit-neighbor
+      = f.button :submit, class: 'btn btn-inverse'
+
 
   
