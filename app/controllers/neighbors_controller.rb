@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 class NeighborsController < ApplicationController
 
+  before_filter :authenticate_user!
+
   expose(:neighbor)
   expose(:neighbors)
 
@@ -14,7 +16,7 @@ class NeighborsController < ApplicationController
 
   def update
     if neighbor.update_attributes(params[neighbor])
-      redirect_to :back, notice: 'Neighbor was successfully updated.'
+      redirect_to households_path, notice: 'Neighbor was successfully updated.'
     else
       render 'edit'
     end
@@ -23,7 +25,7 @@ class NeighborsController < ApplicationController
   def destroy
     neighbor.destroy
 
-    redirect_to back, notice: 'Neighbor deleted.'
+    redirect_to households_path, notice: 'Neighbor deleted.'
   end
 
 

@@ -1,37 +1,46 @@
 = simple_form_for neighbor do |f|
   %h2 Household: #{neighbor.house_name}
-  .span3
-    = f.input :first_name
-  .span3
-    = f.input :middle_name
-  .span3
-    = f.input :last_name
-  .span3
-    = f.input :sex, collection: [:Male, :Female] , input_html: {class: 'span1'}
-  .span6
-    = f.input :birth_date, as: :date, start_year: Date.today.year - 1, end_year: Date.today.year - 90,  order: [:day, :month, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, input_html: {class: 'span2'}
-  .span3
-    = f.input :encrypted_ssn, input_html: {class: 'span2'}
-  .span6
-    = f.input :notes, :rows => 2, input_html: {rows: 4, class: 'span6' }
-  .span3
-    = f.input  :street,    label: 'Street'
-  .span3
-    = f.input  :apt,       label: 'Apt'
-  .span3
-    = f.input  :city,      label: 'City'
-  .span3
-    = f.input  :state,     label: 'State', input_html: { class: 'span2' }, collection: ['North Carolina', 'South Carolina', 'Virginia'], selected: 'North Carolina'
-  .span3
-    = f.input  :zip,       label: 'Zip', input_html: { class: 'span2'}
-  .span3
-    = f.input  :phone,     label: 'Phone', input_html: { class: 'span3' }
-  .span3
-    = f.input  :email,     label: 'Email', input_html: {class: 'span2'}
-  .span3
-  %hr.span10
-  .row
-  = f.button :submit
-  = link_to 'Destroy', neighbor, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
-  %hr.span10
+  #neighbor-color.well.well-large
+    .span3
+      = f.input :first_name
+    .span3
+      = f.input :middle_name
+    .span3
+      = f.input :last_name
+    .span3
+      = f.input :sex, collection: [:Male, :Female] , input_html: {class: 'span1'}
+    .span6
+      = f.input :birth_date, as: :date, start_year: Date.today.year - 1, end_year: Date.today.year - 90,  order: [:day, :month, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, input_html: {class: 'span2'}
+    .span3
+      = f.input :encrypted_ssn, input_html: {class: "span2"}
+    .span6
+      = f.input :notes, :rows => 2, input_html: {rows: 4, class: 'span6' }
+    .span3
+      = f.input  :street,    label: 'Street'
+    .span3
+      = f.input  :apt,       label: 'Apt'
+    .span3
+      = f.input  :city,      label: 'City'
+    .span3
+      = f.input  :state,     label: 'State', input_html: { class: 'span2' }, collection: ['North Carolina', 'South Carolina', 'Virginia'], selected: 'North Carolina'
+    .span3
+      = f.input  :zip,       label: 'Zip', input_html: { class: 'span2'}
+    .span3
+      = f.input  :phone,     label: 'Phone', input_html: { class: 'span3' }
+    .span6
+      = f.input  :email,     label: 'Email', input_html: {class: 'span4'}
+    .span3
+      = f.input :spouse,     labeL: 'Married'
+    .span11
+      .hr
+    .span3
+      = f.input :proof_of_residency_type, label: 'Proof of Residency', collection: ['Drivers License','Passport']
+    .span6
+      = f.input :residency_date, as: :date, start_year: Date.today.year, end_year: Date.today.year - 10,  order: [:day, :month, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, input_html: {class: 'span2'}
+    .row
+    .span12
+    #submit-neighbor
+      = f.button :submit, class: 'btn btn-inverse'
+
+
   
