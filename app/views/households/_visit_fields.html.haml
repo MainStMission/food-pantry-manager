@@ -1,12 +1,17 @@
 .nested-fields
-  %h2 Household: #{household.name}
-  %h4 Household Members: #{household.neighbors.count}
-  %h4 Visit Schedule: #{household.box_type}
-  %h4 Visits: #{household.visits.count}
-  = f.input  :visited_on,     :label => 'Visited On', as: :date_picker, input_html: { class: 'span2' }
-  = f.input  :starch,         :label => false,  collection: ['Beans','Rice','Potatoes'],selected: 'Beans'
-  = f.input  :cereal,         :label => false,  collection: ['Cereal','Grits','Oatmeal'], selected: 'Cereal'
-  = f.input  :option1,        :label => false,  collection: ['Peanut Butter Jelly', 'Deserts','Baby Fromula'], prompt: 'Options'
-  = f.input  :items_received, :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
-  = f.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
-  = f.button :submit, :class => 'btn-primary', :label=> 'Save'
+  #visit-color.well.well-large
+    = f.input  :visited_on, :label => 'Visited On', as: :date_picker, input_html: { class: 'span2' }
+    .span3
+      = f.input  :starch,   :label => false,  collection: ['Beans','Rice','Potatoes'],selected: 'Beans'
+    .span3
+      = f.input  :cereal,   :label => false,  collection: ['Cereal','Grits','Oatmeal'], selected: 'Cereal'
+    .span3
+      = f.input :option1,   :label => false,  collection: ['Peanut Butter Jelly', 'Deserts','Baby Fromula'], prompt: 'Options'
+    .span11
+    %hr
+    = f.input  :items_received, :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
+    = f.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
+    .actions.span12
+    %p.submit-visit
+      = f.button :submit, :class => 'btn btn-inverse', :label=> 'Save'
+  %hr

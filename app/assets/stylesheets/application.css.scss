@@ -43,6 +43,9 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
   width: 650px;
 }
 
+.visit {
+  text-align: center;
+}
 .panel {
   background-color: white;
   -webkit-background-clip: padding-box;
@@ -53,7 +56,24 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
   .content {
     padding: 2em;
   }
-  
+
+.actions {
+  text-align: center;
+}
+
+#visit-color {
+  background-color: #d4ffaa;
+}
+
+.submit-visit {
+  text-align: center;
+  }
+
+#submit-neighbor {
+    text-align: center;
+  }
+
+
   header {
     background-color: rgba(228,228,228,0.7);
     padding: 1em;
@@ -66,10 +86,19 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
   margin-top: -30px;
 }
 
+#neighbor-color {
+  background-color:  #dfeffc;
+  padding-top: 10px;
+}
 #box {
   float: right;
   margin-top: -25px;
   margin-right: 45px;
+}
+
+
+.btn-group {
+  margin-left: 60px ;
 }
 
 #donors {

@@ -1,7 +1,12 @@
 # -*- encoding : utf-8 -*-
 class VolunteersController < ApplicationController
+
+
+  #before_filter :authenticate_user!
+
   expose(:volunteer)
   expose(:volunteers)
+
 
   def create
     if volunteer.save

@@ -8,7 +8,7 @@ class Household < ActiveRecord::Base
  has_many :neighbors
  has_many :visits
  accepts_nested_attributes_for :neighbors, allow_destroy: true, reject_if: :all_blank
- accepts_nested_attributes_for :neighbors, allow_destroy: true, reject_if: :all_blank
+ accepts_nested_attributes_for :visits, allow_destroy: true, reject_if: :all_blank
 
   def name
     household_name
@@ -24,6 +24,9 @@ class Household < ActiveRecord::Base
    else
      'No Visits Yet'
    end
+
+
+
  end
 
 end

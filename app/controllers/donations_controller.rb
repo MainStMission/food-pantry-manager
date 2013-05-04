@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 class DonationsController < ApplicationController
+
+  #before_filter :authenticate_user!
   expose(:donation)
   expose(:donations)
 
