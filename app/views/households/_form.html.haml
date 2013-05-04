@@ -18,13 +18,12 @@
           %td= link_to neighbor.name, neighbor_path(neighbor)
           %td= neighbor.age
           %td= neighbor.visits.count
-  .span10
+  .span11
+    = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini', :force_non_association_create => true)
     %hr
-  .btn-group
-  .offset3
-    = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-primary btn-large', :force_non_association_create => true)
-    = link_to_add_association( 'New Visit', f, :visits , class: 'btn btn-primary btn-large', :force_non_association_create => true)
-  .span10
+    %p.visit
+      = link_to_add_association( 'New Visit', f, :visits , class: 'btn btn-success btn-large', :force_non_association_create => true)
+  .span11
     %hr
   .content
     %table.table.table-bordered

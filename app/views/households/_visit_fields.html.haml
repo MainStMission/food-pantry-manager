@@ -1,8 +1,4 @@
 .nested-fields
-  -#%h2 Household: #{household.name}
-  -#%h4 Household Members: #{household.neighbors.count}
-  -#%h4 Visit Schedule: #{household.box_type}
-  -#%h4 Visits: #{household.visits.count}
   = f.input  :visited_on,     :label => 'Visited On', as: :date_picker, input_html: { class: 'span2' }
   .span3
     = f.input  :starch,         :label => false,  collection: ['Beans','Rice','Potatoes'],selected: 'Beans'
