@@ -5,7 +5,8 @@ class Donation < ActiveRecord::Base
   belongs_to :donor
 
   validates :weight, presence: {message: 'You must enter a weight'}
-  validates :weight, :numericality => true
+  validates :weight, :numericality => { less_than: 500, message: 'Max weight is 500 pounds'}
+
   default_scope order('created_at DESC')
 
   def donor_name

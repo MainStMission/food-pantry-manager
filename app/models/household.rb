@@ -3,7 +3,7 @@ class Household < ActiveRecord::Base
   #include ActiveModel::ForbiddenAttributesProtection
 
  validates :household_name, presence: {message: 'You must enter a Household name' }
- validates :household_name, uniqueness: true
+ validates :household_name, uniqueness: {message: 'We already have that Household'}
 
  has_many :neighbors
  has_many :visits
