@@ -1,5 +1,6 @@
 = simple_form_for neighbor do |f|
   %h2 Household: #{neighbor.house_name}
+
   #neighbor-color.well.well-large
     .span3
       = f.input :first_name
@@ -8,7 +9,7 @@
     .span3
       = f.input :last_name
     .span3
-      = f.input :sex, collection: [:Male, :Female] , input_html: {class: 'span1'}
+      = f.input :sex, collection: [:Male, :Female] , input_html: {class: 'span2'}
     .span6
       = f.input :birth_date, as: :date, start_year: Date.today.year - 1, end_year: Date.today.year - 90,  order: [:day, :month, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, input_html: {class: 'span2'}
     .span3
@@ -40,7 +41,9 @@
     .row
     .span12
     #submit-neighbor
-      = f.button :submit, class: 'btn btn-inverse'
+      .btn-group
+        = link_to_function '<< Back', "history.back()", class: "btn"
+        = f.button :submit, class: 'btn btn-inverse'
 
 
   

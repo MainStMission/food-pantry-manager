@@ -1,12 +1,12 @@
 .nested-fields
   #visit-color.well.well-large
-    = f.input  :visited_on, :label => 'Visited On', as: :date_picker, input_html: { class: 'span2' }
+    = f.input  :visited_on, label: 'Visited On', as: :date_picker, input_html: { class: 'span2' }
     .span3
-      = f.input  :starch,   :label => false,  collection: ['Beans','Rice','Potatoes'],selected: 'Beans'
+      = f.input  :starch,  label: false,  collection: ['Beans','Rice','Potatoes'],selected: 'Beans'
     .span3
-      = f.input  :cereal,   :label => false,  collection: ['Cereal','Grits','Oatmeal'], selected: 'Cereal'
+      = f.input  :cereal,  label: false,  collection: ['Cereal','Grits','Oatmeal'], selected: 'Cereal'
     .span3
-      = f.input :option1,   :label => false,  collection: ['Peanut Butter Jelly', 'Deserts','Baby Fromula'], prompt: 'Options'
+      = f.input :option1,  label: false,  collection: ['Peanut Butter Jelly', 'Deserts','Baby Formula'], prompt: 'Options'
     .span11
     %hr
     = f.input  :items_received, :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }

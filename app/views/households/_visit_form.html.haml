@@ -16,5 +16,7 @@
           %td= neighbor.age
           %td= neighbor.visits.count
   .links.span2
-    = link_to_add_association( 'Add Household Member', f,  :neighbors ,  class: 'btn btn-mini', :force_non_association_create => true)
+    .btn-group
+      = link_to_function '<< Back', "history.back()", class: "btn"
+      = link_to_add_association( 'Add Household Member', f,  :neighbors ,  class: 'btn btn-inverse', :force_non_association_create => true)
   %hr

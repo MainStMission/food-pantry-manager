@@ -2,7 +2,7 @@ class HouseholdsController < ApplicationController
 
   before_filter :authenticate_user!
 
-  expose(:households)
+  expose(:households) { Household.scoped.page params[:page] }
   expose(:household, strategy: StrongParametersStrategy)
   expose(:neighbor)
   expose(:neighbors)
