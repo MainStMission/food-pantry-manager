@@ -20,6 +20,5 @@
 //= require_tree .
 
 
-$(".chzn-select").chosen();
 $("input.date_picker").datepicker();
 

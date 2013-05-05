@@ -1,6 +1,6 @@
 .nested-fields
   #visit-color.well.well-large
-    = f.input  :visited_on, label: 'Visited On', as: :date_picker, input_html: { class: 'span2' }
+    = f.input  :visited_on, label: 'Visited On', as: :date_picker, input_html: { class: 'span2' },autofocus: true
     .span3
       = f.input  :starch,  label: false,  collection: ['Beans','Rice','Potatoes'],selected: 'Beans'
     .span3
