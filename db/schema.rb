@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130429231107) do
+ActiveRecord::Schema.define(:version => 20130505192937) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -167,6 +167,9 @@ ActiveRecord::Schema.define(:version => 20130429231107) do
     t.string   "option2"
     t.boolean  "optionb"
   end
+
+  add_index "visits", ["household_id"], :name => "index_visits_on_household_id"
+  add_index "visits", ["visited_on"], :name => "index_visits_on_visited_on"
 
   create_table "volunteers", :force => true do |t|
     t.string   "first_name"
