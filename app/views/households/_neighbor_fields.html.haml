@@ -40,7 +40,7 @@
       = link_to_function "Back", "history.back()"
   .actions.span11
     %hr
-
+    = link_to_function '<< Back', "history.back()", class: "btn"
     = f.button :submit, class: 'btn btn-inverse'
     %hr
   %hr
