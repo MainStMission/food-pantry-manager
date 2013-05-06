@@ -4,10 +4,10 @@ class HouseholdsController < ApplicationController
 
   expose(:households) { Household.scoped.page params[:page] }
   expose(:household, strategy: StrongParametersStrategy)
+  expose(:neighbors) { household.neighbors }
   expose(:neighbor)
-  expose(:neighbors)
+  expose(:visits) { household.visits}
   expose(:visit)
-  expose(:visits)
 
   def create
     if household.save

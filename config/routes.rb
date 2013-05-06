@@ -2,17 +2,18 @@
 FoodPantry::Application.routes.draw do
 
 
-  resources :people
-
   resources :donations
 
   resources :donors
 
-  resources :neighbors
+  #resources :neighbors
 
-  resources :households
+  resources :households do
+    resources :visits
+    resources :neighbors
+  end
 
-  resources :visits
+  #resources :visits
 
   resources :volunteers do
     member do

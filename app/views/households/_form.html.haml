@@ -14,8 +14,10 @@
         %th Last Visit
     %tbody
       - household.neighbors.each do |neighbor|
+      - @household = household
         %tr
-          %td= link_to neighbor.name, neighbor_path(neighbor)
+          %td= link_to neighbor.name, url_for([@household, neighbor])
+
           %td= neighbor.age
           %td= neighbor.visits.count
   .span11
