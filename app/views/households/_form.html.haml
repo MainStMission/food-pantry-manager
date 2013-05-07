@@ -4,21 +4,20 @@
   %h4 Last Visit: #{household.last_visit}
 = simple_form_for household,  html: { :class => 'form-inline' } do |f|
   = f.input :household_name, autofocus: true
-  #box
-    = f.input :box_type, label: 'Schedule', collection: ['Weekly', 'Bi-Weekly'], input_html: { class: 'span2 form-inline'}
+  = f.input :box_type, label: 'Visits per Month', collection: ['Weekly', 'Bi-Weekly'], input_html: { class: 'span2 form-inline'}
   %table.table
     %thead
       %tr
         %th Name
         %th Age
-        %th Last Visit
+        %th Residence
     %tbody
       - household.neighbors.each do |neighbor|
       - @household = household
         %tr
           %td= link_to neighbor.name, url_for([@household, neighbor])
           %td= neighbor.age
-          %td= neighbor.visits.count
+          %td= neighbor.city
   .span11
     = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini', :force_non_association_create => true)
     %hr
