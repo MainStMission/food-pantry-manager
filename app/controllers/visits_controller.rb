@@ -17,6 +17,10 @@ class VisitsController < ApplicationController
     end
   end
 
+  def new
+    @visit = Visit.new
+  end
+
   def update
     if visit.update_attributes(params[visit])
       redirect_to visits_path, notice: 'Visit was successfully updated.'

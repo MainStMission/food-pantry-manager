@@ -30,9 +30,7 @@
                   %li.divider
                   %li= link_to 'Households', households_path
                   %li.divider
-                  -#%li= link_to 'New Visit', new_visit_path
-                  %li.divider
-                  -#%li= link_to "Visits", visits_path
+                  %li= link_to 'New Visit', households_path
               %li.dropdown
                 %a.dropdown-toggle{data_toggle: "dropdown", href: "#" }
                   <i class="icon-shopping-cart icon-large"></i> Donations
@@ -53,7 +51,7 @@
                   %li.divider
                   %li= link_to 'Volunteers', volunteers_path
                   %li.divider
-                  %li= link_to "Active Admin", '/admin'
+                  -#%li= link_to "Active Admin", '/admin'
             %ul.nav.pull-right
               - if user_signed_in?
                 %li.dropdown

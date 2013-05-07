@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
+//= require jquery-ui-1.10.3.custom.min.js
 //= require chosen-jquery
-//= require bootstrap
+//= require bootstrap.min.js
 //= require cocoon
 //= require header
 //= require_tree .
