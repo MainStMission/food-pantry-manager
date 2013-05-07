@@ -20,6 +20,7 @@ gem "prawn"
 gem "coffee-rails"
 
 group :assets do
+  gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
   gem "sass-rails"
 
   gem "bootstrap-sass"
