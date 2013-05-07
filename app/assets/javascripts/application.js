@@ -16,9 +16,15 @@
 //= require chosen-jquery
 //= require bootstrap.min.js
 //= require cocoon
+//= require dataTables/jquery.dataTables
+//= require dataTables/jquery.dataTables.bootstrap
 //= require header
 //= require_tree .
 
 
-$("input.date_picker").datepicker();
+//$("input.date_picker").datepicker();
+$('.datatable').dataTable({
+    "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+    "sPaginationType": "bootstrap"
+});
 
