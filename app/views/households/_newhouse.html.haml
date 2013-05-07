@@ -4,8 +4,7 @@
   %h4 Last Visit: #{household.last_visit}
 = simple_form_for household,  html: { :class => 'form-inline' } do |f|
   = f.input :household_name, autofocus: true
-  #box
-    = f.input :box_type, label: 'Schedule', collection: ['Weekly', 'Bi-Weekly'], input_html: { class: 'span2 form-inline'}
+  = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
   %table.table
     %thead
       %tr
@@ -21,7 +20,7 @@
           %td= neighbor.age
           %td= neighbor.visits.count
   .span11
-    = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini', :force_non_association_create => true)
+    = link_to_add_association( 'New Neighbor', f,  :neighbors , partial: 'newneighbor', class: 'btn btn-mini', :force_non_association_create => true)
     %hr
     -#%p.visit
     -#  = link_to_add_association( 'New Visit', f, :visits , class: 'btn btn-success btn-large', :force_non_association_create => true)
@@ -59,7 +58,7 @@
     = f.input :notes, label: 'Notes', input_html:{rows: 4, class: 'span11'}
     %hr
     .span5
-      = f.input :option1, label: false, collection: ['Dynamic Question 1', 'Dynamic Question 2'], input_html: {class: 'span4'}
+      = f.input :option1, label: false, collection: ['How did you hear about the Mission?', 'Question 2'], input_html: {class: 'span4'}
     = f.input :opt_val1, label: false, placeholder: 'Answer',input_html: {rows: 1, class: 'span5'}
     .span5
       = f.input :option2, label: false, collection: ['Second Dynamic Question 1', 'Second Dynamic Question 2'], input_html: {class: 'span4'}
