@@ -1,10 +1,10 @@
 .nested-fields
   #visit-color.well.well-large
     #visit-date
-      = f.input  :visited_on, label: 'Date of Visit', default: Date.today, order: [:day, :month, :year], input_html: { class: 'span2' },focus: true
+      = f.input  :visited_on, label: 'Date of Visit', default: Date.today, order: [:day, :month],input_html: { class: 'span2' }
       %br
       .span3
-        = f.input  :starch,  label: false,  collection: ['Beans','Rice','Potatoes'],selected: 'Beans', input_html: {class: 'span2' }
+        = f.input  :starch,  label: false,  collection: ['Beans','Rice','Potatoes'],selected: 'Beans', input_html: {class: 'span2' }, autofocus: true
       .span3
         = f.input  :cereal,  label: false,  collection: ['Cereal','Grits','Oatmeal'], selected: 'Cereal',input_html: {class: 'span2' }
       .span3

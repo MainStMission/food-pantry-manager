@@ -9,15 +9,16 @@
         %tr
           %th Household
           %th Family Members
-          %th Actions
+          %th Visits
+          %th Last Visit
       %tbody
       - households.each do |household|
         %tr
           %td= link_to household.household_name, household_path(household)
           %td= household.neighbors.count
-          %td
-            = link_to 'Edit', edit_household_path(household), class: 'btn btn-mini'
-            = link_to 'Destroy', household, confirm: 'Are you sure?', method: :delete, class: 'btn btn-mini btn-danger'
+          %td= household.visits.count
+          %td= household.last_visit
+
     -#= paginate households
     %br
     = link_to 'New Household', new_household_path, class: 'btn btn-primary'
