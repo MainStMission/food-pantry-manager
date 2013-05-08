@@ -7,14 +7,12 @@
     %table#households
       %thead
         %tr
-          %th ID
           %th Household
           %th Family Members
           %th Actions
       %tbody
       - households.each do |household|
         %tr
-          %td= link_to household.id, household_path(household)
           %td= link_to household.household_name, household_path(household)
           %td= household.neighbors.count
           %td
