@@ -3,7 +3,7 @@
   %h4 Total Visits: #{household.visits.count}
   %h4 Last Visit: #{household.last_visit}
 = simple_form_for household,  html: { :class => 'form-inline' } do |f|
-  = f.input :household_name, autofocus: true
+  = f.input :household_name, include_blank: 'Last, First', autofocus: true
   = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
   %table.table
     %thead
