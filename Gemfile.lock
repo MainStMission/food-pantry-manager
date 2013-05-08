@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/rweng/jquery-datatables-rails.git
+  revision: 494f752b8eb8350f33841c822a67d014c869219f
+  specs:
+    jquery-datatables-rails (1.11.2)
+      jquery-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -15,18 +22,6 @@ GEM
       rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.2.1)
-    activeadmin (0.6.0)
-      arbre (>= 1.0.1)
-      bourbon (>= 1.0.0)
-      devise (>= 1.1.2)
-      fastercsv
-      formtastic (>= 2.0.0)
-      inherited_resources (>= 1.3.1)
-      jquery-rails (>= 1.0.0)
-      kaminari (>= 0.13.0)
-      meta_search (>= 0.9.2)
-      rails (>= 3.0.0)
-      sass (>= 3.1.0)
     activemodel (3.2.12)
       activesupport (= 3.2.12)
       builder (~> 3.0.0)
@@ -43,8 +38,6 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.3)
     afm (0.2.0)
-    arbre (1.0.1)
-      activesupport (>= 3.0.0)
     arel (3.0.2)
     attr_encryptor (1.0.2)
       encryptor2 (>= 1.0.0)
@@ -56,6 +49,8 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
+    bootstrap-will_paginate (0.0.9)
+      will_paginate
     bourbon (3.1.1)
       sass (>= 3.2.0)
       thor
@@ -68,10 +63,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    chosen-rails (0.9.12)
-      coffee-rails (>= 3.2)
-      railties (>= 3.0)
-      sass-rails (>= 3.2)
     cocoon (1.1.2)
     coderay (1.0.9)
     coffee-rails (3.2.2)
@@ -115,15 +106,15 @@ GEM
       railties (>= 3.0.0)
     faker (1.1.2)
       i18n (~> 0.5)
-    fastercsv (1.5.5)
     ffi (1.6.0)
     font-awesome-rails (3.0.2.0)
       railties (>= 3.1)
+    font-awesome-sass-rails (3.0.2.2)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     foreman (0.62.0)
       thor (>= 0.13.6)
     formatador (0.2.4)
-    formtastic (2.2.1)
-      actionpack (>= 3.0)
     gherkin (2.11.7)
       multi_json (~> 1.3)
     guard (1.7.0)
@@ -149,19 +140,18 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
-    has_scope (0.5.1)
     hashery (2.1.0)
     highline (1.6.16)
     hike (1.2.2)
     http_parser.rb (0.5.3)
     i18n (0.6.4)
-    inherited_resources (1.4.0)
-      has_scope (~> 0.5.0)
-      responders (~> 0.9)
     journey (1.0.4)
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (3.0.1)
+      jquery-rails
+      railties (>= 3.1.0)
     jquery_datepicker (0.4)
     json (1.7.7)
     kaminari (0.14.1)
@@ -191,6 +181,7 @@ GEM
     mocha (0.13.3)
       metaclass (~> 0.0.1)
     multi_json (1.7.2)
+    nested_form (0.3.2)
     newrelic_rpm (3.6.0.78)
     nokogiri (1.5.9)
     orm_adapter (0.4.0)
@@ -224,6 +215,9 @@ GEM
       rack (>= 0.9.1)
     rack-livereload (0.3.13)
       rack
+    rack-pjax (0.7.0)
+      nokogiri (~> 1.5)
+      rack (~> 1.3)
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -236,6 +230,21 @@ GEM
       activesupport (= 3.2.12)
       bundler (~> 1.0)
       railties (= 3.2.12)
+    rails_admin (0.4.7)
+      bootstrap-sass (~> 2.2)
+      builder (~> 3.0)
+      coffee-rails (~> 3.1)
+      font-awesome-sass-rails (~> 3.0, >= 3.0.0.1)
+      haml (~> 4.0)
+      jquery-rails (~> 2.1)
+      jquery-ui-rails (~> 3.0)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (~> 0.6)
+      rails (~> 3.1)
+      remotipart (~> 1.0)
+      safe_yaml (~> 0.6)
+      sass-rails (~> 3.1)
     rails_setup (0.0.3)
       highline
       rails (>= 3.0.0)
@@ -254,8 +263,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    responders (0.9.3)
-      railties (~> 3.1)
+    remotipart (1.0.5)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -273,6 +281,7 @@ GEM
       rspec-mocks (~> 2.13.0)
     ruby-rc4 (0.1.5)
     ruby_gntp (0.3.4)
+    safe_yaml (0.9.1)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -313,6 +322,7 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    will_paginate (3.0.4)
     xpath (2.0.0)
       nokogiri (~> 1.3)
     yajl-ruby (1.1.0)
@@ -323,14 +333,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activeadmin
   attr_encryptor
   better_errors
   binding_of_caller
-  bootstrap-sass
+  bootstrap-sass (~> 2.3.1.0)
+  bootstrap-will_paginate
   bourbon
   capybara
-  chosen-rails
   cocoon
   coffee-rails
   cucumber-rails
@@ -345,6 +354,7 @@ DEPENDENCIES
   guard-livereload
   guard-rspec
   haml-rails
+  jquery-datatables-rails!
   jquery-rails
   jquery_datepicker
   kaminari
@@ -361,6 +371,7 @@ DEPENDENCIES
   puma
   rack-livereload
   rails (= 3.2.12)
+  rails_admin
   rails_setup
   rb-fchange
   rb-fsevent
@@ -368,7 +379,7 @@ DEPENDENCIES
   rb-notifu
   rspec-rails (~> 2.12)
   ruby_gntp
-  sass-rails
+  sass-rails (~> 3.2)
   shoulda
   simple_form
   spork (~> 1.0rc)

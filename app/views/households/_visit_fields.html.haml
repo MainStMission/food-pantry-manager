@@ -1,17 +1,20 @@
 .nested-fields
   #visit-color.well.well-large
-    = f.input  :visited_on, :label => 'Visited On', as: :date_picker, input_html: { class: 'span2' }
-    .span3
-      = f.input  :starch,   :label => false,  collection: ['Beans','Rice','Potatoes'],selected: 'Beans'
-    .span3
-      = f.input  :cereal,   :label => false,  collection: ['Cereal','Grits','Oatmeal'], selected: 'Cereal'
-    .span3
-      = f.input :option1,   :label => false,  collection: ['Peanut Butter Jelly', 'Deserts','Baby Fromula'], prompt: 'Options'
-    .span11
-    %hr
-    = f.input  :items_received, :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
-    = f.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
-    .actions.span12
+    #visit-date
+      = f.input  :visited_on, label: 'Date of Visit', default: Date.today, order: [:day, :month],input_html: { class: 'span2' }
+      %br
+      .span3
+        = f.input  :starch,  label: false,  collection: ['Beans','Rice','Potatoes'],selected: 'Beans', input_html: {class: 'span2' }, autofocus: true
+      .span3
+        = f.input  :cereal,  label: false,  collection: ['Cereal','Grits','Oatmeal'], selected: 'Cereal',input_html: {class: 'span2' }
+      .span3
+        = f.input :option1,  label: false,  collection: ['Peanut Butter Jelly', 'Deserts','Baby Formula'], prompt: 'Options', input_html: {class: 'span2' }
+      .span11
+      %br
+      %br
+      = f.input  :items_received, :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
+      = f.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
+      .actions.span12
     %p.submit-visit
       = f.button :submit, :class => 'btn btn-inverse', :label=> 'Save'
   %hr

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130429231107) do
+ActiveRecord::Schema.define(:version => 20130508012208) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -126,6 +126,19 @@ ActiveRecord::Schema.define(:version => 20130429231107) do
     t.datetime "birth_date"
   end
 
+  create_table "rails_admin_histories", :force => true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 8
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
   create_table "time_cards", :force => true do |t|
     t.integer  "volunteer_id"
     t.datetime "start_time"
@@ -167,6 +180,9 @@ ActiveRecord::Schema.define(:version => 20130429231107) do
     t.string   "option2"
     t.boolean  "optionb"
   end
+
+  add_index "visits", ["household_id"], :name => "index_visits_on_household_id"
+  add_index "visits", ["visited_on"], :name => "index_visits_on_visited_on"
 
   create_table "volunteers", :force => true do |t|
     t.string   "first_name"
