@@ -360,7 +360,7 @@ DEPENDENCIES
   kaminari
   launchy
   libnotify
-  meta_request (= 0.2.1)
+  meta_request
   meta_search (>= 1.1.0.pre)
   newrelic_rpm
   nokogiri

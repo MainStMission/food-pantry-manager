@@ -56,7 +56,7 @@ group :development, :test do
   gem 'rb-notifu',    :platform => :mswin
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'meta_request', '0.2.1'
+  gem 'meta_request'
   gem 'guard-livereload'
   gem 'yajl-ruby'
   gem 'rack-livereload'
