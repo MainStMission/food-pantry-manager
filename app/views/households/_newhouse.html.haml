@@ -2,28 +2,28 @@
   %h4 Household Members: #{household.neighbors.count}
   %h4 Total Visits: #{household.visits.count}
   %h4 Last Visit: #{household.last_visit}
-%h3 #{household.name}
 = simple_form_for household,  html: { :class => 'form-inline' } do |f|
+  = f.input :household_name, include_blank: 'Last, First', autofocus: true
   = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
-
   %table.table
     %thead
       %tr
         %th Name
         %th Age
-        %th Residence
+        %th Last Visit
     %tbody
       - household.neighbors.each do |neighbor|
       - @household = household
         %tr
-          %td= link_to neighbor.name, url_for([@household, neighbor]),autufocus: true
+          %td= link_to neighbor.name, url_for([@household, neighbor])
+
           %td= neighbor.age
-          %td= neighbor.city
+          %td= neighbor.visits.count
   .span11
-    = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini', :force_non_association_create => true)
+    = link_to_add_association( 'New Neighbor', f,  :neighbors , partial: 'newneighbor', class: 'btn btn-mini', :force_non_association_create => true)
     %hr
-    %p.visit
-      = link_to_add_association( 'New Visit', f, :visits , class: 'btn btn-success btn-large', :force_non_association_create => true)
+    -#%p.visit
+    -#  = link_to_add_association( 'New Visit', f, :visits , class: 'btn btn-success btn-large', :force_non_association_create => true)
   .span11
     %hr
   .content
@@ -58,7 +58,7 @@
     = f.input :notes, label: 'Notes', input_html:{rows: 4, class: 'span11'}
     %hr
     .span5
-      = f.input :option1, label: false, collection: ['Dynamic Question 1', 'Dynamic Question 2'], input_html: {class: 'span4'}
+      = f.input :option1, label: false, collection: ['How did you hear about the Mission?', 'Question 2'], input_html: {class: 'span4'}
     = f.input :opt_val1, label: false, placeholder: 'Answer',input_html: {rows: 1, class: 'span5'}
     .span5
       = f.input :option2, label: false, collection: ['Second Dynamic Question 1', 'Second Dynamic Question 2'], input_html: {class: 'span4'}

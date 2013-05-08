@@ -16,19 +16,19 @@
       = f.input :notes, :rows => 2, input_html: {rows: 2, class: 'span6' }
     .span3
       = f.input  :street,    label: 'Street'
-    .span3
-      = f.input  :apt,       label: 'Apt'
+    .span2
+      = f.input  :apt,       label: 'Apt', input_html: { class: 'span2' }
     .span3
       = f.input  :city,      label: 'City'
-    .span3
-      = f.input  :state,     label: 'State', input_html: { class: 'span2' }, collection: ['North Carolina', 'South Carolina', 'Virginia'], selected: 'North Carolina'
+    .span1
+      = f.input  :state,     label: 'State', input_html: { class: 'span1' }, collection: ['NC', 'SC', 'Va','WVa','Other'], selected: 'NC'
     .span3
       = f.input  :zip,       label: 'Zip', input_html: { class: 'span2'}
+    .span2
+      = f.input  :phone,     label: 'Phone', input_html: { class: 'span2' }
     .span3
-      = f.input  :phone,     label: 'Phone', input_html: { class: 'span3' }
-    .span6
-      = f.input  :email,     label: 'Email', input_html: {class: 'span4'}
-    .span3
+      = f.input  :email,     label: 'Email', input_html: {class: 'span3'}
+    .span1
       = f.input :spouse,     labeL: 'Married'
     .span11
       .hr
@@ -37,12 +37,10 @@
     .span6
       = f.input :residency_date, as: :date, start_year: Date.today.year, end_year: Date.today.year - 10,  order: [:day, :month, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, input_html: {class: 'span2'}
     .row
-      = link_to_function "Back", "history.back()"
+      -#= link_to_function "Back", "history.back()"
   .actions.span11
-    %hr
-    = link_to_function '<< Back', "history.back()", class: "btn"
-    = f.button :submit, class: 'btn btn-inverse'
-    %hr
-  %hr
+    -#%hr
+    -#= link_to_function '<< Back', "history.back()", class: "btn"
+    -#= f.button :submit, class: 'btn btn-inverse'
 
 

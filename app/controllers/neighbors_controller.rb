@@ -2,7 +2,7 @@
 class NeighborsController < ApplicationController
 
   before_filter :authenticate_user!
-
+  expose(:household)
   expose(:neighbor)
   expose(:neighbors)
 

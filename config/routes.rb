@@ -1,18 +1,21 @@
 # -*- encoding : utf-8 -*-
 FoodPantry::Application.routes.draw do
 
-
-  resources :people
+  #devise_for :admins
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :donations
 
   resources :donors
 
-  resources :neighbors
+  #resources :neighbors
 
-  resources :households
+  resources :households do
+    resources :visits
+    resources :neighbors
+  end
 
-  resources :visits
+  #resources :visits
 
   resources :volunteers do
     member do
@@ -23,6 +26,8 @@ FoodPantry::Application.routes.draw do
  devise_for :users, :controllers => {:registrations => "users/registrations", :passwords => "users/passwords"}
 
 
+  match 'new_visit' => 'households#new_visit', :via => :get
+
   match 'time_clock' => 'time_clock#show'
 
   authenticated :user do
@@ -32,13 +37,13 @@ FoodPantry::Application.routes.draw do
 
   root :to => redirect("/users/sign_in")
 
+  #match 'new_user' :to => 'new_user_session'
 
-  ActiveAdmin.routes(self)
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  #ActiveAdmin.routes(self)
 
-  scope "/admin" do
+  devise_for :admin_users
+  #
     resources :users
-  end
 
 end

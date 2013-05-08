@@ -13,11 +13,11 @@
       - visits.each do |visit|
         %tr
           %td= link_to visit.show_household, household_path(visit.household_id)
-          %td= link_to visit.visited_on, edit_visit_path(visit)
+          %td= link_to visit.visited_on, household_path(visit.household_id)
           %td
-            = link_to 'Edit', edit_visit_path(visit), class: 'btn btn-mini'
-            = link_to 'Destroy', visit, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
-            = link_to 'PDF', visit_path(visit, format: "pdf"), class: 'btn btn-mini btn-info'
+            -#= link_to 'Edit', edit_visit_path(visit), class: 'btn btn-mini'
+            -#= link_to 'Destroy', visit, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+            -#= link_to 'PDF', visit_path(visit, format: "pdf"), class: 'btn btn-mini btn-info'
     %br
 
     = link_to 'New Visit', new_visit_path, class: 'btn btn-primary'
