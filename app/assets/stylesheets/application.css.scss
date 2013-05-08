@@ -28,8 +28,8 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 @import "bootstrap-responsive";
 @import "navbar";
 @import "chosen.css.scss";
-@import "datatables";
-//@import 'dataTables/jquery.dataTables.bootstrap';
+//@import "datatables";
+@import 'dataTables/jquery.dataTables.bootstrap';
 //@import "redmond/css/jquery-ui-1.10.1.custom.min.css.scss";
 
 @media (min-width: 980px) {
