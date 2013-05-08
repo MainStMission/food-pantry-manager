@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def allowable
     [
       :email, :password, :password_confirmation, :remember_me,
-      :first_name, :last_name, :password_digest
+      :first_name, :last_name, :password_digest, :admin
     ]
   end
 
