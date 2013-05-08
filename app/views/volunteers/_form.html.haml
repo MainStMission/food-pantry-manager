@@ -5,42 +5,41 @@
       %ul
         - volunteer.errors.full_messages.each do |msg|
           %li= msg
-  .span3
-    =f.input  :first_name, label: 'First Name'
-  .span3
-    =f.input  :nick_name,  label: 'Nick Name'
-  .span3
-    =f.input  :last_name, label: 'Last Name'
-  .span3
-    =f.input  :email, label: 'Email'
-  .span3
-    =f.input  :phone, label: 'Home Phone'
-  .span3
-    =f.input  :cell_phone, label: 'Cell Phone'
-  .span3
-    =f.input  :street,label: 'Street'
-  .span3
-    =f.input :city,   label: 'City'
-  .span3
-    =f.input :state,  label: 'State', input_html: { class: 'span2' }, placeholder: 'North Carolina'
-  .span3
-    =f.input :zip,    label: 'Zip', input_html: {class: 'span2'}
-  .span10
-    =f.input :contact, label: 'Alternative Contact', input_html: {class: 'span10'}
-  .span12
-  %hr
-  .span6
-    = f.input :birthday, as: :date, start_year: Date.today.year - 1, end_year: Date.today.year - 90,  order: [:day, :month, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, input_html: {class: 'span2'}
-  .span3
-    = f.input :skills, label: 'Skills', collection: ['Book Keeping', 'Graphics', 'Writing', 'Computer', 'Carpentry', 'Admin']
-  .span3
-    =f.input :group,  label: 'Group', collection: [:Monday, :Tuesday, :Wednesday, :Thursday, :Friday]
-  .span3
-    =f.input :status, label: 'Status', collection: [:Active, :In_Active], selected: 'Active'
-  .span2
-    =f.input :admin, label: 'Admin?', input_html: {class: 'form-horizontal'}
-  .span12
-    =f.input :notes, label: 'Notes and Comments', input_html: {rows: 4, class: 'span10'}
-  .span3
-    =f.button :submit, class: 'btn btn-primary', label: 'Save'
+  #vols.well.well-large
+    .span3
+      =f.input  :first_name, label: 'First Name'
+    .span3
+      =f.input  :nick_name,  label: 'Nick Name'
+    .span3
+      =f.input  :last_name, label: 'Last Name'
+    .span3
+      =f.input  :email, label: 'Email'
+    .span3
+      =f.input  :phone, label: 'Home Phone'
+    .span3
+      =f.input  :cell_phone, label: 'Cell Phone'
+    .span3
+      =f.input  :street,label: 'Street'
+    .span3
+      =f.input :city,   label: 'City'
+    .span3
+      =f.input :state,  label: 'State', input_html: { class: 'span2' }, placeholder: 'North Carolina'
+    .span3
+      =f.input :zip,    label: 'Zip', input_html: {class: 'span2'}
+    .span10
+      =f.input :contact, label: 'Alternative Contact', input_html: {class: 'span10'}
+    .span6
+      = f.input :birthday, as: :date, start_year: Date.today.year - 1, end_year: Date.today.year - 90,  order: [:day, :month, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, input_html: {class: 'span2'}
+    .span3
+      = f.input :skills, label: 'Skills', collection: ['Book Keeping', 'Graphics', 'Writing', 'Computer', 'Carpentry', 'Admin']
+    .span3
+      =f.input :group,  label: 'Group', collection: [:Monday, :Tuesday, :Wednesday, :Thursday, :Friday]
+    .span3
+      =f.input :status, label: 'Status', collection: [:Active, :In_Active], selected: 'Active'
+    .span2
+      =f.input :admin, label: 'Admin?', input_html: {class: 'form-horizontal'}
+    .span12
+      =f.input :notes, label: 'Notes and Comments', input_html: {rows: 4, class: 'span10'}
+    .span3
+      =f.button :submit, class: 'btn btn-primary', label: 'Save'
   %br
