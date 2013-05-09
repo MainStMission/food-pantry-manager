@@ -11,6 +11,8 @@ class Household < ActiveRecord::Base
  accepts_nested_attributes_for :neighbors, allow_destroy: true, reject_if: :all_blank
  accepts_nested_attributes_for :visits, allow_destroy: true, reject_if: :all_blank
 
+ has_paper_trail
+
  default_scope order('household_name ASC')
 
   def name

@@ -7,6 +7,8 @@ class Donation < ActiveRecord::Base
   validates :weight, presence: {message: 'You must enter a weight'}
   validates :weight, numericality: { less_than: 500, message: 'Max weight is 500 pounds'}
 
+  has_paper_trail
+
   default_scope order('created_at DESC')
 
   def donor_name

@@ -10,6 +10,8 @@ class Visit < ActiveRecord::Base
   delegate :name, to: :neighbor, prefix: true, allow_nil: true
   delegate :household_name, to: :household, prefix: true, allow_nil: true
 
+  has_paper_trail
+
   def show_neighbor
     neighbor.last_name if neighbor
   end
