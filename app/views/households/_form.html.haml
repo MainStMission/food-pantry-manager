@@ -2,6 +2,7 @@
   %h4 Household Members: #{household.neighbors.count}
   %h4 Total Visits: #{household.visits.count}
   %h4 Last Visit: #{household.last_visit}
+  = household.visit_check
 %h3 #{household.name}
 = simple_form_for household,  html: { :class => 'form-inline' } do |f|
   = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
@@ -64,8 +65,8 @@
       = f.input :option2, label: false, collection: ['Second Dynamic Question 1', 'Second Dynamic Question 2'], input_html: {class: 'span4'}
     = f.input :opt_val2, label: false, placeholder: 'Answer',input_html: {rows: 1, class: 'span5'}
 
-  .actions.span2
-    = f.button :submit
+  .actions.submit-visit:
+    = f.button :submit, class: 'btn btn-warning'
 
 
 
