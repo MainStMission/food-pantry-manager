@@ -15,6 +15,8 @@ gem 'meta_search',    '>= 1.1.0.pre'
 gem 'kaminari'
 gem 'newrelic_rpm'
 gem 'rails_admin'
+gem 'cancan'
+gem 'paper_trail', '~> 2'
 
 gem 'prawn'
 
@@ -56,7 +58,7 @@ group :development, :test do
   gem 'rb-notifu',    :platform => :mswin
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'meta_request', '0.2.1'
+  gem 'meta_request'
   gem 'guard-livereload'
   gem 'yajl-ruby'
   gem 'rack-livereload'
