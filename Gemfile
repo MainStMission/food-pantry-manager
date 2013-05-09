@@ -15,6 +15,7 @@ gem 'meta_search',    '>= 1.1.0.pre'
 gem 'kaminari'
 gem 'newrelic_rpm'
 gem 'rails_admin'
+gem 'cancan'
 
 gem 'prawn'
 

@@ -123,6 +123,19 @@ table#households {
 //  text-align: center;
 //}
 
+
+#sign-in {
+  //text-align: center;
+  background-image: url('Onecandomore.png');
+  background-repeat: no-repeat;
+  background-position: 55% -250%;
+  height: 550px;
+    .form-actions{
+      width: 75px;
+      background-color: transparent;
+    }
+}
+
 #donors {
   float: left;
   width: 20%;
