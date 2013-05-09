@@ -1,6 +1,7 @@
 # RailsAdmin config file. Generated on May 07, 2013 21:22
 # See github.com/sferik/rails_admin for more informations
 
+
 RailsAdmin.config do |config|
 
 
@@ -15,10 +16,10 @@ RailsAdmin.config do |config|
   config.current_user_method { current_user } # auto-generated
 
   # If you want to track changes on your models:
-  # config.audit_with :history, 'User'
+   config.audit_with :history, 'User'
 
   # Or with a PaperTrail: (you need to install it first)
-  # config.audit_with :paper_trail, 'User'
+   config.audit_with :paper_trail, 'User'
 
   # Display empty fields in show views:
   # config.compact_show_view = false
@@ -34,6 +35,10 @@ RailsAdmin.config do |config|
 
   # Label methods for model instances:
   # config.label_methods << :description # Default is [:name, :title]
+
+  RailsAdmin.config do |config|
+    config.authorize_with :cancan
+  end
 
 
   ################  Model configuration  ################
