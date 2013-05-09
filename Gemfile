@@ -16,6 +16,7 @@ gem 'kaminari'
 gem 'newrelic_rpm'
 gem 'rails_admin'
 gem 'cancan'
+gem 'paper_trail', '~> 2'
 
 gem 'prawn'
 
