@@ -22,10 +22,23 @@
  //= require_tree .
 
 
+
+
+
+
 $(document).ready(function(){
     $('#households').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-    "sPaginationType": "bootstrap" })
+    "sPaginationType": "bootstrap", process:  "bProcessing", paginate: "bPaginate",
+    autowidth: "bAutoWidth", defer_render: "bDeferRender",
+    destroy: "bDestroy", filter: "bFilter", info: "bInfo",
+    length_change: "bLengthChange", retrieve: "bRetrieve",
+    scroll_collapse: "bScrollCollapse", scroll_infinite: "bScrollInfinite",
+    searchable: "bSearchable", server_side: "bServerSide",
+    sort: "bSort", sortable: "bSortable", sort_cells_top: "bSortCellsTop",
+    sort_classes: "bSortClasses", state_save: "bStateSave",
+    use_rendered: "bUseRendered", visible: "bVisible"
+})
 });
 
 

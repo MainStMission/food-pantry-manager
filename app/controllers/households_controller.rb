@@ -1,4 +1,5 @@
 class HouseholdsController < ApplicationController
+  respond_to :html, :xml, :json
 
   before_filter :authenticate_user!
 
@@ -8,6 +9,8 @@ class HouseholdsController < ApplicationController
   expose(:neighbor)
   expose(:visits) { household.visits}
   expose(:visit)
+
+
 
   def create
     if household.save
