@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 class Volunteer < ActiveRecord::Base
+
   include ActiveModel::ForbiddenAttributesProtection
+
 
   has_many :time_cards
 
