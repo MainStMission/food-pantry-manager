@@ -27,7 +27,6 @@ group :assets do
   gem 'uglifier'
   gem 'font-awesome-rails'
   gem 'kaminari-bootstrap'
-  #gem 'bootstrap-will_paginate'
   gem 'jquery-rails'
   gem 'jquery_datepicker'
   gem 'haml-rails'
