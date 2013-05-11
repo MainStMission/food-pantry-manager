@@ -22,12 +22,11 @@ gem 'prawn'
 
 group :assets do
   gem 'coffee-rails'
-  gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
   gem 'sass-rails','~> 3.2'
   gem 'bootstrap-sass', '~> 2.3.1.0'
-  gem 'bootstrap-will_paginate'
   gem 'uglifier'
   gem 'font-awesome-rails'
+  gem 'kaminari-bootstrap'
   gem 'jquery-rails'
   gem 'jquery_datepicker'
   gem 'haml-rails'

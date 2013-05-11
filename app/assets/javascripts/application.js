@@ -14,23 +14,9 @@
  //= require jquery
  //= require jquery_ujs
  //= require bootstrap
- //= require dataTables/jquery.dataTables
- //= require dataTables/jquery.dataTables.bootstrap
  //= require cocoon
  //= require jquery-ui
  //= require header
  //= require_tree .
 
-
-$(document).ready(function(){
-    $('#households').dataTable({
-    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-    "sPaginationType": "bootstrap" })
-});
-
-
-
-$.extend( $.fn.dataTableExt.oStdClasses, {
-    "sWrapper": "dataTables_wrapper form-inline"
-} );
 
