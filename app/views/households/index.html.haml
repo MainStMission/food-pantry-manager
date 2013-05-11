@@ -18,6 +18,7 @@
           %td= household.neighbors.count
           %td= household.visits.count
           %td= household.last_visit
+      = paginate households
     .actions.submit-visit
       = link_to 'New Household', new_household_path, class: 'btn btn-warning'
 
