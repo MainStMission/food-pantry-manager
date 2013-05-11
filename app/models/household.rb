@@ -36,7 +36,7 @@ class Household < ActiveRecord::Base
 
         @last = self.visits.last.visited_on
         @diff = Date.today - @last
-        @text = "Sorry, they were here on #{@last.strftime('%A, %b %d')} "
+        @text = "#{@last.strftime('%A, %b %d')} within #{box_type} week"
 
        if @diff < 7 && self.box_type == 'One'
           @text
