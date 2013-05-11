@@ -14,44 +14,9 @@
  //= require jquery
  //= require jquery_ujs
  //= require bootstrap
- //= require dataTables/jquery.dataTables
- //= require dataTables/jquery.dataTables.bootstrap
  //= require cocoon
  //= require jquery-ui
  //= require header
  //= require_tree .
 
-
-//$(document).ready(function(){
-//$('.datatable').dataTable({
-//    "sDom": "<'row'<'span3'l><'span3'f>r>t<'row'<'span3'i><'span3'p>>",
-//    "sPaginationType": "bootstrap",
-//    "bJQueryUI": true,
-//    "bProcessing": true,
-//    "bServerSide": true,
-//    "sAjaxSource": $('#ppm_list').data('source')
-//})
-//});
-
-
-//
-//
-
-
-$(document).ready(function(){
-    $('.datatables').dataTable({
-    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-    "sPaginationType": "bootstrap",
-    "bJQueryUI": true,
-    "bProcessing": true,
-    "bServerSide": true,
-    "sAjaxSource": $('#households').data('source')
-})
-});
-//
-//
-//
-//$.extend( $.fn.dataTableExt.oStdClasses, {
-//    "sWrapper": "dataTables_wrapper form-inline"
-//} );
 
