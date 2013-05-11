@@ -3,6 +3,7 @@ class Volunteer < ActiveRecord::Base
 
   include ActiveModel::ForbiddenAttributesProtection
 
+  has_paper_trail
 
   has_many :time_cards
 
