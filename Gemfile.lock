@@ -56,6 +56,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    client_side_validations (3.2.5)
+    client_side_validations-simple_form (2.1.0)
+      client_side_validations (~> 3.2.5)
+      simple_form (~> 2.1.0)
     cocoon (1.1.2)
     coderay (1.0.9)
     coffee-rails (3.2.2)
@@ -339,6 +343,8 @@ DEPENDENCIES
   bourbon
   cancan
   capybara
+  client_side_validations
+  client_side_validations-simple_form
   cocoon
   coffee-rails
   cucumber-rails
