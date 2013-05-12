@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130511194229) do
+ActiveRecord::Schema.define(:version => 20130512193259) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -110,6 +110,8 @@ ActiveRecord::Schema.define(:version => 20130511194229) do
     t.boolean  "done"
     t.datetime "birth_date"
   end
+
+  add_index "neighbors", ["last_name"], :name => "index_neighbors_on_last_name"
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
