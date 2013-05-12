@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512193259) do
+ActiveRecord::Schema.define(:version => 20130512194304) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20130512193259) do
     t.datetime "birth_date"
   end
 
+  add_index "neighbors", ["household_id"], :name => "index_neighbors_on_household_id"
   add_index "neighbors", ["last_name"], :name => "index_neighbors_on_last_name"
 
   create_table "rails_admin_histories", :force => true do |t|
