@@ -4,7 +4,7 @@
   %h4 Last Visit: #{household.last_visit}
   = household.visit_check
 %h3 #{household.name}
-= simple_form_for household,  html: { :class => 'form-inline' } do |f|
+= simple_form_for household,  validate: true, html: { :class => 'form-inline' } do |f|
   = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
   %table.table
     %thead
