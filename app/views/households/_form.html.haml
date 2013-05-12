@@ -6,7 +6,6 @@
 %h3 #{household.name}
 = simple_form_for household,  html: { :class => 'form-inline' } do |f|
   = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
-  - session[:return_to] ||= request.referer
   %table.table
     %thead
       %tr
@@ -15,11 +14,12 @@
         %th Notes
     %tbody
       - household.neighbors.each do |neighbor|
+      - session[:return_to] ||= request.referer
       - @household = household
         %tr
           %td= link_to neighbor.name, url_for([@household, neighbor]),autufocus: true
           %td= neighbor.age
-          %td= neighbor.notes
+          %td= word_wrap neighbor.notes, line_width: 30
   .span11
     = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini', :force_non_association_create => true)
     %hr
