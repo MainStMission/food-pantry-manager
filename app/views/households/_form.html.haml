@@ -14,7 +14,7 @@
         %th Notes
     %tbody
       - household.neighbors.each do |neighbor|
-      - session[:return_to] ||= request.referer
+
       - @household = household
         %tr
           %td= link_to neighbor.name, url_for([@household, neighbor]),autufocus: true

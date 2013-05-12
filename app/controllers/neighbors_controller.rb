@@ -28,7 +28,9 @@ class NeighborsController < ApplicationController
     redirect_to households_path, notice: 'Neighbor deleted.'
   end
 
-
+  def edit
+    - session[:return_to] ||= request.referer
+  end
 
   private
 
