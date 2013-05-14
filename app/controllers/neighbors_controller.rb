@@ -16,7 +16,7 @@ class NeighborsController < ApplicationController
 
   def update
     if neighbor.update_attributes(params[neighbor])
-      redirect_to households_path, notice: 'Neighbor was successfully updated.'
+      redirect_to session[:return_to], notice: 'Neighbor was successfully updated.'
     else
       render 'edit'
     end
@@ -28,7 +28,9 @@ class NeighborsController < ApplicationController
     redirect_to households_path, notice: 'Neighbor deleted.'
   end
 
-
+  def edit
+    - session[:return_to] ||= request.referer
+  end
 
   private
 

@@ -2,6 +2,7 @@
 class Donor < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
 
+  has_paper_trail
 
   def name
      [first_name, last_name].join " "
