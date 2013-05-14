@@ -17,6 +17,7 @@
  //= require cocoon
  //= require jquery-ui
  //= require header
+ //= require rails.validations
  //= require_tree .
 
 

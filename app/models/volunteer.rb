@@ -1,6 +1,11 @@
 # -*- encoding : utf-8 -*-
 class Volunteer < ActiveRecord::Base
+
   include ActiveModel::ForbiddenAttributesProtection
+
+  has_paper_trail
+
+  default_scope order('last_name ASC')
 
   has_many :time_cards
 
