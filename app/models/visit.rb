@@ -16,6 +16,10 @@ class Visit < ActiveRecord::Base
     neighbor.last_name if neighbor
   end
 
+  def show_neighbor_name
+    neighbor.name if neighbor
+  end
+
   def show_household
     household.household_name if household
   end
