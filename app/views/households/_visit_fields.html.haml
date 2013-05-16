@@ -3,12 +3,14 @@
     #visit-date
       = f.input  :visited_on, label: 'Date of Visit', default: Date.today, order: [:day, :month],input_html: { class: 'span2' }
       %br
+      = f.association :neighbor, collection: @household.neighbors.all
+      %br
       .span3
-        = f.input  :starch,  label: false,  collection: ['Beans','Rice','Potatoes'],selected: 'Beans', input_html: {class: 'span2' }, autofocus: true
+        = f.input  :starch,  label: false,  collection: [ 'Beans','Rice','Potatoes' ] , selected: 'Beans', input_html: { class: 'span2' }
       .span3
         = f.input  :cereal,  label: false,  collection: ['Cereal','Grits','Oatmeal'], selected: 'Cereal',input_html: {class: 'span2' }
       .span3
-        = f.input :option1,  label: false,  collection: ['Peanut Butter Jelly', 'Deserts','Baby Formula'], prompt: 'Options', input_html: {class: 'span2' }
+        = f.input :option1,  label: false,  collection: ['Peanut Butter','Jelly', 'PBJ' 'Deserts','Baby Formula'], prompt: 'Options', input_html: {class: 'span2' }
       .span11
       %br
       %br
