@@ -73,12 +73,12 @@
         %thead
           %tr
             %th Date
-            %th Special Needs
+            %th Neighbor
             %th Notes
         - household.visits.each do | visit |
           %tr
           %td= visit.visited_on
-          %td= visit.items_received
+          %td= visit.show_neighbor_name
           %td= visit.notes
     #mission.tab-pane
       .span5
