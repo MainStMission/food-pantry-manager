@@ -38,6 +38,8 @@
         %a{"data-toggle" => "tab", :href => "#mission"} Mission
   .tab-content
     #home.tab-pane
+      %script{:type=>"text/javascript"}
+        notes.focus:function(){ var value = this.getValue(); value += new Date().getTime(); this.setValue(value);}
       = f.input :notes, label: 'Notes', input_html:{rows: 4, class: 'span11'}
     #money.tab-pane
       %table.table.table-bordered
@@ -49,17 +51,17 @@
         %tbody
           %tr
           = simple_form_for household do |f|
-            %td= f.input :income1,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+            %td= f.input :income1,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
             %td= f.input :inc_amt1, as: :string, label: false, input_html: {class: 'span1'}
             %td= f.input :expense1,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Rent'
             %td= f.input :exp_amt1, as: :string, label: false , input_html: {class: 'span1'}
             %tr
-            %td= f.input :income2,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+            %td= f.input :income2,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
             %td= f.input :inc_amt2, as: :string, label: false, input_html: {class: 'span1'}
             %td= f.input :expense2,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Utilities'
             %td= f.input :exp_amt2, as: :string, label: false , input_html: {class: 'span1'}
             %tr
-            %td= f.input :income3,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+            %td= f.input :income3,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
             %td= f.input :inc_amt3, as: :string, label: false, input_html: {class: 'span1'}
             %td= f.input :expense3,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}
             %td= f.input :exp_amt3, as: :string, label: false , input_html: {class: 'span1'}
@@ -69,17 +71,17 @@
             %td  Total Expenses
             %td  #{ household.exp_amt1.to_i + household.exp_amt2.to_i + household.inc_amt3.to_i }
     #visits.tab-pane
-      %table.table.table-striped
-        %thead
-          %tr
-            %th Date
-            %th Neighbor
-            %th Notes
-        - household.visits.each do | visit |
-          %tr
-          %td= visit.visited_on
-          %td= visit.show_neighbor_name
-          %td= visit.notes
+      - @date = Date.today
+      %h2#month
+        = link_to "<", date: @date.prev_month
+        = @date.strftime("%B %Y")
+        = link_to ">", date: @date.next_month
+      = calendar @date do |date|
+        = date.day
+        - if household.visit
+          %ul
+            - household.visit.each do |visit|
+              %li= visit.show_neighbor_name
     #mission.tab-pane
       .span5
         = f.input :option1, label: false, collection: ['How did you hear about the Mission?', 'Question 2'], input_html: {class: 'span4'}

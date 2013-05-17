@@ -17,13 +17,9 @@
  //= require cocoon
  //= require jquery-ui
  //= require header
- //= require datetimeentry
+ //= require jquery.datetimeentry
  //= require rails.validations
+ //= require date
  //= require_tree .
 
 
-$(function () {
-    $.datetimeEntry.setDefaults({spinnerImage: 'spinnerDefault.png'});
-    $('#defaultEntry').datetimeEntry();
-    $('#dateEntry').datetimeEntry({datetimeFormat: 'O/D/Y'});
-});
