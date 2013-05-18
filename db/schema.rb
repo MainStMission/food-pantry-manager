@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512194304) do
+ActiveRecord::Schema.define(:version => 20130518222135) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -55,22 +55,47 @@ ActiveRecord::Schema.define(:version => 20130512194304) do
     t.datetime "updated_at"
     t.text     "box_type"
     t.text     "income1"
-    t.decimal  "inc_amt1",       :precision => 8, :scale => 2
+    t.decimal  "inc_amt1",                :precision => 8, :scale => 2
     t.text     "income2"
-    t.decimal  "inc_amt2",       :precision => 8, :scale => 2
+    t.decimal  "inc_amt2",                :precision => 8, :scale => 2
     t.text     "income3"
-    t.decimal  "inc_amt3",       :precision => 8, :scale => 2
+    t.decimal  "inc_amt3",                :precision => 8, :scale => 2
     t.text     "expense1"
-    t.decimal  "exp_amt1",       :precision => 8, :scale => 2
+    t.decimal  "exp_amt1",                :precision => 8, :scale => 2
     t.text     "expense2"
-    t.decimal  "exp_amt2",       :precision => 8, :scale => 2
+    t.decimal  "exp_amt2",                :precision => 8, :scale => 2
     t.text     "expense3"
-    t.decimal  "exp_amt3",       :precision => 8, :scale => 2
+    t.decimal  "exp_amt3",                :precision => 8, :scale => 2
     t.text     "option1"
     t.text     "opt_val1"
     t.text     "option2"
     t.text     "opt_val2"
     t.text     "notes"
+    t.string   "street"
+    t.string   "apt"
+    t.string   "state"
+    t.string   "city"
+    t.string   "zip"
+    t.string   "food_alert"
+    t.string   "prayer_request"
+    t.text     "money_notes"
+    t.string   "special_needs"
+    t.string   "how_heard"
+    t.string   "proof_of_residency_type"
+    t.datetime "date_of_proof"
+    t.boolean  "post_prayer"
+    t.boolean  "post_needs"
+    t.boolean  "christmas"
+    t.boolean  "bool1"
+    t.string   "bool_val1"
+    t.boolean  "bool2"
+    t.string   "bool_val2"
+    t.boolean  "bool3"
+    t.string   "bool_val3"
+    t.boolean  "bool4"
+    t.string   "bool_val4"
+    t.boolean  "bool5"
+    t.string   "bool_val5"
   end
 
   add_index "households", ["household_name"], :name => "index_households_on_household_name", :unique => true
