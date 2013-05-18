@@ -76,7 +76,7 @@
         -#= link_to "<", date: @date.prev_month
         = @date.strftime("%B %Y")
         -#= link_to ">", date: @date.next_month
-      = calendar do |date|
+      = calendar @date do |date|
         = date.day
         - if visits_by_date[date]
           %ul

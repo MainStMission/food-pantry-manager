@@ -16,11 +16,13 @@
       = f.input :encrypted_ssn, input_html: {class: "span2"}
     .span6
       = f.input :notes, :rows => 2, input_html: {rows: 2, class: 'span10' }
-  .actions.span11
+    .span11
+      .hr
+    .row
+    .actions.span11
+      .btn-group
+        = link_to_function '<<  Back', "history.back()", class: "btn"
+        = f.button :submit, class: 'btn btn-inverse'
     %hr
-    = link_to_function '<< Back', "history.back()", class: "btn"
-    = f.button :submit, class: 'btn btn-inverse'
-    %hr
-  %hr
 
 
