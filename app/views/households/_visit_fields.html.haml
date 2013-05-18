@@ -3,7 +3,7 @@
     #visit-date
       = f.input  :visited_on, label: 'Date of Visit', default: Date.today, order: [:day, :month],input_html: { class: 'span2' }
       %br
-      = f.association :neighbor, collection: @household.neighbors.all
+      = f.association :neighbor, collection: @household.neighbors.all, prompt: 'Choose a Neighbor'
       %br
       .span3
         = f.input  :starch,  label: false,  collection: [ 'Beans','Rice','Potatoes' ] , selected: 'Beans', input_html: { class: 'span2' }
