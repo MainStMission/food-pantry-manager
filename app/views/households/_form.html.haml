@@ -39,7 +39,7 @@
   .tab-content
     #home.tab-pane
       %script{:type=>"text/javascript"}
-        notes.focus:function(){ var value = this.getValue(); value += new Date().getTime(); this.setValue(value);}
+        $(#household_notes).focus(function(){ var value = this.getValue(); value += new Date().getTime(); this.setValue(value);});
       = f.input :notes, label: 'Notes', input_html:{rows: 4, class: 'span11'}
     #money.tab-pane
       %table.table.table-bordered
@@ -78,10 +78,12 @@
         -#= link_to ">", date: @date.next_month
       = calendar @date do |date|
         = date.day
-        - if visits_by_date[date]
-          %ul
-            - visits_by_date[date].each do |visitor|
-              %li= visitor.show_neighbor_name
+        - if household.visits.count > 0
+          - if visits_by_date[date]
+            %ul
+              - visits_by_date[date].each do |visitor|
+                %li= visitor.show_neighbor_name
+      %hr
     #mission.tab-pane
       .span5
         = f.input :option1, label: false, collection: ['How did you hear about the Mission?', 'Question 2'], input_html: {class: 'span4'}
