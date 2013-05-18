@@ -31,12 +31,7 @@ class Household < ActiveRecord::Base
     end
   end
 
-  def date
-    if self.visit
-      @visit = self.visit
-      @visit.visit_date
-    end
-  end
+
 
   def visit_check
      if self.visits.count > 0

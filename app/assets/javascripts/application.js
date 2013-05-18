@@ -19,7 +19,6 @@
  //= require header
  //= require jquery.datetimeentry
  //= require rails.validations
- //= require date
  //= require_tree .
 
 

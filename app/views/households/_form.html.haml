@@ -73,15 +73,15 @@
     #visits.tab-pane
       - @date = Date.today
       %h2#month
-        = link_to "<", date: @date.prev_month
+        -#= link_to "<", date: @date.prev_month
         = @date.strftime("%B %Y")
-        = link_to ">", date: @date.next_month
-      = calendar @date do |date|
+        -#= link_to ">", date: @date.next_month
+      = calendar do |date|
         = date.day
-        - if household.visit
+        - if visits_by_date[date]
           %ul
-            - household.visit.each do |visit|
-              %li= visit.show_neighbor_name
+            - visits_by_date[date].each do |visitor|
+              %li= visitor.show_neighbor_name
     #mission.tab-pane
       .span5
         = f.input :option1, label: false, collection: ['How did you hear about the Mission?', 'Question 2'], input_html: {class: 'span4'}

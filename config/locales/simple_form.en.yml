@@ -10,10 +10,10 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
-#
-#    datetime:
-#      formats:
-#        default: %d %m %Y
+
+    datetime:
+      formats:
+        default: '%m %d %Y'
 #    # Labels and hints examples
     # labels:
     #   defaults:
