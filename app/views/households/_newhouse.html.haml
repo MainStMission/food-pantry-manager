@@ -16,56 +16,88 @@
       - @household = household
         %tr
           %td= link_to neighbor.name, url_for([@household, neighbor])
-
           %td= neighbor.age
           %td= neighbor.visits.count
+          %td= word_wrap neighbor.notes, line_width: 30
   .span11
-    = link_to_add_association( 'New Neighbor', f,  :neighbors , partial: 'newneighbor', class: 'btn btn-mini', :force_non_association_create => true)
+    = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini', :force_non_association_create => true)
     %hr
-    -#%p.visit
-    -#  = link_to_add_association( 'New Visit', f, :visits , class: 'btn btn-success btn-large', :force_non_association_create => true)
   .span11
-    %hr
-  .content
-    %table.table.table-bordered
-      %thead
-        %th Income
-        %th $$
-        %th Expenses
-        %th $$
-      %tbody
-        %tr
-        = simple_form_for household do |f|
-          %td= f.input :income1,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
-          %td= f.input :inc_amt1, as: :string, label: false, input_html: {class: 'span1'}
-          %td= f.input :expense1,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Rent'
-          %td= f.input :exp_amt1, as: :string, label: false , input_html: {class: 'span1'}
-          %tr
-          %td= f.input :income2,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
-          %td= f.input :inc_amt2, as: :string, label: false, input_html: {class: 'span1'}
-          %td= f.input :expense2,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Utilities'
-          %td= f.input :exp_amt2, as: :string, label: false , input_html: {class: 'span1'}
-          %tr
-          %td= f.input :income3,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
-          %td= f.input :inc_amt3, as: :string, label: false, input_html: {class: 'span1'}
-          %td= f.input :expense3,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}
-          %td= f.input :exp_amt3, as: :string, label: false , input_html: {class: 'span1'}
-          %tr
-          %td  Total Income
-          %td  #{ household.inc_amt1.to_i + household.inc_amt2.to_i + household.inc_amt3.to_i}
-          %td  Total Expenses
-          %td  #{ household.exp_amt1.to_i + household.exp_amt2.to_i + household.inc_amt3.to_i }
-    = f.input :notes, label: 'Notes', input_html:{rows: 4, class: 'span11'}
-    %hr
-    .span5
-      = f.input :option1, label: false, collection: ['How did you hear about the Mission?', 'Question 2'], input_html: {class: 'span4'}
-    = f.input :opt_val1, label: false, placeholder: 'Answer',input_html: {rows: 1, class: 'span5'}
-    .span5
-      = f.input :option2, label: false, collection: ['Second Dynamic Question 1', 'Second Dynamic Question 2'], input_html: {class: 'span4'}
-    = f.input :opt_val2, label: false, placeholder: 'Answer',input_html: {rows: 1, class: 'span5'}
+    .tabbable
+      %ul.nav.nav-tabs
+        %li
+          %a{"data-toggle" => "tab", :href => "#home"} Home
+        %li
+          %a{"data-toggle" => "tab", :href => "#money"} Money
+        %li
+          %a{"data-toggle" => "tab", :href => "#visits"} Visits
+        %li
+          %a{"data-toggle" => "tab", :href => "#mission"} Mission
+    .tab-content
+      #home.tab-pane
+        %script{:type=>"text/javascript"}
+          $(#household_notes).focus(function(){ var value = this.getValue(); value += new Date().getTime(); this.setValue(value);});
+        = f.input :notes, label: 'Notes', input_html:{rows: 4, class: 'span11'}
+      #money.tab-pane
+        %table.table.table-bordered
+          %thead
+            %th Income
+            %th $$
+            %th Expenses
+            %th $$
+          %tbody
+            %tr
+            = simple_form_for household do |f|
+              %td= f.input :income1,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+              %td= f.input :inc_amt1, as: :string, label: false, input_html: {class: 'span1'}
+              %td= f.input :expense1,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Rent'
+              %td= f.input :exp_amt1, as: :string, label: false , input_html: {class: 'span1'}
+              %tr
+              %td= f.input :income2,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+              %td= f.input :inc_amt2, as: :string, label: false, input_html: {class: 'span1'}
+              %td= f.input :expense2,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Utilities'
+              %td= f.input :exp_amt2, as: :string, label: false , input_html: {class: 'span1'}
+              %tr
+              %td= f.input :income3,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+              %td= f.input :inc_amt3, as: :string, label: false, input_html: {class: 'span1'}
+              %td= f.input :expense3,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}
+              %td= f.input :exp_amt3, as: :string, label: false , input_html: {class: 'span1'}
+              %tr
+              %td  Total Income
+              %td  #{ household.inc_amt1.to_i + household.inc_amt2.to_i + household.inc_amt3.to_i}
+              %td  Total Expenses
+              %td  #{ household.exp_amt1.to_i + household.exp_amt2.to_i + household.inc_amt3.to_i }
+      #visits.tab-pane
+        - @date = Date.today
+        %h2#month
+          -#= link_to "<", date: @date.prev_month
+          = @date.strftime("%B %Y")
+          -#= link_to ">", date: @date.next_month
+        = calendar @date do |date|
+          = date.day
+          - if household.visits.count > 0
+            - if visits_by_date[date]
+              %ul
+                - visits_by_date[date].each do |visitor|
+                  %li= visitor.show_neighbor_name
+        %hr
+      #mission.tab-pane
+        .span5
+          = f.input :option1, label: false, collection: ['How did you hear about the Mission?', 'Question 2'], input_html: {class: 'span4'}
+        = f.input :opt_val1, label: false, placeholder: 'Answer',input_html: {rows: 1, class: 'span5'}
+        .span5
+          = f.input :option2, label: false, collection: ['Second Dynamic Question 1', 'Second Dynamic Question 2'], input_html: {class: 'span4'}
+        = f.input :opt_val2, label: false, placeholder: 'Answer',input_html: {rows: 1, class: 'span5'}
 
-  .actions.submit-visit
-    = f.button :submit, class: 'btn btn-warning'
+    .actions.submit-visit:
+      = f.button :submit, class: 'btn btn-warning'
+
+
+
+
+
+
+
 
 
 
