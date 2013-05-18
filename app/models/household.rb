@@ -31,6 +31,8 @@ class Household < ActiveRecord::Base
     end
   end
 
+
+
   def visit_check
      if self.visits.count > 0
 
@@ -38,7 +40,7 @@ class Household < ActiveRecord::Base
         @diff = Date.today - @last
         @text = "#{@last.strftime('%A, %b %d')} within #{box_type} week"
 
-       if @diff < 7 && self.box_type == 'One'
+       if @diff < 30 && self.box_type == 'One'
           @text
        elsif @diff < 14 && self.box_type == 'Two'
           @text

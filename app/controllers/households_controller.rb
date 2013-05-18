@@ -24,7 +24,7 @@ class HouseholdsController < ApplicationController
 
   def update
     if household.save
-      redirect_to households_path , notice: 'Household was successfully updated.'
+      redirect_to households_path, notice: 'Household was successfully updated.'
     else
       render 'edit'
     end
