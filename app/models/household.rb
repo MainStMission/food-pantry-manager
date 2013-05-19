@@ -38,7 +38,7 @@ class Household < ActiveRecord::Base
 
         @last = self.visits.last.visited_on
         @diff = Date.today - @last
-        @text = "#{@last.strftime('%A, %b %d')} within #{box_type} week"
+        @text = "#{@last.strftime('%A, %b %d')} exceeds #{box_type} visit per month"
 
        if @diff < 30 && self.box_type == 'One'
           @text

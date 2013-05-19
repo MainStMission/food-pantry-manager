@@ -6,20 +6,20 @@
 %h3 #{household.name}
 = simple_form_for household,  validate: true, html: { :class => 'form-inline' } do |f|
   = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
-  %table.table
-    %thead
-      %tr
-        %th Name
-        %th Age
-        %th Notes
-    %tbody
-      - household.neighbors.each do |neighbor|
-
-      - @household = household
+  #neighbor-table
+    %table.table.table-hover
+      %thead
         %tr
-          %td= link_to neighbor.name, url_for([@household, neighbor]),autufocus: true
-          %td= neighbor.age
-          %td= word_wrap neighbor.notes, line_width: 30
+          %th Name
+          %th Age
+          %th Notes
+      %tbody
+        - household.neighbors.each do |neighbor|
+        - @household = household
+          %tr
+            %td= link_to neighbor.name, url_for([@household, neighbor])
+            %td= neighbor.age
+            %td= word_wrap neighbor.notes
   .span11
     = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini', :force_non_association_create => true)
     %hr
@@ -37,11 +37,48 @@
       %li
         %a{"data-toggle" => "tab", :href => "#mission"} Mission
   .tab-content
-    #home.tab-pane
-      %script{:type=>"text/javascript"}
-        $(#household_notes).focus(function(){ var value = this.getValue(); value += new Date().getTime(); this.setValue(value);});
-      = f.input :notes, label: 'Notes', input_html:{rows: 4, class: 'span11'}
-    #money.tab-pane
+    #home.tab-pane.neighbor-color.well.well-large
+      #house_address.span-one-third
+        %h3 Household Address
+        %script{:type=>"text/javascript"}
+          $('#state').tooltip(options)
+        %script{:type=>"text/javascript"}
+          $('.typeahead').typeahead()
+        .span3
+          = f.input :street, input_html: {class: 'span3'}
+        .span1
+          = f.input :apt, label: 'Apartment', input_html: {class: 'span1'}
+        .row
+        .span3
+          = f.input :city, prompt: 'City', input_html: {class: 'span3'}
+        .span1
+          = f.input :state, typeahead: ['NC', 'SC', 'VA', 'Tenn', 'WVa'], input_html: {class: 'span1'}
+        .row
+        .span2
+          = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Passport', 'Utility Bill','Food Stamp Card'], input_html:{class:'span2'}
+        .span2
+          = f.input :date_of_proof, as: :date_picker, input_html: { id: 'dateEntry', class: 'span2' }
+        .row
+        .span4
+          = f.input :food_alert, label: 'Special Food needs', tooltip: 'This will print on the food order', input_html: {class: 'span4'}
+        .row
+        .span4
+          = f.input :special_needs, label: 'Special Non Food Needs', input_html: {class: 'span4'}
+        .row
+        .span4
+          = f.input :prayer_request, label: 'Prayer Request', input_html: {class: 'span4'}
+        .row
+        .span2
+          = f.input :post_needs, label: 'Post Needs'
+        .span2
+          = f.input :post_prayer,label: 'Post Prayer'
+      #house_notes.span-two-thirds.well.well-large
+        %script{:type=>"text/javascript"}
+          $(#household_notes).focus(function(){ var value = this.getValue(); value += new Date().getTime(); this.setValue(value);});
+        %h3 Notes and Comments
+        = f.input :notes, label: 'Notes', input_html:{rows: 21, class: 'span5'}
+      .row
+    #money.tab-pane.well.well-large.money-color
       %table.table.table-bordered
         %thead
           %th Income
@@ -70,6 +107,10 @@
             %td  #{ household.inc_amt1.to_i + household.inc_amt2.to_i + household.inc_amt3.to_i}
             %td  Total Expenses
             %td  #{ household.exp_amt1.to_i + household.exp_amt2.to_i + household.inc_amt3.to_i }
+      .row
+      .span11
+        = f.input :money_notes, label: 'Financial Notes', input_html:{rows: 2, class: 'span10' }
+      .row
     #visits.tab-pane
       - @date = Date.today
       %h2#month
@@ -84,13 +125,21 @@
               - visits_by_date[date].each do |visitor|
                 %li= visitor.show_neighbor_name
       %hr
-    #mission.tab-pane
+    #mission.tab-pane.well.well-large
       .span5
-        = f.input :option1, label: false, collection: ['How did you hear about the Mission?', 'Question 2'], input_html: {class: 'span4'}
-      = f.input :opt_val1, label: false, placeholder: 'Answer',input_html: {rows: 1, class: 'span5'}
+        = f.input :how_heard, label: 'How did you hear about the Mission?', collection: ['From a Friend','Family member', 'passing by', 'Facebook', 'Referral from Agency'], input_html: {class: 'span4'}
       .span5
-        = f.input :option2, label: false, collection: ['Second Dynamic Question 1', 'Second Dynamic Question 2'], input_html: {class: 'span4'}
-      = f.input :opt_val2, label: false, placeholder: 'Answer',input_html: {rows: 1, class: 'span5'}
+        = f.input :option1,  label: 'If you attend Church, what Church do you attend?', input_html: {rows: 1, class: 'span5'}
+      .row
+      .span5
+        = f.input :opt_val1, label: 'Have you recieved help from another Food Pantry?', collection: ['Yes - within 6 months', 'Yes - several years ago', 'No - this is the first time'], input_html: {rows: 1, class: 'span4'}
+      .span5
+        = f.input :option2, label: 'Do you have any suggestions to help the Mission?',input_html: {rows: 1, class: 'span5'}
+      .row
+      = f.input :christmas,  label: 'Add to Christmas list', wrapper:  :inline_checkbox
+      = f.input :bool1, label: 'Refered to Rowan Helping Ministries', wrapper:  :inline_checkbox
+      = f.input :bool2, label: 'Refered to Cabarus County', wrapper: :inline_checkbox
+
 
   .actions.submit-visit:
     = f.button :submit, class: 'btn btn-warning'

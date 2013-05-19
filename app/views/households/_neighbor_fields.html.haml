@@ -11,15 +11,13 @@
     .span3
       = f.input :sex, collection: [:Male, :Female], input_html: {class: 'span2', }
     .span3
-      = f.input :birth_date, as: :date_picker, input_html: { id: 'dateEntry', class: 'span2' }
+      = f.input :birth_date, as: :date_picker, input_html: { id: 'dateEntry', class: 'span2 datepicker' }
     .span3
       = f.input :encrypted_ssn, input_html: {class: "span2"}
     .span6
       = f.input :notes, :rows => 2, input_html: {rows: 2, class: 'span10' }
     .span11
     .row
-    .actions.span11
-      -#= link_to_function '<<  Back', "history.back()", class: "btn"
-      -#= f.button :remove, class: 'btn btn-danger'
+      -#= link_to_function  'X', "history.back()", class: "btn close"
 
 

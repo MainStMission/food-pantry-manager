@@ -11,9 +11,9 @@ en:
     error_notification:
       default_message: "Please review the problems below:"
 
-    datetime:
+    date:
       formats:
-        default: '%m %d %Y'
+        default: '%m/%d/%Y'
 #    # Labels and hints examples
     # labels:
     #   defaults:
