@@ -77,6 +77,23 @@ table#households {
   background-color: #d4ffaa;
 }
 
+#home {
+  position: relative;
+  height: auto;
+  min-height: 100%;
+  overflow: visible;
+
+}
+
+#house_address {
+  text-align: center;
+}
+
+#house_notes {
+  margin-left: 65px;
+  padding-top: 0px;
+  text-align: center;
+}
 .submit-visit {
   text-align: center;
   }
@@ -105,6 +122,10 @@ table#households {
 #neighbor-color {
   background-color:  #dfeffc;
   padding-top: 10px;
+}
+
+.neighbor-color {
+   background-color:  #dfeffc;
 }
 #vols {
   background-color: #dfeffc;
