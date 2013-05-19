@@ -46,7 +46,7 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 }
 
 #household_money_notes {
-  margin-left: -5px;
+  margin-left: 5px;
 }
 
 .alert {
@@ -100,9 +100,10 @@ table#households {
 }
 
 #house_notes {
-  margin-left: 65px;
+  //margin-left: 65px;
   padding-top: 0px;
   text-align: center;
+  float: right;
 }
 .submit-visit {
   text-align: center;
@@ -136,6 +137,10 @@ table#households {
 
 .neighbor-color {
    background-color:  #dfeffc;
+}
+
+.money-color {
+  background-color: #a1e7a1
 }
 #vols {
   background-color: #dfeffc;
