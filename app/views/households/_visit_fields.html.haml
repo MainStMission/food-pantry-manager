@@ -14,6 +14,8 @@
       .span11
       %br
       %br
+      - if !household.food_alert.blank?
+        %h4 Food Restrictions: #{household.food_alert}
       = f.input  :items_received, :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
       = f.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
       .actions.span12

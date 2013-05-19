@@ -176,4 +176,75 @@ SimpleForm.setup do |config|
 
   # Cache SimpleForm inputs discovery
   # config.cache_discovery = !Rails.env.development?
+
+  # tooltips - Bootstrap
+
+  module SimpleForm
+    module Components
+      module Tooltips
+        def tooltip
+          unless tooltip_text.nil?
+            input_html_options[:rel] ||= 'tooltip'
+            input_html_options['data-placement'] ||= tooltip_position
+            input_html_options['data-trigger'] ||= 'focus'
+            input_html_options['data-original-title'] ||= tooltip_text
+            nil
+          end
+        end
+
+        def tooltip_text
+          tooltip = options[:tooltip]
+          tooltip.is_a?(String) ? tooltip : tooltip.is_a?(Array) ? tooltip[1] : nil
+        end
+
+        def tooltip_position
+          tooltip = options[:tooltip]
+          tooltip.is_a?(Array) ? tooltip[0] : "right"
+        end
+      end
+    end
+  end
+
+  SimpleForm::Inputs::Base.send(:include, SimpleForm::Components::Tooltips)
+
+  #typeahead  - Bootstrap
+
+  module SimpleForm
+    module Components
+      module Typeahead
+        def typeahead
+          unless typeahead_source.empty?
+            input_html_options['data-provide'] ||= 'typeahead'
+            input_html_options['data-items'] ||= 5
+            input_html_options['data-source'] ||= typeahead_source.inspect.to_s
+            nil
+          end
+        end
+
+        def typeahead_source
+          tdata = options[:typeahead]
+          return Array(tdata)
+        end
+      end
+    end
+  end
+
+  SimpleForm::Inputs::Base.send(:include, SimpleForm::Components::Typeahead)
+
+  config.wrappers :inline_checkbox, :tag => 'div', :class => 'control-group', :error_class => 'error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.wrapper :tag => 'div', :class => 'controls' do |ba|
+      ba.use :label_input, :wrap_with => { :class => 'checkbox inline' }
+      ba.use :error, :wrap_with => { :tag => 'span', :class => 'help-inline' }
+      ba.use :hint,  :wrap_with => { :tag => 'p', :class => 'help-block' }
+    end
+  end
+
+
+
+
+
+
+
 end

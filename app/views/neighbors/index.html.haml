@@ -19,10 +19,9 @@
           %td= neighbor.visits.count
           %td= neighbor.phone
           %td
-            -#= link_to 'Edit', edit_neighbor_path(neighbor), class: 'btn btn-mini'
-            -#= link_to 'Destroy', neighbor, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+            = link_to 'Edit', edit_neighbor_path(neighbor), class: 'btn btn-mini'
+            = link_to 'Destroy', neighbor, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
 
     %br
 
-    -#= link_to 'New Neighbor', new_neighbor_path, class: 'btn btn-primary'
 

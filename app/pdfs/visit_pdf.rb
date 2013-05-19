@@ -9,6 +9,7 @@ class VisitPdf < Prawn::Document
     household_name
     house_count
     starch
+    special
   end
 
   def household_name
@@ -39,6 +40,13 @@ class VisitPdf < Prawn::Document
     text "#{@visit.starch}"
     text "#{@visit.cereal}"
     text "#{@visit.option1}"
+  end
+
+  def special
+    move_down 5
+    text 'Special Needs'
+    text "#{@visit.household.food_alert}"
+    text "#{@visit.items_received}"
   end
 
 end
