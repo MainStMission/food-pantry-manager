@@ -6,21 +6,20 @@
 %h3 #{household.name}
 = simple_form_for household,  validate: true, html: { :class => 'form-inline' } do |f|
   = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
-  %table.table.table-hover
-    %thead
-      %tr
-        %th Name
-        %th Age
-        %th Notes
-    %tbody
-      - household.neighbors.each do |neighbor|
-
-      - @household = household
+  #neighbor-table
+    %table.table.table-hover
+      %thead
         %tr
-          %td= link_to neighbor.name, url_for([@household, neighbor])
-          %td= neighbor.age
-          %td= word_wrap neighbor.notes
-
+          %th Name
+          %th Age
+          %th Notes
+      %tbody
+        - household.neighbors.each do |neighbor|
+        - @household = household
+          %tr
+            %td= link_to neighbor.name, url_for([@household, neighbor])
+            %td= neighbor.age
+            %td= word_wrap neighbor.notes
   .span11
     = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini', :force_non_association_create => true)
     %hr

@@ -43,8 +43,8 @@
     .span12
     #submit-neighbor
       .btn-group
-        = link_to_function '<< Back', "history.back()", class: "btn"
-        = f.button :submit, class: 'btn btn-inverse'
-
+        = link_to_function '< Back', "history.back()", class: "btn"
+        = f.button :submit, value: 'Update', class: 'btn btn-inverse'
+        = link_to 'Destroy', household_neighbor_path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
 
   

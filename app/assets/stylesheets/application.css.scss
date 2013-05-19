@@ -39,9 +39,11 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
   margin-top:20px;
 }
 
-td:first-child {
-  width: 33% ;
- }
+#neighbor-table {
+    td:first-child {
+    width: 33% ;
+  }
+}
 
 #household_money_notes {
   margin-left: -5px;
