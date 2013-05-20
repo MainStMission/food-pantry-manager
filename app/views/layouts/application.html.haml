@@ -51,7 +51,7 @@
                   %li.divider
                   %li= link_to 'Volunteers', volunteers_path
                   %li.divider
-                  %li= link_to "Admin", '/admin'
+                  %li= link_to 'Admin', '/admin'
             %ul.nav.pull-right
               - if user_signed_in?
                 %li.dropdown
@@ -73,3 +73,4 @@
     .container.forms
       .row
         .span12= yield
+    = render 'layouts/footer'

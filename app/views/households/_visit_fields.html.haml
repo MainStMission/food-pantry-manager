@@ -1,9 +1,11 @@
 .nested-fields
   #visit-color.well.well-large
+    %script{:type=>"text/javascript"}
+      $('input selector').enableClientSideValidations()
     #visit-date
       = f.input  :visited_on, label: 'Date of Visit', default: Date.today, order: [:day, :month],input_html: { class: 'span2' }
       %br
-      = f.association :neighbor, collection: @household.neighbors.all, prompt: 'Choose a Neighbor'
+      = f.association :neighbor, collection: @household.neighbors.all, prompt: 'Neighbor required', validate: { :presence => true }
       %br
       .span3
         = f.input  :starch,  label: false,  collection: [ 'Beans','Rice','Potatoes' ] , selected: 'Beans', input_html: { class: 'span2' }

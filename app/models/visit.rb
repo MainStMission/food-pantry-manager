@@ -3,6 +3,8 @@ class Visit < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
 
   validates :household_id, presence: {message:'You must select a household'}
+  validates :neighbor_id, presence: {message: 'You must select a Neighbor'}
+  validates :neighbor, associated: {message: 'You must select a Neighbor'}
 
   belongs_to :neighbor
   belongs_to :household
