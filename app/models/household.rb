@@ -24,15 +24,13 @@ class Household < ActiveRecord::Base
   end
 
   def last_visit
-    if self.visits.count > 0
-      self.visits.last.visited_on.strftime('%B %d')
-    else
-      'No Visits Yet'
-    end
+  if self.visits.count > 0
+    self.visits.last.visited_on.strftime('%B %d')
+  else
+    'No Visits Yet'
   end
 
-
-
+end
 
 
 

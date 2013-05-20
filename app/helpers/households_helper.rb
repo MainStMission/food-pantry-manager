@@ -6,6 +6,10 @@ module HouseholdsHelper
     end
   end
 
+
+
+
+
   def visit_check
     if household.visits.count > 0
 
