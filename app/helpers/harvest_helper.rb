@@ -1,7 +1,8 @@
-module Harvest_helper
+module HarvestHelper
 
-  def household_status_for(@household = household)
-    presenter = Harvest_helper.new
+
+  def household_status_for(household = @household)
+    presenter = Harvest.new
 
     if block_given?
       yield presenter

@@ -16,7 +16,7 @@ class NeighborsController < ApplicationController
 
   def update
     if neighbor.update_attributes(params[neighbor])
-      redirect_to session[:return_to], notice: 'Neighbor was successfully updated.'
+      redirect_to :back, notice: 'Neighbor was successfully updated.'
     else
       render 'edit'
     end
