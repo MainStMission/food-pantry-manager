@@ -33,21 +33,9 @@ class Household < ActiveRecord::Base
 
 
 
-  def visit_check
-     if self.visits.count > 0
 
-        @last = self.visits.last.visited_on
-        @diff = Date.today - @last
-        @text = "#{@last.strftime('%A, %b %d')} exceeds #{box_type} visit per month"
 
-       if @diff < 30 && self.box_type == 'One'
-          @text
-       elsif @diff < 14 && self.box_type == 'Two'
-          @text
-      end
-   end
 
-  end
 
 end
 

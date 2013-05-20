@@ -34,6 +34,10 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 @media (min-width: 980px) {
 }
 
+html {
+  background-image: url('../images/cream_pixels.png')
+}
+
 .container.forms {
 
   margin-top:20px;
@@ -119,7 +123,8 @@ table#households {
 
 
   header {
-    background-color: rgba(228,228,228,0.7);
+    background-color: #fdebb5;
+    //background-color: rgba(228,228,228,0.7);
     padding: 1em;
     border-bottom: 1px solid #D6D6D6;
   }
