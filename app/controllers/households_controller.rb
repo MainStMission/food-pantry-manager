@@ -34,6 +34,10 @@ class HouseholdsController < ApplicationController
     household = Household.find(params[:id])
   end
 
+  def harvest
+    respond_with households
+  end
+
   def destroy
     household.destroy
 

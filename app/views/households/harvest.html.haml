@@ -1,0 +1,58 @@
+%section.panel
+  %header
+    %h1
+      %i.icon-home.icon-large
+      &nbsp&nbsp&nbspHouseholds
+  .content
+    #harvest_report
+      = image_tag('second_logo.jpg')
+      %h2 Monthly Report
+    %hr
+    #msm_id.span4
+      %p Agency ID: 590AD
+      %p Report for: #{Date.today}
+      - @month = 'March'
+    #harvest_month.span4
+      = simple_form_for @month,html: { :class => 'form-inline' } do |f|
+        = f.input @month, label: 'Month', collection: ['January','February', 'March']
+    %hr
+    .row
+    .span11
+    %h4 The number of different Households served during: #{@month}
+    - household_status_for do |stats|
+      .span5
+        %table.table.table-bordered
+          %thead
+            %tr
+              %th Month
+              %th Total Number of Households
+              %tbody
+                %tr
+                  %td= @month
+                  %td= @month
+    %hr
+    .row.span11
+      %h4 The total number of Individuals served during: #{@month}
+      - household_status_for(households.all) do |stats|
+        .span11
+          %table.table-bordered
+            %thead
+              %tr
+                %th 18 & Under
+                %th 19 to 64
+                %th 65 & Over
+                %th Total Served
+                %tbody
+                  %tr
+                    %td=  12   # stats.neighbor_count
+                    %td=  14   #stats.neighbor_count
+                    %td=  30   #stats.neighbor_count
+                    %td=  5    #stats.neighbor_count
+  .row
+  %br
+  %br
+
+
+
+
+
