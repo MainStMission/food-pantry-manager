@@ -4,18 +4,21 @@
       %i.icon-home.icon-large
       &nbsp&nbsp&nbspHouseholds
   .content
-    #harvest_report
+    .span12
+    .span-one-third
       = image_tag('second_logo.jpg')
+    #harvest_report
       %h2 Monthly Report
-    %hr
-    #msm_id.span4
+    .row
+    #msm_id.span-one-third
       %p Agency ID: 590AD
       %p Report for: #{Date.today}
+      -#= link_to "Second Harvest", "http://www.secondharvestmetrolina.org/"
       - @month = 'March'
-    #harvest_month.span4
+    #harvest_month
+      %br
       = simple_form_for @month,html: { :class => 'form-inline' } do |f|
-        = f.input @month, label: 'Month', collection: ['January','February', 'March']
-    %hr
+        = f.input @month, label: 'Report Month', collection: ['January','February', 'March'], input_html: {class: 'span2'}
     .row
     .span11
     %h4 The number of different Households served during: #{@month}
@@ -29,7 +32,7 @@
               %tbody
                 %tr
                   %td= @month
-                  %td= @month
+                  %td= 40
     %hr
     .row.span11
       %h4 The total number of Individuals served during: #{@month}
@@ -50,6 +53,7 @@
                     %td=  5    #stats.neighbor_count
   .row
   %br
+
   %br
 
 

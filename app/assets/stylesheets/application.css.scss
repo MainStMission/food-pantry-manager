@@ -60,8 +60,17 @@ footer{
 #harvest_report {
   h2 {
   text-align: center;
-  position: relative;
   }
+}
+
+#harvest_month {
+  vertical-align: bottom;
+  text-align: center;
+}
+
+#msm_id {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 #household_money_notes {
