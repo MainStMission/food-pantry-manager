@@ -9,4 +9,10 @@ module HarvestHelper
 
     end
   end
+
+  def month_select
+    %w(January February March April May June July August September October November December )
+  end
+
+
 end

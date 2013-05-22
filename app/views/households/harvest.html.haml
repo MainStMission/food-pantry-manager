@@ -13,12 +13,13 @@
     #msm_id.span-one-third
       %p Agency ID: 590AD
       %p Report for: #{Date.today}
-      -#= link_to "Second Harvest", "http://www.secondharvestmetrolina.org/"
-      - @month = 'March'
+      = link_to "Second Harvest", "http://www.secondharvestmetrolina.org/"
+      - @month = 'June'
     #harvest_month
       %br
-      = simple_form_for @month,html: { :class => 'form-inline' } do |f|
-        = f.input @month, label: 'Report Month', collection: %w(January February March April May June July August September October November December), input_html: {class: 'span2'}
+      = simple_form_for @month, html: { :class => 'form-inline' } do |f|
+        = f.input :month, label: 'Report Month', collection: month_select, input_html: {class: 'span2'}
+      = submit_tag 'refresh', class: 'btn btn-mini'
     .row
     .span11
     %h4 The number of different Households served during: #{@month}
@@ -32,8 +33,8 @@
               %tbody
                 %tr
                   %td= @month
-                  %td= 40
-    %hr
+                  %td= 12
+    %br
     .row.span11
       %h4 The total number of Individuals served during: #{@month}
       - household_status_for(households.all) do |stats|
