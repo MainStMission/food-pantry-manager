@@ -18,7 +18,7 @@
     #harvest_month
       %br
       = simple_form_for @month,html: { :class => 'form-inline' } do |f|
-        = f.input @month, label: 'Report Month', collection: ['January','February', 'March'], input_html: {class: 'span2'}
+        = f.input @month, label: 'Report Month', collection: %w(January February March April May June July August September October November December), input_html: {class: 'span2'}
     .row
     .span11
     %h4 The number of different Households served during: #{@month}
