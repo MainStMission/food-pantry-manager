@@ -17,6 +17,10 @@ class VisitsController < ApplicationController
     end
   end
 
+  def index
+    visits.all
+  end
+
   def new
     @visit = Visit.new
   end

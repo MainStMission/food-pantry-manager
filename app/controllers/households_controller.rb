@@ -44,6 +44,9 @@ class HouseholdsController < ApplicationController
     redirect_to households_path, notice: 'Household deleted.'
   end
 
+  def visits_count(month)
+    visits.where.("strftime('%m', visited_on) + 0 = ?", month ).count
+  end
 
   private
 

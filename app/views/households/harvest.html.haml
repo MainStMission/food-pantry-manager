@@ -13,8 +13,8 @@
     #msm_id.span-one-third
       %p Agency ID: 590AD
       %p Report for: #{Date.today}
-      = link_to "Second Harvest", "http://www.secondharvestmetrolina.org/"
-      - @month = 'June'
+      = link_to 'Second Harvest', 'http://www.secondharvestmetrolina.org/'
+      - @month = 'May'
     #harvest_month
       %br
       = simple_form_for @month, html: { :class => 'form-inline' } do |f|
@@ -33,7 +33,7 @@
               %tbody
                 %tr
                   %td= @month
-                  %td= 12
+                  %td= households.visits_count(@month)
     %br
     .row.span11
       %h4 The total number of Individuals served during: #{@month}
