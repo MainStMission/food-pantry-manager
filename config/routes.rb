@@ -10,14 +10,14 @@ FoodPantry::Application.routes.draw do
 
   resources :visits
 
-  #resources :neighbors
+  resources :neighbors
 
   resources :households do
     resources :visits
     resources :neighbors
   end
 
-  resources :households do
+  resources :visits do
       get :harvest
     end
 
@@ -37,7 +37,7 @@ FoodPantry::Application.routes.draw do
 
   match 'time_clock' => 'time_clock#show'
 
-  match '/harvest' => 'households#harvest', via: :get
+  match '/harvest' => 'visits#harvest', via: :get
 
   authenticated :user do
     root :to => "users#index"

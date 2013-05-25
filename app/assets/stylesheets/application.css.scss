@@ -1,7 +1,7 @@
 @import 'bourbon';
 @import 'font-awesome';
 @import 'visits';
-
+@import 'datepicker';
 
 $iconSpritePath: image-path('glyphicons-halflings.png');
 $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
@@ -161,7 +161,8 @@ table#households {
 
 #neighbor-color {
   background-color:  #dfeffc;
-  padding-top: 10px;
+  padding-left: 75px;
+  margin-bottom: 10px;
 }
 
 .neighbor-color {
@@ -198,6 +199,11 @@ table#households {
       width: 75px;
       background-color: transparent;
     }
+}
+
+#reminder {
+  margin-left: -15px;
+  background-color: #f68b8b;
 }
 
 #donors {

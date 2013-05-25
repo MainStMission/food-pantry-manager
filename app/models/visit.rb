@@ -30,8 +30,17 @@ class Visit < ActiveRecord::Base
     household.household_name if household
   end
 
-  def last_visit
-    self.visited_on.last
+  def self.last_visit
+    visited_on.last
 
   end
+
+  def self.by_month(month)
+    where("select(to_char(visited_on, 'FMMonth')) = ?", month)
+  end
+
+  #def unique_household
+  #  by_month.household_id.unigue
+  #end
+
 end

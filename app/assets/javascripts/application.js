@@ -20,6 +20,7 @@
  //= require jquery.datetimeentry
  //= require rails.validations
  //= require rails.validations.simple_form
+ //= require bootstrap-datepicker
  //= require date
  //= require_tree .
 

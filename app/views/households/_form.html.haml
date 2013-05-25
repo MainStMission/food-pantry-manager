@@ -3,7 +3,14 @@
   %h4 Total Visits: #{household.visits.count}
   %h4 Last Visit: #{household.last_visit}
   = visit_check
-%h3 #{household.name}
+.span-one-third
+  %h3 #{household.name}
+- if household.post_needs
+  .offset2
+    .span5
+      #reminder.well
+        %h4 #{household.special_needs}
+.row
 = simple_form_for household,  validate: true, html: { :class => 'form-inline' } do |f|
   = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
   #neighbor-table
@@ -63,13 +70,13 @@
           = f.input :food_alert, label: 'Special Food needs', tooltip: 'This will print on the food order', input_html: {class: 'span4'}
         .row
         .span4
-          = f.input :special_needs, label: 'Special Non Food Needs', input_html: {class: 'span4'}
+          = f.input :special_needs, label: 'Notices and Reminders', input_html: {class: 'span4'}
         .row
         .span4
           = f.input :prayer_request, label: 'Prayer Request', input_html: {class: 'span4'}
         .row
         .span2
-          = f.input :post_needs, label: 'Post Needs'
+          = f.input :post_needs, label: 'Post Notices'
         .span2
           = f.input :post_prayer,label: 'Post Prayer'
       #house_notes.span-two-thirds.well.well-large

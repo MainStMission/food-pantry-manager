@@ -51,6 +51,11 @@ class VisitsController < ApplicationController
     end
   end
 
+def self.visits_count(month)
+  where("extract(month from visited_on) = ?", month).count
+end
+
+
   private
 
   def allowable
