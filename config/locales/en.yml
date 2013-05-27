@@ -6,6 +6,12 @@ en:
 
   date:
     formats:
-    default: '%m/%d/%Y'
+      default: '%m/%d/%Y'
+    order:
+      -:month
+      -:day
+      -:year
 
-
+#
+#  date:
+#    datepicker: "mm/dd/yyyy"
