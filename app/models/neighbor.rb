@@ -34,6 +34,17 @@ class Neighbor < ActiveRecord::Base
       'add Date'
     end
 
+    def under_19?
+      age < 19
+    end
+
+    def between_19_64?
+      age > 18 && age < 65
+    end
+
+    def over_64?
+      age > 64
+    end
   end
 
 end
