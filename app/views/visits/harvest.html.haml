@@ -35,6 +35,7 @@
                 %tr
                   %td= @month
                   %td= visits.by_month(@month).count
+                  -#%Td= household_by_month(@month)
     %br
     .row.span11
       %h4 The total number of Individuals served during: #{@month}

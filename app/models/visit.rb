@@ -22,12 +22,21 @@ class Visit < ActiveRecord::Base
     neighbor.name if neighbor
   end
 
+  def neighbor_count
+    household.neighbors.count if neighbors > 0
+  end
+
+
  def visit_date
    self.visited_on
  end
 
   def show_household
     household.household_name if household
+  end
+
+  def household_by_month(month)
+        visit.show_household.by_month(month)
   end
 
   def self.last_visit
