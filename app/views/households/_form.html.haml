@@ -48,9 +48,7 @@
       #house_address.span-one-third
         %h3 Household Address
         %script{:type=>"text/javascript"}
-          $('#state').tooltip(options)
-        %script{:type=>"text/javascript"}
-          $('.typeahead').typeahead()
+          $('.datepicker').datepicker()
         .span3
           = f.input :street, input_html: {class: 'span3'}
         .span1
@@ -64,7 +62,10 @@
         .span2
           = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Passport', 'Utility Bill','Food Stamp Card'], input_html:{class:'span2'}
         .span2
-          = f.input :date_of_proof, as: :date_picker, input_html: { id: 'dateEntry', class: 'span2' }
+          -##dp3.input-append.date{"data-date" => "12-02-2012", "data-date-format" => "dd-mm-yyyy"}/
+          = f.input :date_of_proof, as: :custom_date_picker, input_html: { class: 'span2' }
+          %span.add-on
+            %i.icon-th
         .row
         .span4
           = f.input :food_alert, label: 'Special Food needs', tooltip: 'This will print on the food order', input_html: {class: 'span4'}
