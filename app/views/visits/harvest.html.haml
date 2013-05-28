@@ -14,7 +14,7 @@
       %p Agency ID: 590AD
       %p Report for: #{Date.today}
       = link_to 'Second Harvest', 'http://www.secondharvestmetrolina.org/'
-      - @month = 'May'
+      - initialize_month
     #harvest_month
       %br
       = simple_form_for @month, html: { :class => 'form-inline' } do |f|
@@ -29,12 +29,14 @@
           %thead
             %tr
               %th Month
-              -#- @visits = Visits.all
+              -#- @visits = visits.all
+              %th Total Number of Visits
               %th Total Number of Households
               %tbody
                 %tr
                   %td= @month
                   %td= visits.by_month(@month).count
+                  %td= visits.by_month(@month).select("DISTINCT(household_id)").count
                   -#%Td= household_by_month(@month)
     %br
     .row.span11
@@ -50,7 +52,7 @@
                 %th Total Served
                 %tbody
                   %tr
-                    %td=  households.neighbors.young.count
+                    %td=  0     # households.neighbors.count
                     %td=  14   #stats.neighbor_count
                     %td=  30   #stats.neighbor_count
                     %td=  5    #stats.neighbor_count

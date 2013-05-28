@@ -14,5 +14,9 @@ module HarvestHelper
     %w(January February March April May June July August September October November December )
   end
 
+  def initialize_month
+    @month = ' '
+  end
+
 
 end
