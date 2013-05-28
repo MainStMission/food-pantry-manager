@@ -9,9 +9,10 @@ class Neighbor < ActiveRecord::Base
 
   belongs_to :household
 
-  scope young, where( 'age < 19')
-  scope middle, where('age > 18 && age < 66')
-  scope old, where('age > 65')
+  scope :young, where( 'age < 19')
+  scope :middle, where('age > 18 && age < 66')
+  scope :old, where('age > 65')
+
 
   attr_encrypted :ssn, :key => Rails.application.config.secret_token
 
@@ -37,6 +38,9 @@ class Neighbor < ActiveRecord::Base
     else
       'add Date'
     end
+
+
+
 
   end
 

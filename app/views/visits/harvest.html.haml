@@ -44,13 +44,13 @@
           %table.table-bordered
             %thead
               %tr
-                %th 18 & Under
-                %th 19 to 64
-                %th 65 & Over
+                %th  < 19
+                %th Between 18 & 64
+                %th Over 64
                 %th Total Served
                 %tbody
                   %tr
-                    %td=  12   # stats.neighbor_count
+                    %td=  households.neighbors.young.count
                     %td=  14   #stats.neighbor_count
                     %td=  30   #stats.neighbor_count
                     %td=  5    #stats.neighbor_count

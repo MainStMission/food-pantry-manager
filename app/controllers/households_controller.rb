@@ -22,6 +22,10 @@ class HouseholdsController < ApplicationController
     end
   end
 
+  def neighbors
+    neighbors
+  end
+
   def update
     if household.save
       redirect_to households_path, notice: 'Household was successfully updated.'
