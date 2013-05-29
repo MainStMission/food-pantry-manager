@@ -13,7 +13,7 @@
       - visits.each do |visit|
         %tr
           %td= link_to visit.show_household, household_path(visit.household_id)
-          %td= link_to visit.visited_on, visit_path(visit)
+          %td= link_to visit.visited_on, edit_visit_path(visit)
           %td
             -#= link_to 'Edit', edit_visit_path(visit), class: 'btn btn-mini'
             -#= link_to 'Destroy', visit, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'

@@ -48,7 +48,7 @@
       #house_address.span-one-third
         %h3 Household Address
         %script{:type=>"text/javascript"}
-          $('#dateEntry').datetimeEntry({datetimeFormat: 'O/D/Y'});
+          $('#dateEntry').datetimeEntry({datetimeFormat: 'D/O/Y'});
         .span3
           = f.input :street, input_html: {class: 'span3'}
         .span1
@@ -57,7 +57,7 @@
         .span3
           = f.input :city, prompt: 'City', input_html: {class: 'span3'}
         .span1
-          = f.input :state, prompt: 'State', collection: state, input_html: {class: 'span1'}
+          = f.input :state, prompt: 'State', collection: states, input_html: {class: 'span1'}
         .row
         .span2
           = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Passport', 'Utility Bill','Food Stamp Card'], input_html:{class:'span2'}

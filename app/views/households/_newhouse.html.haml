@@ -40,7 +40,7 @@
           %script{:type=>"text/javascript"}
             $('#state').tooltip(options)
           %script{:type=>"text/javascript"}
-            $('.typeahead').typeahead()
+            $('#dateEntry').datetimeEntry({datetimeFormat: 'D/O/Y'});
           .span3
             = f.input :street, input_html: {class: 'span3'}
           .span1
