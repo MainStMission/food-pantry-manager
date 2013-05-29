@@ -13,5 +13,5 @@ en:
       -:year
 
 #
-#  date:
+#  datetime:
 #    datepicker: "mm/dd/yyyy"

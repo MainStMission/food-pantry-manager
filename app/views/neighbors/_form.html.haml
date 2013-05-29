@@ -12,7 +12,7 @@
     .span3
       = f.input :sex, collection: [:Male, :Female] , input_html: {class: 'span2'}
     .span3
-      = f.input :birth_date, as: :date_picker, input_html: { id: 'dateEntry', class: 'span2 datepicker' }
+      = f.input :birth_date,label: 'Birth Date', as: :date_picker, input_html: { id: 'dateEntry', class: 'span2 date_picker' }
     .span3
       = f.input :encrypted_ssn, input_html: {class: "span2"}
     .span6

@@ -62,7 +62,7 @@
         .span2
           = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Passport', 'Utility Bill','Food Stamp Card'], input_html:{class:'span2'}
         .span2
-          = f.input :date_of_proof, as: :date_picker, input_html: { class: 'span2 datepicker', id: 'dateEntry' }
+          = f.input :date_of_proof, as: :date_picker, input_html: { class: 'span2', id: 'dateEntry' }
         .row
         .span4
           = f.input :food_alert, label: 'Special Food needs', tooltip: 'This will print on the food order', input_html: {class: 'span4'}
