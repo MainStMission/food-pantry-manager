@@ -57,7 +57,7 @@
         .span3
           = f.input :city, prompt: 'City', input_html: {class: 'span3'}
         .span1
-          = f.input :state, prompt: 'State', collection:['NC', 'SC', 'VA', 'TN', 'WV','FL','GA','OH','KY'], input_html: {class: 'span1'}
+          = f.input :state, prompt: 'State', collection: state, input_html: {class: 'span1'}
         .row
         .span2
           = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Passport', 'Utility Bill','Food Stamp Card'], input_html:{class:'span2'}
