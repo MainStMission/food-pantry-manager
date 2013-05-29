@@ -4,8 +4,8 @@
     %title= link_to 'Main Street Mission', '/'
     /[if lt IE 9]
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-    = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag :all, :recursive => true
+    = stylesheet_link_tag  'application', :media => "all"
+    -#= javascript_include_tag :all, :recursive => true
     = javascript_include_tag 'application'
     = csrf_meta_tags
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
@@ -47,11 +47,13 @@
                   <i class="icon-dashboard icon-large"></i> Admin
                   %b.caret
                 %ul.dropdown-menu
-                  %li= link_to "New Volunteer", new_volunteer_path
+                  %li= link_to 'New Volunteer', new_volunteer_path
                   %li.divider
                   %li= link_to 'Volunteers', volunteers_path
                   %li.divider
-                  %li= link_to "Admin", '/admin'
+                  %li= link_to '2nd Harvest', '/harvest'
+                  %li.divider
+                  %li= link_to 'Admin', '/admin'
             %ul.nav.pull-right
               - if user_signed_in?
                 %li.dropdown
@@ -73,3 +75,4 @@
     .container.forms
       .row
         .span12= yield
+    = render 'layouts/footer'

@@ -8,12 +8,19 @@ FoodPantry::Application.routes.draw do
 
   resources :donors
 
-  #resources :neighbors
+  resources :visits
+
+  resources :neighbors
 
   resources :households do
     resources :visits
     resources :neighbors
   end
+
+  resources :visits do
+      get :harvest
+    end
+
 
   #resources :visits
 
@@ -30,6 +37,8 @@ FoodPantry::Application.routes.draw do
 
   match 'time_clock' => 'time_clock#show'
 
+  match '/harvest' => 'visits#harvest', via: :get
+
   authenticated :user do
     root :to => "users#index"
   end
@@ -40,7 +49,7 @@ FoodPantry::Application.routes.draw do
   #match 'new_user' :to => 'new_user_session'
 
 
-  #ActiveAdmin.routes(self)
+
 
   devise_for :admin_users
   #

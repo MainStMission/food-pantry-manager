@@ -10,11 +10,15 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
-
+#
     date:
       formats:
         default: '%m/%d/%Y'
-#    # Labels and hints examples
+      order:
+        -:month
+        -:day
+        -:year
+##    # Labels and hints examples
     # labels:
     #   defaults:
     #     password: 'Password'

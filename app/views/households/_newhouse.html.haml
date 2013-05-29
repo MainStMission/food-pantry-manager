@@ -1,24 +1,7 @@
 #mhead
-  %h4 Household Members: #{household.neighbors.count}
-  %h4 Total Visits: #{household.visits.count}
-  %h4 Last Visit: #{household.last_visit}
 = simple_form_for household,  html: { :class => 'form-inline' } do |f|
-  = f.input :household_name, include_blank: 'Last, First', autofocus: true
-  = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
-  %table.table
-    %thead
-      %tr
-        %th Name
-        %th Age
-        %th Last Visit
-    %tbody
-      - household.neighbors.each do |neighbor|
-      - @household = household
-        %tr
-          %td= link_to neighbor.name, url_for([@household, neighbor])
-          %td= neighbor.age
-          %td= neighbor.visits.count
-          %td= word_wrap neighbor.notes, line_width: 30
+  = f.input :household_name, label: 'Houshold Name (Last, First)', autofocus: true
+  %p You must enter at least one Neighbor for the Household
   .span11
     = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini', :force_non_association_create => true)
     %hr
@@ -40,7 +23,7 @@
           %script{:type=>"text/javascript"}
             $('#state').tooltip(options)
           %script{:type=>"text/javascript"}
-            $('.typeahead').typeahead()
+            $('#dateEntry').datetimeEntry({datetimeFormat: 'D/O/Y'});
           .span3
             = f.input :street, input_html: {class: 'span3'}
           .span1
@@ -49,15 +32,12 @@
           .span3
             = f.input :city, prompt: 'City', input_html: {class: 'span3'}
           .span1
-            = f.input :state, typeahead: ['NC', 'SC', 'VA', 'Tenn', 'WVa'], input_html: {class: 'span1'}
+            = f.input :state, collection: states , input_html: {class: 'span1'}
           .row
           .span2
             = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Passport', 'Utility Bill','Food Stamp Card'], input_html:{class:'span2'}
           .span2
-            = f.input :date_of_proof, as: :date_picker, input_html: { id: 'dateEntry', class: 'span2' }
-          .row
-          .span4
-            = f.input :food_alert, label: 'Special Food needs', tooltip: 'This will print on the food order', input_html: {class: 'span4'}
+            = f.input :date_of_proof,  label: 'Proof Date (D/M/Y)',as: :date_picker, input_html: { id: 'dateEntry', class: 'span2' }
           .row
           .span4
             = f.input :special_needs, label: 'Special Non Food Needs', input_html: {class: 'span4'}
@@ -65,15 +45,17 @@
           .span4
             = f.input :prayer_request, label: 'Prayer Request', input_html: {class: 'span4'}
           .row
-          .span2
-            = f.input :post_needs, label: 'Post Needs'
-          .span2
-            = f.input :post_prayer,label: 'Post Prayer'
+          .span3.well.well-large
+            %p If you enter a prayer request or a special need it will only show up in this area unless you check the box below to post it. If you decide to post it the item will show up on a report for special needs or Prayer requests
+            .span1
+              = f.input :post_needs, label: 'Post Needs'
+            .span1
+              = f.input :post_prayer,label: 'Post Prayer'
         #house_notes.span-two-thirds.well.well-large
           %script{:type=>"text/javascript"}
             $(#household_notes).focus(function(){ var value = this.getValue(); value += new Date().getTime(); this.setValue(value);});
           %h3 Notes and Comments
-          = f.input :notes, label: 'Notes', input_html:{rows: 21, class: 'span5'}
+          = f.input :notes, label: false, input_html:{rows: 32, class: 'span5'}
         .row
       #money.tab-pane.well.well-large.money-color
         %table.table.table-bordered
@@ -109,18 +91,13 @@
           = f.input :money_notes, label: 'Financial Notes', input_html:{rows: 2, class: 'span10' }
         .row
       #visits.tab-pane
-        - @date = Date.today
-        %h2#month
-          -#= link_to "<", date: @date.prev_month
-          = @date.strftime("%B %Y")
-          -#= link_to ">", date: @date.next_month
-        = calendar @date do |date|
-          = date.day
-          - if household.visits.count > 0
-            - if visits_by_date[date]
-              %ul
-                - visits_by_date[date].each do |visitor|
-                  %li= visitor.show_neighbor_name
+        .well.well-large.visit-color
+          %h5 The Household may have either One or Two visits per Month. Please select one below.
+          = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
+        %hr
+        .well.well-large.visit-color
+          %h5 If the Household has special needs for food items like vegetarian or gluten free enter it below. Whatever you enter will show up on the Visits form and it will be printed on the food order
+          = f.input :food_alert, label: 'Special Food needs', tooltip: 'This will print on the food order', input_html: {class: 'span4'}
         %hr
       #mission.tab-pane.well.well-large
         .span5
@@ -140,6 +117,7 @@
 
     .actions.submit-visit:
       = f.button :submit, class: 'btn btn-warning'
+    %br
 
 
 

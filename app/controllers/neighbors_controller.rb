@@ -14,9 +14,16 @@ class NeighborsController < ApplicationController
     end
   end
 
+  def index
+    @young_neighbors = Neighbor.young
+    @middle_neighbors = Neighbor.middle
+    @old_neighbors = Neighbor.old
+  end
+
+
   def update
     if neighbor.update_attributes(params[neighbor])
-      redirect_to session[:return_to], notice: 'Neighbor was successfully updated.'
+      redirect_to :back, notice: 'Neighbor was successfully updated.'
     else
       render 'edit'
     end

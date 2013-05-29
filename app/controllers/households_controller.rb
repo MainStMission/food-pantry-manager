@@ -22,6 +22,10 @@ class HouseholdsController < ApplicationController
     end
   end
 
+  def neighbors
+    neighbors
+  end
+
   def update
     if household.save
       redirect_to households_path, notice: 'Household was successfully updated.'
@@ -34,12 +38,19 @@ class HouseholdsController < ApplicationController
     household = Household.find(params[:id])
   end
 
+  def harvest
+    respond_with households
+  end
+
   def destroy
     household.destroy
 
     redirect_to households_path, notice: 'Household deleted.'
   end
 
+  def visits_count(month)
+    visits.where.("strftime('%m', visited_on) + 0 = ?", month ).count
+  end
 
   private
 

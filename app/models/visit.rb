@@ -3,6 +3,8 @@ class Visit < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
 
   validates :household_id, presence: {message:'You must select a household'}
+  validates :neighbor, presence: {message: 'You must select a Neighbor'}
+  validates :neighbor, associated: {message: 'You must select a Neighbor'}
 
   belongs_to :neighbor
   belongs_to :household
@@ -16,9 +18,18 @@ class Visit < ActiveRecord::Base
     neighbor.last_name if neighbor
   end
 
+  def self.initialize_model
+    @model = ' '
+  end
+
   def show_neighbor_name
     neighbor.name if neighbor
   end
+
+  def neighbor_count
+    household.neighbors.count if neighbors > 0
+  end
+
 
  def visit_date
    self.visited_on
@@ -28,8 +39,22 @@ class Visit < ActiveRecord::Base
     household.household_name if household
   end
 
-  def last_visit
-    self.visited_on.last
+  #def self.households_by_month(month)
+  #      visits.by_month(month)
+  #      where(:household_id => :unique)
+  #end
+
+  def self.last_visit
+    visited_on.last
 
   end
+
+  def self.by_month(month)
+    where("select(to_char(visited_on, 'FMMonth')) = ?", month)
+  end
+
+  #def unique_household
+  #  by_month.household_id.unigue
+  #end
+
 end

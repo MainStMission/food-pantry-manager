@@ -3,7 +3,14 @@
   %h4 Total Visits: #{household.visits.count}
   %h4 Last Visit: #{household.last_visit}
   = visit_check
-%h3 #{household.name}
+.span-one-third
+  %h3 #{household.name}
+- if household.post_needs
+  .offset2
+    .span6
+      #reminder.well
+        %h4 #{household.special_needs}
+.row
 = simple_form_for household,  validate: true, html: { :class => 'form-inline' } do |f|
   = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
   #neighbor-table
@@ -21,10 +28,10 @@
             %td= neighbor.age
             %td= word_wrap neighbor.notes
   .span11
-    = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini', :force_non_association_create => true)
-    %hr
+    = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini',:render_options => {wrapper: 'bootstrap' }, :force_non_association_create => true)
+  %hr
   %p.visit
-    = link_to_add_association( 'New Visit', f, :visits , class: 'btn btn-success btn-large', :force_non_association_create => true)
+    = link_to_add_association( 'New Visit', f, :visits , class: 'btn btn-success btn-large', :render_options => {wrapper: 'bootstrap' },:force_non_association_create => true)
   .span11
   .tabbable
     %ul.nav.nav-tabs
@@ -41,9 +48,7 @@
       #house_address.span-one-third
         %h3 Household Address
         %script{:type=>"text/javascript"}
-          $('#state').tooltip(options)
-        %script{:type=>"text/javascript"}
-          $('.typeahead').typeahead()
+          $('#dateEntry').datetimeEntry({datetimeFormat: 'D/O/Y'});
         .span3
           = f.input :street, input_html: {class: 'span3'}
         .span1
@@ -52,24 +57,24 @@
         .span3
           = f.input :city, prompt: 'City', input_html: {class: 'span3'}
         .span1
-          = f.input :state, typeahead: ['NC', 'SC', 'VA', 'Tenn', 'WVa'], input_html: {class: 'span1'}
+          = f.input :state, prompt: 'State', collection: states, input_html: {class: 'span1'}
         .row
         .span2
           = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Passport', 'Utility Bill','Food Stamp Card'], input_html:{class:'span2'}
         .span2
-          = f.input :date_of_proof, as: :date_picker, input_html: { id: 'dateEntry', class: 'span2' }
+          = f.input :date_of_proof, label: 'Proof Date (Day/Month/Year)', as: :date_picker, input_html: { class: 'span2', id: 'dateEntry' }
         .row
         .span4
           = f.input :food_alert, label: 'Special Food needs', tooltip: 'This will print on the food order', input_html: {class: 'span4'}
         .row
         .span4
-          = f.input :special_needs, label: 'Special Non Food Needs', input_html: {class: 'span4'}
+          = f.input :special_needs, label: 'Notices and Reminders', input_html: {class: 'span4'}
         .row
         .span4
           = f.input :prayer_request, label: 'Prayer Request', input_html: {class: 'span4'}
         .row
         .span2
-          = f.input :post_needs, label: 'Post Needs'
+          = f.input :post_needs, label: 'Post Notices'
         .span2
           = f.input :post_prayer,label: 'Post Prayer'
       #house_notes.span-two-thirds.well.well-large
@@ -103,10 +108,11 @@
             %td= f.input :expense3,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}
             %td= f.input :exp_amt3, as: :string, label: false , input_html: {class: 'span1'}
             %tr
-            %td  Total Income
-            %td  #{ household.inc_amt1.to_i + household.inc_amt2.to_i + household.inc_amt3.to_i}
-            %td  Total Expenses
-            %td  #{ household.exp_amt1.to_i + household.exp_amt2.to_i + household.inc_amt3.to_i }
+            %tr.success.well.well-large
+              %td  Total Income
+              %td  #{ household.inc_amt1.to_i + household.inc_amt2.to_i + household.inc_amt3.to_i}
+              %td  Total Expenses
+              %td #{ household.exp_amt1.to_i + household.exp_amt2.to_i + household.inc_amt3.to_i }
       .row
       .span11
         = f.input :money_notes, label: 'Financial Notes', input_html:{rows: 2, class: 'span10' }

@@ -7,8 +7,9 @@ module HouseholdsHelper
   end
 
 
-
-
+  def states
+    %w(NC SC VA TN WV FL GA OH KY)
+  end
 
   def visit_check
     if household.visits.count > 0
@@ -16,7 +17,7 @@ module HouseholdsHelper
       @box = household.box_type
       @last = household.visits.last.visited_on
       @diff = Date.today - @last
-      @text = "#{@last.strftime('%A, %b %d')} exceeds #{household.box_type} visit per month"
+      @text = 'Warning, too many visits'
 
       if @diff < 30 && household.box_type == 'One'
         @text
