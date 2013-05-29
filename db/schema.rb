@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130529020920) do
+ActiveRecord::Schema.define(:version => 20130529022126) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(:version => 20130529020920) do
     t.string   "special_needs"
     t.string   "how_heard"
     t.string   "proof_of_residency_type"
-    t.datetime "date_of_proof"
+    t.date     "date_of_proof"
     t.boolean  "post_prayer"
     t.boolean  "post_needs"
     t.boolean  "christmas"
