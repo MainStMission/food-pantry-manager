@@ -35,7 +35,7 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 }
 
 html {
-  background-image: url('../images/cream_pixels.png')
+  //background-image: image_path('cream_pixels.png')
 }
 
 .container.forms {
@@ -84,6 +84,7 @@ footer{
 
 .visit {
   text-align: center;
+  background-color: #d4ffaa;
 }
 
 #visit-date {
