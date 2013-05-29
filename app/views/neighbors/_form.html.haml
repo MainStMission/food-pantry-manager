@@ -1,7 +1,7 @@
 = simple_form_for [@household, neighbor],url: household_neighbor_path do |f|
   %h2 Household: #{neighbor.house_name}
   %script{:type=>"text/javascript"}
-    $('#dateEntry').datetimeEntry({datetimeFormat: 'O/D/Y'});
+    $('#dateEntry').datetimeEntry({datetimeFormat: 'D/O/Y'});
   #neighbor-color.well.well-large
     .span3
       = f.input :first_name
