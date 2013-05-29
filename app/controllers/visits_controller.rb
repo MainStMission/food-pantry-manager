@@ -17,6 +17,10 @@ class VisitsController < ApplicationController
     end
   end
 
+  def index
+    visits.all
+  end
+
   def new
     @visit = Visit.new
   end
@@ -46,6 +50,11 @@ class VisitsController < ApplicationController
       end
     end
   end
+
+def self.visits_count(month)
+  where("extract(month from visited_on) = ?", month).count
+end
+
 
   private
 

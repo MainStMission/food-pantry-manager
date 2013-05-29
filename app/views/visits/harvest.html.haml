@@ -1,0 +1,67 @@
+%section.panel
+  %header
+    %h1
+      %i.icon-home.icon-large
+      &nbsp&nbsp&nbspHouseholds
+  .content
+    .span12
+    .span-one-third
+      = image_tag('second_logo.jpg')
+    #harvest_report
+      %h2 Monthly Report
+    .row
+    #msm_id.span-one-third
+      %p Agency ID: 590AD
+      %p Report for: #{Date.today}
+      = link_to 'Second Harvest', 'http://www.secondharvestmetrolina.org/'
+      - initialize_month
+    #harvest_month
+      %br
+      = simple_form_for @month, html: { :class => 'form-inline' } do |f|
+        = f.input :month, label: 'Report Month', collection: month_select, input_html: {class: 'span2'}
+      = submit_tag 'refresh', class: 'btn btn-mini'
+    .row
+    .span11
+    %h4 The number of different Households served during: #{@month}
+    - household_status_for do |stats|
+      .span5
+        %table.table.table-bordered
+          %thead
+            %tr
+              %th Month
+              -#- @visits = visits.all
+              %th Total Number of Visits
+              %th Total Number of Households
+              %tbody
+                %tr
+                  %td= @month
+                  %td= visits.by_month(@month).count
+                  %td= visits.by_month(@month).select("DISTINCT(household_id)").count
+                  -#%Td= household_by_month(@month)
+    %br
+    .row.span11
+      %h4 The total number of Individuals served during: #{@month}
+      - household_status_for(households.all) do |stats|
+        .span11
+          %table.table-bordered
+            %thead
+              %tr
+                %th  < 19
+                %th Between 18 & 64
+                %th Over 64
+                %th Total Served
+                %tbody
+                  %tr
+                    %td=  0     # households.neighbors.count
+                    %td=  14   #stats.neighbor_count
+                    %td=  30   #stats.neighbor_count
+                    %td=  5    #stats.neighbor_count
+  .row
+  %br
+
+  %br
+
+
+
+
+
