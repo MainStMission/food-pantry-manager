@@ -7,6 +7,9 @@ module HouseholdsHelper
   end
 
 
+  def states
+    %w(NC SC VA TN WV FL GA OH KY)
+  end
 
   def visit_check
     if household.visits.count > 0
