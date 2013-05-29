@@ -91,11 +91,11 @@
           = f.input :money_notes, label: 'Financial Notes', input_html:{rows: 2, class: 'span10' }
         .row
       #visits.tab-pane
-        .well.well-large.visit
+        .well.well-large.visit-color
           %h5 The Household may have either One or Two visits per Month. Please select one below.
           = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
         %hr
-        .well.well-large.visit
+        .well.well-large.visit-color
           %h5 If the Household has special needs for food items like vegetarian or gluten free enter it below. Whatever you enter will show up on the Visits form and it will be printed on the food order
           = f.input :food_alert, label: 'Special Food needs', tooltip: 'This will print on the food order', input_html: {class: 'span4'}
         %hr
