@@ -32,7 +32,7 @@
           .span3
             = f.input :city, prompt: 'City', input_html: {class: 'span3'}
           .span1
-            = f.input :state, collection: states , input_html: {class: 'span1'}
+            = f.input :state, collection: states , input_html: {class: 'span1'}, selected: 'NC'
           .row
           .span2
             = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Passport', 'Utility Bill','Food Stamp Card'], input_html:{class:'span2'}
@@ -93,7 +93,7 @@
       #visits.tab-pane
         .well.well-large.visit-color
           %h5 The Household may have either One or Two visits per Month. Please select one below.
-          = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
+          = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'},selected: 'One'
         %hr
         .well.well-large.visit-color
           %h5 If the Household has special needs for food items like vegetarian or gluten free enter it below. Whatever you enter will show up on the Visits form and it will be printed on the food order
