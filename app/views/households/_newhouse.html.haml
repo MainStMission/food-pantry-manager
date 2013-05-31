@@ -82,10 +82,15 @@
               %td= f.input :expense3,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}
               %td= f.input :exp_amt3, as: :string, label: false , input_html: {class: 'span1'}
               %tr
+              %td= f.input :income4,label: false, input_html: {class: 'form-inline', class: 'span2'}
+              %td= f.input :inc_amt4, as: :string, label: false, input_html: {class: 'span1'}
+              %td= f.input :expense4,label: false, input_html: {class: 'form-horizontal', class: 'span2'}
+              %td= f.input :exp_amt4, as: :string, label: false , input_html: {class: 'span1'}
+              %tr
               %td  Total Income
-              %td  #{ household.inc_amt1.to_i + household.inc_amt2.to_i + household.inc_amt3.to_i}
+              %td  #{ household.inc_amt1.to_i + household.inc_amt2.to_i + household.inc_amt3.to_i + household.inc_amt4.to_i}
               %td  Total Expenses
-              %td  #{ household.exp_amt1.to_i + household.exp_amt2.to_i + household.inc_amt3.to_i }
+              %td  #{ household.exp_amt1.to_i + household.exp_amt2.to_i + household.exp_amt3.to_i + household.exp_amt4.to_i }
         .row
         .span11
           = f.input :money_notes, label: 'Financial Notes', input_html:{rows: 2, class: 'span10' }
