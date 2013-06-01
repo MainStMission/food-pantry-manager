@@ -82,6 +82,8 @@ GEM
     database_cleaner (0.9.1)
     debug_inspector (0.0.2)
     decent_exposure (2.1.0)
+    delocalize (0.3.1)
+      rails (>= 3.0)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -354,6 +356,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   decent_exposure
+  delocalize
   devise
   factory_girl_rails
   faker
