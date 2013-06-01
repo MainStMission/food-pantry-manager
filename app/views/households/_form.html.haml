@@ -48,7 +48,7 @@
       #house_address.span-one-third
         %h3 Household Address
         %script{:type=>"text/javascript"}
-          $('#dateEntry').datetimeEntry({datetimeFormat: 'O/D/Y'});
+          $('.datepicker').datepicker({form: 'dd/mm/yyyy'});
         .span3
           = f.input :street, input_html: {class: 'span3'}
         .span1
@@ -60,9 +60,9 @@
           = f.input :state, prompt: 'State', collection: states, input_html: {class: 'span1'}
         .row
         .span2
-          = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Passport', 'Utility Bill','Food Stamp Card'], input_html:{class:'span2'}
+          = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Received Mail','Passport', 'Utility Bill','Food Stamp Card'], input_html:{class:'span2'}
         .span2
-          = f.input :date_of_proof, label: 'Proof Date (Day/Month/Year)', as: :date_picker, input_html: { class: 'span2', id: 'dateEntry' }
+          = f.input :date_of_proof, label: 'Proof Date (Day/Month/Year)', as: :date_picker, input_html: { class: 'datepicker span2', id: 'dpYears'}
         .row
         .span4
           = f.input :food_alert, label: 'Special Food needs', tooltip: 'This will print on the food order', input_html: {class: 'span4'}

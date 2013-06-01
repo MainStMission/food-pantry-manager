@@ -1,8 +1,8 @@
 = simple_form_for [@household, neighbor],url: household_neighbor_path do |f|
   %h2 Household: #{neighbor.house_name}
-  %script{:type=>"text/javascript"}
-    $('#dateEntry').datetimeEntry({dateFormat: 'D/O/Y'})
   #neighbor-color.well.well-large
+    %script{:type=>"text/javascript"}
+      $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
     .span3
       = f.input :first_name
     .span3
@@ -12,7 +12,7 @@
     .span3
       = f.input :sex, collection: [:Male, :Female] , input_html: {class: 'span2'}
     .span3
-      = f.input :birth_date,label: 'Birth Date (D/M/Y)', as: :date_picker, input_html: { id: 'dateEntry', class: 'span2 date_picker' }
+      = f.input :birth_date, as: :date_picker,  input_html: {id: 'dpYears', class: 'datepicker'}
     .span3
       = f.input :encrypted_ssn, input_html: {class: "span2"}
     .span6
