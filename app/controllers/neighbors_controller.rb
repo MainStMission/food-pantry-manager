@@ -19,6 +19,11 @@ class NeighborsController < ApplicationController
     @young_neighbors = Neighbor.young
     @middle_neighbors = Neighbor.middle
     @old_neighbors = Neighbor.old
+
+
+      @q = Neighbor.search(params[:q])
+      @neighbors = @q.result(:distinct => true)
+
   end
 
 
