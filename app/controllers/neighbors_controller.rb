@@ -5,7 +5,7 @@ class NeighborsController < ApplicationController
   expose(:household)
   expose(:households)
   expose(:neighbor)
-  expose(:neighbors)
+  expose(:neighbors) { Neighbor.scoped.page params[:page] }
 
   def create
     if neighbor.save
