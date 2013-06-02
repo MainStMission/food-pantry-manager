@@ -12,6 +12,9 @@ class Visit < ActiveRecord::Base
   delegate :name, to: :neighbor, prefix: true, allow_nil: true
   delegate :household_name, to: :household, prefix: true, allow_nil: true
 
+  default_scope order('visited_on DESC')
+
+
   has_paper_trail
 
   def show_neighbor
