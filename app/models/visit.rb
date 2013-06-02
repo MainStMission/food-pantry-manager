@@ -39,6 +39,14 @@ class Visit < ActiveRecord::Base
     household.household_name if household
   end
 
+  def household_allowance
+    household.box_type if household
+  end
+
+  def show_neighbor
+    neighbor.name if neighbor
+  end
+
   #def self.households_by_month(month)
   #      visits.by_month(month)
   #      where(:household_id => :unique)
