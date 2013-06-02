@@ -17,7 +17,7 @@
           %th Visits
           %th Phone
       %tbody
-      - neighbors.each do |neighbor|
+      - @neighbors.each do |neighbor|
       - @household = neighbor.household
         %tr
           %td= link_to neighbor.name, url_for([@household, neighbor])
