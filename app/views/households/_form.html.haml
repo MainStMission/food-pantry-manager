@@ -123,18 +123,48 @@
         = f.input :money_notes, label: 'Financial Notes', input_html:{rows: 2, class: 'span10' }
       .row
     #visits.tab-pane
-      - @date = Date.today
-      %h2#month
-        -#= link_to "<", date: @date.prev_month
-        = @date.strftime("%B %Y")
-        -#= link_to ">", date: @date.next_month
-      = calendar @date do |date|
-        = date.day
-        - if household.visits.count > 0
-          - if visits_by_date[date]
-            %ul
-              - visits_by_date[date].each do |visitor|
-                %li= visitor.show_neighbor_name
+      .tabbable
+        - @date = Date.today
+        - @pdate = @date.prev_month
+        - @ppdate = @pdate.prev_month
+        %ul.nav.nav-tabs
+          %li
+            %a{"data-toggle" => "tab", :href => "#ppast"} #{@ppdate.strftime("%B %Y")}
+          %li
+            %a{"data-toggle" => "tab", :href => "#past"} #{@pdate.strftime("%B %Y")}
+          %li
+            %a{"data-toggle" => "tab", :href => "#current"} #{@date.strftime("%B %Y")}
+      .tab-content
+        #current.tab-pane
+          %h2
+            = @date.strftime("%B %Y")
+          = calendar @date do |date|
+            = date.day
+            - if household.visits.count > 0
+              - if visits_by_date[date]
+                %ul
+                  - visits_by_date[date].each do |visitor|
+                    %li= visitor.show_neighbor_name
+        #past.tab-pane
+          %h2
+            = @pdate.strftime("%B %Y")
+          = calendar @pdate do |date|
+            = date.day
+            - if household.visits.count > 0
+              - if visits_by_date[date]
+                %ul
+                  - visits_by_date[date].each do |visitor|
+                    %li= visitor.show_neighbor_name
+        #ppast.tab-pane
+          %h2
+            = @ppdate.strftime("%B %Y")
+          = calendar @ppdate do |date|
+            = date.day
+            - if household.visits.count > 0
+              - if visits_by_date[date]
+                %ul
+                  - visits_by_date[date].each do |visitor|
+                    %li= visitor.show_neighbor_name
       %hr
     #mission.tab-pane.well.well-large
       .span5
