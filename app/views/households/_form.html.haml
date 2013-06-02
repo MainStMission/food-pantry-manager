@@ -1,4 +1,6 @@
 #mhead
+  %script{:type=>"text/javascript"}
+    $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
   %h4 Household Members: #{household.neighbors.count}
   %h4 Total Visits: #{household.visits.count}
   %h4 Last Visit: #{household.last_visit}
@@ -44,11 +46,9 @@
       %li
         %a{"data-toggle" => "tab", :href => "#mission"} Mission
   .tab-content
-    #home.tab-pane.neighbor-color.well.well-large
+    #home.tab-pane.neighbor-color.well.well-largeo
       #house_address.span-one-third
         %h3 Household Address
-        %script{:type=>"text/javascript"}
-          $('.datepicker').datepicker({form: 'dd/mm/yyyy'});
         .span3
           = f.input :street, input_html: {class: 'span3'}
         .span1
@@ -62,7 +62,7 @@
         .span2
           = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Received Mail','Passport', 'Utility Bill','Food Stamp Card'], input_html:{class:'span2'}
         .span2
-          = f.input :date_of_proof, label: 'Proof Date (Day/Month/Year)', as: :date_picker, input_html: { class: 'datepicker span2', id: 'dpYears'}
+          = f.input :date_of_proof, as: :date_picker, input_html: {id: 'dpYears', class: 'datepicker span2' }
         .row
         .span4
           = f.input :food_alert, label: 'Special Food needs', tooltip: 'This will print on the food order', input_html: {class: 'span4'}
@@ -78,8 +78,6 @@
         .span2
           = f.input :post_prayer,label: 'Post Prayer'
       #house_notes.span-two-thirds.well.well-large
-        %script{:type=>"text/javascript"}
-          $(#household_notes).focus(function(){ var value = this.getValue(); value += new Date().getTime(); this.setValue(value);});
         %h3 Notes and Comments
         = f.input :notes, label: false, input_html:{rows: 21, class: 'span5'}, autofocus: true
       .row
@@ -135,7 +133,7 @@
           %li
             %a{"data-toggle" => "tab", :href => "#current"} #{@date.strftime("%B %Y")}
       .tab-content
-        #current.tab-pane
+        #current.tab-pane.active
           %h2
             = @date.strftime("%B %Y")
           = calendar @date do |date|
