@@ -4,6 +4,11 @@
       %i.icon-user.icon-large
       &nbsp&nbsp&nbspNeighbors
   .content
+    #neighborsearch
+      = search_form_for @q do |f|
+        = f.label :last_name_start
+        = f.text_field :last_name_start
+        = f.submit
     %table.table.table-striped
       %thead
         %tr
