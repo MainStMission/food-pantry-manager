@@ -17,9 +17,13 @@
       - initialize_month
     #harvest_month
       %br
-      = simple_form_for @month, html: { :class => 'form-inline' } do |f|
-        = f.input :month, label: 'Report Month', collection: month_select, input_html: {class: 'span2'}
-      = submit_tag 'refresh', class: 'btn btn-mini'
+      = search_form_for @month do |f|
+        = f.label Select Month
+        = f.options_for_select(month_select)
+        = f.submit
+      -#= simple_form_for @month, html: { :class => 'form-inline' } do |f|
+      -#  = f.input :month, label: 'Report Month', collection: month_select, input_html: {class: 'span2'}
+      -#= submit_tag 'refresh', class: 'btn btn-mini'
     .row
     .span11
     %h4 The number of different Households served during: #{@month}
