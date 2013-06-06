@@ -19,6 +19,7 @@ class Household < ActiveRecord::Base
     household_name
   end
 
+
   def visit
     self.visits
   end

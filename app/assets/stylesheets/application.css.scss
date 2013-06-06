@@ -49,6 +49,27 @@ html {
   }
 }
 
+#housesearch {
+  float: right;
+    input[type="submit"] {
+  vertical-align: top ;
+  height: 29px;
+  border-radius: 3px;
+    }
+}
+
+
+#neighborsearch {
+  float: right;
+  input[type="submit"] {
+    vertical-align: top ;
+    height: 29px;
+    border-radius: 3px;
+  }
+}
+
+
+
 header {
   background-color: #f5f5f5;
 }

@@ -3,8 +3,9 @@ class NeighborsController < ApplicationController
 
   before_filter :authenticate_user!
   expose(:household)
+  expose(:households)
   expose(:neighbor)
-  expose(:neighbors)
+  expose(:neighbors) { Neighbor.scoped.page params[:page] }
 
   def create
     if neighbor.save
@@ -18,12 +19,17 @@ class NeighborsController < ApplicationController
     @young_neighbors = Neighbor.young
     @middle_neighbors = Neighbor.middle
     @old_neighbors = Neighbor.old
+
+
+      @q = Neighbor.search(params[:q])
+      @neighbors = @q.result(:distinct => true)
+
   end
 
 
   def update
     if neighbor.update_attributes(params[neighbor])
-      redirect_to :back, notice: 'Neighbor was successfully updated.'
+      redirect_to neighbors_path, notice: 'Neighbor was successfully updated.'
     else
       render 'edit'
     end

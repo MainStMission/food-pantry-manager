@@ -10,8 +10,14 @@ class HouseholdsController < ApplicationController
   expose(:visits) { household.visits}
   expose(:visit)
 
+  #def index
+  #  respond_with households
+  #end
+
+
   def index
-    respond_with households
+    @q = Household.search(params[:q])
+    @households = @q.result(:distinct => true)
   end
 
   def create

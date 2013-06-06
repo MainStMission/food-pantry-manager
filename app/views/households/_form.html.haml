@@ -1,4 +1,6 @@
 #mhead
+  %script{:type=>"text/javascript"}
+    $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
   %h4 Household Members: #{household.neighbors.count}
   %h4 Total Visits: #{household.visits.count}
   %h4 Last Visit: #{household.last_visit}
@@ -36,19 +38,17 @@
   .tabbable
     %ul.nav.nav-tabs
       %li
-        %a{"data-toggle" => "tab", :href => "#home"} Home
+        %a{"data-toggle" => "tab", :href => "#home"} Address
       %li
-        %a{"data-toggle" => "tab", :href => "#money"} Money
+        %a{"data-toggle" => "tab", :href => "#money"} Income
       %li
         %a{"data-toggle" => "tab", :href => "#visits"} Visits
       %li
         %a{"data-toggle" => "tab", :href => "#mission"} Mission
   .tab-content
-    #home.tab-pane.neighbor-color.well.well-large
+    #home.tab-pane.neighbor-color.well.well-largeo
       #house_address.span-one-third
         %h3 Household Address
-        %script{:type=>"text/javascript"}
-          $('#dateEntry').datetimeEntry({datetimeFormat: 'D/O/Y'});
         .span3
           = f.input :street, input_html: {class: 'span3'}
         .span1
@@ -60,9 +60,9 @@
           = f.input :state, prompt: 'State', collection: states, input_html: {class: 'span1'}
         .row
         .span2
-          = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Passport', 'Utility Bill','Food Stamp Card'], input_html:{class:'span2'}
+          = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Received Mail','Passport', 'Utility Bill','Food Stamp Card'], input_html:{class:'span2'}
         .span2
-          = f.input :date_of_proof, label: 'Proof Date (Day/Month/Year)', as: :date_picker, input_html: { class: 'span2', id: 'dateEntry' }
+          = f.input :date_of_proof, as: :date_picker, input_html: {id: 'dpYears', class: 'datepicker span2' }
         .row
         .span4
           = f.input :food_alert, label: 'Special Food needs', tooltip: 'This will print on the food order', input_html: {class: 'span4'}
@@ -78,8 +78,6 @@
         .span2
           = f.input :post_prayer,label: 'Post Prayer'
       #house_notes.span-two-thirds.well.well-large
-        %script{:type=>"text/javascript"}
-          $(#household_notes).focus(function(){ var value = this.getValue(); value += new Date().getTime(); this.setValue(value);});
         %h3 Notes and Comments
         = f.input :notes, label: false, input_html:{rows: 21, class: 'span5'}, autofocus: true
       .row
@@ -108,28 +106,63 @@
             %td= f.input :expense3,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}
             %td= f.input :exp_amt3, as: :string, label: false , input_html: {class: 'span1'}
             %tr
+            %td= f.input :income4,label: false, input_html: {class: 'form-inline', class: 'span2'}
+            %td= f.input :inc_amt4, as: :string, label: false, input_html: {class: 'span1'}
+            %td= f.input :expense4,label: false, input_html: {class: 'form-horizontal', class: 'span2'}
+            %td= f.input :exp_amt4, as: :string, label: false , input_html: {class: 'span1'}           
+            %tr
             %tr.success.well.well-large
               %td  Total Income
-              %td  #{ household.inc_amt1.to_i + household.inc_amt2.to_i + household.inc_amt3.to_i}
+              %td  #{ household.inc_amt1.to_i + household.inc_amt2.to_i + household.inc_amt3.to_i + household.inc_amt4.to_i}
               %td  Total Expenses
-              %td #{ household.exp_amt1.to_i + household.exp_amt2.to_i + household.inc_amt3.to_i }
+              %td #{ household.exp_amt1.to_i + household.exp_amt2.to_i + household.exp_amt3.to_i + household.exp_amt4.to_i }
       .row
       .span11
         = f.input :money_notes, label: 'Financial Notes', input_html:{rows: 2, class: 'span10' }
       .row
     #visits.tab-pane
-      - @date = Date.today
-      %h2#month
-        -#= link_to "<", date: @date.prev_month
-        = @date.strftime("%B %Y")
-        -#= link_to ">", date: @date.next_month
-      = calendar @date do |date|
-        = date.day
-        - if household.visits.count > 0
-          - if visits_by_date[date]
-            %ul
-              - visits_by_date[date].each do |visitor|
-                %li= visitor.show_neighbor_name
+      .tabbable
+        - @date = Date.today
+        - @pdate = @date.prev_month
+        - @ppdate = @pdate.prev_month
+        %ul.nav.nav-tabs
+          %li
+            %a{"data-toggle" => "tab", :href => "#ppast"} #{@ppdate.strftime("%B %Y")}
+          %li
+            %a{"data-toggle" => "tab", :href => "#past"} #{@pdate.strftime("%B %Y")}
+          %li
+            %a{"data-toggle" => "tab", :href => "#current"} #{@date.strftime("%B %Y")}
+      .tab-content
+        #current.tab-pane.active
+          %h2
+            = @date.strftime("%B %Y")
+          = calendar @date do |date|
+            = date.day
+            - if household.visits.count > 0
+              - if visits_by_date[date]
+                %ul
+                  - visits_by_date[date].each do |visitor|
+                    %li= visitor.show_neighbor_name
+        #past.tab-pane
+          %h2
+            = @pdate.strftime("%B %Y")
+          = calendar @pdate do |date|
+            = date.day
+            - if household.visits.count > 0
+              - if visits_by_date[date]
+                %ul
+                  - visits_by_date[date].each do |visitor|
+                    %li= visitor.show_neighbor_name
+        #ppast.tab-pane
+          %h2
+            = @ppdate.strftime("%B %Y")
+          = calendar @ppdate do |date|
+            = date.day
+            - if household.visits.count > 0
+              - if visits_by_date[date]
+                %ul
+                  - visits_by_date[date].each do |visitor|
+                    %li= visitor.show_neighbor_name
       %hr
     #mission.tab-pane.well.well-large
       .span5
