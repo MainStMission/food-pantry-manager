@@ -4,6 +4,11 @@
       %i.icon-user.icon-large
       &nbsp&nbsp&nbspNeighbors
   .content
+    #neighborsearch
+      = search_form_for @q do |f|
+        = f.label :last_name_start
+        = f.text_field :last_name_start
+        = f.submit
     %table.table.table-striped
       %thead
         %tr
@@ -12,16 +17,17 @@
           %th Visits
           %th Phone
       %tbody
-      - neighbors.each do |neighbor|
+      - @neighbors.each do |neighbor|
+      - @household = neighbor.household
         %tr
-          %td= neighbor.name
-          %td= neighbor.house_name
+          %td= link_to neighbor.name, url_for([@household, neighbor])
+          %td= link_to neighbor.house_name, url_for(@household)
           %td= neighbor.visits.count
           %td= neighbor.phone
           %td
             = link_to 'Edit', edit_neighbor_path(neighbor), class: 'btn btn-mini'
             = link_to 'Destroy', neighbor, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
-
+      = paginate neighbors
     %br
 
 

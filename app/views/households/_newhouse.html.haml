@@ -9,9 +9,9 @@
     .tabbable
       %ul.nav.nav-tabs
         %li
-          %a{"data-toggle" => "tab", :href => "#home"} Home
+          %a{"data-toggle" => "tab", :href => "#home"} Address
         %li
-          %a{"data-toggle" => "tab", :href => "#money"} Money
+          %a{"data-toggle" => "tab", :href => "#money"} Income
         %li
           %a{"data-toggle" => "tab", :href => "#visits"} Visits
         %li
@@ -21,9 +21,7 @@
         #house_address.span-one-third
           %h3 Household Address
           %script{:type=>"text/javascript"}
-            $('#state').tooltip(options)
-          %script{:type=>"text/javascript"}
-            $('#dateEntry').datetimeEntry({datetimeFormat: 'D/O/Y'});
+            $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
           .span3
             = f.input :street, input_html: {class: 'span3'}
           .span1
@@ -32,12 +30,12 @@
           .span3
             = f.input :city, prompt: 'City', input_html: {class: 'span3'}
           .span1
-            = f.input :state, collection: states , input_html: {class: 'span1'}
+            = f.input :state, collection: states , input_html: {class: 'span1'}, selected: 'NC'
           .row
           .span2
             = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Passport', 'Utility Bill','Food Stamp Card'], input_html:{class:'span2'}
           .span2
-            = f.input :date_of_proof,  label: 'Proof Date (D/M/Y)',as: :date_picker, input_html: { id: 'dateEntry', class: 'span2' }
+            = f.input :date_of_proof,  label: 'Proof Date (D/M/Y)',as: :date_picker, input_html: { id: 'dpYears', class: 'datepicker span2' }
           .row
           .span4
             = f.input :special_needs, label: 'Special Non Food Needs', input_html: {class: 'span4'}
@@ -82,10 +80,15 @@
               %td= f.input :expense3,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}
               %td= f.input :exp_amt3, as: :string, label: false , input_html: {class: 'span1'}
               %tr
+              %td= f.input :income4,label: false, input_html: {class: 'form-inline', class: 'span2'}
+              %td= f.input :inc_amt4, as: :string, label: false, input_html: {class: 'span1'}
+              %td= f.input :expense4,label: false, input_html: {class: 'form-horizontal', class: 'span2'}
+              %td= f.input :exp_amt4, as: :string, label: false , input_html: {class: 'span1'}
+              %tr
               %td  Total Income
-              %td  #{ household.inc_amt1.to_i + household.inc_amt2.to_i + household.inc_amt3.to_i}
+              %td  #{ household.inc_amt1.to_i + household.inc_amt2.to_i + household.inc_amt3.to_i + household.inc_amt4.to_i}
               %td  Total Expenses
-              %td  #{ household.exp_amt1.to_i + household.exp_amt2.to_i + household.inc_amt3.to_i }
+              %td  #{ household.exp_amt1.to_i + household.exp_amt2.to_i + household.exp_amt3.to_i + household.exp_amt4.to_i }
         .row
         .span11
           = f.input :money_notes, label: 'Financial Notes', input_html:{rows: 2, class: 'span10' }
@@ -93,7 +96,7 @@
       #visits.tab-pane
         .well.well-large.visit-color
           %h5 The Household may have either One or Two visits per Month. Please select one below.
-          = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
+          = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'},selected: 'One'
         %hr
         .well.well-large.visit-color
           %h5 If the Household has special needs for food items like vegetarian or gluten free enter it below. Whatever you enter will show up on the Visits form and it will be printed on the food order

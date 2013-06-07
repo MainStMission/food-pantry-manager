@@ -12,6 +12,9 @@ class Visit < ActiveRecord::Base
   delegate :name, to: :neighbor, prefix: true, allow_nil: true
   delegate :household_name, to: :household, prefix: true, allow_nil: true
 
+  default_scope order('visited_on DESC')
+
+
   has_paper_trail
 
   def show_neighbor
@@ -37,6 +40,14 @@ class Visit < ActiveRecord::Base
 
   def show_household
     household.household_name if household
+  end
+
+  def household_allowance
+    household.box_type if household
+  end
+
+  def show_neighbor
+    neighbor.name if neighbor
   end
 
   #def self.households_by_month(month)

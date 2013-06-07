@@ -3,7 +3,6 @@ class VisitPdf < Prawn::Document
   def initialize(visit)
     super()
     @visit = visit
-    logo_image
     visit_id
     visit_date
     household_name

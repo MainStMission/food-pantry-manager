@@ -1,18 +1,15 @@
 .nested-fields
   #neighbor-color.well.well-large.input-append.date
     %script{:type=>"text/javascript"}
-      $('#dateEntry').datetimeEntry({datetimeFormat: 'D/O/Y'});
+      $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
     .span3
       = f.input :first_name, autofocus: true
     .span3
       = f.input :middle_name
     .span3
       = f.input :last_name
-    -#.span3
-      -#= f.input :sex, collection: [:Male, :Female], input_html: {class: 'span2', }
     .span3
-      = f.input :birth_date, label: ' Birth date (Day/Month/Year)', as: :date_picker, input_html: { id: 'dateEntry', class: 'span3' }
-    .span3
+      = f.input :birth_date, as: :date_picker,  input_html: {id: 'dpYears', class: 'datepicker'}
       = f.input :encrypted_ssn, input_html: {class: "span3"}
     .span3
       = f.input :phone, input_html: {class: 'span3'}
