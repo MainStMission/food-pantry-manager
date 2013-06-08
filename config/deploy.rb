@@ -14,7 +14,7 @@ set :branch, "master"
 set :deploy_via, :remote_cache
 
 server "192.168.1.30", :web, :app, :db, primary: true
-set :port, 25000
+#set :port, 25000
 
 
 
