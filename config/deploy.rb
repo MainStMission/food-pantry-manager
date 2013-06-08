@@ -13,6 +13,7 @@ server "192.168.1.30", :web, :app, :db, primary: true
 set :port, 25000
 
 set :user, "deployer"
+set :scm_passphrase, "AnneCorriher"
 set :use_sudo, false
 
 task :setup_config, roles: :app do
