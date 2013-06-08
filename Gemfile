@@ -21,11 +21,11 @@ gem 'rails_admin'
 gem 'cancan'
 gem 'paper_trail', '~> 2'
 gem 'rack-mini-profiler'
-gem "Ascii85", "~> 1.0.2"
-
+gem "Ascii85", "~> 1.0.2i"
 gem 'prawn'
 
 group :assets do
+  gem "Ascii85", "~> 1.0.2"
   gem 'coffee-rails'
   gem 'sass-rails','~> 3.2'
   gem 'bootstrap-sass', '~> 2.3.1.0'
