@@ -1,5 +1,8 @@
 set :application, "pantry"
 set :repository,  "git@github.com:tbrooke/food-pantry-manager.git"
+set :user, 'deployer'
+set :ssh_options, {:forward_agent => true}
+set :use_sudo, false
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
@@ -12,9 +15,7 @@ set :deploy_via, :remote_cache
 server "192.168.1.30", :web, :app, :db, primary: true
 set :port, 25000
 
-set :user, 'deployer@192.168.1.30'
-set :ssh_options, {:forward_agent => true}
-set :use_sudo, false
+
 
 task :setup_config, roles: :app do
   #sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
