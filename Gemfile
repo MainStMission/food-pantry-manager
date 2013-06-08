@@ -74,7 +74,6 @@ group :development, :test do
   gem 'spork', '~> 1.0rc'
   gem 'capistrano'
   gem 'capistrano-unicorn'
-  gem 'capistrano-file_db'
   gem 'rvm-capistrano', '>=1.3.0.rc4'
 end
 
