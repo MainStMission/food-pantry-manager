@@ -32,6 +32,7 @@ group :assets do
   gem 'uglifier'
   gem 'font-awesome-rails'
   gem 'kaminari-bootstrap'
+  gem 'jquery-ui-rails'
   gem 'jquery-rails'
   gem 'jquery_datepicker'
   gem 'haml-rails'

@@ -15,7 +15,7 @@
  //= require jquery_ujs
  //= require bootstrap
  //= require cocoon
- //= require jquery-ui
+ = require jquery-ui
  //= require header
  //= require rails.validations
  //= require rails.validations.simple_form
