@@ -4,7 +4,7 @@ set :repository,  "git@github.com:tbrooke/food-pantry-manager.git"
 set :user, 'deployer'
 set :ssh_options, {:forward_agent => true}
 set :use_sudo, false
-
+set :rvm_type, :user
 default_run_options[:pty] = true
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
