@@ -16,8 +16,8 @@ set :user, "deployer"
 set :use_sudo, false
 
 
-
-
+require 'simple-capistrano-unicorn'
+after :deploy, "unicorn:restart"
 
 # role :web, "your web-server here"                          # Your HTTP server, Apache/etc
 # role :app, "your app-server here"                          # This may be the same as your `Web` server
