@@ -1,3 +1,4 @@
+require "bundler/capistrano"
 set :application, "pantry"
 set :repository,  "git@github.com:tbrooke/food-pantry-manager.git"
 set :user, 'deployer'
@@ -25,7 +26,7 @@ task :setup_config, roles: :app do
   put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
   puts "Now edit the config files in #{shared_path}."
 end
-after "deploy:setup", "deploy:setup_config"
+# after "deploy:setup", "deploy:setup_config"
 
 require 'simple-capistrano-unicorn'
 after :deploy, "unicorn:restart"
