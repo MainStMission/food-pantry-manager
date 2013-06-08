@@ -6,7 +6,6 @@ source "https://rubygems.org"
 gem 'rails', '3.2.12'
 gem 'nokogiri'
 gem 'pg'
-gem 'puma'
 gem 'rails_setup'
 gem 'devise'
 gem 'strong_parameters'
@@ -73,6 +72,10 @@ group :development, :test do
   gem 'foreman'
   gem 'zeus'
   gem 'spork', '~> 1.0rc'
+  gem 'capistrano'
+  gem 'capistrano-unicorn'
+  gem 'capistrano-file_db'
+  gem 'rvm-capistrano', '>=1.3.0.rc4'
 end
 
 
