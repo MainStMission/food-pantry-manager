@@ -12,7 +12,7 @@ set :deploy_via, :remote_cache
 server "192.168.1.30", :web, :app, :db, primary: true
 set :port, 25000
 
-set :user, 'deployer'
+set :user, 'deployer@192.168.1.30'
 set :ssh_options, {:forward_agent => true}
 set :use_sudo, false
 
