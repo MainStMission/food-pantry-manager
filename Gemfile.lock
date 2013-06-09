@@ -424,6 +424,7 @@ DEPENDENCIES
   strong_parameters
   timecop
   uglifier
+  unicorn
   win32console
   yajl-ruby
   zeus
