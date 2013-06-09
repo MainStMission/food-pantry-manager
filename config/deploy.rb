@@ -13,9 +13,11 @@ set :scm, :git
 set :deploy_to, "/var/www/pantry"
 set :branch, "master"
 set :deploy_via, :remote_cache
+set :use_sudo, false
 
 server "192.168.1.30", :web, :app, :db, primary: true
 #set :port, 25000
+ssh_options[:forward_agent] = true
 
 
 
