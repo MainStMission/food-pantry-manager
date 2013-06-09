@@ -15,7 +15,7 @@
 worker_processes 4
 
 app_name = "pantry"
-app_dir  = "/var/www/pantry/current"
+app_dir  = "/var/www/pantry"
 
 # Since Unicorn is never exposed to outside clients, it does not need to
 # run on the standard HTTP port (80), there is no reason to start Unicorn
