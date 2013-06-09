@@ -26,8 +26,7 @@ gem 'prawn'
 gem 'capistrano'
 gem 'simple-capistrano-unicorn'
 gem 'rvm-capistrano', '>=1.3.0.rc4'
-
-gem 'rvm-capistrano', '>=1.3.0.rc4'
+gem 'unicorn'
 
 group :assets do
   gem "Ascii85", "~> 1.0.2"
