@@ -146,7 +146,7 @@ GEM
     http_parser.rb (0.5.3)
     i18n (0.6.4)
     journey (1.0.4)
-    jquery-rails (3.0.1)
+    jquery-rails (2.3.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (3.0.1)
@@ -387,8 +387,7 @@ DEPENDENCIES
   guard-livereload
   guard-rspec
   haml-rails
-  jquery-rails
-  jquery-ui-rails
+  jquery-rails (= 2.3.0)
   jquery_datepicker
   kaminari
   kaminari-bootstrap
