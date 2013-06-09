@@ -1,3 +1,4 @@
+require "rvm/capistrano"
 require "bundler/capistrano"
 set :application, "pantry"
 set :repository,  "git@github.com:tbrooke/food-pantry-manager.git"
