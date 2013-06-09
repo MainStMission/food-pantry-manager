@@ -23,6 +23,11 @@ gem 'paper_trail', '~> 2'
 gem 'rack-mini-profiler'
 gem "Ascii85", "~> 1.0.2"
 gem 'prawn'
+gem 'capistrano'
+gem 'simple-capistrano-unicorn'
+gem 'rvm-capistrano', '>=1.3.0.rc4'
+
+gem 'rvm-capistrano', '>=1.3.0.rc4'
 
 group :assets do
   gem "Ascii85", "~> 1.0.2"
@@ -73,9 +78,7 @@ group :development, :test do
   gem 'foreman'
   gem 'zeus'
   gem 'spork', '~> 1.0rc'
-  gem 'capistrano'
-  gem 'simple-capistrano-unicorn'
-  gem 'rvm-capistrano', '>=1.3.0.rc4'
+
 end
 
 
