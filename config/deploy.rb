@@ -30,7 +30,7 @@ after 'deploy:create_db', 'deploy:migrate'
 namespace :deploy do
   desc "create database"
 task :create_db, :roles => :app do
-    run 'cd #{release_path}  && bundle exec rake RAILS_ENV=production  db:create'
+    run "cd #{release_path}  && bundle exec rake RAILS_ENV=production  db:create"
 end
 end
 
