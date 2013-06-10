@@ -22,20 +22,22 @@ role :web,    "192.168.1.30"
 role :app,    "192.168.1.30"
 role :db,     "192.168.1.30", :primary => true
 
-after "deploy", "deploy:migrate"
 
 after 'deploy:update_code', 'deploy:symlink_db'
+after "deploy:symlink_db", "deploy:migrate"
 
 namespace :deploy do
-  desc "Symlinks the database.yml"
-  task :symlink_db, :roles => :app do
-    run "ln -nfs #{shared_path}config/database.yml #{release_path}/config/database.yml"
-  end
+    desc "Symlinks the database.yml"
+      task :symlink_db, :roles => :app do
+            run "ln -nfs #{shared_path}config/database.yml #{release_path}/config/database.yml"
+              end
 end
 
-#task :symlink_config, roles: :app do
-#  run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-#end
+
+
+require 'simple-capistrano-unicorn'
+after :deploy, "unicorn:restart"
+
 
 
 require 'simple-capistrano-unicorn'
