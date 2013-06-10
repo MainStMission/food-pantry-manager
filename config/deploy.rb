@@ -26,16 +26,16 @@ after "deploy", "deploy:migrate"
 
 after 'deploy:update_code', 'deploy:symlink_db'
 
-#namespace :deploy do
-#  desc "Symlinks the database.yml"
-#  task :symlink_db, :roles => :app do
-#    run "ln -nfs #{deploy_to}/shared/config/database.yml #{deploy_to}/current/config/database.yml"
-#  end
-#end
-
-task :symlink_config, roles: :app do
-  run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+namespace :deploy do
+  desc "Symlinks the database.yml"
+  task :symlink_db, :roles => :app do
+    run "ln -nfs #{shared_path}config/database.yml #{release_path}/config/database.yml"
+  end
 end
+
+#task :symlink_config, roles: :app do
+#  run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+#end
 
 
 require 'simple-capistrano-unicorn'
