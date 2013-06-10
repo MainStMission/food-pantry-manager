@@ -29,7 +29,7 @@ after "deploy:symlink_db", "deploy:migrate"
 namespace :deploy do
     desc "Symlinks the database.yml"
       task :symlink_db, :roles => :app do
-            run "ln -nfs #{shared_path}config/database.yml #{release_path}/config/database.yml"
+            run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
               end
 end
 
