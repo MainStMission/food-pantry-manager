@@ -24,7 +24,8 @@ role :db,     "192.168.1.30", :primary => true
 
 
 after 'deploy:update_code', 'deploy:symlink_db'
-after "deploy:symlink_db", "deploy:migrate"
+after 'deploy:symlonk_db', 'deploy:db:create'
+after "deploy:db:create", "deploy:migrate"
 
 namespace :deploy do
     desc "Symlinks the database.yml"
