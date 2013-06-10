@@ -20,15 +20,17 @@ server "192.168.1.30", :web, :app, :db, primary: true
 #set :port, 25000
 ssh_options[:forward_agent] = true
 
-
-
-task :setup_config, roles: :app do
-  #sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
-  #sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
-  #run "mkdir -p #{shared_path}/config"
-  #put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
-  #puts "Now edit the config files in #{shared_path}."
-end
+role :web,    "192.168.1.30"
+role :app,    "192.168.1.30"
+role :db,     "192.168.1.30", :primary => true
+#
+#task :setup_config, roles: :app do
+#  #sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
+#  #sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
+#  #run "mkdir -p #{shared_path}/config"
+#  #put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
+#  #puts "Now edit the config files in #{shared_path}."
+#end
  #after "deploy:setup", "deploy:setup_config"
  after "deploy", "deploy:migrate"
 
