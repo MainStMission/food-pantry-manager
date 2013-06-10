@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130531014833) do
+ActiveRecord::Schema.define(:version => 20130610171057) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -100,6 +100,8 @@ ActiveRecord::Schema.define(:version => 20130531014833) do
     t.decimal  "inc_amt4",                :precision => 8, :scale => 2
     t.decimal  "exp_amt4",                :precision => 8, :scale => 2
     t.string   "expense4"
+    t.integer  "s_numb"
+    t.integer  "s_box"
   end
 
   add_index "households", ["household_name"], :name => "index_households_on_household_name", :unique => true
