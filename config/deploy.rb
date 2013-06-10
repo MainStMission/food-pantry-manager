@@ -29,7 +29,8 @@ task :setup_config, roles: :app do
   #put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
   #puts "Now edit the config files in #{shared_path}."
 end
- after "deploy:setup", "deploy:setup_config"
+ #after "deploy:setup", "deploy:setup_config"
+ after "deploy", "deploy:migrate"
 
 after 'deploy:update_code', 'deploy:symlink_db'
 
