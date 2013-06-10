@@ -118,9 +118,10 @@
         = f.input :bool2, label: 'Refered to Cabarus County', wrapper: :inline_checkbox
         .row
         .span4
-          = f.input :s_numb, label: 'Closed file Number:'
+          = f.input :s_numb, label: 'Closed file Number:', input_html: {class: 'span1'}
         .span4
-          = f.input :s_box, label: 'Storage Box Number:'
+          = f.input :s_box, label: 'Storage Box Number:', input_html: {class: 'span1'}
+        .row
 
 
     .actions.submit-visit:
