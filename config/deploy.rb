@@ -26,6 +26,12 @@ role :db,     "192.168.1.30", :primary => true
 after 'deploy:update_code', 'deploy:symlink_db'
 after 'deploy:symlink_db', 'deploy:migrate'
 
+namespace :deploy do
+  desc "create database"
+task :create_db, :roles => :app do
+    run 'cd #{release_path}  && bundle exec rake RAILS_ENV=production  db:create'
+end
+end
 
 namespace :deploy do
     desc "Symlinks the database.yml"
