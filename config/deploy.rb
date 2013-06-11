@@ -26,6 +26,7 @@ role :db,     "192.168.1.30", :primary => true
 after 'deploy:update_code', 'deploy:symlink_db'
 after 'deploy:symlink_db', 'deploy:create_db'
 after 'deploy:create_db', 'deploy:migrate_db'
+load 'deploy/assets'
 
 namespace :deploy do
   desc "create database"
