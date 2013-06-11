@@ -47,12 +47,12 @@ namespace :deploy do
             run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
               end
 end
-load "config/recipes/nginx"
-load "config/recipes/unicorn"
+#load "config/recipes/nginx"
+#load "config/recipes/unicorn"
 
 #
 #require 'simple-capistrano-unicorn'
-#after :deploy, "unicorn:restart"
+after :deploy, "unicorn:restart"
 #
 #
 #
