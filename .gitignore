@@ -12,7 +12,7 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
-config/database.yml
+#config/database.yml
 test.pdf
 
 # Ignore all logfiles and tempfiles.
