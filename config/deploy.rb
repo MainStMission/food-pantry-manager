@@ -48,15 +48,21 @@ namespace :deploy do
             run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
               end
 end
-#load "config/recipes/nginx"
-#load "config/recipes/unicorn"
 
-#
-#require 'simple-capistrano-unicorn'
 after :deploy, "unicorn:restart"
-#
-#
-#
-#require 'simple-capistrano-unicorn'
-#after :deploy, "unicorn:restart"
+
+desc "Zero-downtime restart of Unicorn"
+task :restart, :except => { :no_release => true } do
+  run "kill -s USR2 `cat #{shared_path}/pids/unicorn.pid`"
+end
+
+desc "Start unicorn"
+task :start, :except => { :no_release => true } do
+  run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.rb -D -E production"
+end
+
+desc "Stop unicorn"
+task :stop, :except => { :no_release => true } do
+  run "kill -s QUIT `cat #{shared_path}/pids/unicorn.pid`"
+end
 
