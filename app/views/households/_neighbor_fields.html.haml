@@ -1,5 +1,5 @@
 .nested-fields
-  #neighbor-color.well.well-large.input-append.date
+  #neighbor-color.well.well-large
     %script{:type=>"text/javascript"}
       $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
     .span3
@@ -22,6 +22,6 @@
       = f.input :notes, :rows => 2, input_html: {rows: 2, class: 'span9' }
     .span9
     .row
-      -#= link_to_function  'X', "history.back()", class: "btn close"
+      -#= link_to_remove_association
 
 

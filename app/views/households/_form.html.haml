@@ -178,6 +178,12 @@
       = f.input :christmas,  label: 'Add to Christmas list', wrapper:  :inline_checkbox
       = f.input :bool1, label: 'Refered to Rowan Helping Ministries', wrapper:  :inline_checkbox
       = f.input :bool2, label: 'Refered to Cabarus County', wrapper: :inline_checkbox
+      .hr
+      .span4
+        = f.input :s_numb, label: 'Closed file Number:', input_html: {class: 'span1'}
+      .span4
+        = f.input :s_box, label: 'Storage Box Number:', input_html: {class: 'span1'}
+      .row
   .actions.submit-visit:
     = f.button :submit, class: 'btn btn-warning'
 

@@ -20,7 +20,6 @@ gem 'newrelic_rpm'
 gem 'rails_admin'
 gem 'cancan'
 gem 'paper_trail', '~> 2'
-gem 'rack-mini-profiler'
 gem "Ascii85", "~> 1.0.2"
 gem 'prawn'
 gem 'capistrano'

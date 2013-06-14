@@ -1,6 +1,6 @@
 = simple_form_for [@household, neighbor],url: household_neighbor_path do |f|
   %h2 Household: #{neighbor.house_name}
-  #neighbor-color.well.well-large
+  #neighbor-color.well.well-large.input-append.date
     %script{:type=>"text/javascript"}
       $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
     .span3
