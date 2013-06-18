@@ -25,9 +25,12 @@ your resume/cv while contributing to a project that helps people.
 
 ## Contributing
 
+
 See the [Contribution Guidelines](https://github.com/MainStMission/food-pantry-manager/blob/master/CONTRIBUTING.md).
 
 ## Talk to us
+
+[![Pair program with me!](http://pairprogramwith.me/badge.png)](mailto:tom.brooke@gmail.com?subject=Pairing on LocalSupport)
 
 We have a [google group mailing list](https://groups.google.com/forum/?fromgroups#!forum/main-street-mission-development).
 Feel free to ask us questions there, or report a problem with an issue here on github. If you have a problem with anything not code related,
