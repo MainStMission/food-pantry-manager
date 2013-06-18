@@ -12,6 +12,10 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
+# Ignore Sublime
+*.sublime-project
+*.sublime-workspace
+
 config/database.yml
 test.pdf
 

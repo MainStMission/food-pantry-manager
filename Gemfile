@@ -20,18 +20,22 @@ gem 'newrelic_rpm'
 gem 'rails_admin'
 gem 'cancan'
 gem 'paper_trail', '~> 2'
-gem 'rack-mini-profiler'
-
+gem "Ascii85", "~> 1.0.2"
 gem 'prawn'
+gem 'capistrano'
+gem 'simple-capistrano-unicorn'
+gem 'rvm-capistrano', '>=1.3.0.rc4'
+gem 'unicorn'
 
 group :assets do
+  gem "Ascii85", "~> 1.0.2"
   gem 'coffee-rails'
   gem 'sass-rails','~> 3.2'
   gem 'bootstrap-sass', '~> 2.3.1.0'
   gem 'uglifier'
   gem 'font-awesome-rails'
   gem 'kaminari-bootstrap'
-  gem 'jquery-rails'
+  gem "jquery-rails", "2.3.0"
   gem 'jquery_datepicker'
   gem 'haml-rails'
   gem 'bourbon'
@@ -72,9 +76,7 @@ group :development, :test do
   gem 'foreman'
   gem 'zeus'
   gem 'spork', '~> 1.0rc'
-  gem 'capistrano'
-  gem 'simple-capistrano-unicorn'
-  gem 'rvm-capistrano', '>=1.3.0.rc4'
+
 end
 
 
