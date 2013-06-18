@@ -16,7 +16,7 @@
 *.sublime-project
 *.sublime-workspace
 
-#config/database.yml
+config/database.yml
 test.pdf
 
 # Ignore all logfiles and tempfiles.
