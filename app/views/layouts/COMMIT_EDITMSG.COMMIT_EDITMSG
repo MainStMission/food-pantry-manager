@@ -1,0 +1,19 @@
+new test
+
+# --------------
+# Please enter the commit message for your changes. Everything below
+# this paragraph is ignored, and an empty message aborts the commit.
+# Just close the window to accept your message.
+diff --git a/app/views/layouts/application.html.haml b/app/views/layouts/application.html.haml
+index ecd1155..0a70e17 100644
+--- a/app/views/layouts/application.html.haml
++++ b/app/views/layouts/application.html.haml
+@@ -18,7 +18,7 @@
+             %span.icon-bar
+             %span.icon-bar
+             %span.icon-bar
+-          %a.brand{href: "#"} Main Damn St Mission
++          %a.brand{href: "#"} Main St Mission CG
+           .nav-collapse
+             %ul.nav
+               %li.dropdown
