@@ -65,4 +65,5 @@ desc "Stop unicorn"
 task :stop, :except => { :no_release => true } do
   run "kill -s QUIT `cat #{shared_path}/pids/unicorn.pid`"
 end
-after :deploy, "unicorn:restart"
+after :deploy, "deploy:stop"
+after :deploy, "deploy:start"
