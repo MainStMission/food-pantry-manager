@@ -25,6 +25,7 @@ gem 'prawn'
 gem 'capistrano'
 gem 'simple-capistrano-unicorn'
 gem 'rvm-capistrano', '>=1.3.0.rc4'
+gem 'backup-task'
 gem 'unicorn'
 
 group :assets do
