@@ -12,8 +12,8 @@ en:
       default_message: "Please review the problems below:"
 #
     date:
-      formats:
-        default: '%m/%d/%Y'
+      # formats:
+      #   default: '%m/%d/%Y'
       order:
         -:month
         -:day
