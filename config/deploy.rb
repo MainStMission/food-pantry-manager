@@ -42,28 +42,65 @@ task :migrate_db, :roles => :db do
 end
 end
 
+
+
+
+after "deploy", "deploy:cleanup"
+
 namespace :deploy do
-    desc "Symlinks the database.yml"
-      task :symlink_db, :roles => :app do
-            run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-              end
+  %w[start stop restart].each do |command|
+    desc "#{command} unicorn server"
+    task command, roles: :app, except: {no_release: true} do
+      run "/etc/init.d/unicorn_#{application} #{command}"
+    end
+  end
+
+  task :setup_config, roles: :app do
+    sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
+    sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
+    run "mkdir -p #{shared_path}/config"
+    put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
+    puts "Now edit the config files in #{shared_path}."
+  end
+  after "deploy:setup", "deploy:setup_config"
+
+  task :symlink_config, roles: :app do
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  end
+  after "deploy:finalize_update", "deploy:symlink_config"
+
+  desc "Make sure local git is in sync with remote."
+  task :check_revision, roles: :web do
+    unless `git rev-parse HEAD` == `git rev-parse origin/master`
+      puts "WARNING: HEAD is not the same as origin/master"
+      puts "Run `git push` to sync changes."
+      exit
+    end
+  end
+  before "deploy", "deploy:check_revision"
 end
 
 
 
-desc "Zero-downtime restart of Unicorn"
-task :restart, :except => { :no_release => true } do
-  run "kill -s USR2 `cat #{shared_path}/pids/unicorn.pid`"
-end
 
-desc "Start unicorn"
-task :start, :except => { :no_release => true } do
-  run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.rb -D -E production"
-end
 
-desc "Stop unicorn"
-task :stop, :except => { :no_release => true } do
-  run "kill -s QUIT `cat #{shared_path}/pids/unicorn.pid`"
-end
-after :deploy, "deploy:stop"
-after :deploy, "deploy:start"
+
+
+
+
+# desc "Zero-downtime restart of Unicorn"
+# task :restart, :except => { :no_release => true } do
+#   run "kill -s USR2 `cat #{shared_path}/pids/unicorn.pid`"
+# end
+
+# desc "Start unicorn"
+# task :start, :except => { :no_release => true } do
+#   run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.rb -D -E production"
+# end
+
+# desc "Stop unicorn"
+# task :stop, :except => { :no_release => true } do
+#   run "kill -s QUIT `cat #{shared_path}/pids/unicorn.pid`"
+# end
+# after :deploy, "deploy:stop"
+# after :deploy, "deploy:start"
