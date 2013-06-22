@@ -68,6 +68,10 @@ end
     ]
   end
 
+  def household_params
+    params.require(:household).permit(*allowable)
+  end
+
   def visit_params
     params.require(:visit).permit(*allowable)
   end
