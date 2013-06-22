@@ -1,22 +1,22 @@
+%script{:type=>"text/javascript"}
+  $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
 = simple_form_for [@household, neighbor],url: household_neighbor_path do |f|
   %h2 Household: #{neighbor.house_name}
   #neighbor-color.well.well-large.input-append.date
-    %script{:type=>"text/javascript"}
-      $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
     .span3
       = f.input :first_name
     .span3
       = f.input :middle_name
     .span3
       = f.input :last_name
+    .row
     .span3
       = f.input :sex, collection: [:Male, :Female] , input_html: {class: 'span2'}
     .span3
       = f.input :birth_date, as: :date_picker,  input_html: {id: 'dpYears', class: 'datepicker'}
     .span3
       = f.input :encrypted_ssn, input_html: {class: "span2"}
-    .span6
-      = f.input :notes, :rows => 2, input_html: {rows: 4, class: 'span6' }
+    .row
     .span3
       = f.input  :street,    label: 'Street'
     .span3
@@ -40,11 +40,15 @@
     .span6
       = f.input :residency_date, as: :date, start_year: Date.today.year, end_year: Date.today.year - 10,  order: [ :month, :day, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, input_html: {class: 'span2'}
     .row
-    .span12
-    #submit-neighbor
-      .btn-group
-        = link_to_function '< Back', "history.back()", class: "btn"
-        = f.button :submit, value: 'Update', class: 'btn btn-inverse'
-        = link_to 'Destroy', household_neighbor_path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
+    .row
+    .span6
+      = f.input :notes, :rows => 2, input_html: {rows: 4, class: 'span6' }
+    .row
+    .span11
+      #submit-neighbor
+        .btn-group
+          = link_to_function '< Back', "history.back()", class: "btn"
+          = f.button :submit, value: 'Update', class: 'btn btn-inverse'
+          = link_to 'Destroy', household_neighbor_path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
 
   
