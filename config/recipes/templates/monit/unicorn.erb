@@ -1,6 +1,12 @@
-check process <%= application %>_unicorn with pidfile <%= unicorn_pid %>
-  start program = "/etc/init.d/unicorn_<%= application %> start"
-  stop program = "/etc/init.d/unicorn_<%= application %> stop"
+check process pantry_unicorn with pidfile <%= unicorn_pid %>
+  start program = "/etc/init.d/unicorn_pantry start"
+  stop program = "/etc/init.d/unicorn_pantry stop"
+
+
+check process pantry_unicorn_worker_0
+with pidfile /var/www/pantry/shared/pids/unicorn.0.pid
+start program = "/bin/cat /dev/null"
+stop program = "/etc/init.d/unicorn kill_worker 0"
 
 <% unicorn_workers.times do |n| %>
   <% pid = unicorn_pid.sub(".pid", ".#{n}.pid") %>
