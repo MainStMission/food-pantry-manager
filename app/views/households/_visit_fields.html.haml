@@ -3,7 +3,7 @@
     %script{:type=>"text/javascript"}
       $('input selector').enableClientSideValidations()
     #visit-date
-      = f.input  :visited_on, label: 'Date of Visit', default: Date.today, order: [:day, :month],input_html: { class: 'span2' }
+      = f.input  :visited_on, label: 'Date of Visit', default: Date.today, order: [:month, :day],input_html: { class: 'span2' }
       %br
       = f.association :neighbor, collection: @household.neighbors.all, default: 1, validate: { :presence => true }
       %br
