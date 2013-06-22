@@ -8,7 +8,7 @@ FoodPantry::Application.routes.draw do
 
   resources :donors
 
-  # resources :visits
+  resources :visits
 
   resources :neighbors
 
