@@ -8,17 +8,17 @@ set eventqueue
     basedir /var/lib/monit/events
     slots 100
 
-# set mailserver smtp.gmail.com port 587
-#     username "foo@example.com" password "secret"
-#     using tlsv1
-#     with timeout 30 seconds
+set mailserver smtp.gmail.com port 587
+    username "server@mainstmission.org" password "mainstreet306"
+   using tlsv1  
+  with timeout 30 seconds
 
-set alert foo@example.com
+set alert tom.brooke@gmail.com
 
 set httpd port 2812
-    allow admin:"secret"
+    allow admin:"mainstreet306"
 
-check system blog_server
+check system pantry
   if loadavg(5min) > 2 for 2 cycles then alert
   if memory > 75% for 2 cycles then alert
   if cpu(user) > 75% for 2 cycles then alert
