@@ -22,9 +22,9 @@ class VisitsController < ApplicationController
     visits.all
   end
 
-  def new
-    @visit = Visit.new
-  end
+  # def new
+  #   @visit = Visit.new
+  # end
 
   def update
     if visit.update_attributes(params[visit])
@@ -43,6 +43,7 @@ class VisitsController < ApplicationController
   def show
     visit = Visit.find(params[:id])
     respond_to do |format|
+      format.html
       format.pdf do
         pdf = VisitPdf.new(visit)
         send_data pdf.render, filename: "visit_#{visit.id}.pdf",
@@ -61,10 +62,14 @@ end
 
   def allowable
     [
-      :cereal, :starch, :option1, :option2, :optionb, :visited_on, :items_received, :notes, :household_id
+      :cereal, :starch, :option1, :option2, :optionb, :visited_on, :items_received, :notes, :household_id, :neighbor_id
 
 
     ]
+  end
+
+  def household_params
+    params.require(:household).permit(*allowable)
   end
 
   def visit_params

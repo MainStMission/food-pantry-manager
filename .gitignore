@@ -15,6 +15,7 @@
 # Ignore Sublime
 *.sublime-project
 *.sublime-workspace
+.floo
 
 config/database.yml
 test.pdf

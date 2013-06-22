@@ -16,7 +16,6 @@ gem 'simple_form'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 gem 'kaminari'
-gem 'newrelic_rpm'
 gem 'rails_admin'
 gem 'cancan'
 gem 'paper_trail', '~> 2'
@@ -25,6 +24,7 @@ gem 'prawn'
 gem 'capistrano'
 gem 'simple-capistrano-unicorn'
 gem 'rvm-capistrano', '>=1.3.0.rc4'
+gem 'backup-task'
 gem 'unicorn'
 
 group :assets do
@@ -46,6 +46,7 @@ gem 'attr_encryptor'
 gem 'decent_exposure'
 
 group :development, :test do
+  gem 'rack-mini-profiler'
   gem 'cucumber-rails', :require => false
   gem 'capybara'
   gem 'database_cleaner'
