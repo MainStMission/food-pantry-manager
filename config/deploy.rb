@@ -1,5 +1,6 @@
 require "rvm/capistrano"
 require "bundler/capistrano"
+load "config/recipes/monit"
 set :application, "pantry"
 set :repository,  "git@github.com:tbrooke/food-pantry-manager.git"
 set :user, 'deployer'
