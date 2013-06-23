@@ -23,8 +23,7 @@
           %td= household.neighbors.count
           %td= household.visits.count
           %td= household.last_visit
-          %td
-            = link_to  'Visit', new_household_visit_path(household), class: 'btn btn-mini'
+          %tdpg
             = link_to 'Edit', edit_household_path(household), class: 'btn btn-mini'
             = link_to 'Destroy', household, confirm: 'Are you sure?', method: :delete, class: 'btn btn-mini btn-danger'
 

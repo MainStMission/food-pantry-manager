@@ -1,5 +1,5 @@
 %script{:type=>"text/javascript"}
-  $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
+  $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
 = simple_form_for [@household, neighbor],url: household_neighbor_path do |f|
   %h2 Household: #{neighbor.house_name}
   #neighbor-color.well.well-large.input-append.date
@@ -29,22 +29,18 @@
       = f.input  :zip,       label: 'Zip', input_html: { class: 'span2'}
     .span3
       = f.input  :phone,     label: 'Phone', input_html: { class: 'span3' }
-    .span6
-      = f.input  :email,     label: 'Email', input_html: {class: 'span4'}
     .span3
-      = f.input :spouse,     labeL: 'Married'
-    .span11
-      .hr
+      = f.input  :email,     label: 'Email', input_html: {class: 'span3'}
     .span3
       = f.input :proof_of_residency_type, label: 'Proof of Residency', collection: ['Drivers License','Passport']
-    .span6
+    .span3
       = f.input :residency_date, as: :date_picker, as: :date_picker,  input_html: {id: 'dpYears', class: 'datepicker'}
     .row
     .row
-    .span6
-      = f.input :notes, :rows => 2, input_html: {rows: 4, class: 'span6' }
+    .span9
+      = f.input :notes, :rows => 2, input_html: {rows: 4, class: 'span9' }
     .row
-    .span11
+    .span10
       #submit-neighbor
         .btn-group
           = link_to_function '< Back', "history.back()", class: "btn"

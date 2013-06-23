@@ -68,7 +68,10 @@ html {
   }
 }
 
-
+#new-visit-head {
+ margin-top: -20px;
+ line-height: 20px;
+}
 
 header {
   background-color: #f5f5f5;
@@ -180,14 +183,20 @@ table#households {
   }
 
 }
+
+
 #mhead {
+  padding-top: 5px;
   float: right;
-  margin-top: -30px;
+  line-height: 0px;
+  background-color:  #dfeffc;
+  margin-top: -10px;
+
 }
 
 #neighbor-color {
   background-color:  #dfeffc;
-  padding-left: 75px;
+  padding-left: 65px;
   margin-bottom: 10px;
 }
 
@@ -230,6 +239,7 @@ table#households {
 #reminder {
   margin-left: -25px;
   background-color: #f68b8b;
+  margin-top: 5px;
 }
 
 #donors {
