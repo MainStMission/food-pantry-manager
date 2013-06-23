@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/barsoom/prawn-print.git
+  revision: 64696b4ecc2ff966046207012169d8df36794d8b
+  specs:
+    prawn-print (0.0.2)
+      prawn (>= 0.12.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -406,6 +413,7 @@ DEPENDENCIES
   pdf-inspector
   pg
   prawn
+  prawn-print!
   pry-rails
   rack-livereload
   rack-mini-profiler
