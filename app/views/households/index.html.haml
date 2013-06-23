@@ -20,7 +20,7 @@
       %tbody
       - @households.each do |household|
         %tr
-          %td= link_to household.household_name, household_path(household)
+          %td= link_to household.household_name, edit_household_path(household)
           %td= household.neighbors.count
           %td= household.visits.count
           %td= household.last_visit

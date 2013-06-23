@@ -1,7 +1,8 @@
 #mhead.well.well-large
   %h4 Household Members: #{household.neighbors.count}
-  %h4 Total Visits: #{household.visits.count}
-  %h4 Last Visit: #{household.last_visit}
+  %h5 Total Visits: #{household.visits.count}
+  %h5 Last Visit: #{household.last_visit}
+  %h5 Allowed: #{household.box_type}
   = visit_check
 .span-one-third
   %h3 #{household.name}
@@ -12,7 +13,7 @@
         %h4 #{household.special_needs}
 .row
 = simple_form_for household,  validate: true, html: { :class => 'form-inline' } do |f|
-  = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
+  / = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
   #neighbor-table
     %table.table.table-hover
       %thead
@@ -28,8 +29,6 @@
             %td= neighbor.age
             %td= word_wrap neighbor.notes
   .span11
-    = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini',:render_options => {wrapper: 'bootstrap' }, :force_non_association_create => true)
-  %hr
   %p.visit
     = link_to_add_association( 'New Visit', f, :visits , class: 'btn btn-success btn-large', :render_options => {wrapper: 'bootstrap' },:force_non_association_create => true)
   .span11
@@ -181,9 +180,6 @@
         = f.input :s_numb, label: 'Closed file Number:', input_html: {class: 'span1'}
       .span4
         = f.input :s_box, label: 'Storage Box Number:', input_html: {class: 'span1'}
-      .row
-  .actions.submit-visit:
-    = f.button :submit, class: 'btn btn-warning'
-
+   
 
 

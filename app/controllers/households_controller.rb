@@ -42,6 +42,7 @@ class HouseholdsController < ApplicationController
 
   def show
     household = Household.find(params[:id])
+    redirect_to household_visit_path(household, @visit, format: "pdf")
   end
 
   def harvest

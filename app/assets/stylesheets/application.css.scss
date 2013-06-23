@@ -188,9 +188,12 @@ table#households {
 #mhead {
   padding-top: 5px;
   float: right;
-  line-height: 0px;
+  line-height: 5px;
   background-color:  #dfeffc;
   margin-top: -10px;
+    h5 {
+    line-height: 10px;
+    }
 
 }
 

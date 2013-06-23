@@ -21,6 +21,7 @@ gem 'cancan'
 gem 'paper_trail', '~> 2'
 gem "Ascii85", "~> 1.0.2"
 gem 'prawn'
+gem 'prawn-print', :git => 'git://github.com/barsoom/prawn-print.git'
 gem 'capistrano'
 gem 'simple-capistrano-unicorn'
 gem 'rvm-capistrano', '>=1.3.0.rc4'

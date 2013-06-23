@@ -14,12 +14,12 @@
       %tbody
       - households.each do |household|
         %tr
-          %td= link_to household.household_name, household_path(household)
+          %td= household.household_name
           %td= household.neighbors.count
           %td= household.visits.count
           %td= household.last_visit
           %td
-            = link_to  'Visit', new_household_visit_path(household), class: 'btn btn-success'
+            = link_to  'Visit', household_path(household), class: 'btn btn-success'
       = paginate households
     .actions.submit-visit
       = link_to 'New Household', new_household_path, class: 'btn btn-warning'
