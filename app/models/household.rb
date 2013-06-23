@@ -12,7 +12,7 @@ class Household < ActiveRecord::Base
   accepts_nested_attributes_for :neighbors, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :visits, allow_destroy: true, reject_if: :all_blank
 
-  after_save:
+  # after_save: print_receipt
 
   has_paper_trail
 
@@ -35,6 +35,13 @@ class Household < ActiveRecord::Base
   end
 
 end
+
+# def print_receipt
+#    if @visit?
+#      redirect_to: 
+#   else
+#      redirect_to: households_path
+#   end
 
 
 

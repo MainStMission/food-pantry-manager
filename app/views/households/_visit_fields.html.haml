@@ -21,6 +21,17 @@
       = f.input  :items_received, prompt:'Items here will show up on the printer order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
       = f.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
       .actions.span12
-    %p.submit-visit
-      = f.button :submit, :class => 'btn btn-inverse', :label=> 'Save'
+      / Button to trigger modal
+      %a.btn{"data-toggle" => "modal", :href => "#myModal", class: 'btn btn-inverse btn-large', :role => "button"} Press to Complete Visit
+      #myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+        .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h3#myModalLabel Print Order
+        .modal-body
+          %p You may now press Print Order to save and Print the food order or else just press Create Visit to save and exit without printing. You may click the X in the upper right hand Corner to go back and edit your visit. DO NOT PRESS NEW VISIT YOU ALREADY HAVE ONE !!
+        .modal-footer
+          = link_to 'Print Order', household_path(household, format: "pdf"), class: 'btn btn-inverse btn-info'
+          = f.button :submit,  :class => 'btn btn-inverse'
+          %p.submit-visit
+      
   %hr

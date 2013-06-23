@@ -22,7 +22,6 @@ class HouseholdsController < ApplicationController
 
   def create
     if household.save
-      redirect_to households_path, notice: 'Household was successfully created.'
     else
       render 'new'
     end
@@ -40,10 +39,20 @@ class HouseholdsController < ApplicationController
     end
   end
 
+  
   def show
-    household = Household.find(params[:id])
-    redirect_to household_visit_path(household, @visit, format: "pdf")
+    visit = Household.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = VisitPdf.new(visit)
+        send_data pdf.render, filename: "visit_#{visit.id}.pdf",
+             type: "application/pdf",
+             disposition: "inline"
+      end
+    end
   end
+
 
   def harvest
     respond_with households
