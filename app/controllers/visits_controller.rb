@@ -63,22 +63,19 @@ end
   def allowable
     [
       :cereal, :starch, :option1, :option2, :optionb, :visited_on, :items_received, :notes, :household_id, :neighbor_id
+      
 
 
     ]
   end
 
-  def household_params
-    params.require(:household).permit(*allowable)
-  end
+  # def household_params
+  #     params.require(:household).permit!
+  #   end
 
   def visit_params
     params.require(:visit).permit(*allowable)
   end
-  ##
-  #def household_params
-  #  params.require(:visit).permit([:household_id])
-  #end
-
+  
 
 end

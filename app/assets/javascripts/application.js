@@ -22,5 +22,8 @@
  //= require bootstrap-datepicker
  //= require_tree .
 
-
- $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
+$(function() {
+  return $("#q_reset").click(function() {
+    return $(".search-field").val('');
+  });
+});
