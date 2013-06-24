@@ -27,3 +27,16 @@ $(function() {
     return $(".search-field").val('');
   });
 });
+
+$('.datepicker').datepicker({format: 'mm/dd/yyyy'});
+
+$('#submit-btn').click(function() { 
+  $.ajax({
+    type: post,
+    url: '/your-end-point',
+    data: your_data,
+    success: function() {
+      $('#myModal').show();
+    }
+  })
+})

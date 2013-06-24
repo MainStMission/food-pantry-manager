@@ -2,7 +2,7 @@
 # stolen from rstat.us
 
 
-Date::DATE_FORMATS[:default] = "%m/%d/%Y"
+# Date::DATE_FORMATS[:default] = "%m/%d/%Y"
 
 
 
