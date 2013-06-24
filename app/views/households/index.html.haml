@@ -14,14 +14,12 @@
       %thead
         %tr
           %th Household
-          %th Family Members
           %th Visits
           %th Last Visit
       %tbody
       - @households.each do |household|
         %tr
           %td= link_to household.household_name, edit_household_path(household)
-          %td= household.neighbors.count
           %td= household.visits.count
           %td= household.last_visit
           %td
