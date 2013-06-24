@@ -19,6 +19,13 @@ class HouseholdsController < ApplicationController
     @q = Household.search(params[:q])
     @households = @q.result(:distinct => true)
   end
+  
+  def new_visit
+    @q = Household.search(params[:q])
+    @households = @q.result(:distinct => true)
+  end
+
+
 
   def create
     if household.save
