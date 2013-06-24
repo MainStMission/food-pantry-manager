@@ -39,4 +39,4 @@ $('#submit-btn').click(function() {
       $('#myModal').show();
     }
   })
-})
+});

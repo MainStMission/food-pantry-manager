@@ -11,6 +11,7 @@ class Household < ActiveRecord::Base
   has_many :visits
   accepts_nested_attributes_for :neighbors, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :visits, allow_destroy: true, reject_if: :all_blank
+  
 
   # after_save: print_receipt
 
