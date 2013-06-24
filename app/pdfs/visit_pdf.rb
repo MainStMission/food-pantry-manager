@@ -3,7 +3,7 @@ class VisitPdf < Prawn::Document
   def initialize(household)
     super()
     @household = household
-    @visit = household.visit
+    @visit = household.visits[1]
      # visit_id
     visit_date
     household_name
@@ -34,16 +34,16 @@ class VisitPdf < Prawn::Document
    def starch
      move_down 10
      text 'Food Order'
-     text "#{@household.visit.starch}"
-     text "#{@household.visit.cereal}"
-     text "#{@household.visit.option1}"
+     text "#{@visit.starch}"
+     text "#{@visit.cereal}"
+     text "#{@visit.option1}"
    end
 
   def special
     move_down 5
     text 'Special Needs'
-    text "#{food_alert}"
-    text "#{items_received}"
+    text "#{@household.food_alert}"
+    text "#{@visit.items_received}"
   end
 
 end

@@ -34,7 +34,7 @@ $('#submit-btn').click(function() {
   $.ajax({
     type: post,
     url: '/households',
-    data: @household,
+    data: household,
     success: function() {
       $('#myModal').show();
     }
