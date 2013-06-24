@@ -5,7 +5,7 @@
   %h5 Allowed: #{household.box_type}
   = visit_check
 .span-one-third
-  %h3 #{household.name}
+  = link_to household.household_name, edit_household_path(household), class: 'btn  btn-large'
 - if household.post_needs
   .offset2
     .span5
