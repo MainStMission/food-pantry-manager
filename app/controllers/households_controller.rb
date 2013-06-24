@@ -31,7 +31,7 @@ class HouseholdsController < ApplicationController
     if household.save
       redirect_to households_path, notice: 'Households was successfully created'
     else
-      render 'edit'
+      render 'new'
     end
   end
 
