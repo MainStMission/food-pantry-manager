@@ -33,8 +33,8 @@ $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
 $('#submit-btn').click(function() { 
   $.ajax({
     type: post,
-    url: '/your-end-point',
-    data: your_data,
+    url: '/households',
+    data: @household,
     success: function() {
       $('#myModal').show();
     }

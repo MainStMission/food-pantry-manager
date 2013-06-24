@@ -22,7 +22,7 @@
       = f.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
       .actions.span12
       / Button to trigger modal
-      %a.btn{"data-toggle" => "modal", :href => "#myModal", class: 'btn btn-inverse btn-large', :role => "button"} Press to Complete Visit
+      %a.btn{"data-toggle" => "modal", :href => "#myModal", id: 'submit-btn', class: 'btn btn-inverse btn-large', :role => "button"} Press to Complete Visit
       #myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
         .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
