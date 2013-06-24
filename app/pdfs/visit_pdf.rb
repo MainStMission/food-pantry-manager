@@ -3,7 +3,7 @@ class VisitPdf < Prawn::Document
   def initialize(household)
     super()
     @household = household
-    @visit = household.visits[0]
+    @visit = household.visits(1)
      # visit_id
     visit_date
     household_name
