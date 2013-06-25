@@ -23,7 +23,7 @@ class Household < ActiveRecord::Base
     household_name
   end
 
-def box
+def s_box
   [s_box.to_s, s_numb.to_s].join "-"
 end
 
