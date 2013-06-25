@@ -57,6 +57,9 @@
         .span1
           = f.input :state, prompt: 'State', collection: states, input_html: {class: 'span1'}
         .row
+        .span3
+          = f.input :zip, label: 'Zip Code', input_html: {class: 'span2'}
+        .row
         .span2
           = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Received Mail','Passport','Utility Bill','Food Stamp Card', 'Other'], input_html:{class:'span2'}
         .span2
@@ -181,6 +184,8 @@
         = f.input :s_numb, label: 'Closed file Number:', input_html: {class: 'span1'}
       .span4
         = f.input :s_box, label: 'Storage Box Number:', input_html: {class: 'span1'}
+      .span2
+        = f.input :bool3, label: 'Pending', wrapper: :inline_checkbox
       .row
   .actions.submit-visit:
     = f.button :submit, class: 'btn btn-warning'

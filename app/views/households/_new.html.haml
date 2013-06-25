@@ -56,10 +56,15 @@
         .span1
           = f.input :state, prompt: 'State', collection: states, input_html: {class: 'span1'}
         .row
+        .span3
+        .row
         .span2
-          = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Received Mail','Passport', 'Utility Bill','Food Stamp Card'], input_html:{class:'span2'}
+          = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Received Mail','Passport', 'Utility Bill','Food Stamp Card', 'Other'], input_html:{class:'span2'}
         .span2
           = f.input :date_of_proof, as: :date_picker, input_html: {id: 'dpYears', class: 'datepicker span2' }
+        .row
+        .span3
+          = f.input :zip, label: 'Zip Code', input_html: {class: 'span2'}
         .row
         .span4
           = f.input :food_alert, label: 'Special Food needs', tooltip: 'This will print on the food order', input_html: {class: 'span4'}
@@ -180,6 +185,11 @@
         = f.input :s_numb, label: 'Closed file Number:', input_html: {class: 'span1'} 
       .span4
         = f.input :s_box, label: 'Storage Box Number:', input_html: {class: 'span1'}
+      .span2
+        = f.input :bool3, label: 'Pending', wrapper: :inline_checkbox
+      .row
+      .span10
+      .hr
    
 
 

@@ -17,7 +17,7 @@ module HouseholdsHelper
       @box = household.box_type
       @last = household.visits.last.visited_on
       @diff = Date.today - @last
-      @text = 'Warning, too many visits'
+      @text = 'Visited Recently'
 
       if @diff < 30 && household.box_type == 'One'
         @text
