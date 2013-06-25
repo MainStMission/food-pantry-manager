@@ -1,8 +1,11 @@
 require 'spec_helper'
 
-describe Household do
+  describe Household do
 
-  it { should have_many(:neighbors)}
+     it { should have_many(:neighbors)}
+
+
+      it { should have_many(:visits)}
 
 
 
