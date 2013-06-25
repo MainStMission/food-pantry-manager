@@ -23,6 +23,9 @@ class Household < ActiveRecord::Base
     household_name
   end
 
+def box
+  [s_box.to_s, s_numb.to_s].join "-"
+end
 
   def visit
     self.visits

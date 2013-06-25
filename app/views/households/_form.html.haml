@@ -58,7 +58,7 @@
           = f.input :state, prompt: 'State', collection: states, input_html: {class: 'span1'}
         .row
         .span2
-          = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Received Mail','Passport', 'Utility Bill','Food Stamp Card'], input_html:{class:'span2'}
+          = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Received Mail','Passport','Utility Bill','Food Stamp Card', 'Other'], input_html:{class:'span2'}
         .span2
           = f.input :date_of_proof, as: :date_picker, input_html: {id: 'dpYears', class: 'datepicker span2' }
         .row

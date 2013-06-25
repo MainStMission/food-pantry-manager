@@ -13,13 +13,17 @@
     %table.table.table-striped.table-hover
       %thead
         %tr
-          %th %Household 
+          %th Household 
+          %th Box
+          %th Neighbors
           %th Visits
           %th Last Visit
       %tbody
       - @households.each do |household|
         %tr
           %td= link_to household.household_name, edit_household_path(household)
+          %td= household.box
+          %td= household.neighbors.count
           %td= household.visits.count
           %td= household.last_visit
           %td
