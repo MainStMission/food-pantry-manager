@@ -47,6 +47,7 @@ gem 'attr_encryptor'
 gem 'decent_exposure'
 
 group :development, :test do
+  gem 'chrome_logger',  :require => 'chrome_logger/railtie'
   gem 'rack-mini-profiler'
   gem 'cucumber-rails', :require => false
   gem 'capybara'
