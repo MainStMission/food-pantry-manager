@@ -36,9 +36,9 @@
             = f.input :zip, label: 'Zip Code', input_html: {class: 'span2'}
           .row
           .span2
-            = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Passport', 'Utility Bill','Food Stamp Card', 'other'], input_html:{class:'span2'}
+            = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Passport', 'Utility Bill','Food Stamp Card', 'Other'], input_html:{class:'span2'}
           .span2
-            = f.input :date_of_proof,  label: 'Proof Date (D/M/Y)',as: :date_picker, input_html: { id: 'dpYears', class: 'datepicker span2' }
+            = f.input :date_of_proof,  label: 'Proof Date (D/M/Y)',as: :date_picker, input_html: { id: 'dpYears', class: '  span2' }
           .row
           .span4
             = f.input :special_needs, label: 'Special Non Food Needs', input_html: {class: 'span4'}

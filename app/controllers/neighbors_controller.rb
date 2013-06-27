@@ -29,7 +29,8 @@ class NeighborsController < ApplicationController
 
   def update
     if neighbor.update_attributes(params[neighbor])
-      redirect_to households_path, notice: 'Neighbor was successfully updated.'
+      @household = neighbor.household
+      redirect_to edit_household_path(@household), notice: 'Neighbor was successfully updated.'
     else
       render 'edit'
     end

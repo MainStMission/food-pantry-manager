@@ -49,6 +49,8 @@ class HouseholdsController < ApplicationController
 
   
   def show
+    @household = household
+    @household.visits.build
     visit = Household.find(params[:id])
     respond_to do |format|
       format.html

@@ -3,30 +3,29 @@
 = simple_form_for [@household, neighbor],url: household_neighbor_path do |f|
   %h4 This neighbor's Household: #{neighbor.house_name}
   #neighbor-color.well.well-large.input-append.date
-    .span3
-      = f.input :first_name
-    .span3
-      = f.input :middle_name
-    .span3
-      = f.input :last_name
-    .row
-    .span3
+    .span2
+      = f.input :first_name, input_html: {class: 'span2'}
+    .span2
+      = f.input :middle_name, input_html: {class: 'span2'}
+    .span2
+      = f.input :last_name, input_html: {class: 'span2'}
+    .span2
       = f.input :sex, collection: [:Male, :Female] , input_html: {class: 'span2'}
-    .span3
-      = f.input :birth_date, as: :date_picker,  input_html: {id: 'dpYears', class: 'datepicker span2'}
-    .span3
+    .row
+    .span2
+      = f.input :birth_date, as: :date_picker, input_html: {id: 'dpYears' , class: 'span2' }
+    .span2
       = f.input :encrypted_ssn, label: 'Social Security #', input_html: {class: "span2"}
-    .row
-    .span4.offset1
+    .span2
       = f.input  :phone,     label: 'Phone', input_html: { class: 'span2' }
-    .span3
-      = f.input  :email,     label: 'Email', input_html: {class: 'span3'}
+    .span2
+      = f.input  :email,     label: 'Email', input_html: {class: 'span2'}
     .span3
     .row
-    .span9
-      = f.input :notes, :rows => 2, input_html: {rows: 4, class: 'span9' }
+    .span8
+      = f.input :notes, :rows => 2, input_html: {rows: 4, class: 'span8' }
     .row
-    .span10
+    .span8
       #submit-neighbor
         = f.button :submit, value: 'Update', class: 'btn btn-inverse btn-large'
 

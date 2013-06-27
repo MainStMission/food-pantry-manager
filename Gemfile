@@ -17,6 +17,7 @@ gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 gem 'kaminari'
 gem 'rails_admin'
+gem 'american_date'
 gem 'cancan'
 gem 'paper_trail', '~> 2'
 gem "Ascii85", "~> 1.0.2"
