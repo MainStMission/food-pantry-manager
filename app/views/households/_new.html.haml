@@ -12,8 +12,7 @@
       #reminder.well
         %h4 #{household.special_needs}
 .row
-= simple_form_for @household,  validate: true, html: { :class => 'form-inline' } do |f|
-  / = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
+= simple_form_for household,  validate: true, html: { :class => 'form-inline' } do |f|
   #neighbor-table
     %table.table.table-hover
       %thead

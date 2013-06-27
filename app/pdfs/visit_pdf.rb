@@ -3,8 +3,6 @@ class VisitPdf < Prawn::Document
   def initialize(household)
     super()
     @household = household
-    @visit = household.visits(1)
-     # visit_id
     visit_date
     household_name
     house_count
@@ -23,7 +21,7 @@ class VisitPdf < Prawn::Document
 
 
    def visit_date
-     text "Date: #{@visit.visited_on.strftime('%B %d, %Y')}"
+     text "Date: #{@household.visit.visited_on.strftime('%B %d, %Y')}"
    end
 
   # def visit_id

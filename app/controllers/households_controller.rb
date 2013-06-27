@@ -29,7 +29,6 @@ class HouseholdsController < ApplicationController
 
   def create
     if household.save
-        household.visits.build
       redirect_to households_path, notice: 'Households was successfully created'
     else
       render 'new'
@@ -42,6 +41,8 @@ class HouseholdsController < ApplicationController
 
   def update
     if household.save
+       @household = household
+       @household.visits.build
       redirect_to households_path, notice: 'Household was successfully updated.'
     else
       render 'edit'
@@ -50,14 +51,12 @@ class HouseholdsController < ApplicationController
 
   
   def show
-    @household = household
-    @household.visits.build
-    visit = Household.find(params[:id])
+    household = Household.find(params[:id])
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = VisitPdf.new(visit)
-        send_data pdf.render, filename: "visit_#{visit.id}.pdf",
+        pdf = VisitPdf.new(household)
+        send_data pdf.render, filename: "visit_#{household.id}.pdf",
              type: "application/pdf",
              disposition: "inline"
       end
