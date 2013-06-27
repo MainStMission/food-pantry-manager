@@ -29,6 +29,7 @@ class HouseholdsController < ApplicationController
 
   def create
     if household.save
+        household.visits.build
       redirect_to households_path, notice: 'Households was successfully created'
     else
       render 'new'

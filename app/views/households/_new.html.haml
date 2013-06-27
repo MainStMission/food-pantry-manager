@@ -31,29 +31,30 @@
   .span11
   %p.visit
     = simple_fields_for :visits do |v|
-      #visit-date
-      = v.input  :visited_on, label: 'Date of Visit', default: Date.today, order: [:month, :day],input_html: { class: 'span2' }
-      %br
-      / = v.association :neighbor, collection: household.neighbors.all, default: 1, validate: { :presence => true }
-      %br
-      .span3
-        = v.input  :starch,  label: false,  collection: [ 'Beans','Rice','Potatoes','nothing' ] , selected: 'Beans', input_html: { class: 'span2' }
-      .span3
-        = v.input  :cereal,  label: false,  collection: ['Cereal','Grits','Oatmeal', 'Pop Tarts', 'Pancakes'], selected: 'Cereal',input_html: {class: 'span2' }
-      .span3
-        = v.input :option1,  label: false,  collection: ['Peanut Butter','Jelly', 'PB & J'], prompt: 'Options', input_html: {class: 'span2' }
-      .span11
-      %br
-      %br
-      - if !household.food_alert.blank?
-        %h4 Food Restrictions: #{household.food_alert}
-      = f.input  :items_received, prompt:'Items here will show up on the printer order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
-      = f.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
-      .actions.span12
-      = link_to 'Print Order', household_path(household, format: "pdf"), class: 'btn btn-inverse btn-info'
-      = f.button :submit,  :class => 'btn btn-inverse'    
-  %hr
-  .span11
+      #visit.visit-color.well.well-large
+        #visit-date
+        = v.input  :visited_on, as: :date, label: 'Date of Visit', default: Date.today, order: [:month, :day],input_html: { class: 'span2' }
+        %br
+          = v.input :neighbor, collection: household.neighbors.all, default: 1, validate: { :presence => true }
+        %br
+        .span3
+          = v.input  :starch,  label: false,  collection: [ 'Beans','Rice','Potatoes','nothing' ] , selected: 'Beans', input_html: { class: 'span2' }
+        .span3
+          = v.input  :cereal,  label: false,  collection: ['Cereal','Grits','Oatmeal', 'Pop Tarts', 'Pancakes'], selected: 'Cereal',input_html: {class: 'span2' }
+        .span3
+          = v.input :option1,  label: false,  collection: ['Peanut Butter','Jelly', 'PB & J'], prompt: 'Options', input_html: {class: 'span2' }
+        .span11
+        %br
+        %br
+        - if !household.food_alert.blank?
+          %h4 Food Restrictions: #{household.food_alert}
+        = v.input  :items_received, prompt:'Items here will show up on the printer order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
+        = v.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
+        .actions.span12
+        = link_to 'Print Order', household_path(household, format: "pdf"), class: 'btn btn-inverse btn-info'
+        = v.button :submit,  :class => 'btn btn-inverse'    
+    %hr
+    .span11
   .tabbable
     %ul.nav.nav-tabs
       %li
