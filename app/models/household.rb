@@ -27,6 +27,17 @@ def box
   [s_box.to_s, s_numb.to_s].join "-"
 end
 
+
+def thumbs
+    if self.bool3
+      "<i class='icon-ok'></i>"
+    else
+      "<i class='icon-check-empty'></i>"
+    end
+  end
+
+
+
   def visit
     self.visits
   end
