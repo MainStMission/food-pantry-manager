@@ -35,7 +35,7 @@ group :assets do
   gem 'sass-rails','~> 3.2'
   gem 'bootstrap-sass', '~> 2.3.1.0'
   gem 'uglifier'
-  gem 'font-awesome-rails'
+  gem 'font-awesome-rails' , '~> 3.2.0.0'
   gem 'kaminari-bootstrap'
   gem "jquery-rails", "2.3.0"
   gem 'jquery_datepicker'
