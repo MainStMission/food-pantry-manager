@@ -12,7 +12,8 @@
         %h4 #{household.special_needs}
 .row
 = simple_form_for household,  validate: true, html: { :class => 'form-inline' } do |f|
-  = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
+  #monthly.span3
+    = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
   #neighbor-table
     %table.table.table-hover
       %thead
@@ -189,7 +190,7 @@
       .span2
         = f.input :bool3, label: 'Pending', wrapper: :inline_checkbox
       .row
-  #visit-btn.actions.submit-visit:
+  #visit-btn.actions.submit-visit
     = f.button :submit, class: 'btn btn-warning'
 
 

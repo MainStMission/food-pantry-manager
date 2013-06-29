@@ -2,7 +2,7 @@
 = simple_form_for household,  html: { :class => 'form-inline' } do |f|
   = f.input :household_name, label: 'Houshold Name (Last, First)', autofocus: true
   %p You must enter at least one Neighbor for the Household
-  #neighbor.span11
+  .span11.add_neighbor
     = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-large', :force_non_association_create => true)
   %hr
   .span11
@@ -122,10 +122,9 @@
           = f.input :s_numb, label: 'Closed file Number:', input_html: {class: 'span1'}
         .span4
           = f.input :s_box, label: 'Storage Box Number:', input_html: {class: 'span1'}
-        .row.span2
+        .span2
           = f.input :bool3, label: 'Pending', wrapper: :inline_checkbox
-        .hr  
-        .br
+        .row
     .actions.submit-visit
       = f.button :submit, class: 'btn btn-warning'
 
