@@ -48,7 +48,7 @@ FoodPantry::Application.routes.draw do
 
   #match 'new_user' :to => 'new_user_session'
 
-
+post '/household_end_point' => 'households#submit'
 
 
   devise_for :admin_users

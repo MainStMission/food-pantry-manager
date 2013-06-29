@@ -29,7 +29,7 @@
             %td= word_wrap neighbor.notes
   .span11
   %p.visit
-    = simple_fields_for :visits do |v|
+    = f.simple_fields_for :visits do |v|
       #visit.visit-color.well.well-large
         #visit-date
         = v.input  :visited_on, as: :date, label: 'Date of Visit', default: Date.today, order: [:month, :day],input_html: { class: 'span2' }
@@ -50,8 +50,8 @@
         = v.input  :items_received, prompt:'Items here will show up on the printer order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
         = v.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
         .actions.span12
-        = link_to 'Print Order', household_path(household, format: "pdf"), class: 'btn btn-inverse btn-info'
-        = v.button :submit,  :class => 'btn btn-inverse'    
+        = link_to 'Print Order', household_path(household, format: "pdf"), id: 'submit-btn', class: 'btn btn-inverse btn-info'
+        = v.button :submit,  :class => 'btn btn-inverse', id: 'submit-btn'   
     %hr
     .span11
   .tabbable

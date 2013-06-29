@@ -49,6 +49,9 @@ class HouseholdsController < ApplicationController
     end
   end
 
+def submit
+  render :json => 'success'
+end
   
   def show
     household = Household.find(params[:id])

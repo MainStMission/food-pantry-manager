@@ -23,7 +23,7 @@
           %td= household.visits.count
           %td= household.last_visit
           %td
-            = link_to  'Visit', household_path(household), class: 'btn btn-success btn-large'
+            = link_to  'Visit', edit_household_path(household), class: 'btn btn-success btn-large'
       = paginate households
     .actions.submit-visit
       = link_to 'New Household', new_household_path, class: 'btn btn-warning'

@@ -20,6 +20,7 @@
  //= require rails.validations
  //= require rails.validations.simple_form
  //= require bootstrap-datepicker
+ //= require household
  //= require_tree .
 
 $(function() {
@@ -30,13 +31,4 @@ $(function() {
 
 $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
 
-$('#submit-btn').click(function() { 
-  $.ajax({
-    type: post,
-    url: '/households',
-    data: household,
-    success: function() {
-      $('#myModal').show();
-    }
-  })
-});
+

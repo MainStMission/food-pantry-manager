@@ -2,8 +2,8 @@
 = simple_form_for household,  html: { :class => 'form-inline' } do |f|
   = f.input :household_name, label: 'Houshold Name (Last, First)', autofocus: true
   %p You must enter at least one Neighbor for the Household
-  .span11
-    = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini', :force_non_association_create => true)
+  #neighbor.span11
+    = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-large', :force_non_association_create => true)
   %hr
   .span11
     .tabbable
@@ -128,6 +128,7 @@
         .br
     .actions.submit-visit
       = f.button :submit, class: 'btn btn-warning'
+
     
 
 

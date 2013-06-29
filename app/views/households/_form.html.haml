@@ -1,7 +1,7 @@
 #mhead.well.well-large
   %h4 Household Members: #{household.neighbors.count}
-  %h4 Total Visits: #{household.visits.count}
-  %h4 Last Visit: #{household.last_visit}
+  %h5 Total Visits: #{household.visits.count}
+  %h5 Last Visit: #{household.last_visit}
   = visit_check
 .span-one-third
   %h3 #{household.name}
@@ -27,11 +27,11 @@
             %td= link_to neighbor.name, url_for([@household, neighbor])
             %td= neighbor.age
             %td= word_wrap neighbor.notes
-  .span11
+  .span11.add_neighbor
     = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini',:render_options => {wrapper: 'bootstrap' }, :force_non_association_create => true)
   %hr
   %p.visit
-    = link_to_add_association( 'New Visit', f, :visits , class: 'btn btn-success btn-large', :render_options => {wrapper: 'bootstrap' },:force_non_association_create => true)
+    = link_to_add_association( 'New Visit', f, :visits , class: 'btn btn-success btn-large visit-btn', :render_options => {wrapper: 'bootstrap' },:force_non_association_create => true)
   .span11
   .tabbable
     %ul.nav.nav-tabs
@@ -66,7 +66,7 @@
           = f.input :date_of_proof, as: :date_picker, input_html: {id: 'dpYears', class: 'span2' }
         .row
         .span4
-          = f.input :food_alert, label: 'Special Food needs', tooltip: 'This will print on the food order', input_html: {class: 'span4'}
+          = f.input :food_alert, label: 'Special Food needs', placeholder: 'This will print on the food order', tooltip: 'This will print on the food order', input_html: {class: 'span4'}
         .row
         .span4
           = f.input :special_needs, label: 'Notices and Reminders', input_html: {class: 'span4'}
@@ -74,13 +74,15 @@
         .span4
           = f.input :prayer_request, label: 'Prayer Request', input_html: {class: 'span4'}
         .row
-        .span2
-          = f.input :post_needs, label: 'Post Notices'
-        .span2
-          = f.input :post_prayer,label: 'Post Prayer'
+        .span3.well.well-large
+          %p If you enter a prayer request or a special need it will only show up in this area unless you check the box below to post it. If you decide to post it the item will show up on a report for special needs or Prayer requests
+          .span1
+            = f.input :post_needs, label: 'Post Notices'
+          .span1
+            = f.input :post_prayer,label: 'Post Prayer'
       #house_notes.span-two-thirds.well.well-large
         %h3 Notes and Comments
-        = f.input :notes, label: false, input_html:{rows: 21, class: 'span5'}, autofocus: true
+        = f.input :notes, label: false, input_html:{rows: 35 , class: 'span5'}, autofocus: true
       .row
     #money.tab-pane.well.well-large.money-color
       %table.table.table-bordered
@@ -187,7 +189,7 @@
       .span2
         = f.input :bool3, label: 'Pending', wrapper: :inline_checkbox
       .row
-  .actions.submit-visit:
+  #visit-btn.actions.submit-visit:
     = f.button :submit, class: 'btn btn-warning'
 
 
