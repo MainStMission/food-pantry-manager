@@ -16,10 +16,10 @@ class HouseholdsController < ApplicationController
   #end
 
 
-  def index 
-      @q = Household.search(params[:q])
-      @households = @q.result
-    end
+  def index   
+     @q = Household.search(params[:q])
+     @households = @q.result
+  end
 
   
   def new_visit

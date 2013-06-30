@@ -11,7 +11,15 @@ module HouseholdsHelper
     %w(NC SC VA TN WV FL GA OH KY)
   end
 
-  
+  def ranhouse
+    if @q.household_name_start.to_s.empty? 
+      households
+    else
+      @households
+    end
+  end
+
+
   def visit_check
     if household.visits.count > 0
 
