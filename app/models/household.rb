@@ -16,6 +16,7 @@ class Household < ActiveRecord::Base
   # after_save: print_receipt
 
   has_paper_trail
+  max_paginates_per 20
 
   default_scope order('household_name ASC')
 

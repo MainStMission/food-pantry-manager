@@ -4,13 +4,8 @@ FoodPantry::Application.routes.draw do
   #devise_for :admins
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  resources :donations
+  resources :donations, :donors, :visits, :neighbors
 
-  resources :donors
-
-  resources :visits
-
-  resources :neighbors
 
   resources :households do
     resources :visits

@@ -17,7 +17,7 @@
           %th Visits
           %th Last Visit
       %tbody
-      - households.each do |household|
+      - @households.each do |household|
         %tr.visits
           %td= household.household_name
           %td= household.visits.count

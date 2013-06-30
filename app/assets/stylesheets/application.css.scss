@@ -43,11 +43,22 @@ html {
   margin-top:20px;
 }
 
-#neighbor-table {
+.house-table {
+  text-align: center;
     td:first-child {
-    width: 33% ;
+    text-align: left;
   }
 }
+
+.table td {
+   text-align: center;   
+   .house {
+    text-align: left;
+   }
+}
+
+
+
 
 #housesearch {
   float: right;
