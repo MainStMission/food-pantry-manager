@@ -28,6 +28,8 @@ FoodPantry::Application.routes.draw do
  devise_for :users, :controllers => {:registrations => "users/registrations", :passwords => "users/passwords"}
 
 
+match 'print' => 'households#print', :via => :get
+
   match 'new_visit' => 'households#new_visit', :via => :get
 
   match 'time_clock' => 'time_clock#show'
