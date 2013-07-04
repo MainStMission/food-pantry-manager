@@ -7,6 +7,8 @@
     = stylesheet_link_tag  'application', :media => "all"
     -#= javascript_include_tag :all, :recursive => true
     = javascript_include_tag 'application'
+    %script{:type=>"text/javascript"}
+      $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
     = csrf_meta_tags
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
   %body
@@ -28,11 +30,9 @@
                 %ul.dropdown-menu
                   %li= link_to 'New Household', new_household_path
                   %li.divider
-                  %li= link_to 'New Visit', '/new_visit'
+                  %li= link_to 'New Visit', households_path
                   %li.divider
                   %li= link_to 'Households', households_path
-                  %li.divider
-                  %li= link_to 'Neighbors', neighbors_path
                   %li.divider
                   %li= link_to 'Visits', visits_path
               %li.dropdown

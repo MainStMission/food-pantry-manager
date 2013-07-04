@@ -4,22 +4,26 @@
       %i.icon-home.icon-large
       &nbsp&nbsp&nbspHouseholds
   .content
+    #housesearch
+      = search_form_for @q do |f|
+        = f.label :household_name_start
+        = f.text_field :household_name_start, :class => "input-medium search-field"
+        = f.submit
+        = f.submit "Clear", :name => nil, :id => :q_reset 
     %table.table.table-striped.table-hover
       %thead
         %tr
           %th Household
-          %th Family Members
           %th Visits
           %th Last Visit
       %tbody
-      - households.each do |household|
-        %tr
-          %td= link_to household.household_name, household_path(household)
-          %td= household.neighbors.count
+      - @households.each do |household|
+        %tr.visits
+          %td= household.household_name
           %td= household.visits.count
           %td= household.last_visit
           %td
-            = link_to  'Visit', new_household_visit_path(household), class: 'btn btn-success'
+            = link_to  'Visit', edit_household_path(household), class: 'btn btn-success btn-large'
       = paginate households
     .actions.submit-visit
       = link_to 'New Household', new_household_path, class: 'btn btn-warning'

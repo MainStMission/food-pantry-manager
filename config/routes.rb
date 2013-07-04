@@ -4,13 +4,8 @@ FoodPantry::Application.routes.draw do
   #devise_for :admins
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  resources :donations
+  resources :donations, :donors, :visits, :neighbors
 
-  resources :donors
-
-  resources :visits
-
-  resources :neighbors
 
   resources :households do
     resources :visits
@@ -48,7 +43,7 @@ FoodPantry::Application.routes.draw do
 
   #match 'new_user' :to => 'new_user_session'
 
-
+post '/household_end_point' => 'households#submit'
 
 
   devise_for :admin_users

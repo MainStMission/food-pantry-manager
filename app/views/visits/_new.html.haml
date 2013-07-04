@@ -1,16 +1,18 @@
-#mhead
+#mhead.well.well-large 
+  .span-one-third
   %h4 Household Members: #{household.neighbors.count}
-  %h4 Total Visits: #{household.visits.count}
-  %h4 Last Visit: #{household.last_visit}
+  %h5 Total Visits: #{household.visits.count}
+  %h5 Last Visit: #{household.last_visit}
+  %h5 Monthly Visits: #{household.box_type}
   = visit_check
-.span-0ne-third
+#new-visit-head
   %h2 Household: #{household.name}
+  = link_to  'View Household', household_path(household), class: 'btn btn-mini'
  
 - if household.post_needs
-  .offset2
-    .span5
-      #reminder.well
-        %h4 #{household.special_needs}
+  .span8
+    #reminder.well.well-large
+      %h5 #{household.special_needs}
 .row
   #neighbor-table
     %table.table.table-hover
@@ -27,13 +29,11 @@
             %td= neighbor.age
             %td= word_wrap neighbor.notes
 .span11
-%hr
 %p.visit
 = simple_form_for [household, visit], url: household_visits_path do |f|
-  
   #visit-color.well.well-large
     #visit-date
-      = f.input  :visited_on,     :label => 'Date of Visit', default: Date.today, order: [:day, :month],input_html: { class: 'span2' }
+      = f.input  :visited_on,     :label => 'Date of Visit', default: Date.today, order: [:month, :day],input_html: { class: 'span2' }
       .br
         = f.association :neighbor, collection: household.neighbors.all, default: 1, validate: { :presence => true }
       .br

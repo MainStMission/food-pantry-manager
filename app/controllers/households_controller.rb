@@ -10,19 +10,28 @@ class HouseholdsController < ApplicationController
   expose(:visits) { household.visits}
   expose(:visit)
 
+
   #def index
   #  respond_with households
   #end
 
 
-  def index
-    @q = Household.search(params[:q])
-    @households = @q.result(:distinct => true)
+  def index   
+     @q = Household.search(params[:q])
+     @households = @q.result
   end
+
+  
+  def new_visit
+    @q = Household.search(params[:q])
+    @households = @q.result
+  end
+
+
 
   def create
     if household.save
-      redirect_to households_path, notice: 'Household was successfully created.'
+      redirect_to households_path, notice: 'Households was successfully created'
     else
       render 'new'
     end
@@ -34,15 +43,31 @@ class HouseholdsController < ApplicationController
 
   def update
     if household.save
+       @household = household
+       @household.visits.build
       redirect_to households_path, notice: 'Household was successfully updated.'
     else
       render 'edit'
     end
   end
 
+def submit
+  render :json => 'success'
+end
+  
   def show
     household = Household.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = VisitPdf.new(household)
+        send_data pdf.render, filename: "visit_#{household.id}.pdf",
+             type: "application/pdf",
+             disposition: "inline"
+      end
+    end
   end
+
 
   def harvest
     respond_with households
@@ -68,7 +93,7 @@ class HouseholdsController < ApplicationController
         :food_alert, :prayer_request, :money_notes, :special_needs, :how_heard,
         :proof_of_residency_type, :date_of_proof, :post_prayer, :post_needs, :christmas,
         :bool1, :bool_val1, :bool2, :bool_val2, :bool3, :bool_val3, :bool4, :bool_val4,
-        :bool5, :bool_val5, :s_numb, :s_box,
+        :bool5, :bool_val5, :s_numb, :s_box, :income4, :inc_amt4,
         neighbors_attributes: [
         :city, :close_date, :date_of_proof, :first_name, :middle_name, :street, :apt,
         :food_stamps, :last_name, :monthly_income, :notes, :house_rank, :birth_date,

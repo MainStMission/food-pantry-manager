@@ -1,10 +1,11 @@
 #mhead.well.well-large
   %h4 Household Members: #{household.neighbors.count}
   %h5 Total Visits: #{household.visits.count}
-  %h5 Last Visit: #{household.last_visit}
-  = visit_check
+  / %h5 Last Visit: #{household.last_visit}
+  %h5 Allowed: #{household.box_type}
+  / = visit_check
 .span-one-third
-  %h3 #{household.name}
+  = link_to household.household_name, edit_household_path(household), class: 'btn  btn-large'
 - if household.post_needs
   .offset2
     .span5
@@ -12,8 +13,6 @@
         %h4 #{household.special_needs}
 .row
 = simple_form_for household,  validate: true, html: { :class => 'form-inline' } do |f|
-  #monthly.span3
-    = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
   #neighbor-table
     %table.table.table-hover
       %thead
@@ -28,12 +27,33 @@
             %td= link_to neighbor.name, url_for([@household, neighbor])
             %td= neighbor.age
             %td= word_wrap neighbor.notes
-  .span11.add_neighbor
-    = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini',:render_options => {wrapper: 'bootstrap' }, :force_non_association_create => true)
-  %hr
-  %p.visit
-    = link_to_add_association( 'New Visit', f, :visits , class: 'btn btn-success btn-large visit-btn', :render_options => {wrapper: 'bootstrap' },:force_non_association_create => true)
   .span11
+  %p.visit
+    = f.simple_fields_for :visits do |v|
+      #visit.visit-color.well.well-large
+        #visit-date
+        = v.input  :visited_on, as: :date, label: 'Date of Visit', default: Date.today, order: [:month, :day],input_html: { class: 'span2' }
+        %br
+          = v.input :neighbor, collection: household.neighbors.all, default: 1, validate: { :presence => true }
+        %br
+        .span3
+          = v.input  :starch,  label: false,  collection: [ 'Beans','Rice','Potatoes','nothing' ] , selected: 'Beans', input_html: { class: 'span2' }
+        .span3
+          = v.input  :cereal,  label: false,  collection: ['Cereal','Grits','Oatmeal', 'Pop Tarts', 'Pancakes'], selected: 'Cereal',input_html: {class: 'span2' }
+        .span3
+          = v.input :option1,  label: false,  collection: ['Peanut Butter','Jelly', 'PB & J'], prompt: 'Options', input_html: {class: 'span2' }
+        .span11
+        %br
+        %br
+        - if !household.food_alert.blank?
+          %h4 Food Restrictions: #{household.food_alert}
+        = v.input  :items_received, prompt:'Items here will show up on the printer order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
+        = v.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
+        .actions.span12
+        = link_to 'Print Order', household_path(household, format: "pdf"), id: 'submit-btn', class: 'btn btn-inverse btn-info'
+        = v.button :submit,  :class => 'btn btn-inverse', id: 'submit-btn'   
+    %hr
+    .span11
   .tabbable
     %ul.nav.nav-tabs
       %li
@@ -59,15 +79,17 @@
           = f.input :state, prompt: 'State', collection: states, input_html: {class: 'span1'}
         .row
         .span3
+        .row
+        .span2
+          = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Received Mail','Passport', 'Utility Bill','Food Stamp Card', 'Other'], input_html:{class:'span2'}
+        .span2
+          = f.input :date_of_proof, as: :date_picker, input_html: {id: 'dpYears', class: 'datepicker span2' }
+        .row
+        .span3
           = f.input :zip, label: 'Zip Code', input_html: {class: 'span2'}
         .row
-        .span2
-          = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Received Mail','Passport','Utility Bill','Food Stamp Card', 'Other'], input_html:{class:'span2'}
-        .span2
-          = f.input :date_of_proof, as: :date_picker, input_html: {id: 'dpYears', class: 'span2' }
-        .row
         .span4
-          = f.input :food_alert, label: 'Special Food needs', placeholder: 'This will print on the food order', tooltip: 'This will print on the food order', input_html: {class: 'span4'}
+          = f.input :food_alert, label: 'Special Food needs', tooltip: 'This will print on the food order', input_html: {class: 'span4'}
         .row
         .span4
           = f.input :special_needs, label: 'Notices and Reminders', input_html: {class: 'span4'}
@@ -75,15 +97,13 @@
         .span4
           = f.input :prayer_request, label: 'Prayer Request', input_html: {class: 'span4'}
         .row
-        .span3.well.well-large
-          %p If you enter a prayer request or a special need it will only show up in this area unless you check the box below to post it. If you decide to post it the item will show up on a report for special needs or Prayer requests
-          .span1
-            = f.input :post_needs, label: 'Post Notices'
-          .span1
-            = f.input :post_prayer,label: 'Post Prayer'
+        .span2
+          = f.input :post_needs, label: 'Post Notices'
+        .span2
+          = f.input :post_prayer,label: 'Post Prayer'
       #house_notes.span-two-thirds.well.well-large
         %h3 Notes and Comments
-        = f.input :notes, label: false, input_html:{rows: 35 , class: 'span5'}, autofocus: true
+        = f.input :notes, label: false, input_html:{rows: 21, class: 'span5'}, autofocus: true
       .row
     #money.tab-pane.well.well-large.money-color
       %table.table.table-bordered
@@ -184,14 +204,14 @@
       = f.input :bool2, label: 'Refered to Cabarus County', wrapper: :inline_checkbox
       .hr
       .span4
-        = f.input :s_numb, label: 'Closed file Number:', input_html: {class: 'span1'}
+        = f.input :s_numb, label: 'Closed file Number:', input_html: {class: 'span1'} 
       .span4
         = f.input :s_box, label: 'Storage Box Number:', input_html: {class: 'span1'}
       .span2
-        = f.input :bool3, label: 'Completed', wrapper: :inline_checkbox
+        = f.input :bool3, label: 'Pending', wrapper: :inline_checkbox
       .row
-  #visit-btn.actions.submit-visit
-    = f.button :submit, class: 'btn btn-warning'
-
+      .span10
+      .hr
+   
 
 

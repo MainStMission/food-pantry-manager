@@ -10,17 +10,20 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
-#
-    date:
-      formats:
-        default: '%m/%d/%Y'
-      order:
-        -:month
-        -:day
-        -:year
-##    # Labels and hints examples
-    # labels:
-    #   defaults:
+# #
+#     date:
+#       formats:
+#         default: '%m/%d/%Y'
+#       # order:
+#       #   -:month
+#       #   -:day
+#       #   -:year
+
+#     datepicker:
+#        format: '%m/%d/%Y'
+# ##    # Labels and hints examples
+#     # labels:
+#     #   defaults:
     #     password: 'Password'
     #   user:
     #     new:

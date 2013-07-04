@@ -1,6 +1,12 @@
-check process <%= application %>_unicorn with pidfile <%= unicorn_pid %>
-  start program = "/etc/init.d/unicorn_<%= application %> start"
-  stop program = "/etc/init.d/unicorn_<%= application %> stop"
+check process pantry_unicorn with pidfile <%= unicorn_pid %>
+  start program = "/etc/init.d/unicorn_pantry start"
+  stop program = "/etc/init.d/unicorn_pantry stop"
+
+
+check process pantry_unicorn_worker_0
+with pidfile /var/www/pantry/shared/pids/unicorn.0.pid
+start program = "/bin/cat /dev/null"
+stop program = "/etc/init.d/unicorn kill_worker 0"
 
 <% unicorn_workers.times do |n| %>
   <% pid = unicorn_pid.sub(".pid", ".#{n}.pid") %>
@@ -10,6 +16,6 @@ check process <%= application %>_unicorn with pidfile <%= unicorn_pid %>
     if mem > 200.0 MB for 1 cycles then restart
     if cpu > 50% for 3 cycles then restart
     if 5 restarts within 5 cycles then timeout
-    alert foo@example.com only on { pid }
+    alert tom.brooke@gmail.com only on { pid }
     if changed pid 2 times within 60 cycles then alert
 <% end %>
