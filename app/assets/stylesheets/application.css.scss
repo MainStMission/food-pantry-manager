@@ -50,6 +50,7 @@ html {
   }
 }
 
+
 .table td {
    text-align: center;   
    .house {
@@ -57,7 +58,18 @@ html {
    }
 }
 
+.left-table {
+  td {
+  text-align: left;
+  }
+}
 
+
+#file-status {
+  padding-top: 10px;
+  h5 { text-align: center; }
+
+}
 
 
 #housesearch {

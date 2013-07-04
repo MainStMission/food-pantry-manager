@@ -26,7 +26,7 @@ class HouseholdsController < ApplicationController
     @q = Household.search(params[:q])
     @households = @q.result
   end
-
+`
   def print
 
     
@@ -40,7 +40,7 @@ class HouseholdsController < ApplicationController
       render 'new'
     end
   end
-
+`
   def neighbors
     neighbors
   end

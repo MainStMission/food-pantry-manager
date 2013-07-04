@@ -15,7 +15,7 @@
   #monthly.span3
     = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
   #neighbor-table
-    %table.table.table-hover
+    %table.table.table-hover.left-table
       %thead
         %tr
           %th Name
@@ -183,15 +183,17 @@
       = f.input :bool1, label: 'Refered to Rowan Helping Ministries', wrapper:  :inline_checkbox
       = f.input :bool2, label: 'Refered to Cabarus County', wrapper: :inline_checkbox
       .hr
-      .span4
-        = f.input :s_numb, label: 'Closed file Number:', input_html: {class: 'span1'}
-      .span4
-        = f.input :s_box, label: 'Storage Box Number:', input_html: {class: 'span1'}
-      .span2
-        = f.input :bool4, label: 'Consent Signed', wrapper: :inline_checkbox
-      .span2
-        = f.input :bool3, label: 'Completed', wrapper: :inline_checkbox
-      .row
+      #file-status.well.well-large
+        %h5 Main Street Mission Storage location and file status
+        .span3
+          = f.input :s_numb, label: 'Closed file Number:', input_html: {class: 'span1'}
+        .span3
+          = f.input :s_box, label: 'Storage Box Number:', input_html: {class: 'span1'}
+        .span2
+          = f.input :bool4, label: 'Consent Signed', wrapper: :inline_checkbox
+        .span2
+          = f.input :bool3, label: 'Completed', wrapper: :inline_checkbox
+        .row
   #visit-btn.actions.submit-visit
     = f.button :submit, class: 'btn btn-warning'
 
