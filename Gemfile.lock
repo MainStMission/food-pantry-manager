@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/barsoom/prawn-print.git
+  revision: 64696b4ecc2ff966046207012169d8df36794d8b
+  specs:
+    prawn-print (0.0.2)
+      prawn (>= 0.12.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -31,6 +38,7 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.4)
     afm (0.2.0)
+    american_date (1.1.0)
     arel (3.0.2)
     attr_encryptor (1.0.2)
       encryptor2 (>= 1.0.0)
@@ -65,6 +73,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    chrome_logger (0.1.2)
+      multi_json (>= 1.3.0)
     client_side_validations (3.2.5)
     client_side_validations-simple_form (2.1.0)
       client_side_validations (~> 3.2.5)
@@ -114,7 +124,7 @@ GEM
     faker (1.1.2)
       i18n (~> 0.5)
     ffi (1.8.1)
-    font-awesome-rails (3.1.1.3)
+    font-awesome-rails (3.2.0.0)
       railties (>= 3.2, < 5.0)
     foreman (0.63.0)
       dotenv (>= 0.7)
@@ -190,7 +200,7 @@ GEM
       polyamorous (~> 0.5.0)
     method_source (0.8.1)
     mime-types (1.23)
-    multi_json (1.7.6)
+    multi_json (1.7.7)
     nested_form (0.3.2)
     net-scp (1.1.1)
       net-ssh (>= 2.6.5)
@@ -278,7 +288,7 @@ GEM
       thor (>= 0.14.6, < 2.0)
     rainbow (1.1.4)
     raindrops (0.11.0)
-    rake (10.0.4)
+    rake (10.1.0)
     ransack (0.7.2)
       actionpack (~> 3.0)
       activerecord (~> 3.0)
@@ -368,6 +378,7 @@ PLATFORMS
 
 DEPENDENCIES
   Ascii85 (~> 1.0.2)
+  american_date
   attr_encryptor
   backup-task
   better_errors
@@ -377,6 +388,7 @@ DEPENDENCIES
   cancan
   capistrano
   capybara
+  chrome_logger
   client_side_validations
   client_side_validations-simple_form
   cocoon
@@ -387,7 +399,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   faker
-  font-awesome-rails
+  font-awesome-rails (~> 3.2.0.0)
   foreman
   guard-cucumber
   guard-livereload
@@ -406,6 +418,7 @@ DEPENDENCIES
   pdf-inspector
   pg
   prawn
+  prawn-print!
   pry-rails
   rack-livereload
   rack-mini-profiler

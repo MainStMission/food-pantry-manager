@@ -4,31 +4,35 @@
       %i.icon-home.icon-large
       &nbsp&nbsp&nbspHouseholds
   .content
+    = paginate households
     #housesearch
       = search_form_for @q do |f|
         = f.label :household_name_start
-        = f.text_field :household_name_start
+        = f.text_field :household_name_start, :class => "input-medium search-field"
         = f.submit
-    %table.table.table-striped.table-hover
-      %thead
+        = f.submit "Clear", :name => nil, :id => :q_reset 
+    %table.table.table-striped.house-table.table-hover
+      %thead.htable
         %tr
-          %th Household
-          %th Family Members
+          %th Household 
+          %th Box-File
+          %th <i class='icon-ok'></i>
+          %th Neighbors
           %th Visits
           %th Last Visit
-      %tbody
-      - @households.each do |household|
-        %tr
-          %td= link_to household.household_name, household_path(household)
+      %tbody.htable
+      - ranhouse.each do |household|
+        %tr.visits
+          %td= link_to household.household_name, edit_household_path(household)
+          %td= household.box
+          %td= household.thumbs.html_safe
           %td= household.neighbors.count
           %td= household.visits.count
           %td= household.last_visit
           %td
-            = link_to  'Visit', new_household_visit_path(household), class: 'btn btn-mini'
-            = link_to 'Edit', edit_household_path(household), class: 'btn btn-mini'
+            = link_to 'Edit', edit_household_path(household), class: 'btn'
             = link_to 'Destroy', household, confirm: 'Are you sure?', method: :delete, class: 'btn btn-mini btn-danger'
-
-      = paginate households
+    = paginate households  
     .actions.submit-visit
       = link_to 'New Household', new_household_path, class: 'btn btn-warning'
-
+    

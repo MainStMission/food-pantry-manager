@@ -11,19 +11,19 @@
       %h2 Monthly Report
     .row
     #msm_id.span-one-third
-      %p Agency ID: 590AD
-      %p Report for: #{Date.today}
+      %h4 Agency ID: 590AD
+      %h4 Report for: #{Date.today.strftime('%B %d, %Y')}
       = link_to 'Second Harvest', 'http://www.secondharvestmetrolina.org/'
-      - initialize_month
+      - @month = 'June'
     #harvest_month
       %br
       -#= search_form_for @month do |f|
       -#  = f.label Select Month
       -#  = f.options_for_select(month_select)
       -#  = f.submit
-      -#= simple_form_for @month, html: { :class => 'form-inline' } do |f|
-      -#  = f.input :month, label: 'Report Month', collection: month_select, input_html: {class: 'span2'}
-      -#= submit_tag 'refresh', class: 'btn btn-mini'
+      = simple_form_for visit, html: { :class => 'form-inline' } do |f|
+        = f.input :visited_on, label: 'Report Month', collection: month_select, input_html: {class: 'span2'}
+        - @month = visit.visited_on
     .row
     .span11
     %h4 The number of different Households served during: #{@month}
@@ -41,7 +41,6 @@
                   %td= @month
                   %td= visits.by_month(@month).count
                   %td= visits.by_month(@month).select("DISTINCT(household_id)").count
-                  -#%Td= household_by_month(@month)
     %br
     .row.span11
       %h4 The total number of Individuals served during: #{@month}
@@ -63,7 +62,6 @@
   .row
   %br
 
-  %br
 
 
 

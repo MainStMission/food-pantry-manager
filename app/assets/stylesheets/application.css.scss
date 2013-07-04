@@ -43,11 +43,22 @@ html {
   margin-top:20px;
 }
 
-#neighbor-table {
+.house-table {
+  text-align: center;
     td:first-child {
-    width: 33% ;
+    text-align: left;
   }
 }
+
+.table td {
+   text-align: center;   
+   .house {
+    text-align: left;
+   }
+}
+
+
+
 
 #housesearch {
   float: right;
@@ -56,6 +67,10 @@ html {
   height: 29px;
   border-radius: 3px;
     }
+}
+
+#monthly {
+  margin-top: -50px;
 }
 
 
@@ -68,7 +83,10 @@ html {
   }
 }
 
-
+#new-visit-head {
+ margin-top: -20px;
+ line-height: 20px;
+}
 
 header {
   background-color: #f5f5f5;
@@ -105,6 +123,22 @@ footer{
 
 .visit {
   text-align: center;
+}
+
+.visits {
+  font-size: 1.5em;
+}
+
+.htable {
+  font-size: 1.35em;
+}
+
+.nav-tabs {
+  font-size: 20px;
+}
+
+.add_neighbor {
+  margin-bottom: 10px;
 }
 
 .visit-color {
@@ -159,8 +193,10 @@ table#households {
   text-align: center;
   float: right;
 }
+
 .submit-visit {
   text-align: center;
+  margin-bottom: 20px;
   }
 
 #submit-neighbor {
@@ -180,15 +216,31 @@ table#households {
   }
 
 }
+
+
 #mhead {
+  padding-top: 5px;
   float: right;
-  margin-top: -30px;
+  line-height: 5px;
+  background-color:  #dfeffc;
+  margin-top: -10px;
+    h5 {
+    line-height: 10px;
+    }
+
 }
 
 #neighbor-color {
   background-color:  #dfeffc;
-  padding-left: 75px;
+  padding-left: 107px;
   margin-bottom: 10px;
+}
+
+#neighbor-fields-color {
+  background-color:  #dfeffc;
+  padding-left: 65px;
+  margin-bottom: 10px;
+
 }
 
 .neighbor-color {
@@ -230,6 +282,7 @@ table#households {
 #reminder {
   margin-left: -25px;
   background-color: #f68b8b;
+  margin-top: 5px;
 }
 
 #donors {

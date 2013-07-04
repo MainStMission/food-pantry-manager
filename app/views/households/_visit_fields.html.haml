@@ -3,24 +3,24 @@
     %script{:type=>"text/javascript"}
       $('input selector').enableClientSideValidations()
     #visit-date
-      = f.input  :visited_on, label: 'Date of Visit', default: Date.today, order: [:day, :month],input_html: { class: 'span2' }
+      = f.input  :visited_on, label: 'Date of Visit', default: Date.today, order: [:month, :day],input_html: { class: 'span2' }
       %br
       = f.association :neighbor, collection: @household.neighbors.all, default: 1, validate: { :presence => true }
       %br
       .span3
         = f.input  :starch,  label: false,  collection: [ 'Beans','Rice','Potatoes','nothing' ] , selected: 'Beans', input_html: { class: 'span2' }
       .span3
-        = f.input  :cereal,  label: false,  collection: ['Cereal','Grits','Oatmeal'], selected: 'Cereal',input_html: {class: 'span2' }
+        = f.input  :cereal,  label: false,  collection: ['Cereal','Grits','Oatmeal', 'Pop Tarts', 'Pancakes'], selected: 'Cereal',input_html: {class: 'span2' }
       .span3
-        = f.input :option1,  label: false,  collection: ['Peanut Butter','Jelly', 'PB &,J','poptarts','Pancakes'], prompt: 'Options', input_html: {class: 'span2' }
+        = f.input :option1,  label: false,  collection: ['Peanut Butter','Jelly', 'PB & J'], prompt: 'Options', input_html: {class: 'span2' }
       .span11
       %br
       %br
       - if !household.food_alert.blank?
         %h4 Food Restrictions: #{household.food_alert}
-      = f.input  :items_received, prompt:'Items here will show up on the printer order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
-      = f.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
+      = f.input  :items_received, placeholder:'Text entered here will show up on the printed order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
+      = f.input  :notes, placeholder: 'Text entered here will not be printed', label: 'Notes',input_html: {rows: 4, class: 'span9' }
       .actions.span12
-    %p.submit-visit
-      = f.button :submit, :class => 'btn btn-inverse', :label=> 'Save'
+      = link_to 'Print Order', household_path(household, format: "pdf"), class: 'btn btn-inverse btn-info'
+      = f.button :submit,  :class => 'btn btn-inverse'    
   %hr

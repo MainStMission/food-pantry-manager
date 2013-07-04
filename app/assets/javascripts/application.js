@@ -20,7 +20,15 @@
  //= require rails.validations
  //= require rails.validations.simple_form
  //= require bootstrap-datepicker
+ //= require household
  //= require_tree .
 
+$(function() {
+  return $("#q_reset").click(function() {
+    return $(".search-field").val('');
+  });
+});
 
- $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
+$('.datepicker').datepicker({format: 'mm/dd/yyyy'});
+
+

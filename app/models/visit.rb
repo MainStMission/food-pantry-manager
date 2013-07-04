@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Visit < ActiveRecord::Base  
-  include ActiveModel::ForbiddenAttributesProtection
+  # include ActiveModel::ForbiddenAttributesProtection
 
   validates :household_id, presence: {message:'You must select a household'}
   validates :neighbor, presence: {message: 'You must select a Neighbor'}
