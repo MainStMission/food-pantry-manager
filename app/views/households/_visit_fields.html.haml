@@ -21,6 +21,6 @@
       = f.input  :items_received, placeholder:'Text entered here will show up on the printed order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
       = f.input  :notes, placeholder: 'Text entered here will not be printed', label: 'Notes',input_html: {rows: 4, class: 'span9' }
       .actions.span12
-      = link_to 'Print Order', household_path(household, format: "pdf"), class: 'btn btn-inverse btn-info'
+      = link_to 'Print Order', household_path(household, format: "js"), class: 'btn btn-inverse btn-info', id: 'print-order'
       = f.button :submit,  :class => 'btn btn-inverse'    
   %hr
