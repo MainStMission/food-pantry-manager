@@ -359,6 +359,8 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     ttfunk (1.0.3)
+    turbolinks (1.2.0)
+      coffee-rails
     tzinfo (0.3.37)
     uglifier (2.1.1)
       execjs (>= 0.3.0)
@@ -444,6 +446,7 @@ DEPENDENCIES
   sqlite3
   strong_parameters
   timecop
+  turbolinks
   uglifier
   unicorn
   win32console

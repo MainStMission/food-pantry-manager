@@ -14,6 +14,7 @@
  //= require jquery
  //= require jquery_ujs
  //= require bootstrap
+ //= turbolinks
  //= require cocoon
  //= require jquery-ui
  //= require header

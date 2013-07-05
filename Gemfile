@@ -29,6 +29,7 @@ gem 'rvm-capistrano', '>=1.3.0.rc4'
 gem 'backup-task'
 gem 'unicorn'
 gem 'active_model_serializers'
+gem 'turbolinks'
 
 group :assets do
   gem "Ascii85", "~> 1.0.2"
