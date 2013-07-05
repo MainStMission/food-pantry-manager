@@ -28,6 +28,7 @@ gem 'simple-capistrano-unicorn'
 gem 'rvm-capistrano', '>=1.3.0.rc4'
 gem 'backup-task'
 gem 'unicorn'
+gem 'active_model_serializers'
 
 group :assets do
   gem "Ascii85", "~> 1.0.2"

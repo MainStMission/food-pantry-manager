@@ -22,6 +22,8 @@ GEM
       rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.2.1)
+    active_model_serializers (0.7.0)
+      activemodel (>= 3.0)
     activemodel (3.2.12)
       activesupport (= 3.2.12)
       builder (~> 3.0.0)
@@ -378,6 +380,7 @@ PLATFORMS
 
 DEPENDENCIES
   Ascii85 (~> 1.0.2)
+  active_model_serializers
   american_date
   attr_encryptor
   backup-task

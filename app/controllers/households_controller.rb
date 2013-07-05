@@ -26,8 +26,8 @@ class HouseholdsController < ApplicationController
     @q = Household.search(params[:q])
     @households = @q.result
   end
-`
-  def print
+
+  def print_order
 
     
   end
@@ -40,7 +40,7 @@ class HouseholdsController < ApplicationController
       render 'new'
     end
   end
-`
+
   def neighbors
     neighbors
   end
@@ -61,6 +61,8 @@ end
     household = Household.find(params[:id])
     respond_to do |format|
       format.html
+      format.js 
+      format.json
       format.pdf do
         pdf = VisitPdf.new(household)
         send_data pdf.render, filename: "visit_#{household.id}.pdf",
