@@ -58,17 +58,10 @@ def submit
 end
   
   def show
-    @household = Household.find(params[:id])
+    
     respond_to do |format|
       format.html
-      format.js 
-      render json: @household.to_json
-      format.pdf do
-        pdf = VisitPdf.new(household)
-        send_data pdf.render, filename: "visit_#{household.id}.pdf",
-             type: "application/pdf",
-             disposition: "inline"
-      end
+      format.json { render json: household }
     end
   end
 

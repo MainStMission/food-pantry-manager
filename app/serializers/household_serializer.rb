@@ -1,5 +1,5 @@
 class HouseholdSerializer < ActiveModel::Serializer
-  attributes :id, :houshold_name
+  attributes :id, :name, :food_alert
 
   
 end
