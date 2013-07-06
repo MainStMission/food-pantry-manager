@@ -233,6 +233,8 @@ GEM
     prawn (0.12.0)
       pdf-reader (>= 0.9.0)
       ttfunk (~> 1.0.2)
+    prawn-labels (0.11.5.0)
+      prawn (>= 0.12.0)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -427,6 +429,7 @@ DEPENDENCIES
   pdf-inspector
   pg
   prawn
+  prawn-labels
   prawn-print!
   pry-rails
   rack-livereload

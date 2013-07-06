@@ -32,6 +32,7 @@ gem 'active_model_serializers'
 gem 'turbolinks'
 gem 'restful_json', '~> 4.2.0'
 gem 'angularjs-rails-resource', '~> 0.1.5'
+gem "prawn-labels"
 
 
 group :assets do
