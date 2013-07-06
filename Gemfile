@@ -33,6 +33,7 @@ gem 'turbolinks'
 gem 'restful_json', '~> 4.2.0'
 gem 'angularjs-rails-resource', '~> 0.1.5'
 gem "prawn-labels"
+gem 'prawn-print', :git => 'git://github.com/barsoom/prawn-print.git'
 
 
 group :assets do
