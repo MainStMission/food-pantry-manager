@@ -58,10 +58,10 @@ def submit
 end
   
   def show
-    
+    @household = Household.find(params[:id])
     respond_to do |format|
       format.html
-      format.json { render json: household }
+      format.json { render json: @household }
     end
   end
 
