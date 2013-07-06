@@ -13,11 +13,11 @@ class VisitPdf < Prawn::Document
 
   def household_name
     move_down 10
-    text "Household: #{@household.name}"
+    text "Household: #{@visit.show_household}"
   end
 
   def house_count
-    text "Neighbors: #{@household.neighbors.count}"
+    text "Neighbors: #{@visit.household.neighbors.count}"
   end
 
 
@@ -41,7 +41,7 @@ class VisitPdf < Prawn::Document
   def special
     move_down 5
     text 'Special Needs'
-    text "#{@household.food_alert}"
+    text "#{@visit.household.food_alert}"
     text "#{@visit.items_received}"
   end
 
