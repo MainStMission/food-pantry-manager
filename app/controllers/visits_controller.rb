@@ -41,7 +41,6 @@ class VisitsController < ApplicationController
   end
 
   def show
-    visit = Visit.find(params[:id])
     respond_to do |format|
       format.html
       format.pdf do

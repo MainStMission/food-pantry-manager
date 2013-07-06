@@ -1,16 +1,15 @@
 class VisitPdf < Prawn::Document
 
-  def initialize(household)
+  def initialize(visit)
+    @visit = visit
     super()
-    @household = household
-    @id = @household.id
-    @visit = household.visits[0]
     visit_date
     household_name
     house_count
     starch
     special
   end
+
 
   def household_name
     move_down 10

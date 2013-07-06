@@ -30,6 +30,9 @@ gem 'backup-task'
 gem 'unicorn'
 gem 'active_model_serializers'
 gem 'turbolinks'
+gem 'restful_json', '~> 4.2.0'
+gem 'angularjs-rails-resource', '~> 0.1.5'
+
 
 group :assets do
   gem "Ascii85", "~> 1.0.2"

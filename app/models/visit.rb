@@ -34,6 +34,7 @@ class Visit < ActiveRecord::Base
   end
 
 
+
  def visit_date
    self.visited_on
  end

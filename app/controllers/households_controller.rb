@@ -46,8 +46,15 @@ class HouseholdsController < ApplicationController
   end
 
   def update
+
     if household.save
+      if params[:commit] == 'Print Order'
+        @household = household
+        @visit = household.visits.last
+        redirect_to household_visit_path(@household, @visit, format: 'pdf')
+      else
       redirect_to households_path, notice: 'Household was successfully updated.'
+    end
     else
       render 'edit'
     end
@@ -58,10 +65,15 @@ def submit
 end
   
   def show
-    @household = Household.find(params[:id])
     respond_to do |format|
       format.html
-      format.json { render json: @household }
+      format.json { render json: household }
+      format.pdf do
+        pdf = VisitPdf.new(household)
+        send_data pdf.render, filename: "visit_#{household.id}.pdf",
+             type: "application/pdf",
+             disposition: "inline"
+      end
     end
   end
 
