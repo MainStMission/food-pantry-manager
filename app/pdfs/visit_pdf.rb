@@ -22,6 +22,7 @@ class VisitPdf < Prawn::Document
 
 
    def visit_date
+     text "ID: #{@visit.id.to_s}"
      text "Date: #{@visit.visited_on.strftime('%B %d, %Y')}"
    end
 
@@ -44,5 +45,5 @@ class VisitPdf < Prawn::Document
     text "#{@visit.household.food_alert}"
     text "#{@visit.items_received}"
   end
-
+  
 end
