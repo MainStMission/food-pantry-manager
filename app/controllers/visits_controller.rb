@@ -46,11 +46,11 @@ class VisitsController < ApplicationController
       format.pdf do
         pdf = VisitPdf.new(visit)
         send_data pdf.render, filename: "visit_#{visit.id}.pdf",
-                  type: "application/pdf"
+                  type: "application/pdf",
+                  disposition: "inline"
         
       end
     end
-    redirect_to households_path, notice: 'Order Printed'
   end
 
 def self.visits_count(month)

@@ -2,7 +2,7 @@ class VisitPdf < Prawn::Document
 
   def initialize(visit)
     @visit = visit
-    super()
+    super(page_layout:  :portrait)
     visit_date
     household_name
     house_count
