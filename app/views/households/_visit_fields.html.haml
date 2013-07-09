@@ -21,6 +21,6 @@
       = f.input  :items_received, placeholder:'Text entered here will show up on the printed order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
       = f.input  :notes, placeholder: 'Text entered here will not be printed', label: 'Notes',input_html: {rows: 4, class: 'span9' }
       .actions.span12
-      = f.button :submit, value: 'Print Order'
+      = f.button :submit, value: 'Print Order', id: 'btnPrint'
       = f.button :submit,  class: 'btn btn-inverse'    
   %hr
