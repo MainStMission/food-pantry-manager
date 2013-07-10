@@ -51,7 +51,7 @@ class HouseholdsController < ApplicationController
       if params[:commit] == 'Print Order'
         @household = household
         @visit = household.visits.last
-        redirect_to action: 'edit', household_visit_path(@household, @visit)
+        redirect_to household_visit_path(@household, @visit)
       else
       redirect_to households_path, notice: 'Household was successfully updated.'
     end

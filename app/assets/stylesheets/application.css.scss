@@ -34,6 +34,15 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 @media (min-width: 980px) {
 }
 
+@media print {
+  #printbtn {
+    visibility:hidden
+  }
+  footer {
+    visibility:hidden
+  }
+}
+
 html {
   //background-image: image_path('cream_pixels.png')
 }
