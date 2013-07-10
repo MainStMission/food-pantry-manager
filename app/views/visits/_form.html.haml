@@ -1,7 +1,8 @@
 %h3 Food Order
 %h4 Order Number: #{visit.id}
 %h4 Household: #{visit.show_household}
-%h4 Neighbors: #{visit.household.neighbors.count}
+%h4 Neighbors in Household: #{visit.household.neighbors.count}
+%h5 Visiting Neighbor: #{visit.show_neighbor_name}
 
 %h5 Date: #{visit.visited_on.strftime('%B %d, %Y')}
 
