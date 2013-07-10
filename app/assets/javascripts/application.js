@@ -20,6 +20,7 @@
  //= require header
  //= require rails.validations
  //= require rails.validations.simple_form
+ //= require jquery.timeago
  //= require bootstrap-datepicker
  //= require household
  //= require_tree .
