@@ -9,3 +9,5 @@ unless User.find_by_email("user2@example.com").present?
   user2 = User.create! :first_name => 'Second', :last_name => 'User', :email => 'user2@example.com', :password => 'please', :password_confirmation => 'please'
   puts 'New user created: ' << user2.name
 end
+
+Mission.create! :visit_note_title => 'Initial Visit Note', :visit_note_text => 'Thank you for helping by volunteering at Mani Street Mission'
