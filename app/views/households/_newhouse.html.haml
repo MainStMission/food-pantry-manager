@@ -33,7 +33,7 @@
             = f.input :state, collection: states , input_html: {class: 'span1'}, selected: 'NC'
           .row
           .span3
-            = f.input :zip, label: 'Zip Code', input_html: {class: 'span2'}
+            = f.input :zip, label: 'Zip Code', input_html: {class: 'span3'}
           .row
           .span2
             = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Passport', 'Utility Bill','Food Stamp Card', 'Other'], input_html:{class:'span2'}
@@ -41,10 +41,7 @@
             = f.input :date_of_proof,  label: 'Date of Proof' ,as: :date_picker, input_html: { id: 'dpYears', class: '  span2' }
           .row
           .span4
-            = f.input :special_needs, label: 'Special Non Food Needs', input_html: {class: 'span4'}, placeholder: 'Chcek box below to display in Red'
-          .row
-          .span4
-            = f.input :special_needs, label: 'Notices and Reminders', input_html: {class: 'span4'}
+            = f.input :special_needs, label: 'Alert Notice', input_html: {class: 'span4'}, placeholder: 'Check the box below to display in Red at top of page'
           .row
           .span4
             = f.input :prayer_request, label: 'Prayer Request', input_html: {class: 'span4'}
