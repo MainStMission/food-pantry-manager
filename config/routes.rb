@@ -1,10 +1,13 @@
 # -*- encoding : utf-8 -*-
 FoodPantry::Application.routes.draw do
 
+  resources :missions
+
+
   #devise_for :admins
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  resources :donations, :donors, :visits, :neighbors
+  resources :donations, :donors, :visits, :neighbors, :missions
 
 
   resources :households do
@@ -27,6 +30,8 @@ FoodPantry::Application.routes.draw do
   end
  devise_for :users, :controllers => {:registrations => "users/registrations", :passwords => "users/passwords"}
 
+
+match 'print' => 'households#print', :via => :get
 
   match 'new_visit' => 'households#new_visit', :via => :get
 

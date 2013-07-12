@@ -33,9 +33,9 @@
     .span3
       = f.input :skills, label: 'Skills', collection: ['Book Keeping', 'Graphics', 'Writing', 'Computer', 'Carpentry', 'Admin']
     .span3
-      =f.input :group,  label: 'Group', collection: [:Monday, :Tuesday, :Wednesday, :Thursday, :Friday]
+      =f.input :group,  label: 'Group', collection: [:Monday, :Tuesday, :Wednesday, :Thursday, :Friday, :Virtual]
     .span3
-      =f.input :status, label: 'Status', collection: [:Active, :In_Active], selected: 'Active'
+      =f.input :status, label: 'Status', collection: [:Active, :In_Active, :Prospective], selected: 'Active'
     .span2
       =f.input :admin, label: 'Admin?', input_html: {class: 'form-horizontal'}
     .span12

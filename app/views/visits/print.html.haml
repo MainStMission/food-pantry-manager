@@ -1,0 +1,11 @@
+panel
+  %header
+    %h1 Print Food Order
+    %h1
+      %i.icon-home.icon-large
+        / &nbsp&nbsp&nbspHouseholds
+  .content
+    %p
+      %button.btn.btn-large.btn-success{:type => "button"} Print
+      %button.btn.btn-large.btn-warning{:type => "button"} Return
+    = render 'print'
