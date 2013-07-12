@@ -14,11 +14,13 @@
  //= require jquery
  //= require jquery_ujs
  //= require bootstrap
+ //= turbolinks
  //= require cocoon
  //= require jquery-ui
  //= require header
  //= require rails.validations
  //= require rails.validations.simple_form
+ //= require jquery.timeago
  //= require bootstrap-datepicker
  //= require household
  //= require_tree .

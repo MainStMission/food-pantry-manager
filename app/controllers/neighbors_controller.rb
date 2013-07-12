@@ -38,7 +38,6 @@ class NeighborsController < ApplicationController
 
   def destroy
     neighbor.destroy
-
     redirect_to households_path, notice: 'Neighbor deleted.'
   end
 

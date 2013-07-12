@@ -41,7 +41,6 @@ class VisitsController < ApplicationController
   end
 
   def show
-    visit = Visit.find(params[:id])
     respond_to do |format|
       format.html
       format.pdf do
@@ -49,6 +48,7 @@ class VisitsController < ApplicationController
         send_data pdf.render, filename: "visit_#{visit.id}.pdf",
                   type: "application/pdf",
                   disposition: "inline"
+        
       end
     end
   end

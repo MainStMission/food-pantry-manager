@@ -1,8 +1,10 @@
-class VisitPdf < Prawn::Document
+class HouseholdPdf < Prawn::Document
 
-  def initialize(visit)
-    @visit = visit
-    super(page_layout:  :portrait)
+  def initialize(household)
+    super()
+    @household = household
+    @id = @household.id
+    @visit = household.visits[0]
     visit_date
     household_name
     house_count
@@ -10,19 +12,17 @@ class VisitPdf < Prawn::Document
     special
   end
 
-
   def household_name
     move_down 10
-    text "Household: #{@visit.show_household}"
+    text "Household: #{@household.name}"
   end
 
   def house_count
-    text "Neighbors: #{@visit.household.neighbors.count}"
+    text "Neighbors: #{@household.neighbors.count}"
   end
 
 
    def visit_date
-     text "ID: #{@visit.id.to_s}"
      text "Date: #{@visit.visited_on.strftime('%B %d, %Y')}"
    end
 
@@ -42,8 +42,8 @@ class VisitPdf < Prawn::Document
   def special
     move_down 5
     text 'Special Needs'
-    text "#{@visit.household.food_alert}"
+    text "#{@household.food_alert}"
     text "#{@visit.items_received}"
   end
-  
+
 end
