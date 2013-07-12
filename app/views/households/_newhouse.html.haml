@@ -38,16 +38,19 @@
           .span2
             = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Passport', 'Utility Bill','Food Stamp Card', 'Other'], input_html:{class:'span2'}
           .span2
-            = f.input :date_of_proof,  label: 'Proof Date (D/M/Y)',as: :date_picker, input_html: { id: 'dpYears', class: '  span2' }
+            = f.input :date_of_proof,  label: 'Date of Proof' ,as: :date_picker, input_html: { id: 'dpYears', class: '  span2' }
           .row
           .span4
-            = f.input :special_needs, label: 'Special Non Food Needs', input_html: {class: 'span4'}
+            = f.input :special_needs, label: 'Special Non Food Needs', input_html: {class: 'span4'}, placeholder: 'Chcek box below to display in Red'
+          .row
+          .span4
+            = f.input :special_needs, label: 'Notices and Reminders', input_html: {class: 'span4'}
           .row
           .span4
             = f.input :prayer_request, label: 'Prayer Request', input_html: {class: 'span4'}
           .row
           .span3.well.well-large
-            %p If you enter a prayer request or a special need it will only show up in this area unless you check the box below to post it. If you decide to post it the item will show up on a report for special needs or Prayer requests
+            %p Notices and Reminders will show up in red at the top of the page if the box below is checked. If you enter a prayer request it will only show up in this area unless you check the box below to post it. 
             .span1
               = f.input :post_needs, label: 'Post Needs'
             .span1
@@ -66,12 +69,12 @@
           %tbody
             %tr
             = simple_form_for household do |f|
-              %td= f.input :income1,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Social Security', Other'], input_html: {class: 'form-inline', class: 'span2'}
+              %td= f.input :income1,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Social Security', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
               %td= f.input :inc_amt1, as: :string, label: false, input_html: {class: 'span1'}
               %td= f.input :expense1,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Rent'
               %td= f.input :exp_amt1, as: :string, label: false , input_html: {class: 'span1'}
               %tr
-              %td= f.input :income2,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Social Security', Other'], input_html: {class: 'form-inline', class: 'span2'}
+              %td= f.input :income2,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Social Security', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
               %td= f.input :inc_amt2, as: :string, label: false, input_html: {class: 'span1'}
               %td= f.input :expense2,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Utilities'
               %td= f.input :exp_amt2, as: :string, label: false , input_html: {class: 'span1'}
