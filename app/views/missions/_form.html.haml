@@ -1,0 +1,5 @@
+.span4
+  = simple_form_for @mission do |f|
+    = f.input :title, autofocus: true
+    =f.input :message, label: 'Text to appear on Visit Form', input_html: {rows: 5 , class: 'span5'}
+    = f.button :submit
