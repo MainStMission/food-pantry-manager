@@ -1,8 +1,10 @@
-class CreateMissionTable < ActiveRecord::Migration
+class CreateMissions < ActiveRecord::Migration
   def up
     create_table :mission do |t|
         t.text :visit_note_text
         t.string :visit_note_title
+
+        t.timestamps
      end
 
   end
