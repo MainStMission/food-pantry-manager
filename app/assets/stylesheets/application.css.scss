@@ -34,6 +34,15 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 @media (min-width: 980px) {
 }
 
+@media print {
+  #printbtn {
+    visibility:hidden
+  }
+  footer {
+    visibility:hidden
+  }
+}
+
 html {
   //background-image: image_path('cream_pixels.png')
 }
@@ -50,6 +59,7 @@ html {
   }
 }
 
+
 .table td {
    text-align: center;   
    .house {
@@ -57,7 +67,18 @@ html {
    }
 }
 
+.left-table {
+  td {
+  text-align: left;
+  }
+}
 
+
+#file-status {
+  padding-top: 10px;
+  h5 { text-align: center; }
+
+}
 
 
 #housesearch {
@@ -86,6 +107,12 @@ html {
 #new-visit-head {
  margin-top: -20px;
  line-height: 20px;
+}
+
+#visit-note {
+  width: 652px;
+  padding-top: 0px;
+  margin-left: 67px;
 }
 
 header {
@@ -280,7 +307,7 @@ table#households {
 }
 
 #reminder {
-  margin-left: -25px;
+  margin-left: 0px;
   background-color: #f68b8b;
   margin-top: 5px;
 }

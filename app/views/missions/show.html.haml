@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @mission.title
+%p
+  %b Message:
+  = @mission.message
+
+= link_to 'Edit', edit_mission_path(@mission)
+\|
+= link_to 'Back', missions_path

@@ -16,12 +16,12 @@
       - @household = visit.household
         %tr
           %td= link_to visit.show_household, household_path(visit.household_id)
-          %td= link_to visit.visited_on, url_for([@household, visit])
+          %td= link_to visit.visited_on, edit_visit_path(visit)
           - if visit.neighbor_id
             %td= visit.show_neighbor
           %td= visit.household_allowance
           %td
-            = link_to 'Edit', url_for([@household, visit]), class: 'btn btn-mini'
+            = link_to 'Edit', edit_visit_path(visit), class: 'btn btn-mini'
             = link_to 'PDF', visit_path(visit, format: "pdf"), class: 'btn btn-mini btn-info'
     %br
 
