@@ -8,5 +8,6 @@ class CreateMissionTable < ActiveRecord::Migration
   end
 
   def down
+    drop_table :mission
   end
 end
