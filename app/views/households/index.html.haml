@@ -16,7 +16,6 @@
         %tr
           %th Household 
           %th Box-File
-          %th <i class='icon-ok'></i>
           %th Neighbors
           %th Visits
           %th Last Visit
@@ -25,7 +24,6 @@
         %tr.visits
           %td= link_to household.household_name, edit_household_path(household)
           %td= household.box
-          %td= household.thumbs.html_safe
           %td= household.neighbors.count
           %td= household.visits.count
           %td= household.last_visit
