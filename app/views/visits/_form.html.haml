@@ -1,8 +1,9 @@
 %hr
 
 %h1 Order Number: #{visit.id}
-%h1 Household: #{visit.show_household}
-%h1 Neighbors in Household: #{visit.household.neighbors.count}
+%h1 Household: 
+%h1 #{visit.show_household}
+%h2 Neighbors: #{visit.household.neighbors.count}
 %h2 Visiting Neighbor: #{visit.show_neighbor_name}
 
 %h2 Date: #{visit.visited_on.strftime('%B %d, %Y')}
@@ -19,6 +20,7 @@
 
 %h3 #{visit.items_received}
 
+%hr
 %hr
 
 #printbtn
