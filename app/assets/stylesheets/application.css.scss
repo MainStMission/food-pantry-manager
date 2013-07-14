@@ -35,12 +35,34 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 }
 
 @media print {
+  text-align: center;
+
+  h1 {
+    font-size: 30px;
+  } 
+  h2 {
+    font-size: 25px;
+  }
+  h3 {
+    font-size: 20px;
+  }
   #printbtn {
     visibility:hidden
   }
   footer {
     visibility:hidden
   }
+}
+
+#print_form {
+  width : 300px;
+  h1,h2 {
+    text-align: center;
+  }
+
+}
+#printbtn {
+  text-align: center;
 }
 
 html {
