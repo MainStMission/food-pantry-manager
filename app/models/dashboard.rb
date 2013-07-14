@@ -1,7 +1,16 @@
 class Dashboard
 
-def houshold_summary
-	household_count = Households.count 
+  #def initialize
+  #  @households = Households.unique
+  #end
+
+
+  def household_summary
+	household_count = Households.count
+
+  {
+      household_count: household_count
+  }
 
 end
 

@@ -16,9 +16,16 @@ class HouseholdsController < ApplicationController
   #end
 
 
-  def index   
-     @q = Household.includes(:neighbors, :visits).search(params[:q])
-     @households = @q.result
+  def index
+
+    respond_to do |format|
+      format.html  do
+        @q = Household.includes(:neighbors, :visits).search(params[:q])
+        @households = @q.result
+        end
+      format.json { render json: households }
+    end
+
   end
 
   
