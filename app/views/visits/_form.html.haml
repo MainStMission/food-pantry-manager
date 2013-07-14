@@ -1,19 +1,30 @@
-%h3 Food Order
-%h4 Order Number: #{visit.id}
-%h4 Household: #{visit.show_household}
-%h4 Neighbors in Household: #{visit.household.neighbors.count}
-%h5 Visiting Neighbor: #{visit.show_neighbor_name}
+%hr
 
-%h5 Date: #{visit.visited_on.strftime('%B %d, %Y')}
+#print_form.well.well-large
 
-%h3 Food Items
-%h4 #{visit.starch}
-%h4 #{visit.cereal}
-%h5 #{visit.option1}
-
-%h3 Special Needs
-%h3 #{visit.household.food_alert}
-%h3 #{visit.items_received}
+  %h1 Id: #{visit.id}
+  %h1 Household: 
+  %h1 #{visit.show_household}
+  %h2 Neighbors: #{visit.household.neighbors.count}
+  %hr
+  %h2 Visiting Neighbor
+  %h3 #{visit.show_neighbor_name}
+  %hr
+  %h3 Date: #{visit.visited_on.strftime('%B %d, %Y')}
+  %hr
+  %h2 Household Needs
+  %h3 #{visit.household.food_alert}
+  %hr
+  %h2 Food Items
+  %h3 #{visit.starch}
+  %h3 #{visit.cereal}
+  %h3 #{visit.option1}
+  %hr
+  %h2 Today's Needs
+  %h3 #{visit.items_received}
+  %hr
+  %hr
+  %hr
 
 #printbtn
   = link_to 'Print' , households_path, class: 'button btn btn-large btn-primary' , id: 'btnPrint'

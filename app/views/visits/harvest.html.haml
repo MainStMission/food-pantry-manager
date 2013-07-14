@@ -14,16 +14,16 @@
       %h4 Agency ID: 590AD
       %h4 Report for: #{Date.today.strftime('%B %d, %Y')}
       = link_to 'Second Harvest', 'http://www.secondharvestmetrolina.org/'
-      - @month = 'June'
+      - @month = "#{Date.today.strftime('%B')}"
+      - @prev_month = "#{Date.today.prev_month.strftime('%B')}"
     #harvest_month
       %br
       -#= search_form_for @month do |f|
       -#  = f.label Select Month
       -#  = f.options_for_select(month_select)
       -#  = f.submit
-      = simple_form_for visit, html: { :class => 'form-inline' } do |f|
-        = f.input :visited_on, label: 'Report Month', collection: month_select, input_html: {class: 'span2'}
-        - @month = visit.visited_on
+      / = simple_form_for visit, html: { :class => 'form-inline' } do |f|
+      / = f.input :visited_on, label: 'Report Month', collection: month_select, input_html: {class: 'span2'}
     .row
     .span11
     %h4 The number of different Households served during: #{@month}
@@ -33,14 +33,22 @@
           %thead
             %tr
               %th Month
-              -#- @visits = visits.all
+              / - @visits = visits.all
               %th Total Number of Visits
               %th Total Number of Households
+              %th Total Number of Neighbors
               %tbody
                 %tr
                   %td= @month
                   %td= visits.by_month(@month).count
                   %td= visits.by_month(@month).select("DISTINCT(household_id)").count
+                  %td= visits.by_month(@month).select("DISTINCT(household_id)").count
+                %tr
+                  %td= @prev_month
+                  %td= visits.by_month(@prev_month).count
+                  %td= visits.by_month(@prev_month).select("DISTINCT(household_id)").count
+                  %td= visits.by_month(@prev_month).select("DISTINCT(household_id)").count
+
     %br
     .row.span11
       %h4 The total number of Individuals served during: #{@month}
@@ -55,7 +63,7 @@
                 %th Total Served
                 %tbody
                   %tr
-                    %td=  0     # households.neighbors.count
+                    %td=  12
                     %td=  14   #stats.neighbor_count
                     %td=  30   #stats.neighbor_count
                     %td=  5    #stats.neighbor_count

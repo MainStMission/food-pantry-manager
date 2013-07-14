@@ -1,12 +1,19 @@
 
 
-%h2 Household: #{@visit.household.name}
+%h1 Household: #{@visit.household.name}
 
-%h4 Household Members: #{household.neighbors.count}
+%h2 Household Members: #{household.neighbors.count}
 
-%h4 Food %Selections 
+%h1 Special Needs for Household
+%h2 #{@household.food_alert}
 
-%h4 #{@visit.starch}
-%h4 #{@visit.cereal}
-%h4 #{@visit.option1}
+%h1 Food Selections 
+
+%h2 #{@visit.starch}
+%h2 #{@visit.cereal}
+%h2 #{@visit.option1}
+
+%h1 Special items for Today
+
+%h2 #{@visit.items_received}
 
