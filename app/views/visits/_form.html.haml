@@ -1,24 +1,26 @@
 %hr
 
-%h1 Order Number: #{visit.id}
-%h1 Household: 
-%h1 #{visit.show_household}
-%h2 Neighbors: #{visit.household.neighbors.count}
-%h2 Visiting Neighbor: #{visit.show_neighbor_name}
+#print_form
 
-%h2 Date: #{visit.visited_on.strftime('%B %d, %Y')}
+  %h1 Order Number: #{visit.id}
+  %h1 Household: 
+  %h1 #{visit.show_household}
+  %h2 Neighbors: #{visit.household.neighbors.count}
+  %h2 Visiting Neighbor: #{visit.show_neighbor_name}
 
-%h2 Special Needs For Household
-%h2 #{visit.household.food_alert}
+  %h2 Date: #{visit.visited_on.strftime('%B %d, %Y')}
 
-%h2 Food Items
-%h3 #{visit.starch}
-%h3 #{visit.cereal}
-%h3 #{visit.option1}
+  %h2 Special Needs For Household
+  %h2 #{visit.household.food_alert}
 
-%h3 Special Needs for Today
+  %h2 Food Items
+  %h3 #{visit.starch}
+  %h3 #{visit.cereal}
+  %h3 #{visit.option1}
 
-%h3 #{visit.items_received}
+  %h3 Special Needs for Today
+
+  %h3 #{visit.items_received}
 
 %hr
 %hr
