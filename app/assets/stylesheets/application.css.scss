@@ -55,7 +55,10 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 }
 
 #print_form {
-  width : 200px;
+  width : 300px;
+  h1,h2 {
+    text-align: center;
+  }
 
 }
 
