@@ -1,4 +1,4 @@
-class Harvest
+  class Harvest
 
 
   def initializer(houeshold)

@@ -62,8 +62,9 @@
                 %th Over 64
                 %th Total Served
                 %tbody
-                  %tr
-                    %td=  12
+                  %
+                    - household_ids = visits.by_month(@month).pluck(:household_id).uniq
+                    %td=  neighbors.where
                     %td=  14   #stats.neighbor_count
                     %td=  30   #stats.neighbor_count
                     %td=  5    #stats.neighbor_count
