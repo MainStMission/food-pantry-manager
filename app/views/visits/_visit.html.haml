@@ -1,36 +1,5 @@
-#mhead.well.well-large 
-  .span-one-third
-  %h4 Household Members: #{household.neighbors.count}
-  %h5 Total Visits: #{household.visits.count}
-  %h5 Last Visit: #{household.last_visit}
-  %h5 Monthly Visits: #{household.box_type}
-  = visit_check
-#new-visit-head
-  %h2 Household: #{household.name}
-  = link_to  'View Household', household_path(household), class: 'btn btn-mini'
- 
-- if household.post_needs
-  .span8
-    #reminder.well.well-large
-      %h5 #{household.special_needs}
-.row
-  #neighbor-table
-    %table.table.table-hover
-      %thead
-        %tr
-          %th Name
-          %th Age
-          %th Notes
-      %tbody
-        - household.neighbors.each do |neighbor|
-        - @household = household
-          %tr
-            %td= neighbor.name
-            %td= neighbor.age
-            %td= word_wrap neighbor.notes
-.span11
-%p.visit
-= simple_form_for [household, visit], url: household_visit_path do |f|
+= simple_form_for visit do |f|
+  %h2 Household: #{visit.show_household}
   #visit-color.well.well-large
     #visit-date
       = f.input  :visited_on,     :label => 'Date of Visit', default: Date.today, order: [:month, :day],input_html: { class: 'span2' }
@@ -39,17 +8,15 @@
       .br
       .span3
         = f.input  :starch,         :label => false,  collection: ['Beans','Rice','Potatoes'],selected: 'Beans'
-      .span4
+      .span3
         = f.input  :cereal,         :label => false,  collection: ['Cereal','Grits','Oatmeal']
       .span3
         = f.input  :option1,        :label => false,  collection: ['Peanut Butter Jelly', 'Deserts','Baby Fromula'], prompt: 'Options'
-      .span11
       .br
-      .br
+
         - if !household.food_alert.blank?
           %h4 Food Restrictions: #{household.food_alert}
         = f.input  :items_received, prompt:'Items here will show up on the printer order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
         = f.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
-        = f.button :submit, :class => 'btn-primary', :label=> 'Save' 
-        
+        = f.button :submit, :class => 'btn-primary', :label=> 'Save'
 

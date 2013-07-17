@@ -39,6 +39,11 @@ def thumbs
   end
 
 
+  def neighbor_count
+    self.neighbors.count
+  end
+
+
 
   def visit
     self.visits

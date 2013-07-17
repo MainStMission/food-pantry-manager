@@ -39,11 +39,11 @@ match 'print' => 'households#print', :via => :get
 
   match '/harvest' => 'visits#harvest', via: :get
 
-  match '/dashboard/household_summary'          => 'dashboard#household_summary'
-  match '/dashboard/visit_summary'              => 'dashboard#visit_summary'
-  match '/dashboard/neighbor_summary'           => 'dashboard#neighbor_summary'
-  match '/dashboard/donor_summary'              => 'dashboard#donor_summary'
-  match '/dashboard/donation_summary'          => 'dashboard#donation_summary'
+  match '/dashboard/household_summary'        => 'dashboard#household_summary'
+  match '/dashboard/visit_summary'            => 'dashboard#visit_summary'
+  match '/dashboard/neighbor_summary'         => 'dashboard#neighbor_summary'
+  match '/dashboard/donor_summary'            => 'dashboard#donor_summary'
+  match '/dashboard/donation_summary'         => 'dashboard#donation_summary'
 
 
 

@@ -42,7 +42,7 @@
                   %td= @month
                   %td= visits.by_month(@month).count
                   %td= visits.by_month(@month).select("DISTINCT(household_id)").count
-                  %td= visits.by_month(@month).select("DISTINCT(household_id)").count
+                  %td= visits.by_month(@month).select("DISTINCT(household_id)").neighbor_count
                 %tr
                   %td= @prev_month
                   %td= visits.by_month(@prev_month).count
@@ -62,9 +62,8 @@
                 %th Over 64
                 %th Total Served
                 %tbody
-                  %
-                    - household_ids = visits.by_month(@month).pluck(:household_id).uniq
-                    %td=  neighbors.where
+                  %tr
+                    %td=  12
                     %td=  14   #stats.neighbor_count
                     %td=  30   #stats.neighbor_count
                     %td=  5    #stats.neighbor_count

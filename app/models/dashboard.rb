@@ -1,12 +1,12 @@
 class Dashboard
 
-  #def initialize
-  #  @households = Households.unique
-  #end
+  def initializer(households)
+    @households = households
+  end
 
 
   def household_summary
-	household_count = Households.count
+  household_count = households.count
 
   {
       household_count: household_count
@@ -41,6 +41,8 @@ def volunteer_summary
 	volunteer_count = Volunteers.count
 end
 
+
+attr_reader :households
 
 
 
