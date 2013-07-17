@@ -84,6 +84,10 @@ end
     end
   end
 
+  def household_summary
+    render json: household_summary
+  end
+
 
   def harvest
     respond_with households

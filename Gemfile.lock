@@ -388,6 +388,7 @@ DEPENDENCIES
   active_model_serializers
   american_date
   angularjs-rails-resource (~> 0.1.5)
+  arel
   attr_encryptor
   backup-task
   better_errors

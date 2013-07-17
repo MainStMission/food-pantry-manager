@@ -6,6 +6,7 @@ source "https://rubygems.org"
 gem 'rails', '3.2.12'
 gem 'nokogiri'
 gem 'pg'
+gem 'arel'
 gem 'rails_setup'
 gem 'devise'
 gem 'strong_parameters'
