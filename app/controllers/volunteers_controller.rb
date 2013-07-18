@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 class VolunteersController < ApplicationController
 
+  include RestfulJson::DefaultController
 
   #before_filter :authenticate_user!
 

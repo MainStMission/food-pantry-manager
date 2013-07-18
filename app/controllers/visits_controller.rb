@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 class VisitsController < ApplicationController
 
+  include RestfulJson::DefaultController
+
   before_filter :authenticate_user!
 
   expose(:visit)
