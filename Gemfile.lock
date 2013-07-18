@@ -224,6 +224,7 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
+    permitters (0.0.1)
     pg (0.15.1)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
@@ -425,6 +426,7 @@ DEPENDENCIES
   nokogiri
   paper_trail (~> 2)
   pdf-inspector
+  permitters (~> 0.0.1)
   pg
   prawn
   prawn-labels
