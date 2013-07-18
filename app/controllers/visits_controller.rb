@@ -19,10 +19,10 @@ class VisitsController < ApplicationController
       render action: "new"
     end
   end
-
-  def index
-    visits.all
-  end
+  #
+  #def index
+  #  visits.all
+  #end
 
   # def new
   #   @visit = Visit.new
