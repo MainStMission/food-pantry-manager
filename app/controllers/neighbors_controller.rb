@@ -1,6 +1,9 @@
 # -*- encoding : utf-8 -*-
 class NeighborsController < ApplicationController
 
+  include RestfulJson::DefaultController
+
+
   before_filter :authenticate_user!
   expose(:household)
   expose(:households)

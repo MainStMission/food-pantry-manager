@@ -2,7 +2,7 @@ class HouseholdsController < ApplicationController
 
   include RestfulJson::DefaultController
 
-  respond_to :html, :json
+  #respond_to :html, :json
 
   before_filter :authenticate_user!
 
@@ -21,13 +21,8 @@ class HouseholdsController < ApplicationController
 
   def index
 
-    respond_to do |format|
-      format.html  do
-        @q = Household.includes(:neighbors, :visits).search(params[:q])
+      @q = Household.includes(:neighbors, :visits).search(params[:q])
         @households = @q.result
-        end
-      format.json { render json: households }
-    end
 
   end
 
