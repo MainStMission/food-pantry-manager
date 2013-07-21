@@ -3,15 +3,18 @@
 #print_form.well.well-large
 
   %h1 Id: #{visit.id}
+  %h4 Date: #{visit.visited_on.strftime('%B %d, %Y')}
   %h1 Household: 
   %h1 #{visit.show_household}
   %h2 Neighbors: #{visit.household.neighbors.count}
   %hr
-  %h2 Visiting Neighbor
-  %h3 #{visit.show_neighbor_name}
-  %hr
-  %h3 Date: #{visit.visited_on.strftime('%B %d, %Y')}
-  %hr
+  #neighbor-print.well.well-large
+    %h2 Visiting Neighbor
+    %h3 #{visit.show_neighbor_name}
+    %h4 Household Ages
+    %h4
+      - household.neighbors.each do |neighbor|
+        = neighbor.age
   %h2 Household Needs
   %h3 #{visit.household.food_alert}
   %hr
@@ -19,7 +22,7 @@
   %h3 #{visit.starch}
   %h3 #{visit.cereal}
   %h3 #{visit.option1}
-  %hr
+  %hrp
   %h2 Today's Needs
   %h3 #{visit.items_received}
   %hr

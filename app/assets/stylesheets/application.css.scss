@@ -56,11 +56,16 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 
 #print_form {
   width : 300px;
-  h1,h2 {
+  h1,h2,h4 {
     text-align: center;
   }
 
 }
+
+#neighbor-print {
+  padding-top: 0px;
+}
+
 #printbtn {
   text-align: center;
 }

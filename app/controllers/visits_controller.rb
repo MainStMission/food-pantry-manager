@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 class VisitsController < ApplicationController
 
+  include RestfulJson::DefaultController
+
   before_filter :authenticate_user!
 
   expose(:visit)
@@ -17,10 +19,10 @@ class VisitsController < ApplicationController
       render action: "new"
     end
   end
-
-  def index
-    visits.all
-  end
+  #
+  #def index
+  #  visits.all
+  #end
 
   # def new
   #   @visit = Visit.new
