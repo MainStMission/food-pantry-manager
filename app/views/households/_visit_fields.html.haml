@@ -8,11 +8,11 @@
       = f.association :neighbor, collection: @household.neighbors.all, default: 1, validate: { :presence => true }
       %br
       .span3
-        = f.input  :starch,  label: false,  collection: [ 'Beans','Rice','Potatoes','nothing' ] , selected: 'Beans', input_html: { class: 'span2' }
+        = f.input  :starch,  label: false,  collection: [ 'Beans','Rice','Potatoes',' _ ' ] , selected: 'Beans', input_html: { class: 'span2' }
       .span3
-        = f.input  :cereal,  label: false,  collection: ['Cereal','Grits','Oatmeal', 'Pop Tarts', 'Pancakes'], selected: 'Cereal',input_html: {class: 'span2' }
+        = f.input  :cereal,  label: false,  collection: ['Cereal','Grits','Oatmeal', 'Pop Tarts', 'Pancakes', ' _ '], selected: 'Cereal',input_html: {class: 'span2' }
       .span3
-        = f.input :option1,  label: false,  collection: ['Peanut Butter','Jelly', 'PB & J'], prompt: 'Options', input_html: {class: 'span2' }
+        = f.input :option1,  label: false,  collection: ['Peanut Butter','Jelly', 'PB & J', ' _ '], prompt: 'Options', input_html: {class: 'span2' }
       .span11
       %br
       %br
