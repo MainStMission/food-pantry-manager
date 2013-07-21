@@ -1,15 +1,14 @@
 class Dashboard
 
-  def initializer(households)
-    @households = households
-  end
+   def initializer(households)
+     @households = Houshold.find(:all)
+   end
 
 
   def household_summary
-  household_count = Households.count
-
+    @household_count = Household.all.count
   {
-      household_count: household_count
+      household_count: @household_count
   }
 
 end
