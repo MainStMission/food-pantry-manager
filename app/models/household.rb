@@ -7,8 +7,9 @@ class Household < ActiveRecord::Base
   validates :neighbors, presence: {message: 'You must enter at least one neighbor'}
   validates :inc_amt1, :inc_amt2, :inc_amt3, :exp_amt1, :exp_amt2, :exp_amt3, numericality: true, allow_nil: true
 
-  has_many :neighbors
-  has_many :visits
+  has_many :neighbors    , dependent: :delete_all
+  has_many :visits       , dependent: :delete_all
+
   accepts_nested_attributes_for :neighbors, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :visits, allow_destroy: true, reject_if: :all_blank
   
@@ -35,6 +36,11 @@ def thumbs
     else
       "<i class='icon-check-empty'></i>"
     end
+  end
+
+
+  def neighbor_count
+    self.neighbors.count
   end
 
 

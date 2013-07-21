@@ -14,6 +14,12 @@ module HarvestHelper
     %w(January February March April May June July August September October November December )
   end
 
+  def neighbor_count(h_month)
+    h_month.each  do |household_id| 
+      Household.search(params[household_id]).neighbor_count.sum 
+    end
+  end
+
   def initialize_month
     @month = ' '
   end
