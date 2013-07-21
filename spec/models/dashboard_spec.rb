@@ -8,10 +8,10 @@ describe 'dashboard' do
 		@new_dash = Dashboard.new
 	end
 
-	it 'can access households from the new dashboard' do
-		@new_dash = Dashboard.new
-		@new_dash.households = Household.find(:all)
-	end
+	#it 'can access households from the new dashboard' do
+	#	@new_dash = Dashboard.new
+	#	@new_dash.households = Household.all
+	#end
 
 	
 end
