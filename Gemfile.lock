@@ -352,6 +352,10 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.7)
+    squeel (1.0.18)
+      activerecord (~> 3.0)
+      activesupport (~> 3.0)
+      polyamorous (~> 0.5.0)
     strong_parameters (0.2.1)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
@@ -389,7 +393,6 @@ DEPENDENCIES
   active_model_serializers
   american_date
   angularjs-rails-resource (~> 0.1.5)
-  arel
   attr_encryptor
   backup-task
   better_errors
@@ -452,6 +455,7 @@ DEPENDENCIES
   simple_form
   spork (~> 1.0rc)
   sqlite3
+  squeel
   strong_parameters
   timecop
   turbolinks

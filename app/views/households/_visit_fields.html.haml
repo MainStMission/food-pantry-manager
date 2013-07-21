@@ -22,6 +22,7 @@
       #visit-note.well.well-large
         %h5 Please check this area for daily messages
         = Mission.last.message
+        - notes = Mission.last.message
       .actions.span12
       = f.button :submit, value: 'Print Order', id: 'btnPrint'
       = f.button :submit,  class: 'btn btn-inverse'    

@@ -1,10 +1,10 @@
-= simple_form_for visit do |f|
-  %h2 Household: #{visit.show_household}
+= simple_form_for @visit do |f|
+  %h2 Household: #{@visit.show_household}
   #visit-color.well.well-large
     #visit-date
       = f.input  :visited_on,     :label => 'Date of Visit', default: Date.today, order: [:month, :day],input_html: { class: 'span2' }
       .br
-        = f.association :neighbor, collection: household.neighbors.all, default: 1, validate: { :presence => true }
+        = f.association :neighbor, collection: @visit.household.neighbors.all, default: 1, validate: { :presence => true }
       .br
       .span3
         = f.input  :starch,         :label => false,  collection: ['Beans','Rice','Potatoes'],selected: 'Beans'
@@ -14,8 +14,8 @@
         = f.input  :option1,        :label => false,  collection: ['Peanut Butter Jelly', 'Deserts','Baby Fromula'], prompt: 'Options'
       .br
 
-        - if !household.food_alert.blank?
-          %h4 Food Restrictions: #{household.food_alert}
+        - if !@visit.household.food_alert.blank?
+          %h4 Food Restrictions: #{@visit.household.food_alert}
         = f.input  :items_received, prompt:'Items here will show up on the printer order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
         = f.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
         = f.button :submit, :class => 'btn-primary', :label=> 'Save'
