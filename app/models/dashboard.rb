@@ -30,7 +30,11 @@ def visit_summary
 end
 
 def neighbor_summary
-	neighbor_count = Neighbors.count
+	@neighbor_count = Neighbor.all.count
+
+  {
+       neighbor_count: @neighbor_count
+  }
 	
 end
 
