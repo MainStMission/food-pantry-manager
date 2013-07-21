@@ -10,9 +10,9 @@
       .span3
         = f.input  :starch,  label: false,  collection: [ 'Beans','Rice','Potatoes',' _ ' ] , selected: 'Beans', input_html: { class: 'span2' }
       .span3
-        = f.input  :cereal,  label: false,  collection: ['Cereal','Grits','Oatmeal', 'Pop Tarts', 'Pancakes',' _ '], selected: 'Cereal',input_html: {class: 'span2' }
+        = f.input  :cereal,  label: false,  collection: ['Cereal','Grits','Oatmeal', 'Pop Tarts', 'Pancakes', ' _ '], selected: 'Cereal',input_html: {class: 'span2' }
       .span3
-        = f.input :option1,  label: false,  collection: ['Peanut Butter','Jelly', 'PB & J',' _ '], prompt: 'Options', input_html: {class: 'span2' }
+        = f.input :option1,  label: false,  collection: ['Peanut Butter','Jelly', 'PB & J', ' _ '], prompt: 'Options', input_html: {class: 'span2' }
       .span11
       %br
       %br
@@ -22,6 +22,7 @@
       #visit-note.well.well-large
         %h5 Please check this area for daily messages
         = Mission.last.message
+        - notes = Mission.last.message
       .actions.span12
       = f.button :submit, value: 'Print Order', id: 'btnPrint'
       = f.button :submit,  class: 'btn btn-inverse'    

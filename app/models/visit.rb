@@ -9,6 +9,10 @@ class Visit < ActiveRecord::Base
   belongs_to :neighbor
   belongs_to :household
 
+  has_many :neighbors, through: :households
+
+
+
   delegate :name, to: :neighbor, prefix: true, allow_nil: true
   delegate :household_name, to: :household, prefix: true, allow_nil: true
 
