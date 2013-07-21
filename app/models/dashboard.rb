@@ -6,7 +6,7 @@ class Dashboard
 
 
   def household_summary
-  household_count = households.count
+  household_count = Households.count
 
   {
       household_count: household_count
@@ -19,7 +19,7 @@ def visit_summary
 	@month = "#{Date.today.strftime('%B')}"
 	@prev_month = "#{Date.today.prev_month.strftime('%B')}"
 	distinct_visits_this_month = Visits.by_month(@month).select("DISTINCT(household_id)").count
-	distinct_visits_last_month = visits.by_month(@prev_month).select("DISTINCT(household_id)").count
+	distinct_visits_last_month = Visits.by_month(@prev_month).select("DISTINCT(household_id)").count
 	
 end
 

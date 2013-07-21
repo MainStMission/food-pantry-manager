@@ -37,12 +37,14 @@
               %th Total Number of Visits
               %th Total Number of Households
               %th Total Number of Neighbors
+              - @h_month = visits.by_month(@month).select("DISTINCT(household_id)")
               %tbody
                 %tr
                   %td= @month
                   %td= visits.by_month(@month).count
-                  %td= visits.by_month(@month).select("DISTINCT(household_id)").count
-                  %td= visits.by_month(@month).select("DISTINCT(household_id)").neighbor_count
+                  %td= @h_month.count
+                  %td= @h_month.count
+                  count
                 %tr
                   %td= @prev_month
                   %td= visits.by_month(@prev_month).count
