@@ -8,7 +8,7 @@ describe Household do
   it { should have_many(:visits) }
 
 
-  # it 'has a valid factory' do
+  #it 'has a valid factory' do
   #   create(:household).should be_valid
   # end
 

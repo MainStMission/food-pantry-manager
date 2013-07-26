@@ -44,7 +44,8 @@ def thumbs
   end
 
   def young_neighbor
-    self.neighbors.count
+    self.neighbors.where( 'age < 19').count
+
   end
 
   def middle_neighbor
