@@ -16,7 +16,8 @@ module HarvestHelper
 
   def household_neighbor_count(houses)
     houses.each  do |id| 
-     Household.find(id).neighbor_count
+    @neigh  = Household.find(id).neighbor_count
+    @neigh
     end
   end
 

@@ -43,7 +43,17 @@ def thumbs
     self.neighbors.count
   end
 
+  def young_neighbor
+    self.neighbors.count
+  end
 
+  def middle_neighbor
+    self.neighbors.count
+  end
+
+  def old_neighbor
+    self.neighbors.count
+  end
 
   def visit
     self.visits
