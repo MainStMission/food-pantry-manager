@@ -44,7 +44,7 @@ def thumbs
   end
 
   def young_neighbor
-    self.neighbors.count
+    self.neighbors.young.count
   end
 
   def middle_neighbor
@@ -52,7 +52,7 @@ def thumbs
   end
 
   def old_neighbor
-    self.neighbors.count
+    self.neighbors.old.count
   end
 
   def visit
