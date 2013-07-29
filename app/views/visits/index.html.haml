@@ -22,7 +22,7 @@
           %td= visit.household_allowance
           %td
             = link_to 'Edit', edit_visit_path(visit), class: 'btn btn-mini'
-            = link_to 'PDF', visit_path(visit, format: "pdf"), class: 'btn btn-mini btn-info'
+            = link_to 'Destroy', visit, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
     %br
 
     = link_to 'New Visit', new_visit_path, class: 'btn btn-primary'
