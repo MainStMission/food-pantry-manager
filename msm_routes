@@ -1,0 +1,64 @@
+     POST   /visits(.:format)                                      visits#create
+                            GET    /visits/new(.:format)                                  visits#new
+                            GET    /visits/:id/edit(.:format)                             visits#edit
+                            GET    /visits/:id(.:format)                                  visits#show
+                            PUT    /visits/:id(.:format)                                  visits#update
+                            DELETE /visits/:id(.:format)                                  visits#destroy
+          sign_in_volunteer GET    /volunteers/:id/sign_in(.:format)                      volunteers#sign_in
+         sign_out_volunteer GET    /volunteers/:id/sign_out(.:format)                     volunteers#sign_out
+                 volunteers GET    /volunteers(.:format)                                  volunteers#index
+                            POST   /volunteers(.:format)                                  volunteers#create
+              new_volunteer GET    /volunteers/new(.:format)                              volunteers#new
+             edit_volunteer GET    /volunteers/:id/edit(.:format)                         volunteers#edit
+                  volunteer GET    /volunteers/:id(.:format)                              volunteers#show
+                            PUT    /volunteers/:id(.:format)                              volunteers#update
+                            DELETE /volunteers/:id(.:format)                              volunteers#destroy
+           new_user_session GET    /users/sign_in(.:format)                               devise/sessions#new
+               user_session POST   /users/sign_in(.:format)                               devise/sessions#create
+       destroy_user_session DELETE /users/sign_out(.:format)                              devise/sessions#destroy
+              user_password POST   /users/password(.:format)                              users/passwords#create
+          new_user_password GET    /users/password/new(.:format)                          users/passwords#new
+         edit_user_password GET    /users/password/edit(.:format)                         users/passwords#edit
+                            PUT    /users/password(.:format)                              users/passwords#update
+   cancel_user_registration GET    /users/cancel(.:format)                                users/registrations#cancel
+          user_registration POST   /users(.:format)                                       users/registrations#create
+      new_user_registration GET    /users/sign_up(.:format)                               users/registrations#new
+     edit_user_registration GET    /users/edit(.:format)                                  users/registrations#edit
+                            PUT    /users(.:format)                                       users/registrations#update
+                            DELETE /users(.:format)                                       users/registrations#destroy
+                      print GET    /print(.:format)                                       households#print
+                            GET    /new_visit(.:format)                                   households#new_visit
+                 time_clock        /time_clock(.:format)                                  time_clock#show
+                    harvest GET    /harvest(.:format)                                     visits#harvest
+dashboard_household_summary        /dashboard/household_summary(.:format)                 dashboard#household_summary
+    dashboard_visit_summary        /dashboard/visit_summary(.:format)                     dashboard#visit_summary
+ dashboard_neighbor_summary        /dashboard/neighbor_summary(.:format)                  dashboard#neighbor_summary
+    dashboard_donor_summary        /dashboard/donor_summary(.:format)                     dashboard#donor_summary
+ dashboard_donation_summary        /dashboard/donation_summary(.:format)                  dashboard#donation_summary
+                       root        /                                                      users#index
+                       root        /                                                      :controller#:action
+        household_end_point POST   /household_end_point(.:format)                         households#submit
+     new_admin_user_session GET    /admin_users/sign_in(.:format)                         devise/sessions#new
+         admin_user_session POST   /admin_users/sign_in(.:format)                         devise/sessions#create
+ destroy_admin_user_session DELETE /admin_users/sign_out(.:format)                        devise/sessions#destroy
+        admin_user_password POST   /admin_users/password(.:format)                        devise/passwords#create
+    new_admin_user_password GET    /admin_users/password/new(.:format)                    devise/passwords#new
+   edit_admin_user_password GET    /admin_users/password/edit(.:format)                   devise/passwords#edit
+                            PUT    /admin_users/password(.:format)                        devise/passwords#update
+                      users GET    /users(.:format)                                       users#index
+                            POST   /users(.:format)                                       users#create
+                   new_user GET    /users/new(.:format)                                   users#new
+                  edit_user GET    /users/:id/edit(.:format)                              users#edit
+                       user GET    /users/:id(.:format)                                   users#show
+                            PUT    /users/:id(.:format)                                   users#update
+                            DELETE /users/:id(.:format)                                   users#destroy
+
+Routes for RailsAdmin::Engine:
+    dashboard GET         /                                      rails_admin/main#dashboard
+        index GET|POST    /:model_name(.:format)                 rails_admin/main#index
+          new GET|POST    /:model_name/new(.:format)             rails_admin/main#new
+       export GET|POST    /:model_name/export(.:format)          rails_admin/main#export
+  bulk_delete POST|DELETE /:model_name/bulk_delete(.:format)     rails_admin/main#bulk_delete
+history_index GET         /:model_name/history(.:format)         rails_admin/main#history_index
+  bulk_action POST        /:model_name/bulk_action(.:format)     rails_admin/main#bulk_action
+         show GET         /:model_name/:id(.:format)             rails_admin/main#show
