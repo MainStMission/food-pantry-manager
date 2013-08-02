@@ -179,21 +179,27 @@
       .span5
         = f.input :option2, label: 'Do you have any suggestions to help the Mission?',input_html: {rows: 1, class: 'span5'}
       .row
-      = f.input :christmas,  label: 'Add to Christmas list', wrapper:  :inline_checkbox
-      = f.input :bool1, label: 'Refered to Rowan Helping Ministries', wrapper:  :inline_checkbox
-      = f.input :bool2, label: 'Refered to Cabarus County', wrapper: :inline_checkbox
+      .span5
+        = f.input :bool1, label: 'Consent signed', wrapper:  :inline_checkbox
+      .span5
+        = f.input :christmas,  label: 'Add to Christmas list', wrapper:  :inline_checkbox
+      .span5
+        = f.input :bool2, label: 'Referred to other Agency', wrapper: :inline_checkbox
+      .span5
+        = f.input :bool3, label: 'School Supplies', wrapper: :inline_checkbox
+      .span5
+        = f.input :bool4, label: 'Thanksgiving Turkeys', wrapper: :inline_checkbox
+      .span5
+        = f.input :bool5, label: 'Holiday Baskets', wrapper: :inline_checkbox
+      .row
       .hr
       #file-status.well.well-large
         %h5 Main Street Mission Storage location and file status
-        .span3
-          = f.input :s_numb, label: 'Closed file Number:', input_html: {class: 'span1'}
-        .span3
-          = f.input :s_box, label: 'Storage Box Number:', input_html: {class: 'span1'}
-        .span2
-          = f.input :bool4, label: 'Consent Not Signed', wrapper: :inline_checkbox
-        .span2
-          = f.input :bool3, label: 'Completed', wrapper: :inline_checkbox
-        .row
+        %fieldset.form-inline
+          .span4
+            = f.input :s_numb, label: 'Closed file Number:', input_html: {class: 'span1 form-inline'}
+          .span4
+            = f.input :s_box, label: 'Storage Box Number:', input_html: {class: 'span1 form-inline'}
   #visit-btn.actions.submit-visit
     = f.button :submit, class: 'btn btn-warning'
 
