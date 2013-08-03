@@ -7,12 +7,12 @@ describe Household do
 
   it { should have_many(:visits) }
 
-   let (:neighbor_1) {Neighbor.create(first_name: 'Tom', last_name: 'Brooke', birth_date: Date.today - 2.year)}
-
-
-  it "should have a date of birth that caluculates age " do
-
-    
+  # let (:neighbor_1) {Neighbor.create(first_name: 'Tom', last_name: 'Brooke', birth_date: Date.today - 2.year)}
+  #
+  #
+  #it "should have a date of birth that caluculates age " do
+  #
+  #
       
   
    
