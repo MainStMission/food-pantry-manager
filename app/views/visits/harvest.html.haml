@@ -55,6 +55,26 @@
     %br
     .row
     .span11
+    %h4 The total number of Individuals served during: #{@month}
+    - household_status_for(households.all) do |stats|
+      .span11
+        %table.table.table-bordered
+          %thead
+            %tr
+              %th < 19 
+              %th Between 18 & 64 
+              %th Over 64
+              %th Total Served
+              %tbody
+                %tr
+                  %td=  @household_ids.map{|id| Household.find(id).young_neighbor}.inject(:+)
+                  %td=  @household_ids.map{|id| Household.find(id).middle_neighbor}.inject(:+)
+                  %td=  @household_ids.map{|id| Household.find(id).old_neighbor}.inject(:+)
+                  %td=  @household_ids.map{|id| Household.find(id).neighbor_count}.inject(:+)
+    .row
+    %br
+    .row
+    .span11
     %h4 The total number of Individuals served during: #{@prev_month}
     - household_status_for(households.all) do |stats|
       .span11

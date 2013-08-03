@@ -48,7 +48,7 @@ def thumbs
   end
 
   def middle_neighbor
-    self.neighbors.count
+    self.neighbors.middle.count
   end
 
   def old_neighbor
