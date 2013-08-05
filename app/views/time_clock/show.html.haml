@@ -7,7 +7,7 @@
     %table.table
       %tbody#volunteers
         = paginate volunteers
-        = render volunteers
+        = render volunteers.scoped.page params[:page] 
     = paginate volunteers
 
 
