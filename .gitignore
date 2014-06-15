@@ -43,6 +43,7 @@ tmp
 config/config.yml
 zeus.json
 custom_plan.rb
+.ruby-version
 
 db/*.db
 
