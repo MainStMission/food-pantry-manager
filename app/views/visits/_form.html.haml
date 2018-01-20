@@ -15,8 +15,9 @@
     %h4
       - household.neighbors.each do |neighbor|
         = neighbor.age
-  %h2 Household Needs
-  %h3 #{visit.household.food_alert}
+  - if household.food_alert?
+    %h2 Household Needs
+    %h3 #{visit.household.food_alert}
   %hr
   %h2 Food Items
   %h3 #{visit.starch}

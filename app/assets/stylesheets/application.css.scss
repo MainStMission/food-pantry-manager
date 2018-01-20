@@ -86,12 +86,15 @@ html {
   }
 }
 
-
+€1
 .table td {
    text-align: center;   
    .house {
     text-align: left;
    }
+}
+.table th {
+   text-align: center;   
 }
 
 .left-table {
@@ -188,7 +191,7 @@ footer{
 }
 
 .nav-tabs {
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .add_neighbor {
@@ -204,6 +207,7 @@ footer{
   text-align: center;
 
 }
+
 
 table#households {
   margin-top: 40px;

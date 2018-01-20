@@ -1,6 +1,5 @@
 $ ->
   $('time').timeago()
-
   updateVolunteers = ->
     volunteers_id = $("#volunteers")
     $.getScript("/time_clock", ->

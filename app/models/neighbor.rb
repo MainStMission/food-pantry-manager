@@ -11,9 +11,9 @@ class Neighbor < ActiveRecord::Base
 
   default_scope order('last_name ASC')
 
-  scope :young, where( 'age < 19')
-  scope :middle, where('age > 18 && age < 66')
-  scope :old, where('age > 65')
+  scope :young, where("birth_date >= ?", 19.years.ago)
+  scope :middle, where("birth_date <= ? AND birth_date >= ?", 20.years.ago, 65.years.ago)
+  scope :old, where("birth_date <= ?", 64.years.ago)
 
 
   attr_encrypted :ssn, :key => Rails.application.config.secret_token
