@@ -95,17 +95,17 @@
         %tbody
           %tr
           = simple_form_for household do |f|
-            %td= f.input :income1,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+            %td= f.input :income1,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Social Security','Other'], input_html: {class: 'form-inline', class: 'span2'}
             %td= f.input :inc_amt1, as: :string, label: false, input_html: {class: 'span1'}
-            %td= f.input :expense1,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Rent'
+            %td= f.input :expense1,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation' ,'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Rent'
             %td= f.input :exp_amt1, as: :string, label: false , input_html: {class: 'span1'}
             %tr
-            %td= f.input :income2,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+            %td= f.input :income2,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Social Security','Other'], input_html: {class: 'form-inline', class: 'span2'}
             %td= f.input :inc_amt2, as: :string, label: false, input_html: {class: 'span1'}
             %td= f.input :expense2,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Utilities'
             %td= f.input :exp_amt2, as: :string, label: false , input_html: {class: 'span1'}
             %tr
-            %td= f.input :income3,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+            %td= f.input :income3,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Social Security','Other'], input_html: {class: 'form-inline', class: 'span2'}
             %td= f.input :inc_amt3, as: :string, label: false, input_html: {class: 'span1'}
             %td= f.input :expense3,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}
             %td= f.input :exp_amt3, as: :string, label: false , input_html: {class: 'span1'}
@@ -179,21 +179,27 @@
       .span5
         = f.input :option2, label: 'Do you have any suggestions to help the Mission?',input_html: {rows: 1, class: 'span5'}
       .row
-      = f.input :christmas,  label: 'Add to Christmas list', wrapper:  :inline_checkbox
-      = f.input :bool1, label: 'Refered to Rowan Helping Ministries', wrapper:  :inline_checkbox
-      = f.input :bool2, label: 'Refered to Cabarus County', wrapper: :inline_checkbox
+      .span5
+        = f.input :bool1, label: 'Consent signed', wrapper:  :inline_checkbox
+      .span5
+        = f.input :christmas,  label: 'Add to Christmas list', wrapper:  :inline_checkbox
+      .span5
+        = f.input :bool2, label: 'Referred to other Agency', wrapper: :inline_checkbox
+      .span5
+        = f.input :bool3, label: 'School Supplies', wrapper: :inline_checkbox
+      .span5
+        = f.input :bool4, label: 'Thanksgiving Turkeys', wrapper: :inline_checkbox
+      .span5
+        = f.input :bool5, label: 'Holiday Baskets', wrapper: :inline_checkbox
+      .row
       .hr
       #file-status.well.well-large
         %h5 Main Street Mission Storage location and file status
-        .span3
-          = f.input :s_numb, label: 'Closed file Number:', input_html: {class: 'span1'}
-        .span3
-          = f.input :s_box, label: 'Storage Box Number:', input_html: {class: 'span1'}
-        .span2
-          = f.input :bool4, label: 'Consent Not Signed', wrapper: :inline_checkbox
-        .span2
-          = f.input :bool3, label: 'Completed', wrapper: :inline_checkbox
-        .row
+        %fieldset.form-inline
+          .span4
+            = f.input :s_numb, label: 'Closed file Number:', input_html: {class: 'span1 form-inline'}
+          .span4
+            = f.input :s_box, label: 'Storage Box Number:', input_html: {class: 'span1 form-inline'}
   #visit-btn.actions.submit-visit
     = f.button :submit, class: 'btn btn-warning'
 

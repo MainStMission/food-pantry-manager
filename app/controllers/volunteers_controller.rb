@@ -6,7 +6,7 @@ class VolunteersController < ApplicationController
    #before_filter :authenticate_user!
 
   expose(:volunteer)
-  expose(:volunteers)
+  expose(:volunteers) { Volunteer.scoped.page params[:page] }
 
 
   def create

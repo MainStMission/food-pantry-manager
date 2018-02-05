@@ -26,9 +26,9 @@
       / = f.input :visited_on, label: 'Report Month', collection: month_select, input_html: {class: 'span2'}
     .row
     .span11
-    %h4 The number of different Households served during: #{@month}
+    %h4 The number of different Households served during: #{@prev_month} and #{@month}
     - household_status_for do |stats|
-      .span5
+      .span11
         %table.table.table-bordered
           %thead
             %tr
@@ -37,38 +37,60 @@
               %th Total Number of Visits
               %th Total Number of Households
               %th Total Number of Neighbors
-              - @h_month = visits.by_month(@month).select("DISTINCT(household_id)")
+              - @h_month = visits.by_month(@month).select "DISTINCT(household_id)"
+              - @household_ids = visits.by_month(@month).pluck(:household_id).uniq
+              - @prev_month_ids = visits.by_month(@prev_month).pluck(:household_id).uniq
               %tbody
                 %tr
                   %td= @month
                   %td= visits.by_month(@month).count
                   %td= @h_month.count
-                  %td= @h_month.count
-                  count
+                  %td= @household_ids.map{|id| Household.find(id).neighbor_count}.inject(:+)
                 %tr
                   %td= @prev_month
                   %td= visits.by_month(@prev_month).count
                   %td= visits.by_month(@prev_month).select("DISTINCT(household_id)").count
-                  %td= visits.by_month(@prev_month).select("DISTINCT(household_id)").count
+                  %td= @prev_month_ids.map{|id| Household.find(id).neighbor_count}.inject(:+)
 
     %br
-    .row.span11
-      %h4 The total number of Individuals served during: #{@month}
-      - household_status_for(households.all) do |stats|
-        .span11
-          %table.table-bordered
-            %thead
-              %tr
-                %th  < 19
-                %th Between 18 & 64
-                %th Over 64
-                %th Total Served
-                %tbody
-                  %tr
-                    %td=  12
-                    %td=  14   #stats.neighbor_count
-                    %td=  30   #stats.neighbor_count
-                    %td=  5    #stats.neighbor_count
+    .row
+    .span11
+    %h4 The total number of Individuals served during: #{@month}
+    - household_status_for(households.all) do |stats|
+      .span11
+        %table.table.table-bordered
+          %thead
+            %tr
+              %th < 19 
+              %th Between 18 & 64 
+              %th Over 64
+              %th Total Served
+              %tbody
+                %tr
+                  %td=  @household_ids.map{|id| Household.find(id).young_neighbor}.inject(:+)
+                  %td=  @household_ids.map{|id| Household.find(id).middle_neighbor}.inject(:+)
+                  %td=  @household_ids.map{|id| Household.find(id).old_neighbor}.inject(:+)
+                  %td=  @household_ids.map{|id| Household.find(id).neighbor_count}.inject(:+)
+    .row
+    %br
+    .row
+    .span11
+    %h4 The total number of Individuals served during: #{@prev_month}
+    - household_status_for(households.all) do |stats|
+      .span11
+        %table.table.table-bordered
+          %thead
+            %tr
+              %th < 19 
+              %th Between 18 & 64 
+              %th Over 64
+              %th Total Served
+              %tbody
+                %tr
+                  %td=  @prev_month_ids.map{|id| Household.find(id).young_neighbor}.inject(:+)
+                  %td=  @prev_month_ids.map{|id| Household.find(id).middle_neighbor}.inject(:+)
+                  %td=  @prev_month_ids.map{|id| Household.find(id).old_neighbor}.inject(:+)
+                  %td=  @prev_month_ids.map{|id| Household.find(id).neighbor_count}.inject(:+)
   .row
   %br
 

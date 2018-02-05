@@ -31,7 +31,7 @@
     .span6
       = f.input :birthday, as: :date, start_year: Date.today.year - 1, end_year: Date.today.year - 90,  order: [:day, :month, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, input_html: {class: 'span2'}
     .span3
-      = f.input :skills, label: 'Skills', collection: ['Book Keeping', 'Graphics', 'Writing', 'Computer', 'Carpentry', 'Admin']
+      = f.input :skills, label: 'Skills', collection: ['Fill food boxes', 'Sort/divide food', 'Unloading', 'Food pickup', 'Second Harvest Pickup', 'Clothing', 'Visiting with neighbors', 'Carpentry', 'Data Entry', 'Social Media', 'Graphic Design', 'Office work', 'Picture Scrap booking']
     .span3
       =f.input :group,  label: 'Group', collection: [:Monday, :Tuesday, :Wednesday, :Thursday, :Friday, :Virtual]
     .span3

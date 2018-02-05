@@ -27,7 +27,7 @@ gem 'prawn'
 gem 'prawn-print', :git => 'git://github.com/barsoom/prawn-print.git'
 gem 'capistrano'
 gem 'simple-capistrano-unicorn'
-gem 'rvm-capistrano', '>=1.3.0.rc4'
+gem 'rvm-capistrano', '>=1.3.0.rc4', require: false
 gem 'backup-task'
 gem 'unicorn'
 gem 'active_model_serializers'
@@ -35,7 +35,6 @@ gem 'turbolinks'
 gem 'restful_json', '~> 4.2.0'
 gem 'angularjs-rails-resource', '~> 0.1.5'
 gem "prawn-labels"
-gem 'prawn-print', :git => 'git://github.com/barsoom/prawn-print.git'
 
 
 group :assets do
