@@ -13,7 +13,6 @@
     household_neighbors.count
   end
 
-
 private
 
   def household_neighbors
