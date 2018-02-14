@@ -1,4 +1,5 @@
 language: ruby
+cache: bundler
 group: deprecated-2017Q4
 rvm:
   - 1.9.3
