@@ -34,7 +34,6 @@ gem "prawn-labels"
 gem "rb-readline"
 
 
-group :assets do
   gem "Ascii85", "~> 1.0.2"
   gem 'coffee-rails'
   gem 'sass-rails','~> 4.0'
@@ -48,7 +47,6 @@ group :assets do
   gem 'haml-rails'
   gem 'bourbon'
   gem 'simple_form'
-end
 
 gem 'attr_encryptor'
 gem 'decent_exposure'
