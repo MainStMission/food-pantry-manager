@@ -3,7 +3,7 @@ require "bundler/capistrano"
 #load "config/recipes/monit"
 #load "config/recipes/nginx"
 set :application, "pantry"
-set :repository,  "git@github.com:tbrooke/food-pantry-manager.git"
+set :repository,  "git@github.com:MainStMission/food-pantry-manager.git"
 set :user, 'msmuser'
 set :ssh_options, {:forward_agent => true}
 set :use_sudo, false
