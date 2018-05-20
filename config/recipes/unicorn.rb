@@ -1,6 +1,6 @@
 set(:unicorn_user) { user }
 set(:unicorn_pid) { "#{shared_path}/pids/unicorn.pid" }
-set(:unicorn_config) { "#{shared_path}/config/unicorn.rb" }
+set(:unicorn_config) { "#{current_path}/config/unicorn.rb" }
 set(:unicorn_log) { "#{shared_path}/log/unicorn.log" }
 set(:unicorn_workers, 2)
 
