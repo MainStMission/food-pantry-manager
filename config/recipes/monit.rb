@@ -1,3 +1,6 @@
+require 'pry'
+require 'erb'
+
 namespace :monit do
   desc "Install Monit"
   task :install do
@@ -9,7 +12,7 @@ namespace :monit do
   task :setup do
     #monit_config "monitrc", "/etc/monit/monitrc"
     nginx
-    postgresql
+    #postgresql
     unicorn
     syntax
     reload
@@ -30,8 +33,15 @@ end
 
 def monit_config(name, destination = nil)
   destination ||= "/etc/monit/conf.d/#{name}.conf"
-  template "monit/#{name}.erb", "/tmp/monit_#{name}"
+  template "templates/monit/#{name}.erb", "/tmp/monit_#{name}"
   run "#{sudo} mv /tmp/monit_#{name} #{destination}"
   run "#{sudo} chown root #{destination}"
   run "#{sudo} chmod 600 #{destination}"
+end
+
+def template(source_file, dest_file)
+  file = File.join(File.dirname(__FILE__), source_file)
+  template = File.read(file)
+  buffer = ERB.new(template).result(binding)
+  put buffer, dest_file, :mode => 0444
 end

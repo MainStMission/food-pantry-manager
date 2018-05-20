@@ -6,7 +6,7 @@ TIMEOUT=${TIMEOUT-60}
 APP_ROOT=/var/www/pantry/current
 PID=$APP_ROOT/tmp/pids/unicorn.pid
 CMD="cd $APP_ROOT; bundle exec unicorn -D -c $APP_ROOT/config/unicorn.rb -E production"
-AS_USER=deployer
+AS_USER=msmuser
 set -u
 
 OLD_PIN="$PID.oldbin"

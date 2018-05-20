@@ -1,6 +1,7 @@
 require "rvm/capistrano"
 require "bundler/capistrano"
-#load "config/recipes/monit"
+load "config/recipes/unicorn"
+load "config/recipes/monit"
 #load "config/recipes/nginx"
 set :application, "pantry"
 set :repository,  "git@github.com:MainStMission/food-pantry-manager.git"
@@ -61,7 +62,7 @@ namespace :deploy do
 
   task :setup_config, roles: :app do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
-    sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
+    #sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
     run "mkdir -p #{shared_path}/config"
     put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
     puts "Now edit the config files in #{shared_path}."
@@ -75,11 +76,11 @@ namespace :deploy do
 
   desc "Make sure local git is in sync with remote."
   task :check_revision, roles: :web do
-    unless `git rev-parse HEAD` == `git rev-parse origin/master`
-      puts "WARNING: HEAD is not the same as origin/master"
-      puts "Run `git push` to sync changes."
-      exit
-    end
+    #unless `git rev-parse HEAD` == `git rev-parse origin/master`
+    #  puts "WARNING: HEAD is not the same as origin/master"
+    #  puts "Run `git push` to sync changes."
+    #  exit
+    #end
   end
   before "deploy", "deploy:check_revision"
 end
