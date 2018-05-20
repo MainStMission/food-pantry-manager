@@ -25,9 +25,6 @@ gem 'paper_trail', '~> 2'
 gem "Ascii85", "~> 1.0.2"
 gem 'prawn'
 gem 'prawn-print', :git => 'git://github.com/barsoom/prawn-print.git'
-gem 'capistrano'
-gem 'simple-capistrano-unicorn'
-gem 'rvm-capistrano', '>=1.3.0.rc4', require: false
 gem 'backup-task'
 gem 'unicorn'
 gem 'active_model_serializers'
@@ -56,6 +53,9 @@ gem 'attr_encryptor'
 gem 'decent_exposure'
 
 group :development, :test do
+  gem 'capistrano'
+  gem 'simple-capistrano-unicorn'
+  gem 'rvm-capistrano', '>=1.3.0.rc4', require: false
   # gem 'chrome_logger',  :require => 'chrome_logger/railtie'
   gem 'rack-mini-profiler'
   gem 'cucumber-rails', :require => false
@@ -88,7 +88,6 @@ group :development, :test do
   gem 'foreman'
   gem 'zeus'
   gem 'spork', '~> 1.0rc'
-
 end
 
 
