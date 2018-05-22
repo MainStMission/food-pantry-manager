@@ -12,6 +12,7 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
+.ruby-version
 # Ignore Sublime
 *.sublime-project
 *.sublime-workspace
