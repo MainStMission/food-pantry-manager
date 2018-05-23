@@ -1,3 +1,4 @@
+
 %section.panel
   %header
     %h1
@@ -14,8 +15,23 @@
       %h4 Agency ID: 590AD
       %h4 Report for: #{Date.today.strftime('%B %d, %Y')}
       = link_to 'Second Harvest', 'http://www.secondharvestmetrolina.org/'
-      - @month = "#{Date.today.strftime('%B')}"
-      - @prev_month = "#{Date.today.prev_month.strftime('%B')}"
+      - @month = "#{Date.today.strftime('%B %Y')}"
+      - @prev_month = "#{Date.today.prev_month.strftime('%B %Y')}"
+      - @ppre_month = "#{Date.today.months_ago(2).strftime('%B %Y')}"
+      - @three_month = "#{Date.today.months_ago(3).strftime('%B %Y')}"
+      - @four_month = "#{Date.today.months_ago(4).strftime('%B %Y')}"
+      - @five_month = "#{Date.today.months_ago(5).strftime('%B %Y')}"
+      - @six_month = "#{Date.today.months_ago(6).strftime('%B %Y')}"
+      - @year = 2018
+      - @pre_year = 2017
+      - @ppre_year = 2016
+      - @three_year = 2015
+      - @four_year = 2014
+      %h4 Month #{@month}
+      #h4 Previous Month #{@prev_month}
+      #h4 By Month #
+
+
     #harvest_month
       %br
       -#= search_form_for @month do |f|
@@ -26,7 +42,7 @@
       / = f.input :visited_on, label: 'Report Month', collection: month_select, input_html: {class: 'span2'}
     .row
     .span11
-    %h4 The number of different Households served during: #{@prev_month} and #{@month}
+    %h4 The number of different Households served during:  #{@ppre_month}, #{@prev_month} and #{@month} 
     - household_status_for do |stats|
       .span11
         %table.table.table-bordered
@@ -51,7 +67,6 @@
                   %td= visits.by_month(@prev_month).count
                   %td= visits.by_month(@prev_month).select("DISTINCT(household_id)").count
                   %td= @prev_month_ids.map{|id| Household.find(id).neighbor_count}.inject(:+)
-
     %br
     .row
     .span11
@@ -61,8 +76,8 @@
         %table.table.table-bordered
           %thead
             %tr
-              %th < 19 
-              %th Between 18 & 64 
+              %th < 19
+              %th Between 18 & 64
               %th Over 64
               %th Total Served
               %tbody
@@ -81,8 +96,8 @@
         %table.table.table-bordered
           %thead
             %tr
-              %th < 19 
-              %th Between 18 & 64 
+              %th < 19
+              %th Between 18 & 64
               %th Over 64
               %th Total Served
               %tbody
@@ -93,9 +108,4 @@
                   %td=  @prev_month_ids.map{|id| Household.find(id).neighbor_count}.inject(:+)
   .row
   %br
-
-
-
-
-
 
