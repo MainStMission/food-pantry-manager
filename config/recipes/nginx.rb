@@ -1,11 +1,11 @@
 namespace :nginx do
   #desc "Install latest stable release of nginx"
-  #task :install, roles: :web do
+  task :install, roles: :web do
     run "#{sudo} add-apt-repository ppa:nginx/stable"
     run "#{sudo} apt-get -y update"
     run "#{sudo} apt-get -y install nginx"
-  #end
-  #after "deploy:install", "nginx:install"
+  end
+  after "deploy:install", "nginx:install"
 
   desc "Setup nginx configuration for this application"
   task :setup, roles: :web do
