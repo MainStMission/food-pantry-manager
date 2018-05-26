@@ -72,15 +72,6 @@ def thumbs
 
 end
 
-# def print_receipt
-#    if @visit?
-#      redirect_to: 
-#   else
-#      redirect_to: households_path
-#   end
-
-
-
 
 end
 

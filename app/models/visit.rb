@@ -9,6 +9,8 @@ class Visit < ActiveRecord::Base
   belongs_to :neighbor
   belongs_to :household
 
+  has_many  :tab_trans    , dependant: :delete_all
+
   #has_many :neighbors, through: :households
 
 
@@ -70,7 +72,7 @@ class Visit < ActiveRecord::Base
   end
 
   #def unique_household
-  #  by_month.household_id.unigue
+  #  by_month.household_id.unique
   #end
 
 end
