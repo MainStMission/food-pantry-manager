@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180526151442) do
+ActiveRecord::Schema.define(:version => 20180526171437) do
 
   create_table "admin_notes", :force => true do |t|
     t.string   "resource_id",     :null => false
@@ -203,9 +203,13 @@ ActiveRecord::Schema.define(:version => 20180526151442) do
     t.datetime "expiration_date"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "flavor"
+    t.string   "tag"
+    t.integer  "tab_tran_id"
   end
 
   add_index "tokens", ["household_id"], :name => "index_tokens_on_household_id"
+  add_index "tokens", ["tab_tran_id"], :name => "index_tokens_on_tab_tran_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
