@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180526144905) do
+ActiveRecord::Schema.define(:version => 20180526151442) do
 
   create_table "admin_notes", :force => true do |t|
     t.string   "resource_id",     :null => false
@@ -178,6 +178,18 @@ ActiveRecord::Schema.define(:version => 20180526144905) do
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
+  create_table "tab_trans", :force => true do |t|
+    t.integer  "visit_id"
+    t.integer  "household_id"
+    t.string   "tag"
+    t.integer  "quantity"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "tab_trans", ["household_id"], :name => "index_tab_trans_on_household_id"
+  add_index "tab_trans", ["visit_id"], :name => "index_tab_trans_on_visit_id"
+
   create_table "time_cards", :force => true do |t|
     t.integer  "volunteer_id"
     t.datetime "start_time"
@@ -242,9 +254,11 @@ ActiveRecord::Schema.define(:version => 20180526144905) do
     t.string   "option1"
     t.string   "option2"
     t.boolean  "optionb"
+    t.integer  "tab_tran_id"
   end
 
   add_index "visits", ["household_id"], :name => "index_visits_on_household_id"
+  add_index "visits", ["tab_tran_id"], :name => "index_visits_on_tab_tran_id"
   add_index "visits", ["visited_on"], :name => "index_visits_on_visited_on"
 
   create_table "volunteers", :force => true do |t|
