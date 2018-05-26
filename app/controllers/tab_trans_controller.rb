@@ -1,0 +1,2 @@
+class TabTransController < ApplicationController
+end

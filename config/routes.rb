@@ -1,6 +1,9 @@
 # -*- encoding : utf-8 -*-
 FoodPantry::Application.routes.draw do
 
+  resources :tab_trans
+
+
   resources :tokens
 
 
