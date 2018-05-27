@@ -32,7 +32,8 @@
     = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini',:render_options => {wrapper: 'bootstrap' }, :force_non_association_create => true)
   %hr
   %p.visit
-    = link_to_add_association( 'New Visit', f, :visits , class: 'btn btn-success btn-large visit-btn', :render_options => {wrapper: 'bootstrap' },:force_non_association_create => true)
+    = link_to_add_association( 'Tokens', f, :visits , class: 'btn btn-success btn-large visit-btn', :render_options => {wrapper: 'bootstrap' },:force_non_association_create => true)
+    = link_to_add_association( 'Box', f, :visits , class: 'btn btn-primary btn-large visit-btn', :render_options => {wrapper: 'bootstrap' },:force_non_association_create => true)
   .span11
   .tabbable
     %ul.nav.nav-tabs
