@@ -1,5 +1,11 @@
-require 'spec_helper'
+require_relative '../spec_helper'
 
 describe Token do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "should have a valid factory" do
+    create(:token).should be_valid
+  end
+
+
+
 end

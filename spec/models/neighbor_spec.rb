@@ -7,7 +7,7 @@ describe Neighbor do
 
   ## Quick Shoulda test for the relation
 
-  it {should belong_to(:household)}
+  # it {should belongs_to(:household)}
 
   ## Shanes SSN testing
 
