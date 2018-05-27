@@ -430,7 +430,7 @@ DEPENDENCIES
   paper_trail (~> 2)
   pdf-inspector
   permitters (~> 0.0.1)
-  pg
+  pg (~> 0.15.1)
   prawn
   prawn-labels
   prawn-print!
