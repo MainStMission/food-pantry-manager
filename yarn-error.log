@@ -1,0 +1,32 @@
+Arguments: 
+  /Users/tmb/.nvm/versions/node/v8.9.4/bin/node /Users/tmb/.yarn/bin/yarn.js test
+
+PATH: 
+  /usr/local/heroku/bin:/Users/tmb/.yarn/bin:/Users/tmb/google-cloud-sdk/bin:/Users/tmb/.rbenv/bin:/Users/tmb/.rbenv/shims:/Users/tmb/.rbenv/bin:/Users/tmb/.nvm/versions/node/v8.9.4/bin:/Users/tmb/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/usr/local/go/bin:/Applications/Racket v6.8/bin:/usr/local/MacGPG2/bin:/opt/X11/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/Users/tmb/.opam/system/bin:/Users/tmb/.npm-packages/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/bin/packer:/Applications/Postgres.app/Contents/Versions/9.3/bin:/Users/tmb/lib/vsts-cli/bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.9.4
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Couldn't find a package.json file in "/Users/tmb/msm/food-pantry-manager"
+      at new MessageError (/Users/tmb/.yarn/lib/cli.js:186:110)
+      at /Users/tmb/.yarn/lib/cli.js:40048:15
+      at Generator.next (<anonymous>)
+      at step (/Users/tmb/.yarn/lib/cli.js:98:30)
+      at /Users/tmb/.yarn/lib/cli.js:109:13
+      at <anonymous>

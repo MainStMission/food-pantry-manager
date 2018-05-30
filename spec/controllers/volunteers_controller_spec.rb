@@ -1,10 +1,10 @@
 # -*- encoding : utf-8 -*-
-require_relative "../spec_helper"
+require_relative "../rails_helper"
 
 
 
 describe VolunteersController do
-  let!(:volunteer) { FactoryGirl.create(:volunteer) }
+  let!(:volunteer) { FactoryBot.create(:volunteer) }
 
   describe "GET sign_in" do
     it "signs in the volunteer" do

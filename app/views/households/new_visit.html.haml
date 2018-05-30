@@ -9,22 +9,26 @@
         = f.label :household_name_start
         = f.text_field :household_name_start, :class => "input-medium search-field"
         = f.submit
-        = f.submit "Clear", :name => nil, :id => :q_reset 
-    %table.table.table-striped.table-hover
-      %thead
-        %tr
-          %th Household
-          %th Visits
-          %th Last Visit
-      %tbody
-      - @households.each do |household|
-        %tr.visits
-          %td= household.household_name
-          %td= household.visits.count
-          %td= household.last_visit
-          %td
-            = link_to  'Visit', edit_household_path(household), class: 'btn btn-success btn-large'
-      = paginate households
-    .actions.submit-visit
+        = f.submit "Clear", :name => nil, :id => :q_reset
+    - if not @household
+      %h2 Enter a Household name
+    - else
+      %table.table.table-striped.table-hover
+        %thead
+          %tr
+            %th Household
+            %th Visits
+            %th Last Visit
+            %th Tabs
+        %tbody
+        - @households.each do |household|
+          %tr.visits
+            %td= household.household_name
+            %td= household.visits.count
+            %td= household.last_visit
+            %td
+              = link_to  'Visit', edit_household_path(household), class: 'btn btn-success btn-large'
+        = paginate households
+        .actions.submit-visit
       = link_to 'New Household', new_household_path, class: 'btn btn-warning'
-
+      

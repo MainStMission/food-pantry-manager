@@ -2,6 +2,8 @@
   %h4 Household Members: #{household.neighbors.count}
   %h5 Total Visits: #{household.visits.count}
   %h5 Last Visit: #{household.last_visit}
+  %h5 Tab Count:
+  %h5 Expiration:
   = visit_check
 .span-one-third
   %h3 #{household.name}
@@ -14,6 +16,7 @@
 = simple_form_for household,  validate: true, html: { :class => 'form-inline' } do |f|
   #monthly.span3
     = f.input :box_type, label: 'Visits per Month', collection: ['One', 'Two'], input_html: { class: 'span2 form-inline'}
+    %h5 Flavor:
   #neighbor-table
     %table.table.table-hover.left-table
       %thead
@@ -32,7 +35,7 @@
     = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini',:render_options => {wrapper: 'bootstrap' }, :force_non_association_create => true)
   %hr
   %p.visit
-    = link_to_add_association( 'Tokens', f, :visits , class: 'btn btn-success btn-large visit-btn', :render_options => {wrapper: 'bootstrap' },:force_non_association_create => true)
+    = link_to_add_association( 'Tab', f, :visits , class: 'btn btn-success btn-large visit-btn', :render_options => {wrapper: 'bootstrap' },:force_non_association_create => true)
     = link_to_add_association( 'Box', f, :visits , class: 'btn btn-primary btn-large visit-btn', :render_options => {wrapper: 'bootstrap' },:force_non_association_create => true)
   .span11
   .tabbable

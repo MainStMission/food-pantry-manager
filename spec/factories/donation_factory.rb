@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-FactoryGirl.define do
+FactoryBot.define do
   factory :donation do
     donor
    weight 10 

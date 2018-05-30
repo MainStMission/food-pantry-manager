@@ -1,10 +1,10 @@
 # -*- encoding : utf-8 -*-
-require_relative "../spec_helper"
+require_relative "../rails_helper"
 require "timecop"
 
 describe Volunteer do
   subject(:volunteer) {
-    FactoryGirl.create(:volunteer, first_name: "Kermit", last_name: "Frog")
+    FactoryBot.create(:volunteer, first_name: "Kermit", last_name: "Frog")
   }
   let(:now) { DateTime.now }
 
@@ -16,7 +16,7 @@ describe Volunteer do
     Timecop.return
   end
 
-  its(:name) { should eq("Kermit Frog") }
+  it {is_expected.to have_attributes(name:  a_string_matching("Kermit Frog")) }
 
   specify "#sign_in signs in a volunteer with the current time" do
     time_card = volunteer.sign_in

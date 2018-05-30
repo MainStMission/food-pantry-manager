@@ -1,15 +1,15 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
-require 'factory_girl_rails'
+require 'factory_bot_rails'
 
 require 'faker'
 
-FactoryGirl.define do
+FactoryBot.define do
 
 
    factory :household do
      household_name 'Brooke, Tom'
-     association :neighbor, factory :neighbor
+     association :neighbor
    end
 
    factory :household_with_neighbor do

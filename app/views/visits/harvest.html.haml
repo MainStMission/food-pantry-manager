@@ -14,8 +14,9 @@
       %h4 Agency ID: 590AD
       %h4 Report for: #{Date.today.strftime('%B %d, %Y')}
       = link_to 'Second Harvest', 'http://www.secondharvestmetrolina.org/'
-      - @month = "#{Date.today.strftime('%B')}"
-      - @prev_month = "#{Date.today.prev_month.strftime('%B')}"
+      - @month = "#{Date.today.strftime('%B %Y')}"
+      - @prev_month = "#{Date.today.prev_month.strftime('%B %Y')}"
+      - @pprev_month = "#{Date.today.months_ago(2).strftime('%B %Y')}"
     #harvest_month
       %br
       -#= search_form_for @month do |f|
@@ -40,6 +41,7 @@
               - @h_month = visits.by_month(@month).select "DISTINCT(household_id)"
               - @household_ids = visits.by_month(@month).pluck(:household_id).uniq
               - @prev_month_ids = visits.by_month(@prev_month).pluck(:household_id).uniq
+              - @pprev_month_ids = visits.by_month(@pprev_month).pluck(:household_id).uniq
               %tbody
                 %tr
                   %td= @month

@@ -1,9 +1,9 @@
 # -*- encoding : utf-8 -*-
-require_relative "../spec_helper"
+require_relative "../rails_helper"
 require "timecop"
 
 describe TimeCard do
-  let(:volunteer) { FactoryGirl.create(:volunteer) }
+  let(:volunteer) { FactoryBot.create(:volunteer) }
 
   before do
     Timecop.freeze(DateTime.now)

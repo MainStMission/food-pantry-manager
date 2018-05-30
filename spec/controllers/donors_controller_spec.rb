@@ -1,8 +1,8 @@
 # -*- encoding : utf-8 -*-
-require_relative "../spec_helper"
+require_relative "../rails_helper"
 
 describe DonorsController do
-  let!(:donor) { FactoryGirl.create(:donor) }
+  let!(:donor) { FactoryBot.create(:donor) }
 
   describe "POST create" do
     describe "with valid params" do

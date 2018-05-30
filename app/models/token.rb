@@ -1,4 +1,6 @@
 class Token < ActiveRecord::Base
+  
+  include ActiveModel::ForbiddenAttributesProtection
 
   belongs_to :household
   attr_accessible :expiration_date, :issue_date, :quantity, :flavor, :tag

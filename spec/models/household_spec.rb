@@ -1,8 +1,8 @@
-require_relative '../spec_helper'
+require_relative '../rails_helper'
 
 describe Household do
 
-  # it { should has_many(:neighbors) }
+  it { should have_many(:neighbors) }
 
 
   # it { should has_many(:visits) }

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative '../rails_helper'
 
 describe TabTransController do
 

@@ -1,8 +1,8 @@
 # -*- encoding : utf-8 -*-
-require_relative "../spec_helper"
+require_relative "../rails_helper"
 
 describe DonationsController do
-	let!(:donation) { FactoryGirl.create(:donation) }
+	let!(:donation) { FactoryBot.create(:donation) }
 
 	before(:each) do
     request.env["HTTP_REFERER"] = 'http://localhost:3000/donations/new'

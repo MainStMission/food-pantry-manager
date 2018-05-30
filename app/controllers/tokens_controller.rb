@@ -11,10 +11,46 @@ class TokensController < ApplicationController
 
   def index
 
-    @q          = Token.includes(:neighbors, :visits).search(params[:q])
+    @q          = Token.includes(:households, :neighbors, :visits).search(params[:q])
     @households = @q.result
 
   end
+
+  def create
+    if token.save
+      redirect_to :back, notice: 'Tab Created.'
+    else
+      render 'new'
+    end
+  end
+
+  def update
+    if token.save
+      redirect_to tokens_path, notice: 'Tab successfully updated.'
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    donation.destroy
+
+    redirect_to tokens_path, notice: 'Tab deleted.'
+  end
+
+  def show
+    donation = Token.find(params[:id])
+    respond_to do |format|
+      format.pdf do
+        pdf = TokenPdf.new(donation)
+        send_data pdf.render, filename: "token_#{token.id}.pdf",
+                  type: "application/pdf",
+                  disposition: "inline"
+      end
+    end
+  end
+
+  private
 
   def allowable
     [:issue_date, :expiration_date, :flavor, :tag, :household_id, :neighbor_id, :tab_trans_id,
