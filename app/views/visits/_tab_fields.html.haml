@@ -13,6 +13,7 @@
       .span5
         = f.input  :weight,  inlinse_label: 'Weight' , input_html: {class: 'span2' }
       .span11
+        = f.hidden_field :istab, value: true
       %br
       %br
       - if !household.food_alert.blank?

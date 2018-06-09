@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180609150616) do
+ActiveRecord::Schema.define(:version => 20180609192833) do
 
   create_table "admin_notes", :force => true do |t|
     t.string   "resource_id",     :null => false
@@ -220,11 +220,11 @@ ActiveRecord::Schema.define(:version => 20180609150616) do
 
   create_table "visits", :force => true do |t|
     t.integer  "neighbor_id"
-    t.date     "visited_on",     :null => false
+    t.date     "visited_on",                        :null => false
     t.text     "items_received"
     t.text     "notes"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "household_id"
     t.string   "starch"
     t.string   "cereal"
@@ -233,6 +233,7 @@ ActiveRecord::Schema.define(:version => 20180609150616) do
     t.boolean  "optionb"
     t.integer  "tab"
     t.decimal  "weight"
+    t.boolean  "istab",          :default => false
   end
 
   add_index "visits", ["household_id"], :name => "index_visits_on_household_id"

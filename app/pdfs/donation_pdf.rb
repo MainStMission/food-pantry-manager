@@ -15,7 +15,7 @@ class DonationPdf < Prawn::Document
   end
   
   def logo_image
-    image "#{Rails.root}/app/assets/images/msm_logo.png"
+    image "#{Rails.root}/app/assets/images/marketplace.png"
   end
   
   def donation_date
@@ -34,6 +34,6 @@ class DonationPdf < Prawn::Document
     move_down 10 
     text "#{@donation.weight} pounds of food"
     move_down 10
-    text "to Main Street Mission."
+    text "to Main Street Mission Marketplace."
   end
 end
