@@ -1,0 +1,28 @@
+.nested-fields
+  #tab-color.well.well-large
+    %script{:type=>"text/javascript"}
+      $('input selector').enableClientSideValidations()
+    #visit-date
+      = f.input  :visited_on, label: 'Date of Visit', default: Date.today, order: [:month, :day],input_html: { class: 'span2' }
+      %br
+      = f.association :neighbor, collection: @household.neighbors.all, default: 1, validate: { :presence => true }
+      %br
+      %h5 Enter the total Tab Count and the Weight shown on the Scale
+      .span5
+        = f.input  :tab,  inline_label: 'Tabs',  input_html: { class: 'span2' }
+      .span5
+        = f.input  :weight,  inlinse_label: 'Weight' , input_html: {class: 'span2' }
+      .span11
+      %br
+      %br
+      - if !household.food_alert.blank?
+        %h4 Food Restrictions: #{household.food_alert}
+      = f.input  :items_received, placeholder:'Text entered here will show up on the printed receipt', :label => 'Notes and Comments',input_html: {rows: 4, class: 'span9' }
+      #visit-note.well.well-large
+        %h5 Please check this area for daily messages
+        = Mission.last.message
+        - notes = Mission.last.message
+      .actions.span12
+      = f.button :submit, value: 'Print Receipt', id: 'btnPrint'
+      = f.button :submit,  class: 'btn btn-inverse'    
+  %hr

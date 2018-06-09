@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130712203415) do
+ActiveRecord::Schema.define(:version => 20180609150616) do
 
   create_table "admin_notes", :force => true do |t|
     t.string   "resource_id",     :null => false
@@ -231,6 +231,8 @@ ActiveRecord::Schema.define(:version => 20130712203415) do
     t.string   "option1"
     t.string   "option2"
     t.boolean  "optionb"
+    t.integer  "tab"
+    t.decimal  "weight"
   end
 
   add_index "visits", ["household_id"], :name => "index_visits_on_household_id"
