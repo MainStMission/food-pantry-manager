@@ -62,6 +62,8 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.0.4)
+    by_star (2.2.1)
+      activesupport
     callsite (0.0.11)
     cancan (1.6.10)
     capistrano (2.15.4)
@@ -399,6 +401,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass (~> 2.3.1.0)
   bourbon
+  by_star (~> 2.2, >= 2.2.1)
   cancan
   capistrano
   capybara
