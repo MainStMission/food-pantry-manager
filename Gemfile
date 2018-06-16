@@ -12,7 +12,7 @@ gem 'devise'
 gem 'strong_parameters'
 gem 'permitters', '~> 0.0.1'
 gem 'cocoon'
-gem 'meta_search',    '>= 1.1.0.pre'
+# gem 'meta_search',    '>= 1.1.0.pre'
 gem 'ransack'
 gem 'simple_form'
 gem 'by_star', '~> 2.2', '>= 2.2.1'
@@ -26,13 +26,13 @@ gem 'paper_trail', '~> 2'
 gem "Ascii85", "~> 1.0.2"
 gem 'prawn'
 gem 'prawn-print', :git => 'git://github.com/barsoom/prawn-print.git'
-gem 'backup-task'
+# gem 'backup-task'
 gem 'unicorn'
 gem 'active_model_serializers'
 gem 'turbolinks'
 gem 'restful_json', '~> 4.2.0'
-gem 'angularjs-rails-resource', '~> 0.1.5'
-gem "prawn-labels"
+# gem 'angularjs-rails-resource', '~> 0.1.5'
+# gem "prawn-labels"
 
 
 group :assets do

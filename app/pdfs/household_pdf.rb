@@ -15,6 +15,7 @@ class HouseholdPdf < Prawn::Document
   def household_name
     move_down 10
     text "Household: #{@household.name}"
+    text "PDF"
   end
 
   def house_count

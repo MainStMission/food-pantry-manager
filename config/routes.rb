@@ -31,19 +31,19 @@ FoodPantry::Application.routes.draw do
  devise_for :users, :controllers => {:registrations => "users/registrations", :passwords => "users/passwords"}
 
 
-match 'print' => 'households#print', :via => :get
+  get  'print' => 'households#print'
 
-  match 'new_visit' => 'households#new_visit', :via => :get
+  get 'new_visit' => 'households#new_visit'
 
-  match 'time_clock' => 'time_clock#show'
+  get 'time_clock' => 'time_clock#show'
 
-  match '/harvest' => 'visits#harvest', via: :get
+  get '/harvest' => 'visits#harvest'
 
-  match '/dashboard/household_summary'        => 'dashboard#household_summary'
-  match '/dashboard/visit_summary'            => 'dashboard#visit_summary'
-  match '/dashboard/neighbor_summary'         => 'dashboard#neighbor_summary'
-  match '/dashboard/donor_summary'            => 'dashboard#donor_summary'
-  match '/dashboard/donation_summary'         => 'dashboard#donation_summary'
+  # match '/dashboard/household_summary'        => 'dashboard#household_summary'
+  # match '/dashboard/visit_summary'            => 'dashboard#visit_summary'
+  # match '/dashboard/neighbor_summary'         => 'dashboard#neighbor_summary'
+  # match '/dashboard/donor_summary'            => 'dashboard#donor_summary'
+  # match '/dashboard/donation_summary'         => 'dashboard#donation_summary'
 
 
 

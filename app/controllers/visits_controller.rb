@@ -20,9 +20,17 @@ class VisitsController < ApplicationController
     end
   end
   #
-  #def index
-  #  visits.all
-  #end
+  def index
+   visits.all
+  end
+
+
+  # def index
+
+  #     @q = Visit.includes(:neighbors, :households).search(params[:q])
+  #       @households = @q.result
+
+  # end
 
   # def new
   #   @visit = Visit.new
@@ -46,12 +54,14 @@ class VisitsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = VisitPdf.new(visit)
-        send_data pdf.render, filename: "visit_#{visit.id}.pdf",
+          if  pdf = TabPdf.new(visit)
+          else
+            pdf = TabPdf.new(visit)
+          end
+          send_data pdf.render, filename: "visit_#{visit.id}.pdf",
                   type: "application/pdf",
                   disposition: "inline"
-        
-      end
+        end
     end
   end
 

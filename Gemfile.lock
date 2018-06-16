@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/barsoom/prawn-print.git
-  revision: 64696b4ecc2ff966046207012169d8df36794d8b
+  revision: 8b081dd4e49eb94f8c9f8175ddb4cf11064d6fcb
   specs:
-    prawn-print (0.0.2)
+    prawn-print (0.0.3)
       prawn (>= 0.12.0)
 
 GEM
@@ -41,15 +41,9 @@ GEM
     addressable (2.3.4)
     afm (0.2.0)
     american_date (1.1.0)
-    angularjs-rails-resource (0.1.7)
     arel (3.0.2)
     attr_encryptor (1.0.2)
       encryptor2 (>= 1.0.0)
-    backup (3.0.27)
-      open4 (~> 1.3.0)
-      thor (>= 0.15.4, < 2)
-    backup-task (0.2.0)
-      backup (~> 3.0.9)
     bcrypt-ruby (3.0.1)
     better_errors (0.9.0)
       coderay (>= 1.0.0)
@@ -196,11 +190,6 @@ GEM
       callsite
       rack-contrib
       railties
-    meta_search (1.1.3)
-      actionpack (~> 3.1)
-      activerecord (~> 3.1)
-      activesupport (~> 3.1)
-      polyamorous (~> 0.5.0)
     method_source (0.8.1)
     mime-types (1.23)
     multi_json (1.7.7)
@@ -213,7 +202,6 @@ GEM
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
     nokogiri (1.5.10)
-    open4 (1.3.0)
     orm_adapter (0.4.0)
     paper_trail (2.7.2)
       activerecord (~> 3.0)
@@ -231,11 +219,10 @@ GEM
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
-    prawn (0.12.0)
-      pdf-reader (>= 0.9.0)
-      ttfunk (~> 1.0.2)
-    prawn-labels (0.11.5.0)
-      prawn (>= 0.12.0)
+    prawn (0.14.0)
+      pdf-reader (~> 1.2)
+      ruby-rc4
+      ttfunk (~> 1.0.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -394,9 +381,7 @@ DEPENDENCIES
   Ascii85 (~> 1.0.2)
   active_model_serializers
   american_date
-  angularjs-rails-resource (~> 0.1.5)
   attr_encryptor
-  backup-task
   better_errors
   binding_of_caller
   bootstrap-sass (~> 2.3.1.0)
@@ -428,14 +413,12 @@ DEPENDENCIES
   launchy
   libnotify
   meta_request
-  meta_search (>= 1.1.0.pre)
   nokogiri
   paper_trail (~> 2)
   pdf-inspector
   permitters (~> 0.0.1)
   pg
   prawn
-  prawn-labels
   prawn-print!
   pry-rails
   rack-livereload
