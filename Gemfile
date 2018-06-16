@@ -56,11 +56,12 @@ group :development, :test do
   gem 'rvm-capistrano', '>=1.3.0.rc4', require: false
   # gem 'chrome_logger',  :require => 'chrome_logger/railtie'
   gem 'rack-mini-profiler'
-  gem 'capybara'
+  gem 'capybara', '~> 2.17'
   gem 'database_cleaner'
   gem 'shoulda'
   gem 'launchy'
   gem 'rspec-rails', '~> 2.99'
+  gem 'rspec-its', '~> 1.0'
   gem 'faker'
   gem 'pry-rails'
   gem 'pdf-inspector', :require => "pdf/inspector"

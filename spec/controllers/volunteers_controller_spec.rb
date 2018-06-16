@@ -32,7 +32,7 @@ describe VolunteersController do
 
     describe "with invalid params" do
       it "re-renders the 'new' template" do
-        pending "until you have invalid params you can't test this"
+        skip "until you have invalid params you can't test this"
         post :create, {volunteer: {}}
         expect(response).to render_template("new")
       end
@@ -56,7 +56,7 @@ describe VolunteersController do
 
     describe "with invalid params" do
       it "re-renders the 'edit' template" do
-        pending "until you have invalid params you can't test this"
+        skip "until you have invalid params you can't test this"
         put :update, {id: volunteer.to_param, volunteer: {}}
         expect(response).to render_template("edit")
       end
