@@ -23,7 +23,6 @@ gem 'rails_admin'
 gem 'american_date'
 gem 'cancan'
 gem 'paper_trail', '~> 2'
-gem "Ascii85", "~> 1.0.2"
 gem 'prawn'
 gem 'prawn-print', :git => 'git://github.com/barsoom/prawn-print.git'
 # gem 'backup-task'
@@ -31,8 +30,6 @@ gem 'unicorn'
 gem 'active_model_serializers'
 gem 'turbolinks'
 gem 'restful_json', '~> 4.2.0'
-# gem 'angularjs-rails-resource', '~> 0.1.5'
-# gem "prawn-labels"
 
 
 group :assets do
@@ -59,12 +56,11 @@ group :development, :test do
   gem 'rvm-capistrano', '>=1.3.0.rc4', require: false
   # gem 'chrome_logger',  :require => 'chrome_logger/railtie'
   gem 'rack-mini-profiler'
-  gem 'cucumber-rails', :require => false
   gem 'capybara'
   gem 'database_cleaner'
   gem 'shoulda'
   gem 'launchy'
-  gem 'rspec-rails', '~> 2.12'
+  gem 'rspec-rails', '~> 2.99'
   gem 'faker'
   gem 'pry-rails'
   gem 'pdf-inspector', :require => "pdf/inspector"
@@ -79,11 +75,10 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-  gem 'guard-livereload'
+  # gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
   gem 'yajl-ruby'
   gem 'rack-livereload'
-  gem 'guard-cucumber'
-  gem 'guard-rspec'
+  # gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
   gem 'timecop'
   gem 'sqlite3'
   gem 'foreman'
