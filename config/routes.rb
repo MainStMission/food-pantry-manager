@@ -39,13 +39,6 @@ FoodPantry::Application.routes.draw do
 
   get '/harvest' => 'visits#harvest'
 
-  # match '/dashboard/household_summary'        => 'dashboard#household_summary'
-  # match '/dashboard/visit_summary'            => 'dashboard#visit_summary'
-  # match '/dashboard/neighbor_summary'         => 'dashboard#neighbor_summary'
-  # match '/dashboard/donor_summary'            => 'dashboard#donor_summary'
-  # match '/dashboard/donation_summary'         => 'dashboard#donation_summary'
-
-
 
 
   authenticated :user do
