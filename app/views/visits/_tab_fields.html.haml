@@ -9,9 +9,9 @@
       %br
       %h5 Enter the total Tab Count and the Weight shown on the Scale
       .span5
-        = f.input  :tab,  inline_label: 'Tabs',  input_html: { class: 'span2' }
+        = f.input  :tab,  as: :integer, inline_label: 'Tabs',  input_html: { class: 'span2' }
       .span5
-        = f.input  :weight,  inlinse_label: 'Weight' , input_html: {class: 'span2' }
+        = f.input  :weight, as: :decimal, inline_label: 'Weight' , input_html: {class: 'span2' }
       .span11
         = f.hidden_field :istab, value: true
       %br

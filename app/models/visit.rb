@@ -43,6 +43,10 @@ class Visit < ActiveRecord::Base
    self.visited_on
  end
 
+ def visit_weight
+  self.weight  
+ end
+
   def show_household
     household.household_name if household
   end

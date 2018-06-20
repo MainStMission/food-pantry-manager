@@ -19,12 +19,16 @@
     %h2 Household Needs
     %h3 #{visit.household.food_alert}
   %hr
-  %h2 Food Items
-  %h3 #{visit.starch}
-  %h3 #{visit.cereal}
-  %h3 #{visit.option1}
+  - if visit.istab?
+    %h2 Tabs: #{visit.tab}
+    %h2 Weight: #{visit.visit_weight}
+  - else
+    %h2 Food Items
+    %h3 #{visit.starch}
+    %h3 #{visit.cereal}
+    %h3 #{visit.option1}
   %hrp
-  %h2 Today's Needs
+  %h2 Special Note
   %h3 #{visit.items_received}
   %hr
   %hr

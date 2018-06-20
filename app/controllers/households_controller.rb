@@ -57,6 +57,10 @@ class HouseholdsController < ApplicationController
         @household = household
         @visit = household.visits.last
         redirect_to household_visit_path(@household, @visit)
+      elsif params[:commit] == 'Print Receipt'
+        @household = household
+        @visit = household.visits.last
+        redirect_to household_visit_path(@household, @visit)
       else
       redirect_to households_path, notice: 'Household was successfully updated.'
     end
@@ -121,7 +125,7 @@ end
     ],
     visits_attributes: [
         :cereal, :starch, :option1, :option2, :optionb, :visited_on, :items_received, :notes,
-        :household_id, :neighbor_id
+        :household_id, :neighbor_id, :tab, :weight, :istab
     ]
     ]
   end
