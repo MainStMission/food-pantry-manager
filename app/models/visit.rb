@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 class Visit < ActiveRecord::Base  
-  # include ActiveModel::ForbiddenAttributesProtection
+
+  include ActiveModel::ForbiddenAttributesProtection
+
 
   validates :household_id, presence: {message:'You must select a household'}
   validates :neighbor, presence: {message: 'You must select a Neighbor'}
@@ -17,13 +19,19 @@ class Visit < ActiveRecord::Base
   delegate :household_name, to: :household, prefix: true, allow_nil: true
 
   default_scope order('visited_on DESC')
-
+  scope :harvest_visits, -> { where('visited_on >= ?', 3.months.ago )}
 
   has_paper_trail
 
   def show_neighbor
     neighbor.last_name if neighbor
   end
+
+  def self.visits_month
+    @month = "#{Date.today.strftime('%B %Y')}"
+    Visit.harvest_visits.by_month(@month).count
+  end
+ 
 
   def self.initialize_model
     @model = ' '
