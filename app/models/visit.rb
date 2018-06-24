@@ -32,6 +32,7 @@ class Visit < ActiveRecord::Base
     harvest_visits.by_month(Date.today.strftime("%B")).count
   end
 
+  # Date math courtesy of: https://github.com/radar/by_star
 
   def self.households_current_month_count
     harvest_visits.by_month(Date.today.strftime("%B")).pluck(:household_id).uniq.count
@@ -65,7 +66,7 @@ class Visit < ActiveRecord::Base
     households_past_month.map{|id| Household.find(id).neighbor_count}.inject(:+)
   end
   
-  @household_ids.map{|id| Household.find(id).young_neighbor}.inject(:+)
+  # @household_ids.map{|id| Household.find(id).young_neighbor}.inject(:+)
 
 
 
