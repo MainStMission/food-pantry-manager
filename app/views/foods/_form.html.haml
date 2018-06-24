@@ -5,18 +5,21 @@
       %ul
         - @food.errors.full_messages.each do |msg|
           %li= msg
+  -  @f2e_coll = ['Cereal', 'Dairy', 'Fruits', 'Juice', 'Meat Fish Poultry',
+                'Non Meat Protein', 'Pasta', 'Fresh Produce', 'Rice',
+                'Vegetables','Beverages', 'Mix', 'Salvage']
 = simple_form_for [@food] do |f|
   %h4 New Food Entry
   #food-color.well.well-large.input-append.date
     .span2
-      = f.input :upc, input_html: {class: 'span2'}
+      = f.input :upc, label: 'UPC', input_html: {class: 'span2'}, autofocus: true
     .span6
-      = f.input :description, input_html: {class: 'span6'}
+      = f.input :description, label: 'Description of Food', input_html: {class: 'span6'}
     .row
     .span2
-      = f.input :guiding_star, input_html: {class: 'span1'}
+      = f.input :guiding_star, collection: [0,1,2,3], input_html: {class: 'span1'}
     .span4
-      = f.input :f2e, input_html: {class: 'span1'}
+      = f.input :f2e, label: 'F2E Category', collection: @f2e_coll,  input_html: {class: 'span3'}
     .span2
       = f.input :tab_val, input_html: {class: 'span1'}
   .actions
