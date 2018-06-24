@@ -28,11 +28,13 @@ class Visit < ActiveRecord::Base
     neighbor.last_name if neighbor
   end
 
+  # Uses by_star gem for dates https://github.com/radar/by_star
+
   def  self.visits_current_month
     harvest_visits.by_month(Date.today.strftime("%B")).count
   end
 
-
+# Use the following: Household.where(:id => @hi).map(&:neighbor_count).inject(:+)
   def self.households_current_month_count
     harvest_visits.by_month(Date.today.strftime("%B")).pluck(:household_id).uniq.count
   end
@@ -65,7 +67,8 @@ class Visit < ActiveRecord::Base
     households_past_month.map{|id| Household.find(id).neighbor_count}.inject(:+)
   end
   
-  @household_ids.map{|id| Household.find(id).young_neighbor}.inject(:+)
+  # Move to households 
+  # @household_ids.map{|id| Household.find(id).young_neighbor}.inject(:+)
 
 
 
