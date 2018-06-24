@@ -1,0 +1,27 @@
+%h1 Listing foods
+
+%table
+  %tr
+    %th Description
+    %th Upc
+    %th Guiding star
+    %th F2e
+    %th Tab val
+    %th
+    %th
+    %th
+
+  - @foods.each do |food|
+    %tr
+      %td= food.description
+      %td= food.upc
+      %td= food.guiding_star
+      %td= food.f2e
+      %td= food.tab_val
+      %td= link_to 'Show', food
+      %td= link_to 'Edit', edit_food_path(food)
+      %td= link_to 'Destroy', food, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Food', new_food_path
