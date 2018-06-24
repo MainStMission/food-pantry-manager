@@ -1,0 +1,2 @@
+class SaleTransController < ApplicationController
+end
