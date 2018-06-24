@@ -20,18 +20,54 @@ class Visit < ActiveRecord::Base
 
   default_scope order('visited_on DESC')
   scope :harvest_visits, -> { where('visited_on >= ?', 3.months.ago )}
+  by_star_field :visited_on
 
   has_paper_trail
 
-  def show_neighbor
+  def self.show_neighbor
     neighbor.last_name if neighbor
   end
 
-  def self.visits_month
-    @month = "#{Date.today.strftime('%B %Y')}"
-    Visit.harvest_visits.by_month(@month).count
+  def  self.visits_current_month
+    harvest_visits.by_month(Date.today.strftime("%B")).count
   end
- 
+
+
+  def self.households_current_month_count
+    harvest_visits.by_month(Date.today.strftime("%B")).pluck(:household_id).uniq.count
+  end
+
+  def self.households_current_month
+    harvest_visits.by_month(Date.today.strftime("%B")).pluck(:household_id).uniq
+  end
+
+  def self.households_current_month_count
+    harvest_visits.by_month(Date.today.strftime("%B")).pluck(:household_id).uniq.count
+  end
+
+  def self.visits_past_month
+    harvest_visits.past_month.count
+  end
+
+  def self.households_past_month
+    harvest_visits.past_month.pluck(:household_id).uniq
+  end
+
+  def self.households_past_month_count
+    harvest_visits.past_month.pluck(:household_id).uniq.count
+  end
+
+  def self.neighbors_current_month
+    households_current_month.map{|id| Household.find(id).neighbor_count}.inject(:+)
+  end
+
+  def self.neighbors_past_month
+    households_past_month.map{|id| Household.find(id).neighbor_count}.inject(:+)
+  end
+  
+  @household_ids.map{|id| Household.find(id).young_neighbor}.inject(:+)
+
+
 
   def self.initialize_model
     @model = ' '
@@ -41,19 +77,19 @@ class Visit < ActiveRecord::Base
     neighbor.name if neighbor
   end
 
-  def neighbor_count
+  def self.neighbor_count
     household.neighbors.count if neighbors > 0
   end
 
 
 
- def visit_date
+  def visit_date
    self.visited_on
- end
+  end
 
- def visit_weight
-  self.weight  
- end
+  def visit_weight
+    self.weight  
+  end
 
   def show_household
     household.household_name if household
@@ -67,22 +103,12 @@ class Visit < ActiveRecord::Base
     neighbor.name if neighbor
   end
 
-  #def self.households_by_month(month)
-  #      visits.by_month(month)
-  #      where(:household_id => :unique)
-  #end
 
   def self.last_visit
     visited_on.last
 
   end
 
-  def self.by_month(month)
-    where("select(to_char(visited_on, 'FMMonth')) = ?", month)
-  end
 
-  #def unique_household
-  #  by_month.household_id.unigue
-  #end
 
 end
