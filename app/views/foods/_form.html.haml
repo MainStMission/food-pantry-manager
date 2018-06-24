@@ -5,21 +5,19 @@
       %ul
         - @food.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :description
-    = f.text_field :description
-  .field
-    = f.label :upc
-    = f.text_field :upc
-  .field
-    = f.label :guiding_star
-    = f.number_field :guiding_star
-  .field
-    = f.label :f2e
-    = f.text_field :f2e
-  .field
-    = f.label :tab_val
-    = f.number_field :tab_val
+= simple_form_for [@food] do |f|
+  %h4 New Food Entry
+  #food-color.well.well-large.input-append.date
+    .span2
+      = f.input :upc, input_html: {class: 'span2'}
+    .span6
+      = f.input :description, input_html: {class: 'span6'}
+    .row
+    .span2
+      = f.input :guiding_star, input_html: {class: 'span1'}
+    .span4
+      = f.input :f2e, input_html: {class: 'span1'}
+    .span2
+      = f.input :tab_val, input_html: {class: 'span1'}
   .actions
-    = f.submit 'Save'
+    = f.button :submit, value: 'Save', class: 'btn btn-inverse btn-large'
