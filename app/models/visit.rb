@@ -22,6 +22,8 @@ class Visit < ActiveRecord::Base
   scope :harvest_visits, -> { where('visited_on >= ?', 3.months.ago )}
   by_star_field :visited_on
 
+  scope :visit_list, -> { where('visited_on >= ?', 2.weeks.ago) }
+
   has_paper_trail
 
   def self.show_neighbor

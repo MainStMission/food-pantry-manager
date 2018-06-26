@@ -1,4 +1,5 @@
 #NewDonor.span4
   = simple_form_for donor do |f|
-    = f.input :name, hint: 'Jane Doe', autofocus: true
+    = f.input :first_name, hint: 'Leave blank for Company',  autofocus: true
+    = f.input :last_name
     = f.button :submit

@@ -12,7 +12,7 @@
           %th Neighbor
           %th Visits Allowed
       %tbody
-      - visits.each do |visit|
+      - visits.visit_list.each do |visit|
       - @household = visit.household
         %tr
           %td= link_to visit.show_household, household_path(visit.household_id)
@@ -25,5 +25,5 @@
             = link_to 'Destroy', visit, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
     %br
 
-    = link_to 'New Visit', new_visit_path, class: 'btn btn-primary'
+    = link_to 'New Visit', households_path, class: 'btn btn-primary'
 
