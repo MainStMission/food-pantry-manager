@@ -2,6 +2,8 @@
 class Donor < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
 
+  has_many :donationss, foreign_key: "donor_id"
+  
   has_paper_trail
 
   def name

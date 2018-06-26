@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180624123750) do
+ActiveRecord::Schema.define(:version => 20180626172601) do
 
   create_table "admin_notes", :force => true do |t|
     t.string   "resource_id",     :null => false
@@ -59,8 +59,16 @@ ActiveRecord::Schema.define(:version => 20180624123750) do
     t.datetime "updated_at", :null => false
     t.string   "last_name"
     t.integer  "tools_id"
-    t.string   "company"
-    t.boolean  "is_company"
+  end
+
+  create_table "foodlines", :force => true do |t|
+    t.integer  "quantity"
+    t.decimal  "price",        :precision => 8, :scale => 2
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.integer  "household_id"
+    t.integer  "visit_id"
+    t.integer  "food_id"
   end
 
   create_table "foods", :force => true do |t|

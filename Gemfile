@@ -6,7 +6,6 @@ source "https://rubygems.org"
 gem 'rails', '3.2.12'
 gem 'nokogiri'
 gem  'pg'
-
 gem 'squeel', '~> 1.1'
 gem 'rails_setup'
 gem 'devise'
