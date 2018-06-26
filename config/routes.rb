@@ -45,6 +45,8 @@ FoodPantry::Application.routes.draw do
 
   get '/harvest' => 'visits#harvest'
 
+  get '/checkout'  => 'visits#checkout'
+
 
 
   authenticated :user do
