@@ -1,7 +1,11 @@
 # -*- encoding : utf-8 -*-
 require_relative "../spec_helper"
 
+
 describe Visit do
+
+  it { should have_many(:foodlines) }
+  
   let(:neighbor)  {
     Neighbor.new(
       first_name: "Tom", last_name: "Turkey"

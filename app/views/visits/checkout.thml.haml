@@ -1,3 +1,4 @@
+
 .panel
   %header
     %h1
@@ -8,24 +9,17 @@
       %thead
         %tr
           %th Household
-          %th Open
-          %th Visited On
           %th Neighbor
-          %th Visits Allowed
+          %th Tab Balance
       %tbody
-      - visits.visit_list.each do |visit|
+      - visits.visit_open.each do |visit|
       - @household = visit.household
         %tr
           %td= link_to visit.show_household, household_path(visit.household_id)
-          %td= visit.isopen
-          %td= link_to visit.visited_on, edit_visit_path(visit)
           - if visit.neighbor_id
             %td= visit.show_neighbor
-          %td= visit.household_allowance
           %td
             = link_to 'Edit', edit_visit_path(visit), class: 'btn btn-mini'
+            = link_to_add_association( 'Check Out', f, :foodlines , class: 'btn btn-success btn-large visit-btn', :partial => 'visits/_checkout_fields', :render_options => {wrapper: 'bootstrap' },:force_non_association_create => true,)
             = link_to 'Destroy', visit, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
     %br
-
-    = link_to 'New Visit', households_path, class: 'btn btn-primary'
-

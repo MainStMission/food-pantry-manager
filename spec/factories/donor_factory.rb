@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 FactoryGirl.define do
   factory :donor do
-    name "Tom Terrific"
+    first_name "Tom"
+    last_name "Terrific"
   end
 end

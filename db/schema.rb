@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180609192833) do
+ActiveRecord::Schema.define(:version => 20180626235024) do
 
   create_table "admin_notes", :force => true do |t|
     t.string   "resource_id",     :null => false
@@ -59,6 +59,26 @@ ActiveRecord::Schema.define(:version => 20180609192833) do
     t.datetime "updated_at", :null => false
     t.string   "last_name"
     t.integer  "tools_id"
+  end
+
+  create_table "foodlines", :force => true do |t|
+    t.integer  "quantity"
+    t.decimal  "price",        :precision => 8, :scale => 2
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.integer  "household_id"
+    t.integer  "visit_id"
+    t.integer  "food_id"
+  end
+
+  create_table "foods", :force => true do |t|
+    t.string   "description"
+    t.string   "upc"
+    t.integer  "guiding_star"
+    t.string   "f2e"
+    t.integer  "tab_val"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "households", :force => true do |t|
@@ -234,6 +254,7 @@ ActiveRecord::Schema.define(:version => 20180609192833) do
     t.integer  "tab"
     t.decimal  "weight"
     t.boolean  "istab",          :default => false
+    t.boolean  "isopen",         :default => false
   end
 
   add_index "visits", ["household_id"], :name => "index_visits_on_household_id"

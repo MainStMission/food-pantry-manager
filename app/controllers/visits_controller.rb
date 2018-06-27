@@ -10,6 +10,8 @@ class VisitsController < ApplicationController
   expose(:household)
   expose(:households)
   expose(:neighbors)
+  expose(:foodlines)
+
   helper_method :visit, :visits
 
   def create
@@ -50,6 +52,11 @@ class VisitsController < ApplicationController
     redirect_to visits_path
   end
 
+  def checkout
+    redirect_to 'checkout'
+  end
+
+
   def show
     respond_to do |format|
       format.html
@@ -75,9 +82,7 @@ end
   def allowable
     [
       :cereal, :starch, :option1, :option2, :optionb, :visited_on, :items_received,
-       :notes, :household_id, :neighbor_id, :weight, :tab, :istab
-      
-
+       :notes, :household_id, :neighbor_id, :weight, :tab, :istab, :isopen
 
     ]
   end

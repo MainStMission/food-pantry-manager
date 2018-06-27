@@ -8,12 +8,12 @@ describe DonorsController do
     describe "with valid params" do
       it "creates a new donor" do
         expect{
-          post :create, {donor: {name: "bob"}}
+          post :create, {donor: {first_name: "bob", last_name: "Jones" }}
         }.to change{Donor.count}.by(1)
       end
 
       it "redirects to the donor index" do
-        post :create, {donor: {name: "bob"}}
+        post :create, {donor: {first_name: "bob", last_name: "Smith"}}
         expect(response).to redirect_to(new_donation_path)
       end
     end
@@ -30,14 +30,14 @@ describe DonorsController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested donor" do
-        put :update, {id: donor.to_param, donor: {name: "bob yost"}}
+        put :update, {id: donor.to_param, donor: {first_name: "Bob", last_name:"Yost"}}
         donor.reload
 
-        expect(donor.name).to eq("bob yost")
+        expect(donor.first_name).to eq("Bob")
       end
 
       it "redirects to the donor index" do
-        put :update, {id: donor.to_param, donor: {name: "bob"}}
+        put :update, {id: donor.to_param, donor: {last_name: "Yost"}}
         expect(response).to redirect_to(donors_path)
       end
     end

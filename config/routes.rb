@@ -1,6 +1,12 @@
 # -*- encoding : utf-8 -*-
 FoodPantry::Application.routes.draw do
 
+  resources :foodlines
+
+
+  resources :foods
+
+
   resources :missions
 
 
@@ -17,6 +23,7 @@ FoodPantry::Application.routes.draw do
 
   resources :visits do
       get :harvest
+      get :checkout
     end
 
 
@@ -38,6 +45,8 @@ FoodPantry::Application.routes.draw do
   get 'time_clock' => 'time_clock#show'
 
   get '/harvest' => 'visits#harvest'
+
+  get '/checkout'  => 'visits#checkout'
 
 
 

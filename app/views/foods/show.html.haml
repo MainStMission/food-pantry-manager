@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Description:
+  = @food.description
+%p
+  %b Upc:
+  = @food.upc
+%p
+  %b Guiding star:
+  = @food.guiding_star
+%p
+  %b F2e:
+  = @food.f2e
+%p
+  %b Tab val:
+  = @food.tab_val
+
+= link_to 'Edit', edit_food_path(@food)
+\|
+= link_to 'Back', foods_path

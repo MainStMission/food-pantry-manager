@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 class Visit < ActiveRecord::Base  
-  # include ActiveModel::ForbiddenAttributesProtection
+
+  include ActiveModel::ForbiddenAttributesProtection
+
 
   validates :household_id, presence: {message:'You must select a household'}
   validates :neighbor, presence: {message: 'You must select a Neighbor'}
@@ -8,22 +10,69 @@ class Visit < ActiveRecord::Base
 
   belongs_to :neighbor
   belongs_to :household
+  has_many   :foodlines
 
-  has_many :neighbors, through: :households
-
+  has_many :visits, through: :foodlines
 
 
   delegate :name, to: :neighbor, prefix: true, allow_nil: true
   delegate :household_name, to: :household, prefix: true, allow_nil: true
 
   default_scope order('visited_on DESC')
+  scope :harvest_visits, -> { where('visited_on >= ?', 3.months.ago )}
+  by_star_field :visited_on
 
+  scope :visit_list, -> { where('visited_on >= ?', 2.weeks.ago) }
 
   has_paper_trail
 
-  def show_neighbor
+  def self.show_neighbor
     neighbor.last_name if neighbor
   end
+
+  # Uses by_star gem for dates https://github.com/radar/by_star
+
+  def  self.visits_current_month
+    harvest_visits.by_month(Date.today.strftime("%B")).count
+  end
+
+# Use the following: Household.where(:id => @hi).map(&:neighbor_count).inject(:+)
+  def self.households_current_month_count
+    harvest_visits.by_month(Date.today.strftime("%B")).pluck(:household_id).uniq.count
+  end
+
+  def self.households_current_month
+    harvest_visits.by_month(Date.today.strftime("%B")).pluck(:household_id).uniq
+  end
+
+  def self.households_current_month_count
+    harvest_visits.by_month(Date.today.strftime("%B")).pluck(:household_id).uniq.count
+  end
+
+  def self.visits_past_month
+    harvest_visits.past_month.count
+  end
+
+  def self.households_past_month
+    harvest_visits.past_month.pluck(:household_id).uniq
+  end
+
+  def self.households_past_month_count
+    harvest_visits.past_month.pluck(:household_id).uniq.count
+  end
+
+  def self.neighbors_current_month
+    households_current_month.map{|id| Household.find(id).neighbor_count}.inject(:+)
+  end
+
+  def self.neighbors_past_month
+    households_past_month.map{|id| Household.find(id).neighbor_count}.inject(:+)
+  end
+  
+  # Move to households 
+  # @household_ids.map{|id| Household.find(id).young_neighbor}.inject(:+)
+
+
 
   def self.initialize_model
     @model = ' '
@@ -33,19 +82,19 @@ class Visit < ActiveRecord::Base
     neighbor.name if neighbor
   end
 
-  def neighbor_count
+  def self.neighbor_count
     household.neighbors.count if neighbors > 0
   end
 
 
 
- def visit_date
+  def visit_date
    self.visited_on
- end
+  end
 
- def visit_weight
-  self.weight  
- end
+  def visit_weight
+    self.weight  
+  end
 
   def show_household
     household.household_name if household
@@ -59,22 +108,12 @@ class Visit < ActiveRecord::Base
     neighbor.name if neighbor
   end
 
-  #def self.households_by_month(month)
-  #      visits.by_month(month)
-  #      where(:household_id => :unique)
-  #end
 
   def self.last_visit
     visited_on.last
 
   end
 
-  def self.by_month(month)
-    where("select(to_char(visited_on, 'FMMonth')) = ?", month)
-  end
 
-  #def unique_household
-  #  by_month.household_id.unigue
-  #end
 
 end

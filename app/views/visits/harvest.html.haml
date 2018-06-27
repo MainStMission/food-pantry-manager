@@ -15,14 +15,6 @@
       %h4 Report for: #{Date.today.strftime('%B %d, %Y')}
       = link_to 'Second Harvest', 'http://www.secondharvestmetrolina.org/'
       - @month = "#{Date.today.strftime('%B %Y')}"
-      - @prev_month = "#{Date.today.prev_month.strftime('%B %Y')}"
-      - @ppre_month = "#{Date.today.months_ago(2).strftime('%B %Y')}" 
-      - @three_month = "#{Date.today.months_ago(3).strftime('%B %Y')}"
-      - @four_month = "#{Date.today.months_ago(4).strftime('%B %Y')}"
-      - @five_month = "#{Date.today.months_ago(5).strftime('%B %Y')}"
-      - @six_month = "#{Date.today.months_ago(6).strftime('%B %Y')}"
-      - @year = 2018
-      - @pre_year = 2017
       - @ppre_year = 2016
       - @three_year = 2015
       - @four_year = 2014
@@ -42,7 +34,7 @@
     .row
     .span11
     %h4 The number of different Households served during:  #{@ppre_month}, #{@prev_month} and #{@month} 
-    - household_status_for do |stats|
+    - household_status_for(households.all) do |stats|
       .span11
         %table.table.table-bordered
           %thead
@@ -57,15 +49,15 @@
               - @prev_month_ids = visits.by_month(@prev_month).pluck(:household_id).uniq
               %tbody
                 %tr
-                  %td= @month
-                  %td= visits.by_month(@month).count
-                  %td= @h_month.count
-                  %td= @household_ids.map{|id| Household.find(id).neighbor_count}.inject(:+)
+                  %td= Date.today.strftime("%B")
+                  %td= visits.visits_current_month
+                  %td= visits.households_current_month_count
+                  %td= visits.neighbors_current_month
                 %tr
                   %td= @prev_month
-                  %td= visits.by_month(@prev_month).count
-                  %td= visits.by_month(@prev_month).select("DISTINCT(household_id)").count
-                  %td= @prev_month_ids.map{|id| Household.find(id).neighbor_count}.inject(:+)
+                  %td= visits.visits_past_month
+                  %td= visits.households_past_month_count
+                  %td= visits.neighbors_past_month
     %br
     .row
     .span11

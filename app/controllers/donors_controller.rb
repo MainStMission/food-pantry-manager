@@ -34,7 +34,7 @@ class DonorsController < ApplicationController
 
   def allowable
     [
-      :name
+      :first_name, :last_name
     ]
   end
 
