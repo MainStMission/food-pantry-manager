@@ -18,10 +18,6 @@ set :branch, "azure-deployment"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
-<<<<<<< HEAD
-=======
-#server "192.168.1.30", :web, :app, :db, primary: true
->>>>>>> d1139edb7b1ce9f3effac9a865467b2ea9fb4612
 server "40.117.131.90", :web, :app, :db, :primary => true
 #set :port, 25000
 ssh_options[:forward_agent] = true
@@ -29,13 +25,6 @@ ssh_options[:forward_agent] = true
 role :web,    "40.117.131.90"
 role :app,    "40.117.131.90"
 role :db,     "40.117.131.90", :primary => true
-<<<<<<< HEAD
-=======
-#role :web,    "192.168.1.30"
-#role :app,    "192.168.1.30"
-#role :db,     "192.168.1.30", :primary => true
->>>>>>> d1139edb7b1ce9f3effac9a865467b2ea9fb4612
-
 
 # after 'deploy:update_code', 'deploy:symlink_db'
 # after 'deploy:symlink_db', 'deploy:create_db'
