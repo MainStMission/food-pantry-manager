@@ -1,0 +1,18 @@
+#scale_log
+  %table.table-condensed.table-striped
+    %thead
+      %tr
+        %th Description
+        %th Quantity
+        %th price
+      %tbody
+        - visit.foodlines.limit(75).each do |line|
+          %tr
+            %td= line.description
+            %td= line.quantity
+            %td= line.price
+            %td
+              = link_to 'Edit', edit_visit_foodline_path(line), class: 'btn btn-mini'
+              = link_to 'Destroy', line, confirm: 'Are you sure?', method: :delete, class: 'btn btn-mini btn-danger'
+              = link_to 'PDF', visit_path(visit, format: "pdf"), class: 'btn btn-mini btn-info'
+      %br

@@ -23,6 +23,7 @@ FoodPantry::Application.routes.draw do
 
   resources :visits do
       get :harvest
+      get :checkout
     end
 
 

@@ -32,11 +32,6 @@ class HouseholdsController < ApplicationController
     @households = @q.result
   end
 
-  def print_order
-
-    
-  end
-
 
   def create
     if household.save

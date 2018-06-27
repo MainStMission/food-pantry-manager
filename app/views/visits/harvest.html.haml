@@ -34,7 +34,7 @@
     .row
     .span11
     %h4 The number of different Households served during:  #{@ppre_month}, #{@prev_month} and #{@month} 
-    - household_status_for do |stats|
+    - household_status_for(households.all) do |stats|
       .span11
         %table.table.table-bordered
           %thead
