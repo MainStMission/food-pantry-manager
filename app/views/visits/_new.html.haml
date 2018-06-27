@@ -50,6 +50,7 @@
           %h4 Food Restrictions: #{household.food_alert}
         = f.input  :items_received, prompt:'Items here will show up on the printer order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
         = f.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
+        = f.hidden_field :isopen, value: true 
         = f.button :submit, :class => 'btn-primary', :label=> 'Save' 
         
 

@@ -75,9 +75,7 @@ end
   def allowable
     [
       :cereal, :starch, :option1, :option2, :optionb, :visited_on, :items_received,
-       :notes, :household_id, :neighbor_id, :weight, :tab, :istab
-      
-
+       :notes, :household_id, :neighbor_id, :weight, :tab, :istab, :isopen
 
     ]
   end

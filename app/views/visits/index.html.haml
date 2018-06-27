@@ -8,6 +8,7 @@
       %thead
         %tr
           %th Household
+          %th Open
           %th Visited On
           %th Neighbor
           %th Visits Allowed
@@ -16,6 +17,7 @@
       - @household = visit.household
         %tr
           %td= link_to visit.show_household, household_path(visit.household_id)
+          %td= visit.isopen
           %td= link_to visit.visited_on, edit_visit_path(visit)
           - if visit.neighbor_id
             %td= visit.show_neighbor

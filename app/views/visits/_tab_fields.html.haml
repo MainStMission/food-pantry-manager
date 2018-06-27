@@ -14,6 +14,7 @@
         = f.input  :weight, as: :decimal, inline_label: 'Weight' , input_html: {class: 'span2' }
       .span11
         = f.hidden_field :istab, value: true
+        = f.hidden_field :isopen, value: true 
       %br
       %br
       - if !household.food_alert.blank?
