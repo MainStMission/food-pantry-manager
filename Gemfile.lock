@@ -182,6 +182,11 @@ GEM
     polyamorous (0.6.4)
       activerecord (>= 3.0)
     polyglot (0.3.3)
+    postgres-copy (0.6.0)
+      activerecord (>= 3.0.0)
+      pg
+      rails (>= 3.0.0)
+      responders
     prawn (0.14.0)
       pdf-reader (~> 1.2)
       ruby-rc4
@@ -255,6 +260,8 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     remotipart (1.0.5)
+    responders (1.1.2)
+      railties (>= 3.2, < 4.2)
     restful_json (4.2.0)
       activesupport (>= 3.1.0)
     rspec-collection_matchers (1.1.3)
@@ -378,6 +385,7 @@ DEPENDENCIES
   pdf-inspector
   permitters (~> 0.0.1)
   pg
+  postgres-copy (~> 0.6.0)
   prawn
   prawn-print!
   pry-rails
