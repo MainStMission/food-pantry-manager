@@ -1,6 +1,5 @@
 class Food < ActiveRecord::Base
 
-  acts_as_copy_target
 
   include ActiveModel::ForbiddenAttributesProtection
   
