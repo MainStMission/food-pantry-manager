@@ -15,7 +15,7 @@ class DonationPdf < Prawn::Document
   end
   
   def logo_image
-    image "#{Rails.root}/app/assets/images/marketplace.png"
+    image "#{Rails.root}/app/assets/images/receipt.jpg"
   end
   
   def donation_date
@@ -23,7 +23,7 @@ class DonationPdf < Prawn::Document
   end
   
   def donation_id
-    move_down 20
+    move_down 30
     text "Donation #: #{@donation.id}"
   end
   
