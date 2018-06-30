@@ -3,7 +3,8 @@ class DonationsController < ApplicationController
 
   include RestfulJson::DefaultController
 
-  before_filter :authenticate_user!
+  # before_filter :authenticate_user!
+  
   expose(:donation)
   expose(:donations)
 
