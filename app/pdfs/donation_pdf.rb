@@ -3,14 +3,19 @@ class DonationPdf < Prawn::Document
     super()
     @donation = donation
     logo_image
+    bounding_box([140, 220], :width => 250, :height => 220) do
     donation_id
     donation_date
     donor_name
     thank_you_note
+    end
   end
+
+
   
   def donor_name
-    move_down 10
+    move_down 15
+    font_size 16
     text "Donor: #{@donation.donor_name}"
   end
   
@@ -23,7 +28,7 @@ class DonationPdf < Prawn::Document
   end
   
   def donation_id
-    move_down 30
+    move_down 40
     text "Donation #: #{@donation.id}"
   end
   
@@ -32,8 +37,6 @@ class DonationPdf < Prawn::Document
     font_size 16
     text "Thank you for your donation of:"
     move_down 10 
-    text "#{@donation.weight} pounds of food"
-    move_down 10
-    text "to Main Street Mission Marketplace."
+    text "#{@donation.weight} pounds of food to Main Street Market Place"
   end
 end

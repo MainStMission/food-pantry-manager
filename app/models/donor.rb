@@ -9,7 +9,7 @@ class Donor < ActiveRecord::Base
   has_paper_trail
 
   def name
-    if first_name == " "
+    if first_name.blank?
       last_name
     else
      [last_name, first_name].join ", "
