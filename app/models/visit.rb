@@ -23,8 +23,13 @@ class Visit < ActiveRecord::Base
   by_star_field :visited_on
 
   scope :visit_list, -> { where('visited_on >= ?', 2.weeks.ago) }
+  scope :open, -> { where('isopen')}
 
   has_paper_trail
+
+  def self.visit_open
+    visits.isopen?
+  end
 
   def self.show_neighbor
     neighbor.last_name if neighbor

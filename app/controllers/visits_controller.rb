@@ -52,9 +52,6 @@ class VisitsController < ApplicationController
     redirect_to visits_path
   end
 
-  def checkout
-    redirect_to 'checkout'
-  end
 
 
   def show
@@ -75,6 +72,17 @@ class VisitsController < ApplicationController
 def self.visits_count(month)
   where("extract(month from visited_on) = ?", month).count
 end
+
+
+  def self.checkout
+    @visit = Visits.find(param[:id])
+    @household = @visit.household
+
+    respond_to do |format| 
+      format.html {render checkout}
+      format.json {head :no_content}
+    end
+  end
 
 
   private

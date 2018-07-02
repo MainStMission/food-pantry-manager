@@ -4,16 +4,17 @@ FoodPantry::Application.routes.draw do
   resources :foodlines
 
 
-  resources :foods
-
-
-  resources :missions
 
 
   #devise_for :admins
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  resources :donations, :donors, :visits, :neighbors, :missions
+  resources :foodlines, :donors, :neighbors
+
+
+resources :donations do
+  resources :donors
+end
 
 
   resources :households do
@@ -23,8 +24,13 @@ FoodPantry::Application.routes.draw do
 
   resources :visits do
       get :harvest
-      get :checkout
+      resources :foodlines
     end
+
+  resources :foods do
+    resources :foodilnes
+  end
+    
 
 
   #resources :visits
@@ -45,6 +51,8 @@ FoodPantry::Application.routes.draw do
   get 'time_clock' => 'time_clock#show'
 
   get '/harvest' => 'visits#harvest'
+
+  get '/open_visit' => 'visits#open_visit'
 
   get '/checkout'  => 'visits#checkout'
 
