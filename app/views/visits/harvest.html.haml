@@ -16,6 +16,9 @@
       = link_to 'Second Harvest', 'http://www.secondharvestmetrolina.org/'
       - @month = "#{Date.today.strftime('%B %Y')}"
       - @pmonth = "#{(Date.today - 1.month).strftime('%B')}"
+      - @ppre_year = 2016
+      - @three_year = 2015
+      - @four_year = 2014
       %h4 Month #{@month}
       #h4 Previous Month #{@pmonth}
       #h4 By Month #
@@ -42,6 +45,9 @@
               %th Total Number of Visits
               %th Total Number of Households
               %th Total Number of Neighbors
+              - @h_month = visits.by_month(@month).select "DISTINCT(household_id)"
+              - @household_ids = visits.by_month(@month).pluck(:household_id).uniq
+              - @prev_month_ids = visits.by_month(@prev_month).pluck(:household_id).uniq
               %tbody
                 %tr
                   %td= Date.today.strftime("%B")
@@ -56,7 +62,7 @@
     %br
     .row
     .span11
-    %h4 The total number of Individuals served during: #{@prev_month}
+    %h4 The total number of Individuals served during: #{@month}
     - household_status_for(households.all) do |stats|
       .span11
         %table.table.table-bordered
@@ -93,6 +99,6 @@
                   %td=  visits.old_neighbors_past_month
                   %td=  visits.neighbors_past_month
   .row
-
+  
   %br
 

@@ -39,6 +39,7 @@ class Visit < ActiveRecord::Base
   end
 
 # Use the following: Household.where(:id => @hi).map(&:neighbor_count).inject(:+)
+
   def self.households_current_month_count
     harvest_visits.by_month(Date.today.strftime("%B")).pluck(:household_id).uniq.count
   end
@@ -92,9 +93,10 @@ class Visit < ActiveRecord::Base
     households_current_month.map{|id| Household.find(id).middle_neighbor}.inject(:+)
   end
 
-  def self.old_neighbors_past_month
+  def self.old_neighbors_current_month
     households_current_month.map{|id| Household.find(id).old_neighbor}.inject(:+)
   end
+  
   # Move to households 
   # @household_ids.map{|id| Household.find(id).young_neighbor}.inject(:+)
 
