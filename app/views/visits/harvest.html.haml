@@ -15,11 +15,9 @@
       %h4 Report for: #{Date.today.strftime('%B %d, %Y')}
       = link_to 'Second Harvest', 'http://www.secondharvestmetrolina.org/'
       - @month = "#{Date.today.strftime('%B %Y')}"
-      - @ppre_year = 2016
-      - @three_year = 2015
-      - @four_year = 2014
+      - @pmonth = "#{(Date.today - 1.month).strftime('%B')}"
       %h4 Month #{@month}
-      #h4 Previous Month #{@prev_month}
+      #h4 Previous Month #{@pmonth}
       #h4 By Month #
 
 
@@ -44,9 +42,6 @@
               %th Total Number of Visits
               %th Total Number of Households
               %th Total Number of Neighbors
-              - @h_month = visits.by_month(@month).select "DISTINCT(household_id)"
-              - @household_ids = visits.by_month(@month).pluck(:household_id).uniq
-              - @prev_month_ids = visits.by_month(@prev_month).pluck(:household_id).uniq
               %tbody
                 %tr
                   %td= Date.today.strftime("%B")
@@ -54,30 +49,10 @@
                   %td= visits.households_current_month_count
                   %td= visits.neighbors_current_month
                 %tr
-                  %td= @prev_month
+                  %td= @pmonth
                   %td= visits.visits_past_month
                   %td= visits.households_past_month_count
                   %td= visits.neighbors_past_month
-    %br
-    .row
-    .span11
-    %h4 The total number of Individuals served during: #{@month}
-    - household_status_for(households.all) do |stats|
-      .span11
-        %table.table.table-bordered
-          %thead
-            %tr
-              %th < 19
-              %th Between 18 & 64
-              %th Over 64
-              %th Total Served
-              %tbody
-                %tr
-                  %td=  @household_ids.map{|id| Household.find(id).young_neighbor}.inject(:+)
-                  %td=  @household_ids.map{|id| Household.find(id).middle_neighbor}.inject(:+)
-                  %td=  @household_ids.map{|id| Household.find(id).old_neighbor}.inject(:+)
-                  %td=  @household_ids.map{|id| Household.find(id).neighbor_count}.inject(:+)
-    .row
     %br
     .row
     .span11
@@ -93,10 +68,31 @@
               %th Total Served
               %tbody
                 %tr
-                  %td=  @prev_month_ids.map{|id| Household.find(id).young_neighbor}.inject(:+)
-                  %td=  @prev_month_ids.map{|id| Household.find(id).middle_neighbor}.inject(:+)
-                  %td=  @prev_month_ids.map{|id| Household.find(id).old_neighbor}.inject(:+)
-                  %td=  @prev_month_ids.map{|id| Household.find(id).neighbor_count}.inject(:+)
+                  %td=  visits.young_neighbors_current_month
+                  %td=  visits.middle_neighbors_current_month
+                  %td=  visits.old_neighbors_current_month
+                  %td=  visits.neighbors_current_month
+    .row
+    %br
+    .row
+    .span11
+    %h4 The total number of Individuals served during: #{@pmonth}
+    - household_status_for(households.all) do |stats|
+      .span11
+        %table.table.table-bordered
+          %thead
+            %tr
+              %th < 19
+              %th Between 18 & 64
+              %th Over 64
+              %th Total Served
+              %tbody
+                %tr
+                  %td=  visits.young_neighbors_past_month
+                  %td=  visits.middle_neighbors_past_month
+                  %td=  visits.old_neighbors_past_month
+                  %td=  visits.neighbors_past_month
   .row
+
   %br
 

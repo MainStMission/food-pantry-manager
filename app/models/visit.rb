@@ -20,10 +20,12 @@ class Visit < ActiveRecord::Base
 
   default_scope order('visited_on DESC')
   scope :harvest_visits, -> { where('visited_on >= ?', 3.months.ago )}
+  scope :open_visits, -> { where('isopen?')}
   by_star_field :visited_on
 
   scope :visit_list, -> { where('visited_on >= ?', 2.weeks.ago) }
 
+   
   has_paper_trail
 
   def self.show_neighbor
@@ -68,7 +70,31 @@ class Visit < ActiveRecord::Base
   def self.neighbors_past_month
     households_past_month.map{|id| Household.find(id).neighbor_count}.inject(:+)
   end
+
+
+  def self.young_neighbors_past_month
+    households_past_month.map{|id| Household.find(id).young_neighbor}.inject(:+)
+  end
   
+  def self.middle_neighbors_past_month
+    households_past_month.map{|id| Household.find(id).middle_neighbor}.inject(:+)
+  end
+
+  def self.old_neighbors_past_month
+    households_past_month.map{|id| Household.find(id).old_neighbor}.inject(:+)
+  end
+
+  def self.young_neighbors_current_month
+    households_current_month.map{|id| Household.find(id).young_neighbor}.inject(:+)
+  end
+  
+  def self.middle_neighbors_current_month
+    households_current_month.map{|id| Household.find(id).middle_neighbor}.inject(:+)
+  end
+
+  def self.old_neighbors_past_month
+    households_current_month.map{|id| Household.find(id).old_neighbor}.inject(:+)
+  end
   # Move to households 
   # @household_ids.map{|id| Household.find(id).young_neighbor}.inject(:+)
 
