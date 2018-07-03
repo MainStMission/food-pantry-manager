@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180703134527) do
+ActiveRecord::Schema.define(:version => 20180703140906) do
 
   create_table "admin_notes", :force => true do |t|
     t.string   "resource_id",     :null => false
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20180703134527) do
     t.integer  "tab_val"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "healthy"
   end
 
   add_index "foods", ["description"], :name => "index_foods_on_description"
