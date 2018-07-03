@@ -3,5 +3,5 @@
 %h2 Household #{@visit.household.name}
 %h4 Date: #{@visit.visited_on.strftime('%B %d, %Y')}
 = simple_fields_for :foodlines do |foodline|
-  = render 'foodline_fields', f: :foodlines
+  = render 'foodline_fields', :f => foodline
 = link_to_add_association( 'Add Food', f, :foodlines , class: 'btn btn-large', :force_non_association_create => true)
