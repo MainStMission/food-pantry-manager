@@ -5,8 +5,8 @@ class VisitsController < ApplicationController
 
   before_filter :authenticate_user!
 
-  expose(:visit)
-  expose(:visits)
+  # expose(:visit)
+  # expose(:visits)
   expose(:household)
   expose(:households)
   expose(:neighbors)
@@ -21,9 +21,19 @@ class VisitsController < ApplicationController
       render action: "new"
     end
   end
-  #
+
+def checkout
+  respond_with visit.checkout 
+end
+
+
   def index
-   visits.all
+    @visits = Visit.harvest_visits
+
+    respond_to do |format|
+      format.html 
+      format.json { render json: @foods }
+    end
   end
 
 
@@ -34,9 +44,9 @@ class VisitsController < ApplicationController
 
   # end
 
-  # def new
-  #   @visit = Visit.new
-  # end
+  def new
+    @visit = Visit.new
+  end
 
   def update
     if visit.update_attributes(params[visit])
@@ -48,15 +58,14 @@ class VisitsController < ApplicationController
 
   def destroy
     visit.destroy
-
     redirect_to visits_path
   end
 
 
-
   def show
+    @visit = Visit.find(params[:id])
     respond_to do |format|
-      format.html
+      format.html   {render html: 'checkout'}
       format.pdf do
           if  pdf = TabPdf.new(visit)
           else
@@ -74,17 +83,6 @@ def self.visits_count(month)
 end
 
 
-  def self.checkout
-    @visit = Visits.find(param[:id])
-    @household = @visit.household
-
-    respond_to do |format| 
-      format.html {render checkout}
-      format.json {head :no_content}
-    end
-  end
-
-
   private
 
   def allowable
@@ -95,9 +93,6 @@ end
     ]
   end
 
-  # def household_params
-  #     params.require(:household).permit!
-  #   end
 
   def visit_params
     params.require(:visit).permit(*allowable)

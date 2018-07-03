@@ -51,7 +51,6 @@ end
 
   get '/open_visit' => 'visits#open_visit'
 
-  get '/checkout'  => 'visits#checkout'
 
 
 

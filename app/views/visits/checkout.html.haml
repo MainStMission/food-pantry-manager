@@ -8,8 +8,8 @@
     %table.table.table-striped
       %thead
         %tr
-          %th Household
-          %th Neighbor
+          %th= Household visit.household.name
+          %th= visit_id
           %th Tab Balance
       %tbody
       - visits.visit_open.each do |visit|

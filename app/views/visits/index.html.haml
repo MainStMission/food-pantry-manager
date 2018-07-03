@@ -13,10 +13,11 @@
           %th Neighbor
           %th Visits Allowed
       %tbody
-      - visits.visit_list.each do |visit|
+      - @visits.visit_list.each do |visit|
       - @household = visit.household
         %tr
-          %td= link_to visit.show_household, household_path(visit.household_id)
+          %td
+            = link_to visit.show_household, household_path(visit.household_id)
           %td= visit.isopen
           %td= link_to visit.visited_on, edit_visit_path(visit)
           - if visit.neighbor_id
