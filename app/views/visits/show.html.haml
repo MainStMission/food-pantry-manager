@@ -1,1 +1,4 @@
-= render 'form'
+- if @visit.isopen?
+  = render 'checkout'
+- else
+  = render 'form'

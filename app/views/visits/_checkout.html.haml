@@ -1,0 +1,6 @@
+
+%h1 Id: #{@visit.id}
+%h2 Household #{@visit.household.name}
+%h4 Date: #{@visit.visited_on.strftime('%B %d, %Y')}
+= simple_form_for @visit do |f|
+  = link_to_add_association( 'Add Food', f, :food , class: 'btn btn-large', :force_non_association_create => true)

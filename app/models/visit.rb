@@ -14,6 +14,7 @@ class Visit < ActiveRecord::Base
 
   has_many :visits, through: :foodlines
 
+  accepts_nested_attributes_for :foodlines, allow_destroy: true, reject_if: :all_blank
 
   delegate :name, to: :neighbor, prefix: true, allow_nil: true
   delegate :household_name, to: :household, prefix: true, allow_nil: true

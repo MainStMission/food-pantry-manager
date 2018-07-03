@@ -2,34 +2,33 @@
 
 #print_form.well.well-large
 
-  %h1 Id: #{visit.id}
-  %h4 Date: #{visit.visited_on.strftime('%B %d, %Y')}
+  %h1 Id: #{@visit.id}
+  %h4 Date: #{@visit.visited_on.strftime('%B %d, %Y')}
   %h1 Household: 
-  %h1 #{visit.show_household}
-  %h2 Neighbors: #{visit.household.neighbors.count}
+  %h1 #{@visit.show_household}
+  %h2 Neighbors: #{@visit.household.neighbors.count}
   %hr
   #neighbor-print.well.well-large
     %h2 Visiting Neighbor
-    %h3 #{visit.show_neighbor_name}
+    %h3 #{@visit.show_neighbor_name}
     %h4 Household Ages
     %h4
       - household.neighbors.each do |neighbor|
         = neighbor.age
   - if household.food_alert?
     %h2 Household Needs
-    %h3 #{visit.household.food_alert}
+    %h3 #{@visit.household.food_alert}
   %hr
-  - if visit.istab?
-    %h2 Tabs: #{visit.tab}
-    %h2 Weight: #{visit.visit_weight}
+  - if @visit.istab?
+    %h2 Tabs: #{@visit.tab}
   - else
     %h2 Food Items
-    %h3 #{visit.starch}
-    %h3 #{visit.cereal}
-    %h3 #{visit.option1}
+    %h3 #{@visit.starch}
+    %h3 #{@visit.cereal}
+    %h3 #{@visit.option1}
   %hr
   %h2 Special Note
-  %h3 #{visit.items_received}
+  %h3 #{@visit.items_received}
   %hr
   %hr
   %hr
