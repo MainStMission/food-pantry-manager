@@ -15,15 +15,23 @@
     .span2
       = f.input :upc, label: 'UPC', input_html: {class: 'span2'}, autofocus: true
     .span5
-      = f.input :description, label: 'Description of Food', input_html: {class: 'span6'}
-    .span2
-      = f.input :healthy, label: 'MSM Health Rating', collection: @health_col, input_html: {class: 'span3'}
+      = f.input :description, label: 'Description of Food', input_html: {class: 'span5'}
     .row
     .span2
-      = f.input :guiding_star, collection: [0,1,2,3], input_html: {class: 'span1'}
-    .span4
-      = f.input :f2e, label: 'F2E Category', collection: @f2e_coll,  input_html: {class: 'span3'}
+      = f.input :healthy, label: 'MSM Health Rating', collection: @health_col, input_html: {class: 'span2'}
     .span2
       = f.input :tab_val, input_html: {class: 'span1'}
+    .row
+    .hr
+    .tabbable
+      %ul.nav.nav-options
+        .hr
+          %a{"data-toggle" => "tab", :href => "#options"} Optional Ratings
+    .tab-content
+      #options.tab-pane
+        .span2
+          = f.input :guiding_star, collection: [0,1,2,3], input_html: {class: 'span1'}
+        .span4
+          = f.input :f2e, label: 'F2E Category', collection: @f2e_coll,  input_html: {class: 'span3'}
   .actions
     = f.button :submit, value: 'Save', class: 'btn btn-inverse btn-large'
