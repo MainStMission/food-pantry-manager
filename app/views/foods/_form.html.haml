@@ -8,13 +8,16 @@
   -  @f2e_coll = ['Cereal', 'Dairy', 'Fruits', 'Juice', 'Meat Fish Poultry',
                 'Non Meat Protein', 'Pasta', 'Fresh Produce', 'Rice',
                 'Vegetables','Beverages', 'Mix', 'Salvage']
+  - @health_col = ['Very Healthy', 'Healthy', 'Somewhat Healthy', 'Unhealthy','Very Unhealthy', 'Non Food']
 = simple_form_for [@food] do |f|
   %h4 New Food Entry
   #food-color.well.well-large.input-append.date
     .span2
       = f.input :upc, label: 'UPC', input_html: {class: 'span2'}, autofocus: true
-    .span6
+    .span5
       = f.input :description, label: 'Description of Food', input_html: {class: 'span6'}
+    .span2
+      = f.input :healthy, label: 'MSM Health Rating', collection: @health_col, input_html: {class: 'span3'}
     .row
     .span2
       = f.input :guiding_star, collection: [0,1,2,3], input_html: {class: 'span1'}
