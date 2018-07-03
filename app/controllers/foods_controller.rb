@@ -87,6 +87,7 @@ class FoodsController < ApplicationController
     # params.require(:person).permit(:name, :age)
     # Also, you can specialize this method with per-user checking of permissible attributes.
     def food_params
-      params.require(:food).permit(:description, :f2e, :guiding_star, :tab_val, :upc)
+      params.require(:food).permit(:description, :f2e, :guiding_star, :tab_val, :healthy, :upc)
     end
+    
 end
