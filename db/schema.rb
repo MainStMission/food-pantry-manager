@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180630190238) do
+ActiveRecord::Schema.define(:version => 20180703134527) do
 
   create_table "admin_notes", :force => true do |t|
     t.string   "resource_id",     :null => false
