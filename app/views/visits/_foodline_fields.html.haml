@@ -1,3 +1,4 @@
-.nested-fields
+.nested-fields.foodline_fields
   .span2
-    = f.input :upc, input_html: {class: 'span2'}, autofocus: true
+    .food_from_upc
+      = f.association :food, :collection => Food.all(:order => 'upc'), input_html: {class: 'span2'}, autofocus: true
