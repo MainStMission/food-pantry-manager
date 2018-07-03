@@ -5,9 +5,9 @@
     %th Description
     %th Upc
     %th Healthy
-    %th Guiding star
-    %th F2e
-    %th Tab val
+    %th GS
+    %th F2E
+    %th Tabs
     %th
     %th
     %th
@@ -20,9 +20,8 @@
       %td= food.guiding_star
       %td= food.f2e
       %td= food.tab_val
-      %td= link_to 'Show', food
-      %td= link_to 'Edit', edit_food_path(food)
-      %td= link_to 'Destroy', food, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Edit', edit_food_path(food), class: 'btn btn-primary'
+      %td= link_to 'Deelete', food, :method => :delete, class: 'btn btn-mini btn-danger', :data => { :confirm => 'Are you sure?' }
 
 %br
 
