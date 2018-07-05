@@ -1,4 +1,14 @@
 .nested-fields.foodline_fields
-  .span2
-    .food_from_upc
-      = f.association :food, :collection => Food.all(:order => 'upc'), input_html: {class: 'span2'}, autofocus: true
+  #food-color.well.well-large.input-append.date
+    .span7
+      - @coll = ['Very Healthy', 'Healthy','Somewhat Healthy', 'Unhealthy', 'Very Unhealthy','Non Food' ]
+      .span4
+        = f.input :description, input_html: {class: 'span4'},  html: { :class => 'form-inline' }, autofocus: true
+      .span1
+        = f.input :quantity, input_html: {class: 'span1'}, html: { :class => 'form-inline' }
+      .span1
+        = f.input :price, input_html: {class: 'span1'}, html: { :class => 'form-inline' }
+      .span2
+        = f.input :healthy, collection: @coll, input_html: {class: 'span2'}
+      .span4
+        = link_to_remove_association "remove food", f 

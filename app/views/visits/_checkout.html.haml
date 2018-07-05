@@ -2,6 +2,11 @@
 %h1 Id: #{@visit.id}
 %h2 Household #{@visit.household.name}
 %h4 Date: #{@visit.visited_on.strftime('%B %d, %Y')}
-= simple_fields_for :foodlines do |foodline|
-  = render 'foodline_fields', :f => foodline
-= link_to_add_association( 'Add Food', f, :foodlines , class: 'btn btn-large', :force_non_association_create => true)
+.nested-fields
+= simple_form_for @visit, html: { :class => 'form-inline' } do |f| 
+  = f.input :weight
+  .span11.add_food
+    = link_to_add_association( 'Add Food', f, :foodlines, :force_non_association_create => true)
+    = link_to_remove_association "remove food", f 
+  = f.button :submit, value: 'Update', class: 'btn btn-inverse btn-lrge'
+%hr
