@@ -88,8 +88,12 @@ end
   def allowable
     [
       :cereal, :starch, :option1, :option2, :optionb, :visited_on, :items_received,
-       :notes, :household_id, :neighbor_id, :weight, :tab, :istab, :isopen
+       :notes, :household_id, :neighbor_id, :weight, :tab, :istab, :isopen,
 
+      foodlines_attributes:
+       [ :visit_id, :food_id, :household_id, :quantity, :price, :description,
+        :healthy
+      ] 
     ]
   end
 
