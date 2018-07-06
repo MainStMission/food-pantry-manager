@@ -48,13 +48,29 @@ end
     @visit = Visit.new
   end
 
+
+
   def update
-    if visit.update_attributes(params[visit])
-      redirect_to visits_path, notice: 'Visit was successfully updated.'
-    else
-      render action: "edit"
+    @visit = Visit.find(params[:id])
+
+    respond_to do |format|
+      if @visit.update_attributes(visit_params)
+        format.html { redirect_to visits_path, notice: 'Visit was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @visit.errors, status: :unprocessable_entity }
+      end
     end
   end
+
+  # def update
+  #   if visit.update_attributes(params[visit])
+  #     redirect_to visits_path, notice: 'Visit was successfully updated.'
+  #   else
+  #     render action: "edit"
+  #   end
+  # end
 
   def destroy
     visit.destroy

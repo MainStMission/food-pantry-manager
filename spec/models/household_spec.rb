@@ -3,7 +3,8 @@ require_relative '../spec_helper'
 describe Household, :type => :model  do
 
   it { should have_many(:neighbors) }
-  it { should have_many(:foodlines) }
+  it { should have_many(:donations) }
+  it { should have_many(:tokens) }
 
 
   it { should have_many(:foods).through :foodlines }

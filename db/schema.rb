@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180703210550) do
+ActiveRecord::Schema.define(:version => 20180706124155) do
 
   create_table "admin_notes", :force => true do |t|
     t.string   "resource_id",     :null => false
@@ -59,18 +59,6 @@ ActiveRecord::Schema.define(:version => 20180703210550) do
     t.datetime "updated_at", :null => false
     t.string   "last_name"
     t.integer  "tools_id"
-    t.string   "company"
-    t.boolean  "is_company"
-  end
-
-  create_table "food_lines", :force => true do |t|
-    t.integer  "visit_id"
-    t.integer  "food_id"
-    t.integer  "household_id"
-    t.decimal  "quantity"
-    t.integer  "price"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
   end
 
   create_table "foodlines", :force => true do |t|
@@ -93,11 +81,7 @@ ActiveRecord::Schema.define(:version => 20180703210550) do
     t.integer  "tab_val"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.string   "healthy"
   end
-
-  add_index "foods", ["description"], :name => "index_foods_on_description"
-  add_index "foods", ["upc"], :name => "index_foods_on_upc"
 
   create_table "households", :force => true do |t|
     t.string   "household_name"
@@ -222,6 +206,18 @@ ActiveRecord::Schema.define(:version => 20180703210550) do
     t.datetime "end_time"
   end
 
+  create_table "tokens", :force => true do |t|
+    t.integer  "household_id"
+    t.datetime "issue_date"
+    t.datetime "expiration_date"
+    t.integer  "initial_value"
+    t.integer  "current_value"
+    t.string   "flavor"
+    t.boolean  "isexpired"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -273,6 +269,7 @@ ActiveRecord::Schema.define(:version => 20180703210550) do
     t.decimal  "weight"
     t.boolean  "istab",          :default => false
     t.boolean  "isopen",         :default => false
+    t.integer  "token_id"
   end
 
   add_index "visits", ["household_id"], :name => "index_visits_on_household_id"

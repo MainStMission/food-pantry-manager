@@ -10,12 +10,13 @@ class Household < ActiveRecord::Base
   has_many :neighbors    , dependent: :delete_all
   has_many :visits       , dependent: :delete_all
   has_many :foodlines    , dependent: :delete_all
-
+  has_many :tokens       , dependent: :delete_all
 
   has_many :foods, through: :foodlines
 
   accepts_nested_attributes_for :neighbors, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :visits, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :tokens, allow_destroy: true, reject_if: :all_blank
   
 
   # after_save: print_receipt

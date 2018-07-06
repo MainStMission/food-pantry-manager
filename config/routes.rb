@@ -3,11 +3,13 @@ FoodPantry::Application.routes.draw do
 
 
 
+
+
   #devise_for :admin
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  resources :foodlines, :visits, :donations, :donors, :neighbors, :volunteers, :foods, :missions
-
+  resources :foodlines, :visits, :donations, :donors, 
+            :neighbors, :volunteers, :foods, :missions, :tokens
 
 resources :donations do
   resources :donors
@@ -17,7 +19,13 @@ end
   resources :households do
     resources :visits
     resources :neighbors
+    resources :tokens
   end
+
+  resources :tokens do
+    resources :visits
+  end
+
 
   resources :visits do
       get :harvest
@@ -30,7 +38,6 @@ end
     
 
 
-  #resources :visits
 
   resources :volunteers do
     member do

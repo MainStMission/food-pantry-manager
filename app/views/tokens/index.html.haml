@@ -1,0 +1,31 @@
+%h1 Listing tokens
+
+%table
+  %tr
+    %th Household
+    %th Issue date
+    %th Expiration date
+    %th Initial value
+    %th Current value
+    %th Flavor
+    %th Isexpired
+    %th
+    %th
+    %th
+
+  - @tokens.each do |token|
+    %tr
+      %td= token.household_id
+      %td= token.issue_date
+      %td= token.expiration_date
+      %td= token.initial_value
+      %td= token.current_value
+      %td= token.flavor
+      %td= token.isexpired
+      %td= link_to 'Show', token
+      %td= link_to 'Edit', edit_token_path(token)
+      %td= link_to 'Destroy', token, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Token', new_token_path

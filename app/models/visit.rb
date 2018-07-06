@@ -11,10 +11,12 @@ class Visit < ActiveRecord::Base
   belongs_to :neighbor
   belongs_to :household
   has_many   :foodlines
+  belongs_to :token
 
-  has_many :visits, through: :foodlines
+  has_many :foods, through: :foodlines
 
   accepts_nested_attributes_for :foodlines, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :foods,  reject_if: :all_blank
 
   delegate :name, to: :neighbor, prefix: true, allow_nil: true
   delegate :household_name, to: :household, prefix: true, allow_nil: true

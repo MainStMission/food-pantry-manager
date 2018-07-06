@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Household:
+  = @token.household_id
+%p
+  %b Issue date:
+  = @token.issue_date
+%p
+  %b Expiration date:
+  = @token.expiration_date
+%p
+  %b Initial value:
+  = @token.initial_value
+%p
+  %b Current value:
+  = @token.current_value
+%p
+  %b Flavor:
+  = @token.flavor
+%p
+  %b Isexpired:
+  = @token.isexpired
+
+= link_to 'Edit', edit_token_path(@token)
+\|
+= link_to 'Back', tokens_path
