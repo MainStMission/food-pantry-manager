@@ -1,31 +1,28 @@
-= form_for @token do |f|
+%script{:type=>"text/javascript"}
+  $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
+= simple_form_for [@token], html: { :class => 'form-inline' } do |f|
   - if @token.errors.any?
     #error_explanation
       %h2= "#{pluralize(@token.errors.count, "error")} prohibited this token from being saved:"
       %ul
         - @token.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :household_id
-    = f.number_field :household_id
-  .field
-    = f.label :issue_date
-    = f.date_select :issue_date
-  .field
-    = f.label :expiration_date
-    = f.date_select :expiration_date
-  .field
-    = f.label :initial_value
-    = f.number_field :initial_value
-  .field
-    = f.label :current_value
-    = f.number_field :current_value
-  .field
+  if token
+    %h3 Household #{token.household.name}
+  else
+    %h3 Household: #{@household.name}
+  .span2
+    = f.hidden_field :household_id, value: @household.id
+    = f.hidden_field :isxpired, value: false
+    = f.input :issue_date, as: :date_picker, input_html: {id: 'dpYears' , class: 'span2' }
+  .span2
+    = f.input :expiration_date, as: :date_picker, input_html: {id: 'dpYears' , class: 'span2' }
+  .span3
+    = f.label 'Token Value'
+    = f.number_field :initial_value, input_html: { class: 'span1' }
+  .span2
     = f.label :flavor
-    = f.text_field :flavor
-  .field
-    = f.label :isexpired
-    = f.check_box :isexpired
+    = f.text_field :flavor, input_html: {class: 'span2'}
+  .row
   .actions
-    = f.submit 'Save'
+    = f.button :submit, value: 'Issue Token' , class: 'btn btn-success btn-large'

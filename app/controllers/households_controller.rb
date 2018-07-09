@@ -14,11 +14,6 @@ class HouseholdsController < ApplicationController
   expose(:visit)
 
 
-  #def index
-  #  respond_with households
-  #end
-
-
   def index
 
       @q = Household.includes(:neighbors, :visits).search(params[:q])
@@ -26,6 +21,25 @@ class HouseholdsController < ApplicationController
 
   end
 
+  def token_index
+
+      @q = Household.includes(:neighbors, :visits).search(params[:q])
+        @households = @q.result
+
+      respond_to do |format|
+          format.html {render template: 'households/token_index'}
+      end
+  end
+
+  def visit_index
+
+      @q = Household.includes(:neighbors, :visits).search(params[:q])
+        @households = @q.result
+
+      respond_to do |format|
+          format.html {render template: 'households/visit_index'}
+      end
+  end
   
   def new_visit
     @q = Household.search(params[:q])
@@ -49,16 +63,16 @@ class HouseholdsController < ApplicationController
 
     if household.save
       if params[:commit] == 'Print Order'
-        @household = household
-        @visit = household.visits.last
-        redirect_to household_visit_path(@household, @visit)
-      elsif params[:commit] == 'Print Receipt'
-        @household = household
-        @visit = household.visits.last
-        redirect_to household_visit_path(@household, @visit)
-      else
-      redirect_to households_path, notice: 'Household was successfully updated.'
-    end
+         @household = household
+         @visit = household.visits.last
+         redirect_to household_visit_path(@household, @visit)
+       elsif params[:commit] == 'Print Receipt'
+         @household = household
+         @visit = household.visits.last
+         redirect_to household_visit_path(@household, @visit)
+       else
+        redirect_to households_path, notice: 'Household was successfully updated.'
+      end
     else
       render 'edit'
     end
@@ -111,6 +125,7 @@ end
         :proof_of_residency_type, :date_of_proof, :post_prayer, :post_needs, :christmas,
         :bool1, :bool_val1, :bool2, :bool_val2, :bool3, :bool_val3, :bool4, :bool_val4,
         :bool5, :bool_val5, :s_numb, :s_box, :income4, :inc_amt4,
+        
         neighbors_attributes: [
         :city, :close_date, :date_of_proof, :first_name, :middle_name, :street, :apt,
         :food_stamps, :last_name, :monthly_income, :notes, :house_rank, :birth_date,

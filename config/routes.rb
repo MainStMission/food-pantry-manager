@@ -20,6 +20,10 @@ end
     resources :visits
     resources :neighbors
     resources :tokens
+    collection do
+      get :token_index
+      get :visit_index
+    end
   end
 
   resources :tokens do
@@ -30,6 +34,7 @@ end
   resources :visits do
       get :harvest
       resources :foodlines
+      get :verify
     end
 
   resources :foods do
@@ -51,6 +56,8 @@ end
   get  'print' => 'households#print'
 
   get 'new_visit' => 'households#new_visit'
+
+  # get 'household_token_index' => 'households#token_index'
 
   get 'time_clock' => 'time_clock#show'
 

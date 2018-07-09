@@ -30,24 +30,8 @@ class TabPdf < Prawn::Document
      text "Date: #{@visit.visited_on.strftime('%B %d, %Y')}"
    end
 
-  # def visit_id
-  #    move_down 20
-  #    text "Visit #: #{@household.visit.id}"
-  #  end
+   def visit_weight
+    text "Weight: #{@Visit.weight.to_s}"
+    text "Tabs Spent: #{@Visit.tabs.to_s}"
 
-   def starch
-     move_down 10
-     text 'Food Order'
-     text "#{@visit.starch}"
-     text "#{@visit.cereal}"
-     text "#{@visit.option1}"
-   end
-
-  def special
-    move_down 5
-    text 'Special Needs'
-    text "#{@visit.household.food_alert}"
-    text "#{@visit.items_received}"
-  end
-  
 end

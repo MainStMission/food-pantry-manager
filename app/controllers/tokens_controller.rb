@@ -28,6 +28,7 @@ class TokensController < ApplicationController
   # GET /tokens/new.json
   def new
     @token = Token.new
+    @household = Household.find(params[:household_id])
 
     respond_to do |format|
       format.html # new.html.erb

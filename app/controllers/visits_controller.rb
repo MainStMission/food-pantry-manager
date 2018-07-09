@@ -16,7 +16,7 @@ class VisitsController < ApplicationController
 
   def create
     if visit.save
-      redirect_to visits_path, notice: 'Visit was successfully created.'
+      # redirect_to visits_path, notice: 'Visit was successfully created.'
     else
       render action: "new"
     end
@@ -26,6 +26,11 @@ def checkout
   respond_with visit.checkout 
 end
 
+def verify
+    @visit = Visit.find(params[:id])
+    @foodlines = @visit.foodlines
+    respond_with visit.verify
+end
 
   def index
     @visits = Visit.harvest_visits
@@ -55,7 +60,8 @@ end
 
     respond_to do |format|
       if @visit.update_attributes(visit_params)
-        format.html { redirect_to visits_path, notice: 'Visit was successfully updated.' }
+        format.html { render 'visits/verify'}
+        # format.html { redirect_to visits_path, notice: 'Visit was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -63,14 +69,6 @@ end
       end
     end
   end
-
-  # def update
-  #   if visit.update_attributes(params[visit])
-  #     redirect_to visits_path, notice: 'Visit was successfully updated.'
-  #   else
-  #     render action: "edit"
-  #   end
-  # end
 
   def destroy
     visit.destroy

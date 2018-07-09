@@ -1,4 +1,4 @@
-
+%h1 Verify Visit
 %h1 Id: #{@visit.id}
 %h2 Household #{@visit.household.name}
 %h4 Date: #{@visit.visited_on.strftime('%B %d, %Y')}
@@ -9,5 +9,6 @@
   .span11.add_food
     = link_to_add_association( 'Add Food', f, :foodlines, :force_non_association_create => true)
   = f.button :submit, value: 'Verify', class: 'btn btn-success btn-lrge'
+  = link_to visit_verify_path(@visit), class: 'btn btn-mini btn-info'
   = link_to 'PDF', household_visit_path(@visit, format: "pdf"), class: 'btn btn-mini btn-info'
 %hr

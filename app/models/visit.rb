@@ -34,6 +34,7 @@ class Visit < ActiveRecord::Base
     visits.isopen?
   end
 
+
   def self.show_neighbor
     neighbor.last_name if neighbor
   end
@@ -102,6 +103,10 @@ class Visit < ActiveRecord::Base
 
   def visit_weight
     self.weight  
+  end
+
+  def visit_tab?
+    istab
   end
 
   def show_household

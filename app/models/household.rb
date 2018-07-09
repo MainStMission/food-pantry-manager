@@ -30,12 +30,12 @@ class Household < ActiveRecord::Base
     household_name
   end
 
-def box
-  [s_box.to_s, s_numb.to_s].join "-"
-end
+  def box
+    [s_box.to_s, s_numb.to_s].join "-"
+  end
 
 
-def thumbs
+  def thumbs
     if self.bool3
       "<i class='icon-ok'></i>"
     else
@@ -65,23 +65,41 @@ def thumbs
   end
 
   def last_visit
-  if self.visits.count > 0
-    self.visits.find(:first, :order => "visited_on DESC").visited_on.strftime('%B %d')
-  else
-    'No Visits Yet'
+    if self.visits.count > 0
+      self.visits.find(:first, :order => "visited_on DESC").visited_on.strftime('%B %d')
+    else
+      'No Visits Yet'
+    end
   end
 
-end
+  def current_token_value
+    if tokens.count > 0
+      tokens.find(:first, :order => "expiration_date").current_value.to_s
+    else
+      'No Tokens Issued'
+    end
+  end
 
-# def print_receipt
-#    if @visit?
-#      redirect_to: 
-#   else
-#      redirect_to: households_path
-#   end
+  def initial_token_value
+    if tokens.count > 0
+      tokens.find(:first, :order => "expiration_date").initial_value.to_s
+    else
+      'No Tokens Issued'
+    end
+  end
 
-
-
+  def token_expiration
+    if tokens.count > 0
+         @token = tokens.find(:first, :order => "expiration_date")
+         if @token.isexpired
+          'Expired'
+         else
+          @token.expiration_date.strftime('%B %D')
+         end
+    else 
+    'X'
+    end
+  end
 
 end
 

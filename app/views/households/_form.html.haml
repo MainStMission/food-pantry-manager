@@ -2,9 +2,12 @@
   %h4 Household Members: #{household.neighbors.count}
   %h5 Total Visits: #{household.visits.count}
   %h5 Last Visit: #{household.last_visit}
+  %h5 Token Balance: #{household.current_token_value}
+  %h5 Expires: #{household.token_expiration}
   = visit_check
 .span-one-third
   %h3 #{household.name}
+  %h4 Initial Token Value:  #{household.initial_token_value}
 - if household.post_needs
   .offset2
     .span5
