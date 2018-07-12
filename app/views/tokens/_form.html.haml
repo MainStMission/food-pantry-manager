@@ -1,28 +1,16 @@
 %script{:type=>"text/javascript"}
   $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
-= simple_form_for [@token], html: { :class => 'form-inline' } do |f|
-  - if @token.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@token.errors.count, "error")} prohibited this token from being saved:"
-      %ul
-        - @token.errors.full_messages.each do |msg|
-          %li= msg
-  if token
-    %h3 Household #{token.household.name}
-  else
-    %h3 Household: #{@household.name}
+%h3 Household: #{check_token}
+= simple_form_for @token, html: { :class => 'form-inline' } do |f|
   .span2
     = f.hidden_field :household_id, value: @household.id
     = f.hidden_field :isxpired, value: false
     = f.input :issue_date, as: :date_picker, input_html: {id: 'dpYears' , class: 'span2' }
   .span2
     = f.input :expiration_date, as: :date_picker, input_html: {id: 'dpYears' , class: 'span2' }
-  .span3
-    = f.label 'Token Value'
+  .span2
     = f.number_field :initial_value, input_html: { class: 'span1' }
   .span2
-    = f.label :flavor
-    = f.text_field :flavor, input_html: {class: 'span2'}
   .row
   .actions
     = f.button :submit, value: 'Issue Token' , class: 'btn btn-success btn-large'

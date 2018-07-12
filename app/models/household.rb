@@ -88,6 +88,11 @@ class Household < ActiveRecord::Base
     end
   end
 
+  def show_issue_token
+    if tokens.count == 0 or tokens.find(:first, :order => "expiration_date").isexpired?
+    end
+  end
+
   def token_expiration
     if tokens.count > 0
          @token = tokens.find(:first, :order => "expiration_date")
@@ -98,6 +103,15 @@ class Household < ActiveRecord::Base
          end
     else 
     'X'
+    end
+  end
+
+  def check_token
+      if tokens.count > 0
+         @token = tokens.find(:first, :order => "expiration_date")
+         @token.household.household_name
+      else
+        @household.household_name
     end
   end
 

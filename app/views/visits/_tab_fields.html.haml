@@ -7,11 +7,8 @@
       %br
       = f.association :neighbor, collection: @household.neighbors.all, default: 1, validate: { :presence => true }
       %br
-      %h5 Enter the total Tab Count and the Weight shown on the Scale
-      .span5
-        = f.input  :tab,  as: :integer, inline_label: 'Tabs',  input_html: { class: 'span2' }
-      .span5
-        = f.input  :weight, as: :decimal, inline_label: 'Weight' , input_html: {class: 'span2' }
+      %h4 Thus will open the Cart for the Neighbor to Shop 
+      %h5 You can print a cart for the Neighbor or simply open it 
       .span11
         = f.hidden_field :istab, value: true
         = f.hidden_field :isopen, value: true 

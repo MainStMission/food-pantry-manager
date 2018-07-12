@@ -62,7 +62,7 @@ class HouseholdsController < ApplicationController
   def update
 
     if household.save
-      if params[:commit] == 'Print Order'
+      if params[:commit] == 'Print Cart'
          @household = household
          @visit = household.visits.last
          redirect_to household_visit_path(@household, @visit)

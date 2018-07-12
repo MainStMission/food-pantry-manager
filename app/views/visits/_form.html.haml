@@ -13,21 +13,22 @@
     %h3 #{@visit.show_neighbor_name}
     %h4 Household Ages
     %h4
-      - household.neighbors.each do |neighbor|
+      - @visit.household.neighbors.each do |neighbor|
         = neighbor.age
   - if household.food_alert?
     %h2 Household Needs
     %h3 #{@visit.household.food_alert}
   %hr
   - if @visit.istab?
-    %h2 Tabs: #{@visit.tab}
+    %h2 Tab Balance: #{@visit.tab}
+    %h3 Expiration: #{@visit.household.tokens.last.expiration_date.strftime('%B %d %Y')}
   - else
     %h2 Food Items
     %h3 #{@visit.starch}
     %h3 #{@visit.cereal}
     %h3 #{@visit.option1}
   %hr
-  %h2 Special Note
+  %h2 Specials
   %h3 #{@visit.items_received}
   %hr
   %hr

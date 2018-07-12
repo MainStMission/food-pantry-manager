@@ -1,5 +1,17 @@
-%h1 New token
-
-= render 'form'
-
-= link_to 'Back', tokens_path
+%script{:type=>"text/javascript"}
+  $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
+%h1 New Token
+%h3 Household: #{@household.household_name}
+= simple_form_for @token, html: { :class => 'form-inline' } do |f|
+  .span2
+    = f.hidden_field :household_id, value: @household.id
+    = f.hidden_field :isxpired, value: false
+    = f.input :issue_date, as: :date_picker, input_html: {id: 'dpYears' , class: 'span2' }
+  .span2
+    = f.input :expiration_date, as: :date_picker, input_html: {id: 'dpYears' , class: 'span2' }
+  .span2
+    = f.label 'Token Value'
+    = f.number_field :initial_value, input_html: { class: 'span1' }
+  .row
+  .actions
+    = f.button :submit, value: 'Issue Token' , class: 'btn btn-success btn-large'

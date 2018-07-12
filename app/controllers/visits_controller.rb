@@ -22,13 +22,8 @@ class VisitsController < ApplicationController
     end
   end
 
-def checkout
-  respond_with visit.checkout 
-end
-
 def verify
     @visit = Visit.find(params[:id])
-    @foodlines = @visit.foodlines
     respond_with visit.verify
 end
 
@@ -42,17 +37,9 @@ end
   end
 
 
-  # def index
-
-  #     @q = Visit.includes(:neighbors, :households).search(params[:q])
-  #       @households = @q.result
-
-  # end
-
   def new
     @visit = Visit.new
   end
-
 
 
   def update
@@ -75,21 +62,31 @@ end
     redirect_to visits_path
   end
 
+  def checkout
+    @visit = Visit.find(params[:visit_id])
 
-  def show
-    @visit = Visit.find(params[:id])
-    respond_to do |format|
-      format.html   {render html: 'checkout'}
-      format.pdf do
-          if  pdf = TabPdf.new(visit)
-          else
-            pdf = TabPdf.new(visit)
-          end
-          send_data pdf.render, filename: "visit_#{visit.id}.pdf",
+      respond_to do |format|
+          format.html {render template: 'visits/checkout'}
+          format.pdf do
+            pdf = TabPdf.new(@visit)
+            send_data pdf.render, filename: "visit_#{@visit.id}.pdf",
                   type: "application/pdf",
                   disposition: "inline"
         end
-    end
+      end
+  end
+
+  def show
+    @visit = Visit.find(params[:id])
+        respond_to do |format|
+        format.html  
+        format.pdf do
+            pdf = TabPdf.new(@visit)
+          send_data pdf.render, filename: "visit_#{@visit.id}.pdf",
+                  type: "application/pdf",
+                  disposition: "inline"
+        end
+      end
   end
 
 def self.visits_count(month)

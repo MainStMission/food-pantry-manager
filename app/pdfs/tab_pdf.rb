@@ -2,12 +2,11 @@
 class TabPdf < Prawn::Document
 
   def initialize(visit)
-    @visit = visit
     super(page_layout:  :portrait)
     visit_date
     household_name
     house_count
-    special
+    visit_weight
   end
 
   def logo_image
@@ -20,11 +19,6 @@ class TabPdf < Prawn::Document
     text "Receipt"
   end
 
-  def house_count
-    text "Neighbors: #{@visit.household.neighbors.count}"
-  end
-
-
    def visit_date
      text "ID: #{@visit.id.to_s}"
      text "Date: #{@visit.visited_on.strftime('%B %d, %Y')}"
@@ -33,5 +27,6 @@ class TabPdf < Prawn::Document
    def visit_weight
     text "Weight: #{@Visit.weight.to_s}"
     text "Tabs Spent: #{@Visit.tabs.to_s}"
+   end
 
 end

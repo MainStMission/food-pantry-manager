@@ -35,6 +35,7 @@ end
       get :harvest
       resources :foodlines
       get :verify
+      get :checkout
     end
 
   resources :foods do
