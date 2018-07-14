@@ -2,13 +2,13 @@
 %h1 Id: #{@visit.id}
 %h2 Household #{@visit.household.name}
 %h4 Date: #{@visit.visited_on.strftime('%B %d, %Y')}
+%h4 Tab Id: #{@visit.token.id}
 .nested-fields
 = simple_form_for @visit, html: { :class => 'form-inline' } do |f| 
   = f.input :weight
-  - 
+  = f.input :tab 
+  = f.hidden_field :isopen, value: false 
   .span11.add_food
-    = link_to_add_association( 'Add Food', f, :foodlines, :force_non_association_create => true)
-  = f.button :submit, value: 'Verify', class: 'btn btn-success btn-lrge'
-  = link_to visit_verify_path(@visit), class: 'btn btn-mini btn-info'
-  = link_to 'PDF', household_visit_path(@visit, format: "pdf"), class: 'btn btn-mini btn-info'
+  = f.button :submit, value: 'Approve', class: 'btn btn-success btn-lrge'
+  = link_to 'Print Receipt', household_visit_path(@visit, format: "pdf"), class: 'btn btn-large btn-info'
 %hr

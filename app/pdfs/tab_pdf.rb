@@ -2,10 +2,11 @@
 class TabPdf < Prawn::Document
 
   def initialize(visit)
-    super(page_layout:  :portrait)
+    super()
+    @visit = visit
+    logo_image
     visit_date
     household_name
-    house_count
     visit_weight
   end
 
@@ -25,8 +26,8 @@ class TabPdf < Prawn::Document
    end
 
    def visit_weight
-    text "Weight: #{@Visit.weight.to_s}"
-    text "Tabs Spent: #{@Visit.tabs.to_s}"
+    text "Weight: #{@visit.weight}"
+    text "Tabs Spent: #{@visit.tab}"
    end
 
 end

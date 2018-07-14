@@ -1,14 +1,21 @@
 
 %h1 Visit Id: #{@visit.id}
 %h2 Household Id: #{@visit.household.id}
-%h2 Household #{@visit.household.name}
+%h2 Household: #{@visit.household.name}
+- if @visit.token
+  %h3 Token ID: #{@visit.token.id}
+- else 
+  %h5 Warning - No Token present
+  = link_to 'Return to Household', household_path(@visit.household.id) , class: 'btn btn-success'
 %h4 Date: #{@visit.visited_on.strftime('%B %d, %Y')}
+#checkout
 .nested-fields
-= simple_form_for @visit, html: { :class => 'form-inline' } do |f| 
-  = f.input :weight
-  = f.input :tab
-  .span11.add_food
-    -# = link_to_add_association( 'Add Food', f, :foodlines, :force_non_association_create => true)
-  = f.button :submit, value: 'Verify', class: 'btn btn-success btn-lrge'
-  -# = link_to 'PDF', household_visit_path(@visit, format: "pdf"), class: 'btn btn-mini btn-info'
+  = simple_form_for @visit, html: { :class => 'form-inline' } do |f| 
+    .span2
+    = f.input :weight
+    .span2
+    = f.input :tab
+    .span11.add_food
+    - if @visit.token
+      = f.button :submit, value: 'Verify', class: 'btn btn-success btn-lrge'
 %hr

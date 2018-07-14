@@ -135,7 +135,7 @@ end
     ],
     visits_attributes: [
         :cereal, :starch, :option1, :option2, :optionb, :visited_on, :items_received, :notes,
-        :household_id, :neighbor_id, :tab, :weight, :istab, :isopen
+        :household_id, :neighbor_id, :tab, :weight, :istab, :isopen, :token_id
     ]
     ]
   end

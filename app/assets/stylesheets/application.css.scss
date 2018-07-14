@@ -15,7 +15,7 @@ $navbarHeight: 80px;
 $navbarText: #eee;
 $navbarLinkColor: #eee;
 $navbarText: #3C566D;
-$navbarFontSize: 1.25em;
+$navbarFontSize: 1.75em;
 $navbarHover: #faa630;
 $navbarBrandColor: $navbarText;
 $navbarLinkColor: $navbarText;
@@ -381,6 +381,32 @@ table#households {
   margin-top: 100px;
 }
 
+.logo {
+  margin-top: -20px;
+}
+#checkout {
+  float: left;
+  width: 20%;
+  margin: 0px 75px 20px;
+  select {
+    font-size:  20px;
+    height: 30px;
+  }
+  input {
+    border:  8px;
+    border-color: red;
+    margin:  0px auto;
+    text-align: center;
+    background-color: black;
+    font-size: 50px;
+    color: #ffff00;
+    height:  60px;
+  }
+  input.btn {
+  color: red;
+  font-size: 25px;
+  }
+}
 #weight {
   float: left;
   width: 20%;

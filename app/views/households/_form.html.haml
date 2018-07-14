@@ -2,14 +2,14 @@
   %h4 Household Members: #{household.neighbors.count}
   %h5 Total Visits: #{household.visits.count}
   %h5 Last Visit: #{household.last_visit}
-  %h5 Initial Token: #{household.initial_token_value}
+  %h5 Initial Token: #{household.initial_token_value_display}
   %h5 Expires: #{household.token_expiration}
   = visit_check
 .span-one-third
   %h3 #{household.name}
-  %h3 Token Balance:  #{household.current_token_value}
-- if household.show_issue_token
-  = link_to 'Issue', new_household_token_path(household.id) , class: 'btn btn-success'
+  %h3 Token Balance:  #{household.token_balance }
+  - if household.tokens.count == 0
+    = link_to 'Issue', new_household_token_path(household.id) , class: 'btn btn-success'
 - if household.post_needs
   .offset2
     .span
