@@ -34,14 +34,15 @@ class TabPdf < Prawn::Document
    end
 
    def visit_weight
-    text " The weight of the produce you received was #{@visit.weight} pounda and you spent #{@visit.tab} tabs"
+    text " The weight of the produce you received was #{@visit.weight} pounds and you spent #{@visit.tab} Tabs"
     text " during your visit today."
    end
 
    def token_summary
      move_down 20
-     text "You received Token Number #{@visit.token.id.to_s} worth #{@visit.token.initial_value.to_s} on #{@visit.token.issue_date.strftime('%B %d')}"
-     text "You spent #{@visit.tab} today and you will have #{@visit.household.token_balance} to spend before #{@visit.household.token_expiration}"
+     text "You received Token Number #{@visit.token.id.to_s} worth #{@visit.token.initial_value.to_s} Tabs on #{@visit.token.issue_date.strftime('%B %d')}"
+     text "You spent #{@visit.tab} today and you will have #{@visit.household.token_balance} Tabs to spend before #{@visit.household.token_expiration}"
+     text "After #{@visit.household.token_expiration} you are eligible to receive #{@visit.household.token_balance} Tabs"
    end
 
    def hours
