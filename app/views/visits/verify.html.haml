@@ -7,7 +7,8 @@
 %h4 During this visit #{@visit.neighbor.name} spent #{@visit.tab} Tabs.
 %h4 #{@visit.neighbor.first_name} received Token Number #{@visit.token.id.to_s} worth #{@visit.token.initial_value.to_s} on #{@visit.token.issue_date.strftime('%B %d')}
 %h4 After spending #{@visit.tab} today #{@visit.neighbor.first_name} will have #{@visit.household.token_balance} to spend before #{@visit.household.token_expiration} 
-%h4 You can adjust the weight or Tab value below and if it is correct Print the Receipt
+%h4 You can adjust the weight or Tab value below.
+%h4 if it is correct Print the Receipt
 .nested-fields
 = simple_form_for @visit, html: { :class => 'form-inline' } do |f| 
   = f.input :weight

@@ -5,9 +5,12 @@ class TabPdf < Prawn::Document
     super()
     @visit = visit
     logo_image
-    visit_date
     household_name
+    visit_date
     visit_weight
+    token_summary
+    hours
+    table
   end
 
   def logo_image
@@ -15,19 +18,44 @@ class TabPdf < Prawn::Document
   end
 
   def household_name
-    move_down 10
+    move_down 15
     text "Household: #{@visit.show_household}"
-    text "Receipt"
+    move_down 20
+  end
+
+  def store_hours
+
   end
 
    def visit_date
-     text "ID: #{@visit.id.to_s}"
-     text "Date: #{@visit.visited_on.strftime('%B %d, %Y')}"
+     text " Thank You #{@visit.neighbor.first_name} for visiting Main Street Marketplace today"
+     move_down 15
+     text "Your visit Number is #{@visit.id.to_s} and you visited on #{@visit.visited_on.strftime('%B %d, %Y')}"
    end
 
    def visit_weight
-    text "Weight: #{@visit.weight}"
-    text "Tabs Spent: #{@visit.tab}"
+    text " The weight of the produce you received was #{@visit.weight} pounda and you spent #{@visit.tab} tabs"
+    text " during your visit today."
+   end
+
+   def token_summary
+     move_down 20
+     text "You received Token Number #{@visit.token.id.to_s} worth #{@visit.token.initial_value.to_s} on #{@visit.token.issue_date.strftime('%B %d')}"
+     text "You spent #{@visit.tab} today and you will have #{@visit.household.token_balance} to spend before #{@visit.household.token_expiration}"
+   end
+
+   def hours
+       text "Our hours at Main Street Market Place are"
+       move_down 15
+       text "Monday      10:00 AM - 3:00 PM"
+       text "Tuesday     10:00 AM - 3:00 PM"
+       text "Thursday    10:00 AM - 3:00 PM  Evening  5:30 PM 7:00 PM"
+       text "Friday        10:00 AM - 3:00 PM"
+   end
+
+   def table
+     move_down 20
+     text "Everyone is welcome at the table"
    end
 
 end
