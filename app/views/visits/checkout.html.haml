@@ -4,11 +4,11 @@
 %h2 Household: #{@visit.household.name}
 - if @visit.token
   %h3 Token ID: #{@visit.token.id}
+  %h3 Token Balance: #{@visit.household.token_balance}
 - else 
   %h5 Warning - No Token present
   = link_to 'Return to Household', household_path(@visit.household.id) , class: 'btn btn-success'
 %h4 Date: #{@visit.visited_on.strftime('%B %d, %Y')}
-#checkout
 .nested-fields
   = simple_form_for @visit, html: { :class => 'form-inline' } do |f| 
     .span2
