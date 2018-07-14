@@ -4,10 +4,6 @@ class DonationsController < ApplicationController
   include RestfulJson::DefaultController
 
   # before_filter :authenticate_user!
-<<<<<<< HEAD
-  
-=======
->>>>>>> simple-token
   expose(:donation)
   expose(:donations)
 
@@ -54,6 +50,6 @@ class DonationsController < ApplicationController
   end
 
   def donation_params
-    params.require(:donation).permit(*allowable)
+  params.require(:donation).permit(*allowable)
   end
 end
