@@ -1,5 +1,12 @@
 class FoodlinesController < ApplicationController
 
+  expose(:households) { Household.scoped.includes(:neighbors, :visits).page params[:page] }
+  expose(:household, strategy: StrongParametersStrategy)
+  expose(:neighbors) { household.neighbors.includes(:visits) }
+  expose(:neighbor)
+  expose(:visits) { household.visits}
+  expose(:visit)
+
     def index
         @foodlines = Foodlines.all
         respond_to do |format|
@@ -25,7 +32,7 @@ class FoodlinesController < ApplicationController
     @food = Foodline.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render checkout}
       format.json { render json: @foodline }
     end
   end

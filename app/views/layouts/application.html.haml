@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title= link_to 'Main Street Mission', '/'
+    %title= link_to 'Marketplace', '/'
     /[if lt IE 9]
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     = stylesheet_link_tag  'application', :media => "all"
@@ -20,26 +20,38 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand{href: "#"} Main St Mission 
+          %a.brand{href: "/households"}
+            .logo
+              =image_tag 'logo.jpg'
           .nav-collapse
             %ul.nav
               %li.dropdown
                 %a.dropdown-toggle{data_toggle: "dropdown", href: "#" }
-                  <i class="icon-user icon-large"></i> Households
+                  <i></i> Households
                   %b.caret
                 %ul.dropdown-menu
-                  %li= link_to 'New Household', households_path
+                  %li= link_to 'New Household', new_household_path
                   %li.divider
                   %li= link_to 'New Visit', households_path
                   %li.divider
-                  %li= link_to 'Check Out', '/checkout'
+                  %li= link_to 'Check Out', '/open_visit'
                   %li.divider
                   %li= link_to 'Households', households_path
                   %li.divider
-                  %li= link_to 'Visits', visits_path
+                  %li= link_to 'Visits', visit_index_households_path
               %li.dropdown
                 %a.dropdown-toggle{data_toggle: "dropdown", href: "#" }
-                  <i class="icon-shopping-cart icon-large"></i> Donations
+                  <i></i> Tokens
+                  %b.caret
+                %ul.dropdown-menu
+                  %li= link_to "Issue Token", token_index_households_path
+                  %li.divider
+                  %li= link_to "Open Tokens", tokens_path
+                  %li.divider
+                  %li= link_to "Expired Tokens", tokens_path
+              %li.dropdown
+                %a.dropdown-toggle{data_toggle: "dropdown", href: "#" }
+                  <i></i> Donations
                   %b.caret
                 %ul.dropdown-menu
                   %li= link_to "New Donation", new_donation_path
@@ -47,10 +59,10 @@
                   %li= link_to "Donations", donations_path
                   %li.divider
                   %li= link_to "Donors", donors_path
-              %li= link_to '<i class="icon-pencil icon-large"></i> Volunteers'.html_safe, time_clock_path
+              %li= link_to '<i></i> Volunteers'.html_safe, time_clock_path
               %li.dropdown
                 %a.dropdown-toggle{data_toggle: "dropdown", href: "#" }
-                  <i class="icon-dashboard icon-large"></i> Admin
+                  <i></i> Admin
                   %b.caret
                 %ul.dropdown-menu
                   %li.divider

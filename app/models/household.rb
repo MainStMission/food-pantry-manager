@@ -10,12 +10,13 @@ class Household < ActiveRecord::Base
   has_many :neighbors    , dependent: :delete_all
   has_many :visits       , dependent: :delete_all
   has_many :foodlines    , dependent: :delete_all
-
+  has_many :tokens       , dependent: :delete_all
 
   has_many :foods, through: :foodlines
 
   accepts_nested_attributes_for :neighbors, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :visits, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :tokens, allow_destroy: true, reject_if: :all_blank
   
 
   # after_save: print_receipt
@@ -29,12 +30,12 @@ class Household < ActiveRecord::Base
     household_name
   end
 
-def box
-  [s_box.to_s, s_numb.to_s].join "-"
-end
+  def box
+    [s_box.to_s, s_numb.to_s].join "-"
+  end
 
 
-def thumbs
+  def thumbs
     if self.bool3
       "<i class='icon-ok'></i>"
     else
@@ -64,23 +65,66 @@ def thumbs
   end
 
   def last_visit
-  if self.visits.count > 0
-    self.visits.find(:first, :order => "visited_on DESC").visited_on.strftime('%B %d')
-  else
-    'No Visits Yet'
+    if self.visits.count > 0
+      self.visits.find(:first, :order => "visited_on DESC").visited_on.strftime('%B %d')
+    else
+      'No Visits Yet'
+    end
   end
 
-end
+  def current_token_value
+    if tokens.count > 0
+      tokens.find(:first, :order => "expiration_date").current_value.to_s
+    else
+      'No Tokens Issued'
+    end
+  end
 
-# def print_receipt
-#    if @visit?
-#      redirect_to: 
-#   else
-#      redirect_to: households_path
-#   end
+  def initial_token_value_display
+    if tokens.count > 0
+      tokens.find(:first, :order => "expiration_date").initial_value.to_s
+    else
+      'No Tokens Issued'
+    end
+  end
 
+  def token_balance
+    if tokens.count > 0
+      @tab = tokens.find(:first, :order => "expiration_date")
+      # @tab_initial = tokens.find(:first, :order => "expiration_date").initial_value
+      @tab.initial_value - @tab.visit.map(&:tab).compact.sum
+    else
+      'No Tokens Issued'
+    end
 
+  end
 
+  def show_issue_token
+    if tokens.count == 0 
+    end
+  end
+
+  def token_expiration
+    if tokens.count > 0
+         @token = tokens.find(:first, :order => "expiration_date")
+         if @token.isexpired
+          'Expired'
+         else
+          @token.expiration_date.strftime('%B %D')
+         end
+    else 
+    'X'
+    end
+  end
+
+  def check_token
+      if tokens.count > 0
+         @token = tokens.find(:first, :order => "expiration_date")
+         @token.household.household_name
+      else
+        @household.household_name
+    end
+  end
 
 end
 

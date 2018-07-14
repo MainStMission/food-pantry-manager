@@ -1,33 +1,49 @@
 # -*- encoding : utf-8 -*-
 FoodPantry::Application.routes.draw do
 
-  resources :foodlines
 
 
-  resources :foods
 
 
-  resources :missions
-
-
-  #devise_for :admins
+  #devise_for :admin
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  resources :donations, :donors, :visits, :neighbors, :missions
+  resources :foodlines, :visits, :donations, :donors, 
+            :neighbors, :volunteers, :foods, :missions, :tokens
+
+resources :donations do
+  resources :donors
+end
 
 
   resources :households do
     resources :visits
     resources :neighbors
+    resources :tokens
+    collection do
+      get :token_index
+      get :visit_index
+    end
   end
+
+  resources :tokens do
+    resources :visits
+  end
+
 
   resources :visits do
       get :harvest
+      resources :foodlines
+      get :verify
       get :checkout
     end
 
+  resources :foods do
+    resources :foodlines
+  end
+    
 
-  #resources :visits
+
 
   resources :volunteers do
     member do
@@ -42,11 +58,14 @@ FoodPantry::Application.routes.draw do
 
   get 'new_visit' => 'households#new_visit'
 
+  # get 'household_token_index' => 'households#token_index'
+
   get 'time_clock' => 'time_clock#show'
 
   get '/harvest' => 'visits#harvest'
 
-  get '/checkout'  => 'visits#checkout'
+  get '/open_visit' => 'visits#open_visit'
+
 
 
 

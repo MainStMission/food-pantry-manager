@@ -1,0 +1,16 @@
+%script{:type=>"text/javascript"}
+  $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
+%h3 Household: #{check_token}
+= simple_form_for @token, html: { :class => 'form-inline' } do |f|
+  .span2
+    = f.hidden_field :household_id, value: @household.id
+    = f.hidden_field :isxpired, value: false
+    = f.input :issue_date, as: :date_picker, input_html: {id: 'dpYears' , class: 'span2' }
+  .span2
+    = f.input :expiration_date, as: :date_picker, input_html: {id: 'dpYears' , class: 'span2' }
+  .span2
+    = f.number_field :initial_value, input_html: { class: 'span1' }
+  .span2
+  .row
+  .actions
+    = f.button :submit, value: 'Issue Token' , class: 'btn btn-success btn-large'

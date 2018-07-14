@@ -11,9 +11,13 @@ class Visit < ActiveRecord::Base
   belongs_to :neighbor
   belongs_to :household
   has_many   :foodlines
+  belongs_to :token
 
-  has_many :visits, through: :foodlines
+  has_many :foods, through: :foodlines
 
+
+  accepts_nested_attributes_for :foodlines, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :foods,  reject_if: :all_blank
 
   delegate :name, to: :neighbor, prefix: true, allow_nil: true
   delegate :household_name, to: :household, prefix: true, allow_nil: true
@@ -24,9 +28,19 @@ class Visit < ActiveRecord::Base
   by_star_field :visited_on
 
   scope :visit_list, -> { where('visited_on >= ?', 2.weeks.ago) }
+  scope :open, -> { where(istab:true, isopen: true)}
+  scope :closed, -> { where(istab: true, isopen: false)}
 
    
   has_paper_trail
+
+  def self.visit_open
+    visits.isopen?
+  end
+
+  def checkout
+
+  end
 
   def self.show_neighbor
     neighbor.last_name if neighbor
@@ -124,6 +138,12 @@ class Visit < ActiveRecord::Base
     self.weight  
   end
 
+  def visit_tab?
+    istab
+  end
+
+  
+
   def show_household
     household.household_name if household
   end
@@ -141,6 +161,9 @@ class Visit < ActiveRecord::Base
     visited_on.last
 
   end
+
+  private
+
 
 
 

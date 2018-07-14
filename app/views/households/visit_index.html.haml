@@ -15,19 +15,17 @@
       %thead.htable
         %tr
           %th Household 
-          %th Box-File
           %th Visits
           %th Last Visit
       %tbody.htable
       - ranhouse.each do |household|
+        - @visit = household.visit
         %tr.visits
           %td= link_to household.household_name, edit_household_path(household)
-          %td= household.box
           %td= household.visits.count
           %td= household.last_visit
           %td
             = link_to 'Edit', edit_household_path(household), class: 'btn'
-            -# = link_to 'Issue', new_household_token_path
     = paginate households
     .actions.submit-visit
       = link_to 'New Household', new_household_path, class: 'btn btn-warning'

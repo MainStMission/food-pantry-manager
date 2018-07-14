@@ -4,7 +4,10 @@ class DonationsController < ApplicationController
   include RestfulJson::DefaultController
 
   # before_filter :authenticate_user!
+<<<<<<< HEAD
   
+=======
+>>>>>>> simple-token
   expose(:donation)
   expose(:donations)
 

@@ -1,0 +1,29 @@
+%h1 Tabs
+
+%table.table.table-striped.house-table.table-hover
+  %thead.htable
+    %tr
+      %th Household
+      %th Issue date
+      %th Expiration date
+      %th Initial value
+      %th Isexpired
+      %th
+      %th
+      %th
+    %tbody.htable
+    - @tokens.each do |token|
+      %tr
+        %td= token.household_id
+        - if token.issue_date
+          %td= token.issue_date.strftime('%B %d')
+        - if token.expiration_date
+          %td= token.expiration_date.strftime('%B %d')
+        %td= token.initial_value
+        %td= token.isexpired
+        %td= link_to 'Show', token
+        %td= link_to 'Edit', edit_token_path(token)
+        %td= link_to 'Destroy', token, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%br
+
+= link_to 'New Token', new_token_path

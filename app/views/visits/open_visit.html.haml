@@ -12,7 +12,9 @@
           %th Neighbor
           %th Tab Balance
       %tbody
-      - visits.visit_open.each do |visit|
+      - @visits = Visit.open
+      - @visits.each do |visit|
+      - @visit = visit
       - @household = visit.household
         %tr
           %td= link_to visit.show_household, household_path(visit.household_id)
@@ -20,6 +22,5 @@
             %td= visit.show_neighbor
           %td
             = link_to 'Edit', edit_visit_path(visit), class: 'btn btn-mini'
-            = link_to_add_association( 'Check Out', f, :foodlines , class: 'btn btn-success btn-large visit-btn', :partial => 'visits/_checkout_fields', :render_options => {wrapper: 'bootstrap' },:force_non_association_create => true,)
-            = link_to 'Destroy', visit, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+            = link_to 'Checkout', visit_checkout_path(@visit), class: 'btn btn-mini btn-danger'
     %br

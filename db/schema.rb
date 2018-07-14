@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20180703140906) do
+=======
+ActiveRecord::Schema.define(:version => 20180706124155) do
+>>>>>>> simple-token
 
   create_table "admin_notes", :force => true do |t|
     t.string   "resource_id",     :null => false
@@ -81,6 +85,8 @@ ActiveRecord::Schema.define(:version => 20180703140906) do
     t.integer  "household_id"
     t.integer  "visit_id"
     t.integer  "food_id"
+    t.string   "description"
+    t.string   "healthy"
   end
 
   create_table "foods", :force => true do |t|
@@ -220,6 +226,18 @@ ActiveRecord::Schema.define(:version => 20180703140906) do
     t.datetime "end_time"
   end
 
+  create_table "tokens", :force => true do |t|
+    t.integer  "household_id"
+    t.datetime "issue_date"
+    t.datetime "expiration_date"
+    t.integer  "initial_value"
+    t.integer  "current_value"
+    t.string   "flavor"
+    t.boolean  "isexpired"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -271,6 +289,7 @@ ActiveRecord::Schema.define(:version => 20180703140906) do
     t.decimal  "weight"
     t.boolean  "istab",          :default => false
     t.boolean  "isopen",         :default => false
+    t.integer  "token_id"
   end
 
   add_index "visits", ["household_id"], :name => "index_visits_on_household_id"
