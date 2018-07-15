@@ -7,7 +7,7 @@
   = visit_check
 .span-one-third
   %h3 #{household.name}
-  %h3 Token Balance:  #{household.token_balance }
+  %h3 Tab Balance:  #{household.token_balance }
   - if household.tokens.count == 0
     = link_to 'Issue', new_household_token_path(household.id) , class: 'btn btn-success'
 - if household.post_needs

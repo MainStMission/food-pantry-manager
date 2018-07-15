@@ -25,6 +25,7 @@ class VisitsController < ApplicationController
 def verify
     @visit = Visit.find(params[:id])
     respond_with visit.verify
+    redirect_to 'open_visit'
 end
 
   def index

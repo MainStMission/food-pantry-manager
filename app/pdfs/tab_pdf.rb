@@ -42,7 +42,7 @@ class TabPdf < Prawn::Document
      move_down 20
      text "You received Token Number #{@visit.token.id.to_s} worth #{@visit.token.initial_value.to_s} Tabs on #{@visit.token.issue_date.strftime('%B %d')}"
      text "You spent #{@visit.tab} today and you will have #{@visit.household.token_balance} Tabs to spend before #{@visit.household.token_expiration}"
-     text "After #{@visit.household.token_expiration} you are eligible to receive #{@visit.household.token_balance} Tabs"
+     text "After #{@visit.household.token_expiration} you are eligible to receive #{@visit.token.initial_value.to_s} Tabs"
    end
 
    def hours

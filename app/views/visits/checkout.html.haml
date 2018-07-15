@@ -17,5 +17,6 @@
     = f.input :tab
     .span11.add_food
     - if @visit.token
+      = f.hidden_field :isopen, value: false 
       = f.button :submit, value: 'Verify', class: 'btn btn-success btn-lrge'
 %hr

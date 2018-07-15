@@ -39,6 +39,10 @@ class TokensController < ApplicationController
   # GET /tokens/1/edit
   def edit
     @token = Token.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   # POST /tokens

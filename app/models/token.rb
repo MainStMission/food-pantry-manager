@@ -11,6 +11,11 @@ class Token < ActiveRecord::Base
     self.visits
   end
 
+
+  def expired?
+      expiration_date > Date.today
+  end
+
   # def self tabs_spent
   #   @visits.map(&:tab).compact.sum
   # end
