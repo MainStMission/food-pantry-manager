@@ -6,7 +6,7 @@
   .span2
     = f.hidden_field :household_id, value: @household.id
     = f.hidden_field :isxpired, value: false
-    = f.input :issue_date, as: :date_picker, input_html: {id: 'dpYears' , class: 'span2' }
+    = f.input :issue_date, as: :date_picker, autofocus: true, input_html: {id: 'dpYears' , class: 'span2' }
   .span2
     = f.input :expiration_date, as: :date_picker, input_html: {id: 'dpYears' , class: 'span2' }
   .span2

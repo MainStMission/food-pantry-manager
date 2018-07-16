@@ -23,15 +23,13 @@ class Visit < ActiveRecord::Base
   delegate :household_name, to: :household, prefix: true, allow_nil: true
 
   default_scope order('visited_on DESC')
-  scope :harvest_visits, -> { where('visited_on >= ?', 3.months.ago )}
-  scope :open_visits, -> { where('isopen?')}
+  scope :harvest_visits, -> { where('visited_on >= ?', 4.months.ago )}
   by_star_field :visited_on
 
   scope :visit_list, -> { where('visited_on >= ?', 2.weeks.ago) }
-  scope :open, -> { where(istab:true, isopen: true)}
+  scope :open, -> { where(istab:true,   isopen: true)}
   scope :closed, -> { where(istab: true, isopen: false)}
 
-   
   has_paper_trail
 
   def self.visit_open
@@ -53,7 +51,6 @@ class Visit < ActiveRecord::Base
   end
 
 # Use the following: Household.where(:id => @hi).map(&:neighbor_count).inject(:+)
-
   def self.households_current_month_count
     harvest_visits.by_month(Date.today.strftime("%B")).pluck(:household_id).uniq.count
   end
@@ -81,34 +78,13 @@ class Visit < ActiveRecord::Base
   def self.neighbors_current_month
     households_current_month.map{|id| Household.find(id).neighbor_count}.inject(:+)
   end
+  
+  def self.young_neighbors_current_month
+    households_current_month.map{|id| Household.find(id).young.neighbor_count}.inject(:+)
+  end
 
   def self.neighbors_past_month
     households_past_month.map{|id| Household.find(id).neighbor_count}.inject(:+)
-  end
-
-
-  def self.young_neighbors_past_month
-    households_past_month.map{|id| Household.find(id).young_neighbor}.inject(:+)
-  end
-  
-  def self.middle_neighbors_past_month
-    households_past_month.map{|id| Household.find(id).middle_neighbor}.inject(:+)
-  end
-
-  def self.old_neighbors_past_month
-    households_past_month.map{|id| Household.find(id).old_neighbor}.inject(:+)
-  end
-
-  def self.young_neighbors_current_month
-    households_current_month.map{|id| Household.find(id).young_neighbor}.inject(:+)
-  end
-  
-  def self.middle_neighbors_current_month
-    households_current_month.map{|id| Household.find(id).middle_neighbor}.inject(:+)
-  end
-
-  def self.old_neighbors_current_month
-    households_current_month.map{|id| Household.find(id).old_neighbor}.inject(:+)
   end
   
   # Move to households 

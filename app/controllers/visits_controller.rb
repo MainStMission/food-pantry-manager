@@ -63,6 +63,20 @@ end
     redirect_to visits_path
   end
 
+  def harvest
+      @visits = Visit.harvest_visits
+
+      respond_to do |format|
+          format.html {render template: 'visits/harvest'}
+          format.pdf do
+            pdf = TabPdf.new(@visit)
+            send_data pdf.render, filename: "visit_#{@visit.id}.pdf",
+                  type: "application/pdf",
+                  disposition: "inline"
+        end
+      end
+  end
+
   def checkout
     @visit = Visit.find(params[:visit_id])
 
@@ -79,7 +93,7 @@ end
 
   def show
     @visit = Visit.find(params[:id])
-        respond_to do |format|
+        resond_to do |format|
         format.html  
         format.pdf do
             pdf = TabPdf.new(@visit)

@@ -3,9 +3,9 @@
 = simple_form_for @token, html: { :class => 'form-inline' } do |f|
   .span2
     = f.hidden_field :household_id, value: @token.household.id
-    = f.input :issue_date, as: :date_picker, input_html: {id: 'dpYears' , class: 'span2' }
+    = f.input :issue_date, as: :date_picker, default: Date.today, input_html: {id: 'dpYears' , class: 'span2' }
   .span2
-    = f.input :expiration_date, as: :date_picker, input_html: {id: 'dpYears' , class: 'span2' }
+    = f.input :expiration_date, as: :date_picker, autofocus: true, input_html: {id: 'dpYears' , class: 'span2' }
   .span2
     = f.number_field :initial_value, input_html: { class: 'span1' }
   .span2

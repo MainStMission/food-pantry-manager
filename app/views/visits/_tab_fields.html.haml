@@ -9,6 +9,7 @@
       = f.association :token, label: 'Token ID', label_method: :id, collection: @household.tokens.all, default: 1, validate: {presence: true}
       %br
       %h4 Thus will open the Cart for the Neighbor to Shop 
+      %h5 Make sure that there is a Token ID
       %h5 You can print a cart for the Neighbor or simply open it 
       .span11
         = f.hidden_field :istab, value: true

@@ -41,24 +41,23 @@
           %thead
             %tr
               %th Month
-              / - @visits = visits.all
               %th Total Number of Visits
               %th Total Number of Households
               %th Total Number of Neighbors
-              - @h_month = visits.by_month(@month).select "DISTINCT(household_id)"
-              - @household_ids = visits.by_month(@month).pluck(:household_id).uniq
-              - @prev_month_ids = visits.by_month(@prev_month).pluck(:household_id).uniq
+              -# - @h_month = visits.by_month(@month).select "DISTINCT(household_id)"
+              -# - @household_ids = visits.by_month(@month).pluck(:household_id).uniq
+              -# - @prev_month_ids = visits.by_month(@prev_month).pluck(:household_id).uniq
               %tbody
                 %tr
                   %td= Date.today.strftime("%B")
-                  %td= visits.visits_current_month
-                  %td= visits.households_current_month_count
-                  %td= visits.neighbors_current_month
+                  %td= @visits.visits_current_month
+                  %td= @visits.households_current_month_count
+                  %td= @visits.neighbors_current_month
                 %tr
                   %td= @pmonth
-                  %td= visits.visits_past_month
-                  %td= visits.households_past_month_count
-                  %td= visits.neighbors_past_month
+                  %td= @visits.visits_past_month
+                  %td= @visits.households_past_month_count
+                  %td= @visits.neighbors_past_month
     %br
     .row
     .span11
@@ -74,10 +73,10 @@
               %th Total Served
               %tbody
                 %tr
-                  %td=  visits.young_neighbors_current_month
-                  %td=  visits.middle_neighbors_current_month
-                  %td=  visits.old_neighbors_current_month
-                  %td=  visits.neighbors_current_month
+                  -# %td=  @visits.young_neighbors_current_month
+                  -# %td=  @visits.middle_neighbors_current_month
+                  -# %td=  @visits.old_neighbors_current_month
+                  -# %td=  @visits.neighbors_current_month
     .row
     %br
     .row
@@ -94,10 +93,10 @@
               %th Total Served
               %tbody
                 %tr
-                  %td=  visits.young_neighbors_past_month
-                  %td=  visits.middle_neighbors_past_month
-                  %td=  visits.old_neighbors_past_month
-                  %td=  visits.neighbors_past_month
+                  -# %td=  @visits.young_neighbors_past_month
+                  -# %td=  @visits.middle_neighbors_past_month
+                  -# %td=  @visits.old_neighbors_past_month
+                  -# %td=  @visits.neighbors_past_month
   .row
   
   %br
