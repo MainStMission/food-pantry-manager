@@ -93,7 +93,7 @@ end
 
   def show
     @visit = Visit.find(params[:id])
-        resond_to do |format|
+        respond_to do |format|
         format.html  
         format.pdf do
             pdf = TabPdf.new(@visit)
