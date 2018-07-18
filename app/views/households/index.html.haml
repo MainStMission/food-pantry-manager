@@ -27,7 +27,6 @@
           %td= household.last_visit
           %td
             = link_to 'Edit', edit_household_path(household), class: 'btn'
-            -# = link_to 'Issue', new_household_token_path
     = paginate households
     .actions.submit-visit
       = link_to 'New Household', new_household_path, class: 'btn btn-warning'

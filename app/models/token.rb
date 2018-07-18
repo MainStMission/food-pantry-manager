@@ -13,7 +13,7 @@ class Token < ActiveRecord::Base
 
 
   def expired?
-      expiration_date > Date.today
+      expiration_date < Date.today
   end
 
   # def self tabs_spent

@@ -20,7 +20,7 @@
         - if token.expiration_date
           %td= token.expiration_date.strftime('%B %d')
         %td= token.initial_value
-        %td= token.isexpired
+        %td= token.expired?
         %td= link_to 'Show', token
         %td= link_to 'Edit', edit_token_path(token)
         %td= link_to 'Destroy', token, :method => :delete, :data => { :confirm => 'Are you sure?' }

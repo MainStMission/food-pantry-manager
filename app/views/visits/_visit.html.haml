@@ -13,7 +13,6 @@
       .span2
         = f.input :isopen 
       %br
-
         - if !@visit.household.food_alert.blank?
           %h4 Food Restrictions: #{@visit.household.food_alert}
         = f.input  :items_received, prompt:'Items here will show up on the printer order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }

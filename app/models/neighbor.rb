@@ -10,6 +10,7 @@ class Neighbor < ActiveRecord::Base
   belongs_to :household
 
   default_scope order('last_name ASC')
+  
 
   scope :young, where("birth_date >= ?", 19.years.ago)
   scope :middle, where("birth_date <= ? AND birth_date >= ?", 20.years.ago, 65.years.ago)

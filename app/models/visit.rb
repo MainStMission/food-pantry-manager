@@ -78,9 +78,9 @@ class Visit < ActiveRecord::Base
   def self.neighbors_current_month
     households_current_month.map{|id| Household.find(id).neighbor_count}.inject(:+)
   end
-  
+
   def self.young_neighbors_current_month
-    households_current_month.map{|id| Household.find(id).young.neighbor_count}.inject(:+)
+    households_current_month.map{|id| Household.find(id).neighbor_count}.inject(:+)
   end
 
   def self.neighbors_past_month

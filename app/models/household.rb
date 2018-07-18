@@ -91,12 +91,14 @@ class Household < ActiveRecord::Base
   def token_balance
     if tokens.count > 0
       @tab = tokens.find(:first, :order => "expiration_date")
-      # @tab_initial = tokens.find(:first, :order => "expiration_date").initial_value
-      @tab.initial_value - @tab.visit.map(&:tab).compact.sum
-    else
-      'No Tokens Issued'
+        if @tab.expired?
+          'Token Expired'
+        else
+          @tab.initial_value - @tab.visit.map(&:tab).compact.sum
+        end
+    else  
+        'No Tokens Issued'
     end
-
   end
 
   def show_issue_token
@@ -107,7 +109,7 @@ class Household < ActiveRecord::Base
   def token_expiration
     if tokens.count > 0
          @token = tokens.find(:first, :order => "expiration_date")
-         if @token.isexpired
+         if @token.expired?
           'Expired'
          else
           @token.expiration_date.strftime('%B %D')
