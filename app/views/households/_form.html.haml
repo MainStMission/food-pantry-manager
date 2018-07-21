@@ -10,6 +10,8 @@
   %h3 Tab Balance:  #{household.token_balance }
   - if household.tokens.count == 0
     = link_to 'Issue', new_household_token_path(household.id) , class: 'btn btn-success'
+  - if household.token_expired?
+    = link_to 'Issue', new_household_token_path(household.id) , class: 'btn btn-success'
 - if household.post_needs
   .offset2
     .span
