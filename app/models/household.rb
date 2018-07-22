@@ -92,12 +92,12 @@ class Household < ActiveRecord::Base
     if tokens.count > 0
       @tab = tokens.find(:first, :order => "expiration_date")
         if @tab.expired?
-          'Token Expired'
+          'Expired'
         else
           @tab.initial_value - @tab.visit.map(&:tab).compact.sum
         end
     else  
-        'No Tokens Issued'
+        'NTI'
     end
   end
 

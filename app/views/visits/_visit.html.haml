@@ -12,10 +12,17 @@
         = f.input :istab
       .span2
         = f.input :isopen 
+      .span2 
+        = f.input :tab
+      .span2
+        = f.input :weight
+      .span5
+      %hr
       %br
         - if !@visit.household.food_alert.blank?
           %h4 Food Restrictions: #{@visit.household.food_alert}
-        = f.input  :items_received, prompt:'Items here will show up on the printer order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
-        = f.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
+        .span8
+          = f.input  :items_received, prompt:'Items here will show up on the printer order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
+        = f.input  :notes,input_html: {rows: 4, class: 'span8' }
         = f.button :submit, :class => 'btn-primary', :label=> 'Save'
 

@@ -15,14 +15,14 @@
       %thead.htable
         %tr
           %th Household 
-          %th Box-File
+          %th Tabs
           %th Visits
           %th Last Visit
       %tbody.htable
       - ranhouse.each do |household|
         %tr.visits
           %td= link_to household.household_name, edit_household_path(household)
-          %td= household.box
+          %td= household.token_balance
           %td= household.visits.count
           %td= household.last_visit
           %td
