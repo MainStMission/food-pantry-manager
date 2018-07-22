@@ -2,6 +2,10 @@ class Token < ActiveRecord::Base
   
   include ActiveModel::ForbiddenAttributesProtection
 
+  validates :issue_date, presence: {message: 'You must enter an Issue Date'}
+  validates :expiration_date, presence: {message: 'You must enter an Expiration Date'}
+  validates :initial_value, presence: {message: 'You must enter a Value for this Token'}
+
   belongs_to  :household
   has_many    :visits
 
