@@ -1,4 +1,5 @@
-=image_tag 'marketplace.png'
+#verify_image
+  =image_tag 'marketplace.png'
 %h1 Id: #{@visit.id}
 %h2 Household #{@visit.household.name}
 %h4 Date: #{@visit.visited_on.strftime('%B %d, %Y')}
@@ -9,14 +10,33 @@
   %h4 You received Token Number #{@visit.token.id.to_s} worth #{@visit.token.initial_value.to_s} on #{@visit.token.issue_date.strftime('%B %d')}
   %h4 After spending #{@visit.tab} today you will have #{@visit.household.token_balance} to spend before #{@visit.household.token_expiration} 
   %br
-  %h4 Today's Purchase
-  .nested-fields
-  = simple_form_for @visit, html: { :class => 'form-inline' } do |f| 
-    = f.input :weight
-    = f.input :tab 
-    = f.hidden_field :isopen, value: false 
-    .span11.add_food
-    = f.button :submit, value: 'Update', class: 'btn btn-success btn-lrge'
-    = link_to 'Print' , households_path, class: 'button btn btn-large btn-primary' , id: 'btnPrint'
-= link_to 'Return to Checkout', '/open_visit'
+  #verifynp.nested-fields
+    = simple_form_for @visit, html: { :class => 'form-inline' } do |f| 
+      = f.input :weight
+      = f.input :tab 
+      = f.hidden_field :isopen, value: false 
+      .span11.add_food
+      = f.button :submit, value: 'Update', class: 'btn btn-success btn-lrge'
+      = link_to 'Print' , households_path, class: 'button btn btn-large btn-primary' , id: 'btnPrint'
+#retcheck      
+  = link_to 'Return to Checkout', '/open_visit'
+%table.table
+  %thead.htable
+    %tr 
+      %th Main Street Market Hours
+    %tr
+      %td Monday
+      %td 10:00 AM - 3:00 PM
+    %tr
+      %td Tuesday
+      %td 10:00 AM - 3:00 PM  
+    %tr
+      %td Wednesday
+      %td Closed  
+    %tr
+      %td Thursday
+      %td 10:00 AM - 3:00 PM and  6:00 PM - 8:00 PM
+    %tr
+      %td Friday
+      %td 10:00 AM - 3:00 PM
 %hr

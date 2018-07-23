@@ -6,6 +6,7 @@ class Household < ActiveRecord::Base
   validates :household_name, uniqueness: {message: 'We already have that Household'}
   validates :neighbors, presence: {message: 'You must enter at least one neighbor'}
   validates :inc_amt1, :inc_amt2, :inc_amt3, :exp_amt1, :exp_amt2, :exp_amt3, numericality: true, allow_nil: true
+  
 
   has_many :neighbors    , dependent: :delete_all
   has_many :visits       , dependent: :delete_all
@@ -89,13 +90,9 @@ class Household < ActiveRecord::Base
   end
 
   def token_balance
-    if tokens.count > 0
-      @tab = tokens.find(:first, :order => "expiration_date")
-        if @tab.expired?
-          'Expired'
-        else
-          @tab.initial_value - @tab.visit.map(&:tab).compact.sum
-        end
+    if tokens.open_token.count == 1
+      @tab = tokens.open_token.first
+      @tab.initial_value - @tab.visit.map(&:tab).compact.sum
     else  
         'NTI'
     end
@@ -107,20 +104,15 @@ class Household < ActiveRecord::Base
   end
 
   def token_expired?
-    if tokens.count > 0
-         @token = tokens.find(:first, :order => "expiration_date")
-          @token.expired?
+    if tokens.open_token == 0 && tokens.expired_token.count >= 1
+         @token = tokens.expired_token.find(:first, :order => "expiration_date")
     end
   end
 
   def token_expiration
-    if tokens.count > 0
-         @token = tokens.find(:first, :order => "expiration_date")
-         if @token.expired?
-          'Expired'
-         else
-          @token.expiration_date.strftime('%B %D')
-         end
+    if tokens.open_token.count == 1  
+         @token = tokens.open_token.first
+         @token.expiration_date.strftime('%D')
     else 
     'X'
     end

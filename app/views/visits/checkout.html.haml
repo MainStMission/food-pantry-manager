@@ -10,12 +10,14 @@
   = link_to 'Return to Household', household_path(@visit.household.id) , class: 'btn btn-success'
 %h4 Date: #{@visit.visited_on.strftime('%B %d, %Y')}
 .nested-fields
+#checkout
+  .span10
   = simple_form_for @visit, html: { :class => 'form-inline' } do |f| 
-    .span2
+    .span4
     = f.input :weight
     .span2
     = f.input :tab
-    .span11.add_food
+    .span11
     - if @visit.token
       = f.hidden_field :isopen, value: false 
       = f.button :submit, value: 'Verify', class: 'btn btn-success btn-lrge'

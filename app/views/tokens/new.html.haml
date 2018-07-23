@@ -1,17 +1,20 @@
 %script{:type=>"text/javascript"}
   $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
 %h1 New Token
+- if @household 
+  - @household = Household.find(@household)
 %h3 Household: #{@household.household_name}
 = simple_form_for @token, html: { :class => 'form-inline' } do |f|
-  .span2
-    = f.hidden_field :household_id, value: @household.id
-    = f.hidden_field :isxpired, value: false
-    = f.input :issue_date, as: :date_picker, autofocus: true, input_html: {id: 'dpYears' , class: 'span2' }
-  .span2
-    = f.input :expiration_date, as: :date_picker, input_html: {id: 'dpYears' , class: 'span2' }
-  .span2
-    = f.label 'Token Value'
-    = f.number_field :initial_value, input_html: { class: 'span1' }
-  .row
-  .actions
-    = f.button :submit, value: 'Issue Token' , class: 'btn btn-success btn-large'
+  #token.span12
+    .span
+      = f.hidden_field :household_id, value: @household.id
+      = f.hidden_field :isxpired, value: false
+      = f.input :issue_date, as: :string,  :input_html => {class: "datepicker", value: Time.now.strftime('%m/%d/%y')}
+    .span4
+      = f.input :expiration_date, as: :date_picker, autofocus: true, input_html: {id: 'dpYears' , class: 'span4' }
+    .span2
+      = f.label 'Token Value'
+      = f.number_field :initial_value, input_html: { class: 'span1' }
+    .row
+    .actions
+      = f.button :submit, value: 'Issue Token' , class: 'btn btn-success btn-large'

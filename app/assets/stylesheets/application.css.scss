@@ -14,7 +14,7 @@ $navbarBackgroundHighlight: rgba(255,255,255,0.0);
 $navbarHeight: 80px;
 $navbarText: #eee;
 $navbarLinkColor: #eee;
-$navbarText: #3C566D;
+$navbarText: rgb(45, 68, 88);
 $navbarFontSize: 1.75em;
 $navbarHover: #faa630;
 $navbarBrandColor: $navbarText;
@@ -34,8 +34,19 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 @media (min-width: 980px) {
 }
 
+#verify_image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+#check_table {
+  font-size: 20px;
+}
+
 @media print {
   text-align: center;
+  margin-left: 40px;
 
   h1 {
     font-size: 30px;
@@ -46,13 +57,52 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
   h3 {
     font-size: 20px;
   }
+  h4 {font_size: 20px;
+  }
+
   #printbtn {
-    visibility:hidden
+    visibility:hidden;
+  }
+  head {
+    visibility:hidden;
   }
   footer {
-    visibility:hidden
+    visibility:hidden;
+  }
+  #verifynp {
+    visibility:hidden;
+  }
+  title {
+    visibility: hidden;
+  }
+  #retcheck {
+    visibility:hidden;
   }
 }
+
+
+#token input {
+  border: 8px;
+  border-color: red;
+  margin: 0px auto;
+  text-align: center;
+  background-color: black;
+  font-size: 30px;
+  color: #ffff00;
+  height: 40px;
+}
+
+#checkout input {
+  border: 8px;
+  border-color: red;
+  margin: 0px auto;
+  text-align: center;
+  background-color: black;
+  font-size: 30px;
+  color: #ffff00;
+  height: 40px;
+}
+
 
 #print_form {
   width : 300px;

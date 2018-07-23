@@ -7,18 +7,16 @@ class Token < ActiveRecord::Base
   validates :initial_value, presence: {message: 'You must enter a Value for this Token'}
 
   belongs_to  :household
-  has_many    :visits
+  has_many :visits
 
+  scope :open_token, -> { where('? BETWEEN DATE(issue_date) AND DATE(expiration_date)', Date.today) }
+  scope :expired_token, -> { where('DATE(expiration_date) < ?', Date.today) }
   has_paper_trail
 
   def visit
     self.visits
   end
 
-
-  def expired?
-      expiration_date < Date.today
-  end
 
   # def self tabs_spent
   #   @visits.map(&:tab).compact.sum

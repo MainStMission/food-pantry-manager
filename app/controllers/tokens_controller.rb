@@ -5,7 +5,7 @@ class TokensController < ApplicationController
   # GET /tokens
   # GET /tokens.json
   def index
-    @tokens = Token.all
+    @tokens = Token.open?
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +17,7 @@ class TokensController < ApplicationController
   # GET /tokens/1.json
   def show
     @token = Token.find(params[:id])
-
+    @household = Household.find(params[:household_id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @token }
@@ -39,6 +39,8 @@ class TokensController < ApplicationController
   # GET /tokens/1/edit
   def edit
     @token = Token.find(params[:id])
+    @household = Household.find(params[:household_id])
+
     respond_to do |format|
       format.html
       format.json
