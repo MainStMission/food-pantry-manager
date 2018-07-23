@@ -5,7 +5,7 @@ class TokensController < ApplicationController
   # GET /tokens
   # GET /tokens.json
   def index
-    @tokens = Token.open?
+    @tokens = Token.open_token
 
     respond_to do |format|
       format.html # index.html.erb
