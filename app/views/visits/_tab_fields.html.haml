@@ -8,9 +8,7 @@
       = f.association :neighbor, collection: @household.neighbors.all, default: 1, validate: { presence: true }
       = f.association :token, label: 'Token ID', label_method: :id, collection: @household.tokens.all, default: 1, validate: {presence: true}
       %br
-      %h4 Thus will open the Cart for the Neighbor to Shop 
-      %h5 Make sure that there is a Token ID
-      %h5 You can print a cart for the Neighbor or simply open it 
+      %h4 This will open the Cart for the Neighbor to Shop and print a receipt
       .span11
         = f.hidden_field :istab, value: true
         = f.hidden_field :isopen, value: true 
@@ -24,6 +22,5 @@
         = Mission.last.message
         - notes = Mission.last.message
       .actions.span12
-      = f.button :submit, value: 'Print Cart', id: 'btnPrint'
-      = f.button :submit, value: 'Open Cart', class: 'btn btn-inverse'    
+      = f.button :submit, value: 'Print Cart', id: 'btnPrint btnlarge'
   %hr

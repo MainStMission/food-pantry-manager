@@ -11,7 +11,7 @@
  
 - if household.post_needs
   .span8
-    #reminder.well.well-large
+    #reminder.well.well-medium
       %h5 #{household.special_needs}
 .row
   #neighbor-table
@@ -31,7 +31,7 @@
 .span11
 %p.visit
 = simple_form_for [household, visit], url: household_visit_path do |f|
-  #visit-color.well.well-large
+  #visit-color.well.well-medium
     #visit-date
       = f.input  :visited_on,     :label => 'Date of Visit', default: Date.today, order: [:month, :day],input_html: { class: 'span2' }
       .br
