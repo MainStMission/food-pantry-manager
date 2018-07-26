@@ -12,6 +12,8 @@ class Token < ActiveRecord::Base
   scope :open_token, -> { where('? BETWEEN DATE(issue_date) AND DATE(expiration_date)', Date.today) }
   scope :expired_token, -> { where('DATE(expiration_date) < ?', Date.today) }
   has_paper_trail
+  
+  max_paginates_per 20
 
   def visit
     self.visits

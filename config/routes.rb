@@ -61,7 +61,10 @@ end
   # get 'household_token_index' => 'households#token_index'
 
   get 'time_clock' => 'time_clock#show'
+  
+  get 'open' => 'tokens#open'
 
+  get 'expired' => 'tokens#expired'
   get '/harvest' => 'visits#harvest'
 
   get '/open_visit' => 'visits#open_visit'

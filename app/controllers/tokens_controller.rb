@@ -1,16 +1,53 @@
 class TokensController < ApplicationController
 
   include RestfulJson::DefaultController
+  before_filter :authenticate_user!
 
   # GET /tokens
   # GET /tokens.json
   def index
-    @tokens = Token.open_token
+    # @tokens = Token.open_token
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @tokens }
-    end
+    # if params[open]
+      @q = Token.open_token.includes(:household, :visits).search(params[:q])
+      @tokens = @q.result
+
+    #   respond_to do |format|
+    #     format.html # index.html.erb
+    #     format.json { render json: @tokens }
+    #   end
+    # end
+
+      @q = Token.expired_token.includes(:household, :visits).search(params[:q])
+      @tokens = @q.result
+
+      respond_to do |format|
+        if params[:open]
+          format.html {render template: 'tokens/open' }
+        end
+        format.json { render json: @tokens }
+      end
+  end
+
+
+  def open
+
+      @q = Token.open_token.includes(:household, :visits).search(params[:q])
+        @tokens = @q.result
+
+      respond_to do |format|
+          format.html {render template: 'tokens/open'}
+      end
+  end
+
+  def expired
+
+      @q = Token.expired_token.includes(:households, :visits).search(params[:q])
+        @tokens = @q.result
+
+      respond_to do |format|
+          format.html {render template: 'tokens/expired'}
+      end
   end
 
   # GET /tokens/1
@@ -49,6 +86,7 @@ class TokensController < ApplicationController
 
   # POST /tokens
   # POST /tokens.json
+
   def create
     @token = Token.new(token_params)
     @household = @token.household_id
