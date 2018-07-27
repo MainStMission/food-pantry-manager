@@ -18,7 +18,7 @@ class TokensController < ApplicationController
     #   end
     # end
 
-      @q = Token.expired_token.includes(:household, :visits).search(params[:q])
+      @q = Token.open_token.includes(:household, :visits).search(params[:q])
       @tokens = @q.result
 
       respond_to do |format|
