@@ -143,6 +143,14 @@ html {
     text-align: left;
    }
 }
+
+.table td {
+  .token-table {
+  text-align: center;
+  font-size: 1.45em;
+  }
+}
+
 .table th {
    text-align: center;   
 }
@@ -308,6 +316,10 @@ table#households {
 }
 
 #house_address {
+  text-align: center;
+}
+
+#token_header h3 {
   text-align: center;
 }
 

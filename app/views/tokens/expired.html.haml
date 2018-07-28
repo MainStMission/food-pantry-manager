@@ -1,35 +1,23 @@
+%h1 Expired Tokens
 
-%section.panel
-  %header
-    %h1
-      %i.icon-home.icon-large
-      &nbsp&nbsp&nbspHouseholds
-  .content
-    = paginate households
-    #housesearch
-      = search_form_for @q do |f|
-        = f.label :household_name_start
-        = f.text_field :household_name_start, :class => "input-medium search-field"
-        = f.submit
-        = f.submit "Clear", :name => nil, :id => :q_reset 
-    %table.table.table-striped.house-table.table-hover
-      %thead.htable
-        %tr
-          %th Household 
-          %th Last Visit
-          %th Tokens
-          %th Expiration
-          %th Issue Token
-      %tbody.htable
-      - ranhouse.each do |household|
-        %tr.visits
-          %td= link_to household.household_name, edit_household_path(household)
-          %td= household.last_visit
-          %td
-          %td
-          %td
-            = link_to 'Issue', edit_household_path(household) , class: 'btn btn-success'
-    = paginate households
-    .actions.submit-visit
-      = link_to 'New Household', new_household_path, class: 'btn btn-warning'
-    
+%table.table.table-striped.house-table.table-hover
+  %thead.htable
+    %tr
+      %th Household
+      %th Issued
+      %th Expiration
+      %th Initial value
+    %tbody.htable
+    - @tokens.each do |token|
+      %tr
+        %td= link_to token.household.household_name, edit_household_path(token.household)
+        - if token.issue_date
+          %td= token.issue_date.strftime('%B %d')
+        - if token.expiration_date
+          %td= token.expiration_date.strftime('%B %d')
+        %td= token.initial_value
+        %td= token.household.token_balance
+%br
+
+= link_to 'New Token', new_token_path
+

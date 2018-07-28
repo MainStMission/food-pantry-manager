@@ -22,9 +22,7 @@ class TokensController < ApplicationController
       @tokens = @q.result
 
       respond_to do |format|
-        if params[:open]
-          format.html {render template: 'tokens/open' }
-        end
+        format.html 
         format.json { render json: @tokens }
       end
   end
@@ -36,7 +34,7 @@ class TokensController < ApplicationController
         @tokens = @q.result
 
       respond_to do |format|
-          format.html {render template: 'tokens/open'}
+          format.html
       end
   end
 

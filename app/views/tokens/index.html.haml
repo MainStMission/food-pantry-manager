@@ -1,4 +1,4 @@
-%h1 Tokens
+%h1 Open Tokens
 
 %table.table.table-striped.house-table.table-hover
   %thead.htable
@@ -8,8 +8,7 @@
       %th Expiration
       %th Initial value
       %th Balance
-      %th Visits
-      %th Last Visit
+      %th View
     %tbody.htable
     - @tokens.each do |token|
       %tr
@@ -18,8 +17,13 @@
           %td= token.issue_date.strftime('%B %d')
         - if token.expiration_date
           %td= token.expiration_date.strftime('%B %d')
-        %td= token.initial_value
-        %td= token.household.token_balance
-        %td= link_to 'Destroy', token, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        - if token.initial_value
+          %td= token.initial_value
+        - if token.household
+          - @household = token.household
+          %td= token.household.token_balance
+        %td= link_to 'show', household_token_path(@household,token), :class => 'btn btn-mini'
 %br
+
+= link_to 'New Token', new_token_path
 

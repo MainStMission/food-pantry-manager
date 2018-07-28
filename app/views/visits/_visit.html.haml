@@ -23,6 +23,6 @@
           %h4 Food Restrictions: #{@visit.household.food_alert}
         .span8
           = f.input  :items_received, prompt:'Items here will show up on the printer order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
-        = f.input  :notes,input_html: {rows: 4, class: 'span8' }
+        = f.input  :notes`,input_html: {rows: 4, class: 'span8' }
         = f.button :submit, :class => 'btn-primary', :label=> 'Save'
 

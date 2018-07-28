@@ -73,19 +73,14 @@ class Household < ActiveRecord::Base
     end
   end
 
-  def current_token_value
-    if tokens.count > 0
-      tokens.find(:first, :order => "expiration_date").current_value.to_s
-    else
-      'No Tokens Issued'
-    end
-  end
 
   def initial_token_value_display
-    if tokens.count > 0
+    if token_open?
       tokens.find(:first, :order => "expiration_date").initial_value.to_s
+    elsif token_expired?
+      'Expired'
     else
-      'No Tokens Issued'
+      'No Token Issued'
     end
   end
 
@@ -100,10 +95,6 @@ class Household < ActiveRecord::Base
     end
   end
 
-  def show_issue_token
-    if tokens.count == 0 
-    end
-  end
 
   def token_expired?
     if tokens.open_token.count == 0 && tokens.expired_token.count >= 1
@@ -131,6 +122,17 @@ class Household < ActiveRecord::Base
     else
       'NTI'
     end
+  end
+
+  def token_issuance
+    if token_open?
+      @token = tokens.open_token.first
+      @token.issue_date.strftime('%D')
+    elsif token_expired?
+      'Expired' 
+    else
+      'Not Token'
+    end 
   end
 
   def expired_token_date 

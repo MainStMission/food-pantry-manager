@@ -31,6 +31,7 @@ class HouseholdsController < ApplicationController
       end
   end
 
+
   def visit_index
 
       @q = Household.includes(:neighbors, :visits).search(params[:q])

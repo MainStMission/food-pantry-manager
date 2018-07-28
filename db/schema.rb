@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20180703140906) do
-=======
-ActiveRecord::Schema.define(:version => 20180706124155) do
->>>>>>> simple-token
+ActiveRecord::Schema.define(:version => 20180728204610) do
 
   create_table "admin_notes", :force => true do |t|
     t.string   "resource_id",     :null => false
@@ -237,6 +233,10 @@ ActiveRecord::Schema.define(:version => 20180706124155) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
+
+  add_index "tokens", ["expiration_date"], :name => "index_tokens_on_expiration_date"
+  add_index "tokens", ["household_id"], :name => "index_tokens_on_household_id"
+  add_index "tokens", ["issue_date"], :name => "index_tokens_on_issue_date"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
