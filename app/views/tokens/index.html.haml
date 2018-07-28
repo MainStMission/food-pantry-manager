@@ -22,7 +22,7 @@
         - if token.household
           - @household = token.household
           %td= token.household.token_balance
-        %td= link_to 'show', household_token_path(@household,token), :class => 'btn btn-mini'
+        %td= link_to 'Show Token', household_token_path(@household,token), :class => 'btn btn-mini'
 %br
 
 = link_to 'New Token', new_token_path
