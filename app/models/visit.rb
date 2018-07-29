@@ -62,7 +62,7 @@ class Visit < ActiveRecord::Base
   end  
 
  def self.neighbors_last_month
-   harvest_visits_last_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).neighbor_count}
+   harvest_visits_last_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).neighbor_count}.inject(:+)
  end
 
   def self.households_two_months_ago 
