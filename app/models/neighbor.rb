@@ -13,7 +13,7 @@ class Neighbor < ActiveRecord::Base
   
 
   scope :young, where("birth_date >= ?", 19.years.ago)
-  scope :middle, where("birth_date <= ? AND birth_date >= ?", 20.years.ago, 65.years.ago)
+  scope :middle, where("birth_date <= ? AND birth_date >= ?", 19.years.ago, 64.years.ago)
   scope :old, where("birth_date <= ?", 64.years.ago)
 
 

@@ -14,8 +14,9 @@
       %h4 Agency ID: 590AD
       %h4 Report for: #{Date.today.strftime('%B %d, %Y')}
       = link_to 'Second Harvest', 'http://www.secondharvestmetrolina.org/'
-      - @month = "#{Date.today.strftime('%B %Y')}"
+      - @month = "#{Date.today.strftime('%B')}"
       - @pmonth = "#{(Date.today - 1.month).strftime('%B')}"
+      - @ppmonth = "#{(Date.today - 2.months).strftime('%B')}"
       - @ppre_year = 2016
       - @three_year = 2015
       - @four_year = 2014
@@ -40,7 +41,7 @@
         %table.table.table-bordered
           %thead
             %tr
-              %th Month
+              %th @month
               %th Total Number of Visits
               %th Total Number of Households
               %th Total Number of Neighbors
@@ -49,15 +50,20 @@
               -# - @prev_month_ids = visits.by_month(@prev_month).pluck(:household_id).uniq
               %tbody
                 %tr
-                  %td= Date.today.strftime("%B")
-                  %td= @visits.visits_current_month
-                  %td= @visits.households_current_month_count
+                  %td= @month
+                  %td= @visits.current_month
+                  %td= @visits.households_current_month
                   %td= @visits.neighbors_current_month
                 %tr
                   %td= @pmonth
-                  %td= @visits.visits_past_month
-                  %td= @visits.households_past_month_count
-                  %td= @visits.neighbors_past_month
+                  %td= @visits.last_month
+                  %td= @visits.households_last_month
+                  %td= @visits.neighbors_last_month
+                %tr
+                  %td= @ppmonth
+                  %td= @visits.two_months_ago
+                  %td= @visits.households_two_months_ago
+                  %td= @visits.neighbors_two_months_ago
     %br
     .row
     .span11
@@ -73,10 +79,10 @@
               %th Total Served
               %tbody
                 %tr
-                  -# %td=  @visits.young_neighbors_current_month
-                  -# %td=  @visits.middle_neighbors_current_month
-                  -# %td=  @visits.old_neighbors_current_month
-                  -# %td=  @visits.neighbors_current_month
+                  %td=  @visits.young_neighbors_current_month
+                  %td=  @visits.middle_neighbors_current_month
+                  %td=  @visits.old_neighbors_current_month
+                  %td=  @visits.neighbors_current_month
     .row
     %br
     .row
@@ -93,10 +99,10 @@
               %th Total Served
               %tbody
                 %tr
-                  -# %td=  @visits.young_neighbors_past_month
-                  -# %td=  @visits.middle_neighbors_past_month
-                  -# %td=  @visits.old_neighbors_past_month
-                  -# %td=  @visits.neighbors_past_month
+                  %td=  @visits.young_neighbors_last_month
+                  %td=  @visits.middle_neighbors_last_month
+                  %td=  @visits.old_neighbors_last_month
+                  %td=  @visits.neighbors_last_month
   .row
   
   %br
