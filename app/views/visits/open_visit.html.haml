@@ -21,5 +21,5 @@
             - if visit.neighbor_id
               %td= visit.show_neighbor
             %td
-              = link_to 'Edit', edit_visit_path(visit), class: 'btn btn-mini'
-              = link_to 'Checkout', visit_checkout_path(@visit), class: 'btn btn-large btn-danger'
+              = link_to 'Destroy', visit, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+              = link_to 'Checkout', visit_checkout_path(@visit), class: 'btn btn-large btn-success'

@@ -59,8 +59,9 @@ end
   end
 
   def destroy
-    visit.destroy
-    redirect_to visits_path
+    @visit = Visit.find(params[:id])
+    @visit.destroy
+    redirect_to households_path
   end
 
   def harvest
