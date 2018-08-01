@@ -90,15 +90,15 @@ class Visit < ActiveRecord::Base
   end
 
   def self.young_neighbors_last_month
-    harvest_visits_last_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).young_neighbor}
+    harvest_visits_last_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).young_neighbor}.inject(:+)
   end
 
   def self.middle_neighbors_last_month
-    harvest_visits_last_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).middle_neighbor}
+    harvest_visits_last_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).middle_neighbor}.inject(:+)
   end
 
   def self.old_neighbors_last_month
-    harvest_visits_last_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).old_neighbor}
+    harvest_visits_last_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).old_neighbor}.inject(:+)
   end
 
 
