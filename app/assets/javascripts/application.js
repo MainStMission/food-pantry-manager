@@ -42,25 +42,8 @@ $(document).ready(function() {
 	}});
 });
 
-$(function(){
-	function check_to_hide_or_show_add_link() {
-		if ($('#colours .nested-fields:visible').length == 5){
-			$('colours .link a').hide();
-		} else {
-			$('#colours .link a').show();
-		}
-	}
-
-	$('#colours').on('cocoon:after-insert', function(){
-		check_to_hide_or_show_add_link();
-	});
-
-	$('colours').on('cocoon:after_remove', function(){
-		check_to_hide_or_show_add_link();
-	});
-
-		check_to_hide_or_show_add_link();
-
+$("*").on('cocoon:after-insert', function () { 
+	
+	document.querySelector( ' .create-button ').remove(); 
 });
-
 
