@@ -6,9 +6,14 @@
   -if @visit.token
     %h4 Tab Id: #{@visit.token.id}
     .span4
-      %h3 #{@visit.neighbor.name} spent #{@visit.tab} Tabs today at Main Street Marketplace.
-      %h3 After spending #{@visit.tab} Tabs today you will have #{@visit.household.token_balance} to spend before #{@visit.household.token_expiration} 
-    %br
+      %h3 #{@visit.neighbor.name} spent:
+      %h2  #{@visit.tab} Tabs today.
+      %h3 Remaining Tabs:
+      %h2 #{@visit.household.token_balance} 
+      %h3 to spend before
+      %h2 #{@visit.household.token_expiration} 
+      %h2 
+      %h2
     #verifynp.nested-fields
       = simple_form_for @visit, html: { :class => 'form-inline' } do |f| 
         = f.input :weight
@@ -18,6 +23,7 @@
         = link_to 'Print' , households_path, class: 'button btn btn-large btn-primary' , id: 'btnPrint'
   #retcheck      
     = link_to 'Return to Checkout', '/open_visit'
+  %hr  
   %table.table.span3
     %thead.htable.span3
       %tr 
