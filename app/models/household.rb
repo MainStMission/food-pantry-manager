@@ -124,6 +124,17 @@ class Household < ActiveRecord::Base
     end
   end
 
+  def token_renew
+    if token_open?
+      @token = tokens.open_token.first
+      @token.expiration_date.to_date.next_day.strftime('%D')
+    elsif token_expired?
+      'Expired'
+    else
+      'NTI'
+    end
+  end
+
   def token_issuance
     if token_open?
       @token = tokens.open_token.first

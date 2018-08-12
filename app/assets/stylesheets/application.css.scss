@@ -45,10 +45,11 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 }
 
 @media print {
-  max-width: 400px;
+  max-width: 300px;
   text-align: left;
-  margin-left: 5px;
-
+  margin-left: -10px;
+ 
+  @page { margin: 0;}
   h1 {
     font-size: 30px;
   } 

@@ -1,7 +1,5 @@
 %hr
-
 #print_form.well.well-large
-
   %h1 Id: #{@visit.id}
   %h4 Date: #{@visit.visited_on.strftime('%B %d, %Y')}
   %h1 Household: 
@@ -17,7 +15,8 @@
   %tab-print.well.well-large
     %h2 Tabs
     %h3 Available Tabs: #{@visit.household.token_balance}
-    %h4 Expiration: #{@visit.household.tokens.last.expiration_date.strftime('%B %d %Y')}
+    %h4 Expiration: #{@visit.household.token_expiration}
+    %h4 Renewal Date: #{@visit.household.token_renew}
   %hr
   %h3 #{@visit.items_received}
   %hr
@@ -27,7 +26,6 @@
 #printbtn
   = link_to 'Print' , households_path, class: 'button btn btn-large btn-primary' , id: 'btnPrint'
 
- 
 
 
 

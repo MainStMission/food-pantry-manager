@@ -1,46 +1,26 @@
-.span-one-third
-.well.well-small
-  %h1 Id: #{@visit.id}
-  %h2 Household #{@visit.household.name}
-  %h4 Date: #{@visit.visited_on.strftime('%B %d, %Y')}
-  -if @visit.token
-    %h4 Tab Id: #{@visit.token.id}
-    .span4
+.span4
+  .well.well-small.vprint
+    %h1 Id: #{@visit.id}
+    %h2 Household #{@visit.household.name}
+    %h4 Date: #{@visit.visited_on.strftime('%B %d, %Y')}
+    -if @visit.token
+      %h4 Tab Id: #{@visit.token.id}
       %h3 #{@visit.neighbor.name} spent:
       %h2  #{@visit.tab} Tabs today.
       %h3 Remaining Tabs:
       %h2 #{@visit.household.token_balance} 
-      %h3 to spend before
+      %h3 to spend on or before
       %h2 #{@visit.household.token_expiration} 
-      %h2 
+      %h2 You can get new Tabs on:
+      %h2 #{@visit.household.token_renew}
       %h2
-    #verifynp.nested-fields
-      = simple_form_for @visit, html: { :class => 'form-inline' } do |f| 
-        = f.input :weight
-        = f.input :tab 
-        = f.hidden_field :isopen, value: false 
-        = f.button :submit, value: 'Update', class: 'btn btn-success btn-lrge'
-        = link_to 'Print' , households_path, class: 'button btn btn-large btn-primary' , id: 'btnPrint'
+      #verifynp.nested-fields
+        = simple_form_for @visit, html: { :class => 'form-inline' } do |f| 
+          = f.input :weight
+          = f.input :tab 
+          = f.hidden_field :isopen, value: false 
+          = f.button :submit, value: 'Update', class: 'btn btn-success btn-lrge'
+          = link_to 'Print' , households_path, class: 'button btn btn-large btn-primary' , id: 'btnPrint'
   #retcheck      
     = link_to 'Return to Checkout', '/open_visit'
   %hr  
-  %table.table.span3
-    %thead.htable.span3
-      %tr 
-        %th Main Street Market Hours
-      %tr
-        %td Monday
-        %td 10:00 AM - 3:00 PM
-      %tr
-        %td Tuesday
-        %td 10:00 AM - 3:00 PM  
-      %tr
-        %td Wednesday
-        %td Closed  
-      %tr
-        %td Thursday
-        %td 10:00 AM - 3:00 PM and  6:00 PM - 8:00 PM
-      %tr
-        %td Friday
-        %td 10:00 AM - 3:00 PM
-  %hr
