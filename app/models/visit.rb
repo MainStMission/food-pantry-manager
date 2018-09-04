@@ -24,17 +24,19 @@ class Visit < ActiveRecord::Base
 
   default_scope order('visited_on DESC')
   scope :harvest_visits, -> { where('visited_on >= ?', 4.months.ago )}
-  scope :harvest_visits_last_month, lambda { where('visited_on  > ? AND visited_on <  ?', 1.month.ago.beginning_of_month, 1.month.ago.end_of_month)}
-  scope :harvest_visits_two_months_ago, lambda {where('visited_on > ? AND visited_on < ?', 2.months.ago.beginning_of_month, 2.months.ago.end_of_month)}
-  scope :harvest_visits_current_month, lambda {where('visited_on > ? AND visited_on < ?', Time.now.beginning_of_month, Time.now.end_of_month)}
+  scope :harvest_visits_last_month, -> { where('visited_on  >= ? AND visited_on <=  ?', 1.month.ago.beginning_of_month, 1.month.ago.end_of_month)}
+  scope :harvest_visits_two_months_ago, -> {where('visited_on >= ? AND visited_on <= ?', 2.months.ago.beginning_of_month, 2.months.ago.end_of_month)}
+  scope :harvest_visits_current_month, -> {where('visited_on >= ? AND visited_on <= ?', Time.now.beginning_of_month, Time.now.end_of_month)}
 
   scope :visit_list, -> { where('visited_on >= ?', 2.weeks.ago) }
   scope :open, -> { where(istab:true,   isopen: true)}
   scope :closed, -> { where(istab: true, isopen: false)}
+
+
   has_paper_trail
 
   def self.visit_open
-    visits.isopen?
+    visit.isopen?
   end
 
   def checkout
@@ -46,11 +48,16 @@ class Visit < ActiveRecord::Base
   end
 
   def self.households_current_month 
-       harvest_visits_current_month.uniq_by(&:household_id).count
-  end  
+        harvest_visits_current_month.uniq_by(&:household_id)
+  end
+
+  def self.households_count_current_month
+    harvest_visits_current_month.uniq_by(&:household_id).count
+  end
 
   def self.neighbors_current_month
-    harvest_visits_current_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).neighbor_count}.inject(:+)
+    household = Household.includes(:neighbors)
+    harvest_visits_current_month.uniq_by(&:household_id).map(&:household_id).map{|id| household.find(id).neighbor_count}.reduce(:+)
   end
 
   def self.last_month
@@ -58,19 +65,27 @@ class Visit < ActiveRecord::Base
   end
 
   def self.households_last_month 
-       harvest_visits_last_month.uniq_by(&:household_id).count
-  end  
+       harvest_visits_last_month.uniq_by(&:household_id)
+  end
 
- def self.neighbors_last_month
-   harvest_visits_last_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).neighbor_count}.inject(:+)
+  def self.households_count_last_month
+    households_last_month.count
+  end
+
+  def self.neighbors_last_month
+   households_last_month.map(&:household_id).map{|id| Household.find(id).neighbor_count}.reduce(:+)
  end
 
   def self.households_two_months_ago 
-    harvest_visits_two_months_ago.uniq_by(&:household_id).count
-  end  
+    harvest_visits_two_months_ago.uniq_by(&:household_id)
+  end
 
- def self.neighbors_two_months_ago
-   harvest_visits_two_months_ago.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).neighbor_count}.inject(:+)
+  def self.households_count_two_months_ago
+    harvest_visits_two_months_ago.uniq_by(&:household_id).count
+  end
+
+  def self.neighbors_two_months_ago
+   households_two_months_ago.map(&:household_id).map{|id| Household.find(id).neighbor_count}.reduce(:+)
  end
  
  def self.two_months_ago
@@ -78,29 +93,41 @@ class Visit < ActiveRecord::Base
   end
 
   def self.young_neighbors_current_month
-    harvest_visits_current_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).young_neighbor}.inject(:+)
+    households_current_month.map(&:household_id).map{|id| Household.find(id).young_neighbor}.reduce(:+)
   end
 
   def self.middle_neighbors_current_month
-    harvest_visits_current_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).middle_neighbor}.inject(:+)
+    households_current_month.map(&:household_id).map{|id| Household.find(id).middle_neighbor}.reduce(:+)
   end
 
   def self.old_neighbors_current_month
-    harvest_visits_current_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).old_neighbor}.inject(:+)
+    households_current_month.map(&:household_id).map{|id| Household.find(id).old_neighbor}.reduce(:+)
   end
 
   def self.young_neighbors_last_month
-    harvest_visits_last_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).young_neighbor}.inject(:+)
+    households_last_month.map(&:household_id).map{|id| Household.find(id).young_neighbor}.reduce(:+)
   end
 
   def self.middle_neighbors_last_month
-    harvest_visits_last_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).middle_neighbor}.inject(:+)
+    households_last_month.map(&:household_id).map{|id| Household.find(id).middle_neighbor}.reduce(:+)
   end
 
   def self.old_neighbors_last_month
-    harvest_visits_last_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).old_neighbor}.inject(:+)
+    households_last_month.map(&:household_id).map{|id| Household.find(id).old_neighbor}.reduce(:+)
   end
 
+
+  def self.young_neighbors_two_month
+    households_two_months_ago.map(&:household_id).map{|id| Household.find(id).young_neighbor}.reduce(:+)
+  end
+
+  def self.middle_neighbors_two_month
+    households_two_months_ago.map(&:household_id).map{|id| Household.find(id).middle_neighbor}.reduce(:+)
+  end
+
+  def self.old_neighbors_two_month
+    households_two_months_ago.map(&:household_id).map{|id| Household.find(id).old_neighbor}.reduce(:+)
+  end
 
   # def self.households_last_month 
   #      harvest_visits_last_month.uniq_by(&:household_id).count
@@ -111,54 +138,6 @@ class Visit < ActiveRecord::Base
   end  
    
 
-
-  # Uses by_star gem for dates https://github.com/radar/by_star
-
-  # def  self.visits_current_month
-  #   harvest_visits.by_month(Date.today.strftime("%B")).count
-  # end
-
-# Use the following: Household.where(:id => @hi).map(&:neighbor_count).inject(:+)
-#   def self.households_current_month_count
-#     harvest_visits.by_month(Date.today.strftime("%B")).pluck(:household_id).uniq.count
-#   end
-
-#   def self.households_current_month
-#     harvest_visits.by_month(Date.today.strftime("%B")).pluck(:household_id).uniq
-#   end
-
-#   def self.households_current_month_count
-#     harvest_visits.by_month(Date.today.strftime("%B")).pluck(:household_id).uniq.count
-#   end
-
-#   def self.visits_past_month
-#     harvest_visits.past_month.count
-#   end
-
-#   def self.households_past_month
-#     harvest_visits.past_month.pluck(:household_id).uniq
-#   end
-
-#   def self.households_past_month_count
-#     harvest_visits.past_month.pluck(:household_id).uniq.count
-#   end
-
-#   def self.neighbors_current_month
-#     households_current_month.map{|id| Household.find(id).neighbor_count}.inject(:+)
-#   end
-
-
-
-#   def self.young_neighbors_current_month
-#     households_current_month.map{|id| Household.find(id).neighbor_count}.inject(:+)
-#   end
-
-#   def self.neighbors_past_month
-#     households_past_month.map{|id| Household.find(id).neighbor_count}.inject(:+)
-#   end
-  
-#   # Move to households 
-#   # @household_ids.map{|id| Household.find(id).young_neighbor}.inject(:+)
 
 
 
