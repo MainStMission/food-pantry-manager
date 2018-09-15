@@ -6,6 +6,8 @@ class Token < ActiveRecord::Base
   validates :expiration_date, presence: {message: 'You must enter an Expiration Date'}
   validates :initial_value, presence: {message: 'You must enter a Value for this Token'}
 
+  # validates :household_id, uniqueness: {scope: :open, message: 'Open Token already exists'}
+
   belongs_to  :household
   has_many    :visits
 
