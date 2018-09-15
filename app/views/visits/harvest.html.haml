@@ -12,7 +12,7 @@
     .row
     #msm_id.span-one-third
       %h4 Agency ID: 590AD
-      %h4 Report for: #{Date.today.strftime('%B %d, %Y')}
+      %h4 Report run Date: #{Date.today.strftime('%B %d, %Y')}
       = link_to 'Second Harvest', 'http://www.secondharvestmetrolina.org/'
       - @month = "#{Date.today.strftime('%B')}"
       - @pmonth = "#{(Date.today - 1.month).strftime('%B')}"
@@ -20,9 +20,9 @@
       - @ppre_year = 2016
       - @three_year = 2015
       - @four_year = 2014
-      %h4 Month #{@month}
+      -#%h4 Month #{@month}
       #h4 Report for Previous Month #{@pmonth}
-      #h4 2 months ago #{@ppmonth}
+      -##h4 2 months ago #{@ppmonth}
       #h4 By Month #
 
 
