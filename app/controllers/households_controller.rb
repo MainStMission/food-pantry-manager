@@ -6,9 +6,9 @@ class HouseholdsController < ApplicationController
 
   before_filter :authenticate_user!
 
-  expose(:households) { Household.scoped.includes(:neighbors, :visits).page params[:page] }
+  expose(:households) { Household.scoped.page params[:page] }
   expose(:household, strategy: StrongParametersStrategy)
-  expose(:neighbors) { household.neighbors.includes(:visits) }
+  expose(:neighbors) { household.neighbors }
   expose(:neighbor)
   expose(:visits) { household.visits}
   expose(:visit)

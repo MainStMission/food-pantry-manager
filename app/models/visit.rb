@@ -27,8 +27,8 @@ class Visit < ActiveRecord::Base
   default_scope order('visited_on DESC')
   scope :harvest_visits, -> { where('visited_on >= ?', 4.months.ago )}
   scope :harvest_visits_last_month, -> { where('visited_on  >= ? AND visited_on <=  ?', 1.month.ago.beginning_of_month, 1.month.ago.end_of_month)}
-  scope :harvest_visits_two_months_ago, -> {where('visited_on >= ? AND visited_on <= ?', 2.months.ago.beginning_of_month, 2.months.ago.end_of_month)}
-  scope :harvest_visits_current_month, -> {where('visited_on >= ? AND visited_on <= ?', Time.now.beginning_of_month, Time.now.end_of_month)}
+  scope :harvest_visits_two_months_ago, -> { where('visited_on >= ? AND visited_on <= ?', 2.months.ago.beginning_of_month, 2.months.ago.end_of_month)}
+  scope :harvest_visits_current_month, -> { where('visited_on >= ? AND visited_on <= ?', Time.now.beginning_of_month, Time.now.end_of_month)}
 
   scope :visit_list, -> { where('visited_on >= ?', 2.weeks.ago) }
   scope :open, -> { where(istab:true,   isopen: true)}
@@ -58,8 +58,7 @@ class Visit < ActiveRecord::Base
   end
 
   def self.neighbors_current_month
-    household = Household.includes(:neighbors)
-    harvest_visits_current_month.uniq_by(&:household_id).map(&:household_id).map{|id| household.find(id).neighbor_count}.reduce(:+)
+    harvest_visits_current_month.uniq_by(&:household_id).map(&:household_id).map{|id| Household.find(id).neighbor_count}.reduce(:+)
   end
 
   def self.last_month

@@ -52,6 +52,7 @@ gem 'attr_encryptor'
 gem 'decent_exposure'
 
 group :development, :test do
+  gem 'bullet', '< 5.5.0'
   gem 'capistrano'
   gem 'simple-capistrano-unicorn'
   gem 'rvm-capistrano', '>=1.3.0.rc4', require: false
