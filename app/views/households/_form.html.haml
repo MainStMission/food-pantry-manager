@@ -102,7 +102,7 @@
         %h4 Initial Token Value: #{household.initial_token_value_display}
         %h4 Current Tab Balance: #{household.token_balance}
         %hr
-        %h3 Tabs
+        %h3 Spent Tabs
         %table.table.table-striped.table-hover
           %thead.htable
             %tr
@@ -118,7 +118,20 @@
                   %td= visit.tab 
       #house_notes.span-two-thirds.well.well-large
         %h3 Expired Tokens
+        - if household.token_expired?
+          - household.tokens.expired_token.each do |token|
+            %h4
+              %td= token.issue_date.strftime("%B %d")
+              %td= token.expiration_date.strftime("%B %d")
+              %td= token.initial_value
+              %table.table.table_stripped
+                - token.visits.each do |visit|
+                  %tr
+                    %h5
+                      %td= visit.visited_on.strftime("%B %d")
+                      %td= visit.tab
         %hr
+
         %h3 
         -# = f.input :notes, label: false, input_html:{rows: 35 , class: 'span5'}, autofocus: true
       .row
