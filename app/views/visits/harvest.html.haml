@@ -21,9 +21,9 @@
       - @three_year = 2015
       - @four_year = 2014
       -#%h4 Month #{@month}
-      #h4 Report for Previous Month #{@pmonth}
-      -##h4 2 months ago #{@ppmonth}
-      #h4 By Month #
+      h4 Report for Previous Month #{@pmonth}
+      h4 2 months ago #{@ppmonth}
+      h4 By Month #
 
 
     #harvest_month
@@ -46,44 +46,44 @@
               %th Total Number of Visits
               %th Total Number of Households
               %th Total Number of Neighbors
-              -# - @h_month = visits.by_month(@month).select "DISTINCT(household_id)"
-              -# - @household_ids = visits.by_month(@month).pluck(:household_id).uniq
-              -# - @prev_month_ids = visits.by_month(@prev_month).pluck(:household_id).uniq
+              -#- @h_month = visits.by_month(@month).select "DISTINCT(household_id)"
+              -#- @household_ids = visits.by_month(@month).pluck(:household_id).uniq
+              -#- @prev_month_ids = visits.by_month(@prev_month).pluck(:household_id).uniq
               %tbody
-                -#%tr
-                -#  %td= @month
-                -#  %td= @visits.current_month
-                -#  %td= @visits.households_count_current_month
-                -#  %td= @visits.neighbors_current_month
+                %tr
+                  %td= @month
+                  %td= @visits.current_month
+                  %td= @visits.households_count_current_month
+                  %td= @visits.neighbors_current_month
                 %tr
                   %td= @pmonth
                   %td= @visits.last_month
                   %td= @visits.households_count_last_month
                   %td= @visits.neighbors_last_month
-                -#%tr
-                -#  %td= @ppmonth
-                -#  %td= @visits.two_months_ago
-                -#  %td= @visits.households_count_two_months_ago
-                -#  %td= @visits.neighbors_two_months_ago
-    -#%br
-    -#.row
-    -#.span11
-    -#%h4 The total number of Individuals served during: #{@month}
-    -#- household_status_for households.all do |stats|
-    -#  .span11
-    -#    %table.table.table-bordered
-    -#      %thead
-    -#        %tr
-    -#          %th < 19
-    -#          %th Between 18 & 64
-    -#          %th Over 64
-    -#          %th Total Served
-    -#          %tbody
-    -#            %tr
-                  -# %td=  @visits.young_neighbors_current_month
-                  -# %td=  @visits.middle_neighbors_current_month
-                  -# %td=  @visits.old_neighbors_current_month
-                  -# %td=  @visits.neighbors_current_month
+                %tr
+                  %td= @ppmonth
+                  %td= @visits.two_months_ago
+                  %td= @visits.households_count_two_months_ago
+                  %td= @visits.neighbors_two_months_ago
+    %br
+    .row
+    .span11
+    %h4 The total number of Individuals served during: #{@month}
+    - household_status_for households.all do |stats|
+      .span11
+        %table.table.table-bordered
+          %thead
+            %tr
+              %th < 19
+              %th Between 18 & 64
+              %th Over 64
+              %th Total Served
+              %tbody
+                %tr
+                  %td=  @visits.young_neighbors_current_month
+                  %td=  @visits.middle_neighbors_current_month
+                  %td=  @visits.old_neighbors_current_month
+                  %td=  @visits.neighbors_current_month
     .row
     %br
     .row
@@ -107,22 +107,22 @@
     %br
     .row
     .span11
-    -#%h4 The total number of Individuals served during: #{@ppmonth}
-    -#- household_status_for households.all do |stats|
-    -#  .span11
-    -#    %table.table.table-bordered
-    -#      %thead
-    -#        %tr
-    -#          %th < 19
-    -#          %th Between 18 & 64
-    -#          %th Over 64
-    -#          %th Total Served
-    -#          %tbody
-    -#            %tr
-    -#              %td=  @visits.young_neighbors_two_month
-    -#              %td=  @visits.middle_neighbors_two_month
-    -#              %td=  @visits.old_neighbors_two_month
-    -#              %td=  @visits.neighbors_two_months_ago
-    -#.row
+    %h4 The total number of Individuals served during: #{@ppmonth}
+    - household_status_for households.all do |stats|
+      .span11
+        %table.table.table-bordered
+          %thead
+            %tr
+              %th < 19
+              %th Between 18 & 64
+              %th Over 64
+              %th Total Served
+              %tbody
+                %tr
+                  %td=  @visits.young_neighbors_two_month
+                  %td=  @visits.middle_neighbors_two_month
+                  %td=  @visits.old_neighbors_two_month
+                  %td=  @visits.neighbors_two_months_ago
+    .row
     %br
 
