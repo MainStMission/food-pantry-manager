@@ -7,8 +7,8 @@ class Visit < ActiveRecord::Base
   validates :household_id, presence: {message:'You must select a household'}
   validates :neighbor, presence: {message: 'You must select a Neighbor'}
   validates :neighbor, associated: {message: 'You must select a Neighbor'}
-  validates :token, presence: {message: 'You must have a Token to shop'}
-  validates_uniqueness_of :household_id, scope: :isopen, message: 'Yon can not have more than one open cart'
+  # validates :token, presence: {message: 'You must have a Token to shop'}
+  # validates_uniqueness_of :household_id, scope: :isopen, message: 'Yon can not have more than one open cart'
 
   belongs_to :neighbor
   belongs_to :household
