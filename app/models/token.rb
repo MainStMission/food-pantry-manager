@@ -13,8 +13,8 @@ class Token < ActiveRecord::Base
 
   default_scope order('issue_date DESC')
 
-  scope :open_token, -> { where('? BETWEEN DATE(issue_date) AND DATE(expiration_date)', Date.today) }
-  scope :expired_token, -> { where('DATE(expiration_date) < ?', Date.today) }
+  scope :open_tok, -> { where('? BETWEEN DATE(issue_date) AND DATE(expiration_date)', Date.today) }
+  scope :expired_tok, -> { where('DATE(expiration_date) < ?', Date.today) }
   has_paper_trail
   
   max_paginates_per 20

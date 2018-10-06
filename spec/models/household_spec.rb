@@ -15,7 +15,7 @@ describe Household, :type => :model  do
 
   #
   # it 'has a valid factory' do
-  #   create(:household, :neighbor_1, household_name: 'Brooke').should be_valid
+  #   create(:household, :neighbor, household_name: 'Brooke').should be_valid
   # end
   #
   # it 'should be invalid without a household name' do

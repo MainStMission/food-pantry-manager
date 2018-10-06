@@ -86,7 +86,7 @@ class Household < ActiveRecord::Base
 
   def token_balance
     if token_open?
-      @tab = tokens.open_token.first
+      @tab = tokens.open_tok.first
       @tab.initial_value - @tab.visit.map(&:tab).compact.sum
     elsif token_expired?
       'Expired'
@@ -97,7 +97,7 @@ class Household < ActiveRecord::Base
 
 
   def token_expired?
-    if tokens.open_token.count == 0 && tokens.expired_token.count >= 1
+    if tokens.open_tok.count == 0 && tokens.expired_tok.count >= 1
       true
     else
       false
@@ -105,7 +105,7 @@ class Household < ActiveRecord::Base
   end
 
   def token_open?
-    if tokens.open_token.count == 1
+    if tokens.open_tok.count == 1
       true
     else
       false
@@ -115,7 +115,7 @@ class Household < ActiveRecord::Base
 
   def token_expiration
     if token_open?  
-         @token = tokens.open_token.first
+         @token = tokens.open_tok.first
          @token.expiration_date.strftime('%D')
     elsif token_expired? 
     'Expired'
@@ -126,7 +126,7 @@ class Household < ActiveRecord::Base
 
   def token_renew
     if token_open?
-      @token = tokens.open_token.first
+      @token = tokens.open_tok.first
       @token.expiration_date.to_date.next_day.strftime('%D')
     elsif token_expired?
       'Expired'
@@ -137,7 +137,7 @@ class Household < ActiveRecord::Base
 
   def token_issuance
     if token_open?
-      @token = tokens.open_token.first
+      @token = tokens.open_tok.first
       @token.issue_date.strftime('%D')
     elsif token_expired?
       'Expired' 
@@ -147,8 +147,8 @@ class Household < ActiveRecord::Base
   end
 
   def expired_token_date 
-    if token.open_token.count == 0 && token.expired_token.count >= 1 
-      @token = tokens.expired_token.first
+    if token.open_token.count == 0 && token.expired_tok.count >= 1
+      @token = tokens.expired_tok.first
       @token.expiration_date.strftime('%D')
     end
   end

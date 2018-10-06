@@ -111,7 +111,7 @@
               %th Tabs
             %tbody.htable
             - if household.token_open?
-              - household.tokens.open_token.first.visits.each do |visit|
+              - household.tokens.open_tok.first.visits.each do |visit|
                 %tr
                   %td= visit.visited_on.strftime("%B %d")
                   %td= visit.weight
@@ -119,17 +119,17 @@
       #house_notes.span-two-thirds.well.well-large
         %h3 Expired Tokens
         - if household.token_expired?
-          - household.tokens.expired_token.each do |token|
-            %h4
+          - household.tokens.expired_tok.each do |token|
+            %h3
               %td= token.issue_date.strftime("%B %d")
-              %td= token.expiration_date.strftime("%B %d")
               %td= token.initial_value
+              %tr
               %table.table.table_stripped
+                %h4 Visits
                 - token.visits.each do |visit|
-                  %tr
-                    %h5
-                      %td= visit.visited_on.strftime("%B %d")
-                      %td= visit.tab
+                  %tr{:style=> "font-size: 'small'"}
+                    %td= visit.visited_on.strftime("%B %d")
+                    %td= visit.tab
         %hr
 
         %h3 

@@ -23,13 +23,13 @@ class VisitsController < ApplicationController
   end
 
 def verify
-    @visit = Visit.find(params[:id])
+    @visit = Visit.includes(:household, :neighbor).(params[:id])
     respond_with visit.verify
     redirect_to 'open_visit'
 end
 
   def index
-    @visits = Visit.harvest_visits
+    @visits = Visit.includes(:household, :neighbor).harvest_visits
 
     respond_to do |format|
       format.html 
@@ -65,7 +65,7 @@ end
   end
 
   def harvest
-      @visits = Visit.harvest_visits
+      @visits = Visit.includes(:household, :neighbor).harvest_visits
 
       respond_to do |format|
           format.html {render template: 'visits/harvest'}
@@ -79,7 +79,7 @@ end
   end
 
   def checkout
-    @visit = Visit.find(params[:visit_id])
+    @visit = Visit.includes(:household, :neighbor).find(params[:visit_id])
 
       respond_to do |format|
           format.html {render template: 'visits/checkout'}
@@ -93,7 +93,7 @@ end
   end
 
   def show
-    @visit = Visit.find(params[:id])
+    @visit = Visit.includes(:household, :neighbor).find(params[:id])
         respond_to do |format|
         format.html  
         format.pdf do
@@ -108,7 +108,6 @@ end
 def self.visits_count(month)
   where("extract(month from visited_on) = ?", month).count
 end
-
 
   private
 

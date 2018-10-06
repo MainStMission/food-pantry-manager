@@ -8,19 +8,18 @@ FactoryGirl.define do
   # f2e  :neighbor do
   #  name 'Brooke'
   # end
-
+  #
 
    factory :household do
-     household_name 'Brooke, Tom'
-     :neighbor
+
+     trait :neighbor do
+       neighbor_id 23
+     end
+
+     household_name 'Brooke Tom'
+     association :neighbor
    end
 
-
-      factory :householdNeighbor do
-         after(:create) do |household|
-         create(:neighbor, household: household)
-       end
-     end
   end
 
 

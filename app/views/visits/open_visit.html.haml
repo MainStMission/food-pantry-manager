@@ -12,7 +12,7 @@
             %th Household
             %th Neighbor
         %tbody
-        - @visits = Visit.open
+        - @visits = Visit.includes(:household, :neighbor).open
         - @visits.each do |visit|
         - @visit = visit
         - @household = visit.household
