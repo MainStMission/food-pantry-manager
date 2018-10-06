@@ -5,18 +5,18 @@ require 'faker'
 
 FactoryGirl.define do
 
-  #factory :neighbor do
-  #  name 'Tom Brooke'
-  #end
+  # f2e  :neighbor do
+  #  name 'Brooke'
+  # end
 
 
    factory :household do
      household_name 'Brooke, Tom'
-     neighbor
+     :neighbor
    end
 
 
-      factory :household_with_neighbor do
+      factory :householdNeighbor do
          after(:create) do |household|
          create(:neighbor, household: household)
        end

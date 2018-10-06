@@ -7,22 +7,17 @@ describe Household, :type => :model  do
   it { should have_many(:tokens) }
 
 
-  it { should have_many(:foods).through :foodlines }
 
-  # it { should has_many(:visits) }
+  let (:neighbor_1) {Neighbor.create(first_name: 'Tom', last_name: 'Brooke', birth_date: Date.today - 2.year)}
 
-  # let (:neighbor_1) {Neighbor.create(first_name: 'Tom', last_name: 'Brooke', birth_date: Date.today - 2.year)}
+
+  # it "should have a date of birth that calculates age " do
+
   #
-  #
-  #it "should have a date of birth that caluculates age " do
-  #
-  #
-      
-  
   # it 'has a valid factory' do
-  #   create(:household).should be_valid
+  #   create(:household, :neighbor_1, household_name: 'Brooke').should be_valid
   # end
-
+  #
   # it 'should be invalid without a household name' do
   #   create(:household, household_name: nil).should_not be_valid
   # end

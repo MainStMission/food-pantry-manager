@@ -11,7 +11,7 @@
       = f.hidden_field :isxpired, value: false
       = f.input :issue_date, as: :string,  :input_html => {class: "datepicker", value: Time.now.strftime('%m/%d/%y')}
     .span4
-      = f.input :expiration_date, as: :date_picker, autofocus: true, input_html: {id: 'dpYears' , class: 'span4' }
+      = f.input :expiration_date, as: :date_picker, autofocus: true, input_html: {class: "datepiekcer", value: (Time.now + 1.month).strftime('%m/%d/%y'), class: 'span4' }
     .span2
       = f.label 'Token Value'
       = f.number_field :initial_value, input_html: { class: 'span1' }
