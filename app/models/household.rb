@@ -95,6 +95,12 @@ class Household < ActiveRecord::Base
     end
   end
 
+  def token_open_visit
+    if token_open?
+      @tab = tokens.open_tok.first
+      @tab.visits.map(&:isopen)
+    end
+  end
 
   def token_expired?
     if tokens.expired_tok.count >= 1

@@ -40,7 +40,8 @@
     = link_to_add_association( 'New Neighbor', f,  :neighbors ,  class: 'btn btn-mini',:render_options => {wrapper: 'bootstrap' }, :force_non_association_create => true)
   %hr
   %p.visit.create-button
-    = link_to_add_association( 'Create Cart', f, :visits , class: 'btn btn-success btn-large visit-btn', :partial => 'visits/tab_fields', :render_options => {wrapper: 'bootstrap' },:force_non_association_create => true,)
+    - if @household.token_open_visit != [true]
+      = link_to_add_association( 'Create Cart', f, :visits , class: 'btn btn-success btn-large visit-btn', :partial => 'visits/tab_fields', :render_options => {wrapper: 'bootstrap' },:force_non_association_create => true,)
   .span11
   .tabbable
     %ul.nav.nav-tabs
