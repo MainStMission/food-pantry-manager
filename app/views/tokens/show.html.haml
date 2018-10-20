@@ -6,6 +6,7 @@
   %h3= @household.household_name
   %h4 Date Issued: #{@household.token_issuance}
   %h4 Expiration Date: #{@household.token_expiration}
+  %h4 Can Renew on: #{@household.token_renew}
   %h4 Initial Token Value: #{@household.initial_token_value_display}
   %h4 Current Tab Balance: #{@household.token_balance}
   %hr
@@ -19,7 +20,7 @@
           %th
           %tbody.htable
           - if @household.token_open?
-            - @household.tokens.open_token.first.visits.each do |visit|
+            - @household.tokens.open_tok.first.visits.each do |visit|
               %tr
                 %td= visit.visited_on.strftime("%B %d")
                 %td= visit.weight

@@ -44,6 +44,11 @@ $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
   font-size: 20px;
 }
 
+.visit_table td {
+  font-size: 12px;
+}
+
+
 @media print {
   max-width: 300px;
   text-align: left;

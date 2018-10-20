@@ -97,7 +97,7 @@ class Household < ActiveRecord::Base
 
 
   def token_expired?
-    if tokens.open_tok.count == 0 && tokens.expired_tok.count >= 1
+    if tokens.expired_tok.count >= 1
       true
     else
       false

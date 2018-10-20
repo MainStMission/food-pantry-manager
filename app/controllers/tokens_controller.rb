@@ -9,7 +9,7 @@ class TokensController < ApplicationController
     # @tokens = Token.open_token
 
     # if params[open]
-      @q = Token.open_token.includes(:household, :visits).search(params[:q])
+      @q = Token.open_tok.includes(:household, :visits).search(params[:q])
       @tokens = @q.result
 
     #   respond_to do |format|
@@ -18,7 +18,7 @@ class TokensController < ApplicationController
     #   end
     # end
 
-      @q = Token.open_token.includes(:household, :visits).search(params[:q])
+      @q = Token.open_tok.includes(:household, :visits).search(params[:q])
       @tokens = @q.result
 
       respond_to do |format|
